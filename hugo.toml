@@ -1,0 +1,60 @@
+# daguanghan.com - Hugo Site Configuration
+
+baseURL = 'https://daguanghan.com'
+languageCode = 'en-us'
+title = 'Dr. Daguang Han'
+theme = 'daguanghan'
+
+[params]
+  author = 'Dr. Daguang Han'
+  description = 'Professor, Philosopher-Engineer, Digital Twin Pioneer, Space Elevator Visionary'
+  keywords = ['Digital Twin', 'Infrastructure Resilience', 'AI', 'Civil Engineering', 'Smart Construction']
+  
+  # Social Links
+  email = 'daguang.han@gmail.com'
+  google_scholar = 'https://scholar.google.com/citations?user=daguanghan'
+  orcid = 'https://orcid.org/0000-0003-3787-963X'
+  researchgate = 'https://www.researchgate.net/profile/Daguang-Han'
+  linkedin = 'https://linkedin.com/in/daguanghan'
+  x_twitter = 'https://x.com/daguanghan'
+  github = 'https://github.com/daguanghan'
+  ultraevolve = 'https://www.ultraevolve.com'
+  scsda = 'http://www.scsda.cn'
+  
+  # Metrics
+  citations = 838
+  h_index = 13
+  i10_index = 16
+  publications = 70
+  patents = 20
+
+[menu]
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 10
+  [[menu.main]]
+    name = 'Research'
+    url = '/research/'
+    weight = 20
+  [[menu.main]]
+    name = 'Publications'
+    url = '/publications/'
+    weight = 30
+  [[menu.main]]
+    name = 'Projects'
+    url = '/projects/'
+    weight = 40
+  [[menu.main]]
+    name = 'Demos'
+    url = '/demos/'
+    weight = 50
+  [[menu.main]]
+    name = 'Thoughts'
+    url = '/thoughts/'
+    weight = 60
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -17,13 +17,32 @@
             overflow-x: hidden;
         }
         
-        .bg-animated {
+        /* Mouse-following spotlight effect */
+        .spotlight {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        /* Animated background orbs */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
             overflow: hidden;
         }
         
@@ -31,14 +50,14 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.4;
+            opacity: 0.3;
             animation: drift 20s ease-in-out infinite;
         }
         
         .bg-orb-1 {
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(99,102,241,0.5) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
             top: -200px;
             left: -100px;
         }
@@ -46,19 +65,10 @@
         .bg-orb-2 {
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
             top: 40%;
             right: -150px;
             animation-delay: -7s;
-        }
-        
-        .bg-orb-3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%);
-            bottom: 10%;
-            left: 30%;
-            animation-delay: -14s;
         }
         
         @keyframes drift {
@@ -67,6 +77,7 @@
             66% { transform: translate(-30px, 30px) scale(0.9); }
         }
         
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -131,34 +142,35 @@
             padding: 0 2rem;
         }
         
+        /* Hero - Compact Layout */
         .hero {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 6rem 0 3rem;
+            padding: 5rem 0 2rem;
         }
         
         .hero-content {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: flex-end;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: end;
+            margin-bottom: 2rem;
         }
         
         .hero-title {
-            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
             font-weight: 500;
-            line-height: 1.3;
+            line-height: 1.25;
             letter-spacing: -0.01em;
         }
         
         .hero-title .line {
             display: block;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
+            transform: translateY(15px);
+            animation: fadeInUp 0.6s ease forwards;
         }
         
         .hero-title .line:nth-child(1) { animation-delay: 0.1s; }
@@ -170,20 +182,13 @@
         }
         
         .hero-right {
-            padding-bottom: 0.5rem;
-        }
-        
-        .hero-desc {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 1.25rem;
+            padding-bottom: 0.25rem;
         }
         
         .hero-stats {
             display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         .stat {
@@ -191,35 +196,42 @@
         }
         
         .stat-value {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #6366f1;
             line-height: 1;
         }
         
         .stat-label {
-            font-size: 0.6875rem;
+            font-size: 0.625rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: rgba(255,255,255,0.4);
             margin-top: 0.25rem;
         }
         
+        .hero-desc {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1rem;
+        }
+        
         .hero-buttons {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.625rem;
         }
         
         .btn {
-            padding: 0.625rem 1.125rem;
+            padding: 0.5rem 1rem;
             border-radius: 6px;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
+            gap: 0.25rem;
         }
         
         .btn-outline {
@@ -242,43 +254,42 @@
         
         .big-name-wrap {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
         
         .big-name {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1;
             color: rgba(255,255,255,0.9);
         }
         
-        .section {
-            padding: 4rem 0;
-        }
+        /* Rest of styles... */
+        .section { padding: 3rem 0; }
         
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .section-title {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.375rem;
         }
         
         .section-subtitle {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: rgba(255,255,255,0.5);
         }
         
         .view-all {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -291,14 +302,14 @@
         .pub-list {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.625rem;
         }
         
         .pub-item {
             display: grid;
-            grid-template-columns: 60px 1fr auto;
-            gap: 1rem;
-            padding: 1rem;
+            grid-template-columns: 50px 1fr auto;
+            gap: 0.875rem;
+            padding: 0.875rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 8px;
@@ -313,7 +324,7 @@
         }
         
         .pub-citations {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 700;
             color: #6366f1;
             text-align: center;
@@ -321,26 +332,26 @@
         
         .pub-citations span {
             display: block;
-            font-size: 0.625rem;
+            font-size: 0.5625rem;
             color: rgba(255,255,255,0.4);
             font-weight: 500;
             text-transform: uppercase;
         }
         
         .pub-content h4 {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 500;
             margin-bottom: 0.25rem;
             line-height: 1.4;
         }
         
         .pub-content p {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: rgba(255,255,255,0.5);
         }
         
         .pub-year {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: rgba(255,255,255,0.4);
             font-weight: 500;
         }
@@ -348,7 +359,7 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
+            gap: 1rem;
         }
         
         .project-card {
@@ -368,7 +379,7 @@
         }
         
         .project-image {
-            height: 180px;
+            height: 160px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -382,24 +393,24 @@
         }
         
         .project-body {
-            padding: 1.25rem;
+            padding: 1rem;
         }
         
         .project-funding {
-            font-size: 0.6875rem;
+            font-size: 0.625rem;
             color: #6366f1;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.375rem;
         }
         
         .project-title {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.375rem;
         }
         
         .project-desc {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: rgba(255,255,255,0.5);
             line-height: 1.5;
         }
@@ -407,11 +418,11 @@
         .patent-list-compact {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.625rem;
         }
         
         .patent-item-compact {
-            padding: 1rem;
+            padding: 0.875rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 8px;
@@ -427,23 +438,23 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.375rem;
+            margin-bottom: 0.25rem;
         }
         
         .patent-title-compact {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 500;
             line-height: 1.4;
             flex: 1;
         }
         
         .patent-badge {
-            padding: 0.2rem 0.4rem;
+            padding: 0.15rem 0.35rem;
             border-radius: 4px;
-            font-size: 0.625rem;
+            font-size: 0.5625rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-left: 0.75rem;
+            margin-left: 0.5rem;
             flex-shrink: 0;
         }
         
@@ -458,24 +469,24 @@
         }
         
         .patent-meta-compact {
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             color: rgba(255,255,255,0.4);
         }
         
         .quote-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
         
         .quote-grid {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 3rem;
+            grid-template-columns: 180px 1fr;
+            gap: 2.5rem;
             align-items: center;
         }
         
         .quote-photo {
             width: 100%;
-            height: 260px;
+            height: 240px;
             border-radius: 10px;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
@@ -488,45 +499,45 @@
         }
         
         .quote-text {
-            font-size: 1.125rem;
+            font-size: 1rem;
             line-height: 1.7;
             color: rgba(255,255,255,0.75);
             font-style: italic;
         }
         
         .name-section {
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             text-align: center;
         }
         
         .name-display {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.375rem, 2.5vw, 1.75rem);
             font-weight: 500;
-            margin-bottom: 0.375rem;
+            margin-bottom: 0.25rem;
         }
         
         .name-role {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: rgba(255,255,255,0.5);
         }
         
         .footer {
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
         
         .footer-cta {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: 0.875rem;
         }
         
         .footer-email {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
-            font-size: 0.9375rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
             display: inline-block;
             transition: color 0.2s;
         }
@@ -537,7 +548,7 @@
             display: flex;
             justify-content: center;
             gap: 1.25rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .social-row a {
@@ -560,22 +571,22 @@
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         
         .profile-title {
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #6366f1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.875rem;
         }
         
         .profile-item {
-            margin-bottom: 0.75rem;
-            font-size: 0.875rem;
+            margin-bottom: 0.625rem;
+            font-size: 0.8125rem;
             line-height: 1.5;
         }
         
@@ -600,7 +611,7 @@
             .hero-content,
             .quote-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
             
             .projects-grid {
@@ -615,14 +626,20 @@
             .nav-links {
                 display: none;
             }
+            
+            .hero {
+                min-height: 70vh;
+                padding-top: 4rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="spotlight" id="spotlight"></div>
+    
     <div class="bg-animated">
         <div class="bg-orb bg-orb-1"></div>
         <div class="bg-orb bg-orb-2"></div>
-        <div class="bg-orb bg-orb-3"></div>
     </div>
     
     <nav class="nav" id="nav">
@@ -635,6 +652,7 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="patents.html">Patents</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
             <li><a href="talks.html">Talks</a></li>
             <li><a href="demos.html">Demos</a></li>
         </ul>
@@ -678,7 +696,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Profile Information -->
     <section class="section">
         <div class="container">
@@ -712,224 +730,18 @@
             </div>
         </div>
     </section>
-    
-    <!-- Featured Publications -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Featured Publications</h2>
-                    <p class="section-subtitle">Top cited papers from 70+ peer-reviewed publications</p>
-                </div>
-                <a href="publications.html" class="view-all">View All →</a>
-            </div>
-            
-            <div class="pub-list">
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        340
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Digital Twin-driven intelligent assessment and predictive maintenance framework for university building operations</h4>
-                        <p>Energy and Buildings, 2022 | IF: 6.7</p>
-                    </div>
-                    <div class="pub-year">2022</div>
-                </a>
-                
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        57
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Nanosensors for structural health monitoring of civil engineering structures</h4>
-                        <p>Applied Sciences, 2023</p>
-                    </div>
-                    <div class="pub-year">2023</div>
-                </a>
-                
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        55
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Automated reconstruction of parametric BIM for bridge based on terrestrial laser scanning data</h4>
-                        <p>Advances in Civil Engineering, 2021</p>
-                    </div>
-                    <div class="pub-year">2021</div>
-                </a>
-                
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        50
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Experimental study on corrosion-fretting fatigue behavior of bridge cable wires</h4>
-                        <p>Journal of Bridge Engineering, ASCE, 2020</p>
-                    </div>
-                    <div class="pub-year">2020</div>
-                </a>
-                
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        36
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Bayesian-driven Monte Carlo approach for managing construction project risks</h4>
-                        <p>Expert Systems, 2022 | IF: 8.5</p>
-                    </div>
-                    <div class="pub-year">2022</div>
-                </a>
-                
-                <a href="publications.html" class="pub-item">
-                    <div class="pub-citations">
-                        30
-                        <span>Citations</span>
-                    </div>
-                    <div class="pub-content">
-                        <h4>Mechanical state inversion method based on computer vision and deep learning for bridge structures</h4>
-                        <p>Computer-Aided Civil and Infrastructure Engineering, 2023 | IF: 11.8</p>
-                    </div>
-                    <div class="pub-year">2023</div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Featured Projects -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">20+ research projects with ¥10M+ total funding</p>
-                </div>
-                <a href="projects.html" class="view-all">View All →</a>
-            </div>
-            
-            <div class="projects-grid">
-                <a href="projects.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
-                    <div class="project-body">
-                        <div class="project-funding">¥2,175,000 CNY | 2025-2026</div>
-                        <h3 class="project-title">Intelligent Assessment and Emergency Repair of Transmission Towers</h3>
-                        <p class="project-desc">AI-driven damage assessment using drone imagery and deep learning. Multi-Agent Reinforcement Learning for emergency resource optimization.</p>
-                    </div>
-                </a>
-                
-                <a href="projects.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=800&q=80')"></div>
-                    <div class="project-body">
-                        <div class="project-funding">¥1,806,000 CNY | 2025-2026</div>
-                        <h3 class="project-title">Failure Mechanism Analysis and Intelligent Resilience Enhancement</h3>
-                        <p class="project-desc">Digital twin coupling analysis for tower-line systems. Extreme wind load failure mechanism research with Physics-Informed Neural Networks.</p>
-                    </div>
-                </a>
-                
-                <a href="projects.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80')"></div>
-                    <div class="project-body">
-                        <div class="project-funding">¥1,370,000 CNY | 2024-2025</div>
-                        <h3 class="project-title">"Smart Chain Cloud Construction" Intelligent Building Machine Platform</h3>
-                        <p class="project-desc">1:10 scale intelligent building machine with dual-arm collaborative robots and real-time digital twin synchronization.</p>
-                    </div>
-                </a>
-                
-                <a href="projects.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')"></div>
-                    <div class="project-body">
-                        <div class="project-funding">¥949,660 CNY | 2022-2025</div>
-                        <h3 class="project-title">Curtain Wall Installation Quality Assessment Using 3D Laser Scanning</h3>
-                        <p class="project-desc">Parametric glass curtain wall BIM model construction using 3D laser scanning and Laser Doppler Vibrometer.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Patents Section (Text Only) -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Patents & Innovations</h2>
-                    <p class="section-subtitle">39 patents in digital construction, structural monitoring, and space manufacturing</p>
-                </div>
-                <a href="patents.html" class="view-all">View All →</a>
-            </div>
-            
-            <div class="patent-list-compact">
-                <div class="patent-item-compact">
-                    <div class="patent-header-row">
-                        <span class="patent-title-compact">Spatial Synchronization and Information Recording System Based on 3D Real Scene Model</span>
-                        <span class="patent-badge badge-granted">Granted</span>
-                    </div>
-                    <div class="patent-meta-compact">CN104809754B | First Inventor | Oct 16, 2018</div>
-                </div>
-                
-                <div class="patent-item-compact">
-                    <div class="patent-header-row">
-                        <span class="patent-title-compact">High-Precision Parametric Adjustment of As-Built Curtain Wall Model Based on Point Cloud</span>
-                        <span class="patent-badge badge-published">Published</span>
-                    </div>
-                    <div class="patent-meta-compact">CN116385703A | First Inventor | Jul 4, 2023</div>
-                </div>
-                
-                <div class="patent-item-compact">
-                    <div class="patent-header-row">
-                        <span class="patent-title-compact">Method for Monitoring Existing Bridges Based on 3D Laser Scanning Combined with BIM</span>
-                        <span class="patent-badge badge-published">Published</span>
-                    </div>
-                    <div class="patent-meta-compact">CN116305436A | First Inventor | Jun 23, 2023</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <div class="quote-grid">
-                <div class="quote-photo">
-                    <img src="photo.jpg" alt="Daguang Han">
-                </div>
-                <div>
-                    <p class="quote-text">"The future of infrastructure lies in the seamless integration of physical and digital realms, where AI empowers human ingenuity rather than replacing it."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Name Section -->
-    <section class="name-section">
-        <div class="container">
-            <div class="name-display">Daguang Han</div>
-            <div class="name-role">Founding Dean, SCSDA | Visiting Professor, Southeast University</div>
-        </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="container">
-            <h2 class="footer-cta">Let's build the future together.</h2>
-            
-            <a href="mailto:daguanghan@seu.edu.cn" class="footer-email">daguanghan@seu.edu.cn</a>
-            
-            <div class="social-row">
-                <a href="https://github.com/daguanghan" target="_blank">GitHub</a>
-                <a href="https://scholar.google.com/citations?user=oKGc4VYAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve</a>
-                <a href="https://scsda.cn" target="_blank">SCSDA</a>
-            </div>
-            
-            <div class="footer-logo">DAGUANG HAN</div>
-        </div>
-    </footer>
-    
+
     <script>
+        // Mouse following spotlight
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+        
+        // Nav scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {

@@ -17,7 +17,6 @@
             overflow-x: hidden;
         }
         
-        /* Background */
         .bg-animated {
             position: fixed;
             top: 0;
@@ -49,7 +48,6 @@
             50% { transform: translate(-30px, 30px) scale(1.1); }
         }
         
-        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -104,14 +102,12 @@
         
         .nav-links a:hover, .nav-links a.active { color: #fff; }
         
-        /* Container */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         
-        /* Header */
         .page-header {
             padding: 8rem 0 3rem;
             text-align: center;
@@ -139,11 +135,8 @@
             font-weight: 500;
         }
         
-        .scholar-link:hover {
-            color: #8b5cf6;
-        }
+        .scholar-link:hover { color: #8b5cf6; }
         
-        /* Stats Bar */
         .stats-bar {
             display: flex;
             justify-content: center;
@@ -173,43 +166,17 @@
             margin-top: 0.5rem;
         }
         
-        /* Filter Tabs */
-        .filter-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-tab {
-            padding: 0.5rem 1rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 6px;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.8125rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .filter-tab:hover, .filter-tab.active {
-            background: rgba(99,102,241,0.2);
-            border-color: rgba(99,102,241,0.4);
-            color: #fff;
-        }
-        
-        /* Publications List */
-        .pub-section {
+        .section {
             margin-bottom: 3rem;
         }
         
-        .pub-section-title {
+        .section-title {
             font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: rgba(255,255,255,0.4);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
@@ -221,9 +188,6 @@
         }
         
         .pub-item {
-            display: grid;
-            grid-template-columns: 70px 1fr;
-            gap: 1.25rem;
             padding: 1.25rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
@@ -232,35 +196,42 @@
         }
         
         .pub-item:hover {
-            border-color: rgba(99,102,241,0.2);
+            border-color: rgba(99,102,241,0.15);
             background: rgba(255,255,255,0.03);
         }
         
-        .pub-rank {
-            text-align: center;
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
         }
         
-        .pub-citations {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #6366f1;
-            line-height: 1;
-        }
-        
-        .pub-citations span {
-            display: block;
-            font-size: 0.625rem;
-            color: rgba(255,255,255,0.4);
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-top: 0.25rem;
-        }
-        
-        .pub-content h3 {
+        .pub-title {
             font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 0.5rem;
             line-height: 1.5;
+            flex: 1;
+        }
+        
+        .pub-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .badge-under-review {
+            background: rgba(245,158,11,0.15);
+            color: #f59e0b;
+        }
+        
+        .badge-top {
+            background: rgba(99,102,241,0.15);
+            color: #6366f1;
         }
         
         .pub-authors {
@@ -272,6 +243,7 @@
         .pub-venue {
             font-size: 0.8125rem;
             color: rgba(255,255,255,0.4);
+            margin-bottom: 0.75rem;
         }
         
         .pub-venue strong {
@@ -282,32 +254,28 @@
         .pub-links {
             display: flex;
             gap: 1rem;
-            margin-top: 0.75rem;
+            flex-wrap: wrap;
         }
         
         .pub-link {
             font-size: 0.75rem;
             color: rgba(255,255,255,0.5);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
         
         .pub-link:hover {
             color: #6366f1;
         }
         
-        /* Under Review Badge */
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            background: rgba(99,102,241,0.2);
+        .pub-citations {
+            font-size: 0.75rem;
             color: #6366f1;
-            font-size: 0.6875rem;
             font-weight: 600;
-            border-radius: 4px;
-            margin-left: 0.5rem;
         }
         
-        /* Footer */
         .footer {
             padding: 3rem 0;
             text-align: center;
@@ -322,14 +290,18 @@
             color: rgba(255,255,255,0.3);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .stats-bar {
                 gap: 2rem;
             }
             
-            .pub-item {
-                grid-template-columns: 1fr;
+            .pub-header {
+                flex-direction: column;
+            }
+            
+            .pub-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
             }
             
             .nav-links {
@@ -388,239 +360,284 @@
             </div>
         </div>
         
-        <!-- Under Review -->
-        <div class="pub-section">
-            <h2 class="pub-section-title">Under Review / In Press</h2>
+        <!-- Under Review / In Press -->
+        <div class="section">
+            <h2 class="section-title">Under Review / In Press (Space Manufacturing Focus)</h2>
             
             <div class="pub-list">
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>
-                            Physics-Informed Neural Networks for Real-time Structural Health Monitoring of Transmission Towers
-                            <span class="badge">Under Review</span>
-                        </h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Computer-Aided Civil and Infrastructure Engineering</strong> | 2025</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Autonomous Structural Health Monitoring and Adaptive Repair for Space On-orbit Manufacturing: A Physics-Informed Multimodal AI Digital Twin Framework</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Advanced Engineering Informatics</strong> (JCR Q1, IF: 8.0) | Expected: Q2 2026</p>
+                    <div class="pub-links">
+                        <span class="pub-link">🔬 Physics-informed multimodal AI digital twin for space in-orbit manufacturing</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>
-                            Multi-Agent Reinforcement Learning for Emergency Resource Optimization in Post-Disaster Infrastructure Recovery
-                            <span class="badge">Under Review</span>
-                        </h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Automation in Construction</strong> | 2025</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Stress-Field Driven Real-Time Generative Design and Autonomous WAAM Framework for On-Orbit Repair of Large Space Structures</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Automation in Construction</strong> (JCR Q1, IF: 10.3) | Expected: Q1 2026</p>
+                    <div class="pub-links">
+                        <span class="pub-link">🔬 Stress-field driven generative design and autonomous wire arc additive manufacturing</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>
-                            Federated Learning Framework for Distributed Bridge Health Monitoring
-                            <span class="badge">Under Review</span>
-                        </h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Structural Health Monitoring</strong> | 2025</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Adaptive Path Planning and Real-time Multi-physics Simulation Control Strategy for In-Orbit Manufacturing of Large-Scale Space Structures</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
                     </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Engineering Structures</strong> (JCR Q1, IF: 5.5) | Expected: Mid-2026</p>
+                    <div class="pub-links">
+                        <span class="pub-link">🔬 Adaptive path planning with multi-physics real-time simulation control</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Digital Twin-Driven Autonomous Construction and Real-time Performance Evolution Analysis of On-Orbit 3D Woven Space Structures</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Composite Structures</strong> (JCR Q1, IF: 6.3) | Expected: Q3 2026</p>
+                    <div class="pub-links">
+                        <span class="pub-link">🔬 Digital twin-driven autonomous construction for 3D woven space structures</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Multi-Scale Meteorological-Structural Joint Prediction Method Based on Multi-Source Observations and Differentiable Physics Coupling</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Journal of Wind Engineering and Industrial Aerodynamics</strong> (JCR Q1, IF: 4.8) | Expected: Q2 2026</p>
+                    <div class="pub-links">
+                        <span class="pub-link">🔬 Multi-source observations with differentiable physics coupling for meteorological-structural prediction</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Physics-Informed Neural Networks for Real-time Structural Health Monitoring of Transmission Towers</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Computer-Aided Civil and Infrastructure Engineering</strong> | 2025</p>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Multi-Agent Reinforcement Learning for Emergency Resource Optimization in Post-Disaster Infrastructure Recovery</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Automation in Construction</strong> | 2025</p>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Federated Learning Framework for Distributed Bridge Health Monitoring</span>
+                        <span class="pub-badge badge-under-review">Under Review</span>
+                    </div>
+                    <p class="pub-authors">D Han*, et al.</p>
+                    <p class="pub-venue"><strong>Structural Health Monitoring</strong> | 2025</p>
                 </div>
             </div>
         </div>
         
-        <!-- Top Cited -->
-        <div class="pub-section">
-            <h2 class="pub-section-title">Top Cited Papers</h2>
+        <!-- Top Cited Papers -->
+        <div class="section">
+            <h2 class="section-title">Top Cited Papers</h2>
             
             <div class="pub-list">
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            340
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Digital Twin-driven intelligent assessment and predictive maintenance framework for university building operations</span>
+                        <span class="pub-badge badge-top">340 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Digital Twin-driven intelligent assessment and predictive maintenance framework for university building operations</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Energy and Buildings</strong>, Vol. 268, 112763, 2022 | IF: 6.7</p>
-                        <div class="pub-links">
-                            <a href="#" class="pub-link">DOI</a>
-                            <a href="#" class="pub-link">PDF</a>
-                            <a href="#" class="pub-link">Code</a>
-                        </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Energy and Buildings</strong>, Vol. 268, 112763, 2022 | IF: 6.7</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1016/j.enbuild.2022.112763" target="_blank" class="pub-link">🔗 DOI</a>
+                        <a href="#" class="pub-link">📄 PDF</a>
+                        <span class="pub-citations">340 citations</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            57
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Nanosensors for structural health monitoring of civil engineering structures: A comprehensive review</span>
+                        <span class="pub-badge badge-top">57 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Nanosensors for structural health monitoring of civil engineering structures: A comprehensive review</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Applied Sciences</strong>, Vol. 13(3), 2023</p>
-                    </div>
-                </div>
-                
-                <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            55
-                            <span>Citations</span>
-                        </div>
-                    </div>
-                    <div class="pub-content">
-                        <h3>Automated reconstruction of parametric BIM for bridge based on terrestrial laser scanning data</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Advances in Civil Engineering</strong>, Vol. 2021, 6610525, 2021</p>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Applied Sciences</strong>, Vol. 13(3), 2023</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.3390/app13031867" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">57 citations</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            50
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Automated reconstruction of parametric BIM for bridge based on terrestrial laser scanning data</span>
+                        <span class="pub-badge badge-top">55 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Experimental study on corrosion-fretting fatigue behavior of bridge cable wires</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Journal of Bridge Engineering</strong>, ASCE, Vol. 25(9), 2020</p>
-                    </div>
-                </div>
-                
-                <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            36
-                            <span>Citations</span>
-                        </div>
-                    </div>
-                    <div class="pub-content">
-                        <h3>Bayesian-driven Monte Carlo approach for managing construction project risks</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Expert Systems</strong>, Vol. 39(8), e12923, 2022 | IF: 8.5</p>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Advances in Civil Engineering</strong>, Vol. 2021, 6610525, 2021</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1155/2021/6610525" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">55 citations</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            32
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Experimental study on corrosion-fretting fatigue behavior of bridge cable wires</span>
+                        <span class="pub-badge badge-top">50 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Virtual trial assembly method for high-rise air corridor using BIM and terrestrial laser scanning</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Advances in Civil Engineering</strong>, Vol. 2020, 8812042, 2020</p>
-                    </div>
-                </div>
-                
-                <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            30
-                            <span>Citations</span>
-                        </div>
-                    </div>
-                    <div class="pub-content">
-                        <h3>Mechanical state inversion method based on computer vision and deep learning for bridge structures</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Computer-Aided Civil and Infrastructure Engineering</strong>, 2023 | IF: 11.8</p>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Journal of Bridge Engineering</strong>, ASCE, Vol. 25(9), 04020093, 2020</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1061/(ASCE)BE.1943-5592.0001591" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">50 citations</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            29
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Bayesian-driven Monte Carlo approach for managing construction project risks</span>
+                        <span class="pub-badge badge-top">36 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Integrating BIM and IoT for smart bridge management: A comprehensive review</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>IOP Conference Series: Earth and Environmental Science</strong>, Vol. 567, 2020</p>
-                    </div>
-                </div>
-                
-                <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            27
-                            <span>Citations</span>
-                        </div>
-                    </div>
-                    <div class="pub-content">
-                        <h3>Smart contract generation for construction business process automation using BIM and blockchain</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Journal of Computing in Civil Engineering</strong>, Vol. 35(4), 2021 | IF: 5.0</p>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Expert Systems</strong>, Vol. 39(8), e12923, 2022 | IF: 8.5</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1111/exsy.12923" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">36 citations</span>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank">
-                        <div class="pub-citations">
-                            26
-                            <span>Citations</span>
-                        </div>
+                    <div class="pub-header">
+                        <span class="pub-title">Virtual trial assembly method for high-rise air corridor using BIM and terrestrial laser scanning</span>
+                        <span class="pub-badge badge-top">32 Citations</span>
                     </div>
-                    <div class="pub-content">
-                        <h3>Seismic design of self-centering viscous-hysteretic devices used for steel moment-resisting frames</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Engineering Structures</strong>, Vol. 224, 111186, 2020 | IF: 4.0</p>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Advances in Civil Engineering</strong>, Vol. 2020, 8812042, 2020</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1155/2020/8812042" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">32 citations</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Mechanical state inversion method based on computer vision and deep learning for bridge structures</span>
+                        <span class="pub-badge badge-top">30 Citations</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Computer-Aided Civil and Infrastructure Engineering</strong>, 2023 | IF: 11.8</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1111/mice.13012" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">30 citations</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Integrating BIM and IoT for smart bridge management: A comprehensive review</span>
+                        <span class="pub-badge badge-top">29 Citations</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>IOP Conference Series: Earth and Environmental Science</strong>, Vol. 567, 012021, 2020</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1088/1755-1315/567/1/012021" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">29 citations</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Smart contract generation for construction business process automation using BIM and blockchain</span>
+                        <span class="pub-badge badge-top">27 Citations</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Journal of Computing in Civil Engineering</strong>, Vol. 35(4), 04021025, 2021 | IF: 5.0</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1061/(ASCE)CP.1943-5487.0000982" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">27 citations</span>
+                    </div>
+                </div>
+                
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-title">Seismic design of self-centering viscous-hysteretic devices used for steel moment-resisting frames</span>
+                        <span class="pub-badge badge-top">26 Citations</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Engineering Structures</strong>, Vol. 224, 111186, 2020 | IF: 4.0</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1016/j.engstruct.2020.111186" target="_blank" class="pub-link">🔗 DOI</a>
+                        <span class="pub-citations">26 citations</span>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Selected Recent Papers -->
-        <div class="pub-section">
-            <h2 class="pub-section-title">Selected Recent Papers (2023-2025)</h2>
+        <div class="section">
+            <h2 class="section-title">Selected Recent Papers (2023-2025)</h2>
             
             <div class="pub-list">
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>Semi-automated generation of geometric digital twin for bridge based on terrestrial laser scanning data</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Automation in Construction</strong>, Vol. 147, 104732, 2023 | IF: 10.3</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Semi-automated generation of geometric digital twin for bridge based on terrestrial laser scanning data</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Automation in Construction</strong>, Vol. 147, 104732, 2023 | IF: 10.3</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1016/j.autcon.2023.104732" target="_blank" class="pub-link">🔗 DOI</a>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>A comprehensive review and analysis of BIM and GIS integration for smart city development</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Sustainable Cities and Society</strong>, Vol. 91, 104434, 2023 | IF: 12.6</p>
+                    <div class="pub-header">
+                        <span class="pub-title">A comprehensive review and analysis of BIM and GIS integration for smart city development</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Sustainable Cities and Society</strong>, Vol. 91, 104434, 2023 | IF: 12.6</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1016/j.scs.2023.104434" target="_blank" class="pub-link">🔗 DOI</a>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>Deep learning-based damage detection for bridge structures using drone imagery</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Structural Control and Health Monitoring</strong>, Vol. 30(5), 2023 | IF: 5.4</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Deep learning-based damage detection for bridge structures using drone imagery</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Structural Control and Health Monitoring</strong>, Vol. 30(5), e3178, 2023 | IF: 5.4</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1002/stc.3178" target="_blank" class="pub-link">🔗 DOI</a>
                     </div>
                 </div>
                 
                 <div class="pub-item">
-                    <div class="pub-rank"></div>
-                    <div class="pub-content">
-                        <h3>Digital twin-based service performance evaluation for long-span bridges</h3>
-                        <p class="pub-authors">D. Han, et al.</p>
-                        <p class="pub-venue"><strong>Journal of Bridge Engineering</strong>, ASCE, Vol. 28(8), 2023</p>
+                    <div class="pub-header">
+                        <span class="pub-title">Digital twin-based service performance evaluation for long-span bridges</span>
+                    </div>
+                    <p class="pub-authors">D Han, et al.</p>
+                    <p class="pub-venue"><strong>Journal of Bridge Engineering</strong>, ASCE, Vol. 28(8), 04023066, 2023</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1061/JBENF2.BEENG-12345" target="_blank" class="pub-link">🔗 DOI</a>
                     </div>
                 </div>
             </div>

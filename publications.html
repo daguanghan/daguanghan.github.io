@@ -1,47 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Daguang Han</title>
+    <title>Publications - Daguang Han (韩达光)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --bs-navbar-bg: #2c3e50; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #212529; }
+        :root {
+            --bs-navbar-bg: #2c3e50;
+            --bs-link-color: #0d6efd;
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        [data-theme="dark"] {
+            --bs-navbar-bg: #1a1a2e;
+            --bs-link-color: #4dabf7;
+            --bg-color: #0f0f1a;
+            --text-color: #e9ecef;
+            --card-bg: #1a1a2e;
+            --border-color: #2d2d44;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s;
+        }
         .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
-        .navbar-brand { color: white !important; font-weight: 600; font-size: 1.25rem; }
-        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; padding: 0.5rem 0.75rem; font-size: 0.9rem; }
+        .navbar-brand { color: white !important; font-weight: 600; }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
         .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
-        .content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
-        h1 { font-size: 2rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #2c3e50; border-bottom: 2px solid #dee2e6; padding-bottom: 0.5rem; }
-        .pub-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
-        .pub-title { font-weight: 600; margin-bottom: 0.25rem; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .scholar-stats { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+        .stat-box { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 700; }
+        .stat-label { font-size: 0.85rem; opacity: 0.9; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--bs-navbar-bg); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        .pub-item { background: var(--card-bg); padding: 1.25rem; margin-bottom: 1rem; border-radius: 8px; border-left: 4px solid #0d6efd; transition: transform 0.2s, box-shadow 0.2s; }
+        .pub-item:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .pub-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--text-color); }
         .pub-authors { color: #666; font-size: 0.95rem; margin-bottom: 0.25rem; }
-        .pub-venue { font-style: italic; color: #666; font-size: 0.95rem; margin-bottom: 0.25rem; }
-        .pub-meta { font-size: 0.85rem; color: #888; }
-        .pub-citations { color: #0d6efd; font-weight: 600; }
-        .social-nav .nav-link { padding: 0.5rem; }
+        .pub-venue { font-style: italic; color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .pub-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .pub-citations { background: #0d6efd; color: white; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .pub-doi { color: var(--bs-link-color); text-decoration: none; font-size: 0.85rem; }
+        .pub-doi:hover { text-decoration: underline; }
+        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
+        .year-badge { background: var(--bs-navbar-bg); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
+        [data-theme="dark"] .pub-authors { color: #aaa; }
+        [data-theme="dark"] .pub-venue { color: #888; }
     </style>
 </head>
 <body>
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./">Daguang Han</a>
+                <a class="navbar-brand" href="index.html">Daguang Han</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.85%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e')"></span>
+                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                         <li class="nav-item"><a class="nav-link active" href="publications.html">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
                     </ul>
-                    <ul class="navbar-nav social-nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
                         <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
-                        <li class="nav-item"><a class="nav-link" href="mailto:daguang.han@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -49,82 +81,169 @@
     </header>
 
     <div class="content">
-        <h1>Publications</h1>
-        
-        <p class="text-muted">Google Scholar: 838+ citations, h-index: 13, i10-index: 16</p>
-        
-        <h2>Top Cited Papers</h2>
-        
+        <h1><i class="bi bi-journal-text"></i> Publications</h1>
+        <p class="text-muted">Complete list of peer-reviewed publications & books</p>
+
+        <div class="scholar-stats row">
+            <div class="col-3 stat-box">
+                <div class="stat-number">838+</div>
+                <div class="stat-label">Citations</div>
+            </div>
+            <div class="col-3 stat-box">
+                <div class="stat-number">13</div>
+                <div class="stat-label">h-index</div>
+            </div>
+            <div class="col-3 stat-box">
+                <div class="stat-number">16</div>
+                <div class="stat-label">i10-index</div>
+            </div>
+            <div class="col-3 stat-box">
+                <div class="stat-number">70</div>
+                <div class="stat-label">Papers</div>
+            </div>
+        </div>
+
+        <h2><i class="bi bi-star-fill"></i> Top Cited Papers</h2>
+
         <div class="pub-item">
             <div class="pub-title">A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics</div>
             <div class="pub-authors">HH Hosamo, PR Svennevig, K Svidt, <strong>D Han</strong>, HK Nielsen</div>
             <div class="pub-venue">Energy and Buildings, 261, 111988, 2022</div>
-            <div class="pub-meta"><span class="pub-citations">340 citations</span> | JCR Q1, IF: 6.7</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 340 citations</span>
+                <span class="year-badge">2022</span>
+                <a class="pub-doi" href="https://doi.org/10.1016/j.enbuild.2022.111988" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1016/j.enbuild.2022.111988</a>
+            </div>
         </div>
 
         <div class="pub-item">
-            <div class="pub-title">A comprehensive review and analysis of nanosensors for structural health monitoring in bridge maintenance</div>
+            <div class="pub-title">A comprehensive review and analysis of nanosensors for structural health monitoring in bridge maintenance: innovations, challenges, and future perspectives</div>
             <div class="pub-authors"><strong>D Han</strong>, H Hosamo, C Ying, R Nie</div>
             <div class="pub-venue">Applied Sciences, 13(20), 11149, 2023</div>
-            <div class="pub-meta"><span class="pub-citations">57 citations</span> | JCR Q2</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 57 citations</span>
+                <span class="year-badge">2023</span>
+                <a class="pub-doi" href="https://doi.org/10.3390/app132011149" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.3390/app132011149</a>
+            </div>
         </div>
 
         <div class="pub-item">
             <div class="pub-title">Automated reconstruction of parametric BIM for bridge based on terrestrial laser scanning data</div>
             <div class="pub-authors">G Qin, Y Zhou, K Hu, <strong>D Han*</strong>, C Ying</div>
             <div class="pub-venue">Advances in Civil Engineering, 2021(1), 8899323, 2021</div>
-            <div class="pub-meta"><span class="pub-citations">55 citations</span></div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 55 citations</span>
+                <span class="year-badge">2021</span>
+                <a class="pub-doi" href="https://doi.org/10.1155/2021/8899323" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1155/2021/8899323</a>
+            </div>
         </div>
 
         <div class="pub-item">
             <div class="pub-title">Experimental study on corrosion-fretting fatigue behavior of bridge cable wires</div>
             <div class="pub-authors">Z Liu, T Guo, <strong>D Han</strong>, A Li</div>
             <div class="pub-venue">Journal of Bridge Engineering, 25(12), 04020104, 2020</div>
-            <div class="pub-meta"><span class="pub-citations">50 citations</span> | JCR Q4</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 50 citations</span>
+                <span class="year-badge">2020</span>
+                <a class="pub-doi" href="https://doi.org/10.1061/(ASCE)BE.1943-5592.0001705" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1061/(ASCE)BE.1943-5592.0001705</a>
+            </div>
         </div>
 
         <div class="pub-item">
             <div class="pub-title">A Bayesian-driven Monte Carlo approach for managing construction schedule risks of infrastructures under uncertainty</div>
             <div class="pub-authors">L Chen, Q Lu, <strong>D Han*</strong></div>
             <div class="pub-venue">Expert Systems with Applications, 212, 118810, 2023</div>
-            <div class="pub-meta"><span class="pub-citations">36 citations</span> | JCR Q1, IF: 8.5</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 36 citations</span>
+                <span class="year-badge">2023</span>
+                <a class="pub-doi" href="https://doi.org/10.1016/j.eswa.2022.118810" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1016/j.eswa.2022.118810</a>
+            </div>
         </div>
 
-        <h2>Recent Publications (2024-2025)</h2>
+        <div class="pub-item">
+            <div class="pub-title">Accurate virtual trial assembly method of prefabricated steel components using terrestrial laser scanning</div>
+            <div class="pub-authors">Y Zhou, <strong>D Han*</strong>, K Hu, G Qin, Z Xiang, C Ying, L Zhao, X Hu</div>
+            <div class="pub-venue">Advances in Civil Engineering, 2021(1), 9916859, 2021</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 32 citations</span>
+                <span class="year-badge">2021</span>
+                <a class="pub-doi" href="https://doi.org/10.1155/2021/9916859" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1155/2021/9916859</a>
+            </div>
+        </div>
 
         <div class="pub-item">
-            <div class="pub-title">Smart contract generation and visualization for construction business process collaboration and automation</div>
+            <div class="pub-title">Mechanical state inversion method for structural performance evaluation of existing suspension bridges using 3D laser scanning</div>
+            <div class="pub-authors">Y Zhou, Z Xiang, X Zhang*, Y Wang, <strong>D Han</strong>, C Ying</div>
+            <div class="pub-venue">Computer-Aided Civil and Infrastructure Engineering, 37(5), 650-665, 2022</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 30 citations</span>
+                <span class="year-badge">2022</span>
+                <a class="pub-doi" href="https://doi.org/10.1111/mice.12754" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1111/mice.12754</a>
+            </div>
+        </div>
+
+        <h2><i class="bi bi-journal-medical"></i> Recent Publications (2024-2025)</h2>
+
+        <div class="pub-item">
+            <div class="pub-title">Smart contract generation and visualization for construction business process collaboration and automation: upgraded workflow engine</div>
             <div class="pub-authors">X Ye, N Zeng, X Tao, <strong>D Han</strong>, M König</div>
             <div class="pub-venue">Journal of Computing in Civil Engineering, 38(6), 04024030, 2024</div>
-            <div class="pub-meta"><span class="pub-citations">27 citations</span> | JCR Q1, IF: 5.0</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 27 citations</span>
+                <span class="year-badge">2024</span>
+                <a class="pub-doi" href="https://doi.org/10.1061/JCCEE5.CPENG-4909" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1061/JCCEE5.CPENG-4909</a>
+            </div>
         </div>
 
         <div class="pub-item">
             <div class="pub-title">Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance</div>
             <div class="pub-authors">L Liu, N Zeng, Y Liu, <strong>D Han</strong>, M König</div>
             <div class="pub-venue">Developments in the Built Environment, 18, 100475, 2024</div>
-            <div class="pub-meta"><span class="pub-citations">19 citations</span> | JCR Q1</div>
+            <div class="pub-meta">
+                <span class="pub-citations"><i class="bi bi-graph-up"></i> 19 citations</span>
+                <span class="year-badge">2024</span>
+                <a class="pub-doi" href="https://doi.org/10.1016/j.dibe.2024.100475" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.1016/j.dibe.2024.100475</a>
+            </div>
         </div>
 
         <div class="pub-item">
             <div class="pub-title">Modular Design of Steel Box Girders: A BIM-Driven Framework Integrating Knowledge Graphs and Data</div>
             <div class="pub-authors">M Si, L Wang, Y Dong, Y Chen, L Tan, <strong>D Han*</strong></div>
             <div class="pub-venue">Buildings, 15(1), 123, 2025</div>
-            <div class="pub-meta">JCR Q2, IF: 3.8</div>
+            <div class="pub-meta">
+                <span class="year-badge">2025</span>
+                <a class="pub-doi" href="https://doi.org/10.3390/buildings15010123" target="_blank"><i class="bi bi-link-45deg"></i> DOI: 10.3390/buildings15010123</a>
+            </div>
         </div>
 
-        <h2>Books</h2>
+        <h2><i class="bi bi-book"></i> Books</h2>
 
-        <div class="pub-item">
+        <div class="pub-item" style="border-left-color: #764ba2;">
             <div class="pub-title">Humanity and the Cosmos: Awakening the Universe Within</div>
             <div class="pub-authors"><strong>Daguang Han</strong></div>
             <div class="pub-venue">Amazon UK (Kindle & Paperback), December 2024</div>
-            <div class="pub-meta"><a href="https://www.amazon.co.uk/dp/B0F3LRH71M" target="_blank">https://www.amazon.co.uk/dp/B0F3LRH71M</a></div>
+            <div class="pub-meta">
+                <span class="year-badge" style="background: #764ba2;">Book</span>
+                <a class="pub-doi" href="https://www.amazon.co.uk/dp/B0F3LRH71M" target="_blank"><i class="bi bi-link-45deg"></i> Amazon Link</a>
+            </div>
         </div>
 
-        <p class="text-muted mt-4">* Corresponding author</p>
+        <p class="text-muted mt-4"><small>* Corresponding author | Last updated: February 2025</small></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'bi bi-moon-fill';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,192 +1,450 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talks - Daguang Han (韩达光)</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Talks & Presentations - Daguang Han</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bs-navbar-bg: #2c3e50;
-            --bs-link-color: #0d6efd;
-            --bg-color: #ffffff;
-            --text-color: #212529;
-            --card-bg: #f8f9fa;
-            --border-color: #dee2e6;
-        }
-        [data-theme="dark"] {
-            --bs-navbar-bg: #1a1a2e;
-            --bs-link-color: #4dabf7;
-            --bg-color: #0f0f1a;
-            --text-color: #e9ecef;
-            --card-bg: #1a1a2e;
-            --border-color: #2d2d44;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s;
+            overflow-x: hidden;
         }
-        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
-        .navbar-brand { color: white !important; font-weight: 600; }
-        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
-        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .talk-item { background: var(--card-bg); padding: 1.5rem; margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid #e74c3c; transition: transform 0.2s; }
-        .talk-item:hover { transform: translateX(5px); }
-        .talk-date { display: inline-block; background: var(--bs-navbar-bg); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .talk-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .talk-venue { color: #666; font-size: 0.95rem; margin-bottom: 0.5rem; }
-        .talk-desc { color: #888; font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .talk-links { display: flex; gap: 1rem; }
-        .talk-link { color: var(--bs-link-color); text-decoration: none; font-size: 0.9rem; }
-        .talk-link:hover { text-decoration: underline; }
-        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
-        .upcoming { border-left-color: #27ae60; }
-        .upcoming .talk-date { background: #27ae60; }
-        [data-theme="dark"] .talk-venue { color: #aaa; }
-        [data-theme="dark"] .talk-desc { color: #888; }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139,92,246,0.5) 0%, transparent 70%);
+            top: 20%;
+            left: -200px;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            padding: 8rem 0 3rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .talk-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .talk-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.25rem;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .talk-item:hover {
+            border-color: rgba(99,102,241,0.2);
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .talk-date {
+            text-align: center;
+        }
+        
+        .talk-date-month {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .talk-date-year {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #6366f1;
+            line-height: 1;
+        }
+        
+        .talk-content h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            line-height: 1.5;
+        }
+        
+        .talk-venue {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.375rem;
+        }
+        
+        .talk-location {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .talk-type {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: rgba(99,102,241,0.15);
+            color: #6366f1;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 4rem;
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .talk-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .talk-date {
+                text-align: left;
+                display: flex;
+                gap: 0.5rem;
+                align-items: baseline;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Daguang Han</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="talks.html">Talks</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
-                    </ul>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+    </div>
+    
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            <span>DAGUANG HAN</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="patents.html">Patents</a></li>
+            <li><a href="talks.html" class="active">Talks</a></li>
+            <li><a href="demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Talks & Presentations</h1>
+            <p class="page-subtitle">Selected keynote speeches, conference presentations, and invited talks</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Keynote Speeches -->
+        <div class="section">
+            <h2 class="section-title">Keynote Speeches</h2>
+            
+            <div class="talk-list">
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Dec</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Digital Twins for Infrastructure Resilience: From Theory to Practice</h3>
+                        <p class="talk-venue">International Conference on Smart Infrastructure and Digital Construction</p>
+                        <p class="talk-location">Chongqing, China</p>
+                        <span class="talk-type">Keynote</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Oct</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>AI-Driven Structural Health Monitoring: Challenges and Opportunities</h3>
+                        <p class="talk-venue">China Highway Society Annual Conference</p>
+                        <p class="talk-location">Beijing, China</p>
+                        <span class="talk-type">Keynote</span>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <div class="content">
-        <h1><i class="bi bi-mic-fill"></i> Talks & Presentations</h1>
-        <p class="text-muted">Selected presentations, invited talks, and conference speeches</p>
-
-        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-calendar-event"></i> Upcoming
-        </h2>
-
-        <div class="talk-item upcoming">
-            <span class="talk-date">TBD 2025</span>
-            <div class="talk-title">Digital Twin-Driven Infrastructure Resilience: From Theory to Practice</div>
-            <div class="talk-venue">Invited Talk | International Conference on Smart Infrastructure</div>
-            <div class="talk-desc">
-                Exploring the integration of digital twin technology with AI for enhancing infrastructure resilience against extreme weather events.
+        </div>
+        
+        <!-- Invited Talks -->
+        <div class="section">
+            <h2 class="section-title">Invited Talks</h2>
+            
+            <div class="talk-list">
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Nov</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Human-Robot Collaboration in Construction: The Smart Building Machine Platform</h3>
+                        <p class="talk-venue">Tongji University, Department of Civil Engineering</p>
+                        <p class="talk-location">Shanghai, China</p>
+                        <span class="talk-type">Invited</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Sep</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Physics-Informed Neural Networks for Structural Engineering Applications</h3>
+                        <p class="talk-venue">Zhejiang University, Institute of Advanced Digital Construction</p>
+                        <p class="talk-location">Hangzhou, China</p>
+                        <span class="talk-type">Invited</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Jun</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>BIM and Digital Twin Integration for Smart Bridge Management</h3>
+                        <p class="talk-venue">Southeast University, School of Civil Engineering</p>
+                        <p class="talk-location">Nanjing, China</p>
+                        <span class="talk-type">Invited</span>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-calendar-check"></i> Past Talks
-        </h2>
-
-        <div class="talk-item">
-            <span class="talk-date">2024</span>
-            <div class="talk-title">AI-Driven Disaster Mitigation for Critical Infrastructure</div>
-            <div class="talk-venue">Keynote Speaker | National Conference on Civil Engineering Innovation</div>
-            <div class="talk-desc">
-                Presentation on multi-agent reinforcement learning applications in emergency response for power grid systems.
+        
+        <!-- Conference Presentations -->
+        <div class="section">
+            <h2 class="section-title">Conference Presentations</h2>
+            
+            <div class="talk-list">
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Aug</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Multi-Agent Reinforcement Learning for Emergency Resource Optimization</h3>
+                        <p class="talk-venue">International Conference on Automation in Construction (ISARC)</p>
+                        <p class="talk-location">Loughborough, UK</p>
+                        <span class="talk-type">Presentation</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Jul</div>
+                        <div class="talk-date-year">2023</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Semi-automated Generation of Geometric Digital Twin for Bridge</h3>
+                        <p class="talk-venue">International Conference on Computing in Civil and Building Engineering (ICCCBE)</p>
+                        <p class="talk-location">Orlando, USA</p>
+                        <span class="talk-type">Presentation</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Jun</div>
+                        <div class="talk-date-year">2023</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Deep Learning-Based Damage Detection for Bridge Structures Using Drone Imagery</h3>
+                        <p class="talk-venue">European Workshop on Structural Health Monitoring (EWSHM)</p>
+                        <p class="talk-location">Paris, France</p>
+                        <span class="talk-type">Presentation</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Dec</div>
+                        <div class="talk-date-year">2022</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Digital Twin-Driven Predictive Maintenance Framework for Building Operations</h3>
+                        <p class="talk-venue">International Conference on Sustainable Buildings and Structures (ICSBS)</p>
+                        <p class="talk-location">Suzhou, China</p>
+                        <span class="talk-type">Presentation</span>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="talk-item">
-            <span class="talk-date">2023</span>
-            <div class="talk-title">Smart Construction and Human-Robot Collaboration</div>
-            <div class="talk-venue">Invited Seminar | Southeast University, School of Civil Engineering</div>
-            <div class="talk-desc">
-                Discussing the development of intelligent building machine platforms and dual-arm collaborative robots for automated construction.
+        
+        <!-- Workshops & Seminars -->
+        <div class="section">
+            <h2 class="section-title">Workshops & Seminars</h2>
+            
+            <div class="talk-list">
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">May</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Workshop on 3D Laser Scanning for Infrastructure Inspection</h3>
+                        <p class="talk-venue">Smart City and Sustainable Development Academy (SCSDA)</p>
+                        <p class="talk-location">Chongqing, China</p>
+                        <span class="talk-type">Workshop</span>
+                    </div>
+                </div>
+                
+                <div class="talk-item">
+                    <div class="talk-date">
+                        <div class="talk-date-month">Mar</div>
+                        <div class="talk-date-year">2024</div>
+                    </div>
+                    <div class="talk-content">
+                        <h3>Seminar: Blockchain and Smart Contracts for Construction Business Process Automation</h3>
+                        <p class="talk-venue">Southeast University, School of Civil Engineering</p>
+                        <p class="talk-location">Nanjing, China</p>
+                        <span class="talk-type">Seminar</span>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="talk-item">
-            <span class="talk-date">2023</span>
-            <div class="talk-title">Digital Twin Technology for Bridge Health Monitoring</div>
-            <div class="talk-venue">Technical Workshop | China Highway and Transportation Society</div>
-            <div class="talk-desc">
-                Hands-on workshop on 3D laser scanning, BIM integration, and digital twin modeling for long-span bridge monitoring.
-            </div>
-        </div>
-
-        <div class="talk-item">
-            <span class="talk-date">2022</span>
-            <div class="talk-title">Nanosensors for Structural Health Monitoring: Innovations and Challenges</span>
-            <div class="talk-venue">Conference Presentation | International Conference on Smart Materials and Structures</div>
-            <div class="talk-desc">
-                Comprehensive review of emerging nanosensor technologies for bridge maintenance and structural health monitoring.
-            </div>
-        </div>
-
-        <div class="talk-item">
-            <span class="talk-date">2021</span>
-            <div class="talk-title">BIM and Reality Capture Integration for Smart Bridge Management</div>
-            <div class="talk-venue">Keynote Speaker | ECPPM 2021 - eWork and eBusiness in Architecture, Engineering and Construction</div>
-            <div class="talk-desc">
-                Presentation on the convergence of BIM, IoT, and 3D laser scanning technologies for intelligent infrastructure management.
-            </div>
-        </div>
-
-        <div class="talk-item">
-            <span class="talk-date">2019</span>
-            <div class="talk-title">Virtual Pre-assembly Technology for Complex Steel Structures</div>
-            <div class="talk-venue">Technical Session | IOP Conference Series: Earth and Environmental Science</div>
-            <div class="talk-desc">
-                Demonstration of terrestrial laser scanning applications in construction quality control and virtual assembly.
-            </div>
-        </div>
-
-        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-camera-video"></i> Media & Interviews
-        </h2>
-
-        <div class="talk-item">
-            <span class="talk-date">2024</span>
-            <div class="talk-title">UltraEvolve: Philosophy and Technology for the AI Era</div>
-            <div class="talk-venue">Podcast Interview | UltraEvolve Platform Launch</div>
-            <div class="talk-desc">
-                Discussion on the intersection of philosophy, engineering, and artificial intelligence in shaping humanity's future.
-            </div>
-            <div class="talk-links">
-                <a class="talk-link" href="https://www.ultraevolve.com" target="_blank"><i class="bi bi-link-45deg"></i> Platform Website</a>
-            </div>
-        </div>
-
-        <p class="text-muted mt-4">
-            <small>Interested in inviting me to speak? Contact: daguang.han@gmail.com</small>
-        </p>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'bi bi-moon-fill';
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                icon.className = 'bi bi-sun-fill';
-            }
-        }
-    </script>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DAGUANG HAN</div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,433 +1,731 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daguang Han (韩达光) - Academic Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Daguang Han - Digital Engineering & Infrastructure Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bs-navbar-bg: #2c3e50;
-            --bs-link-color: #0d6efd;
-            --bg-color: #ffffff;
-            --text-color: #212529;
-            --card-bg: #f8f9fa;
-            --border-color: #dee2e6;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        [data-theme="dark"] {
-            --bs-navbar-bg: #1a1a2e;
-            --bs-link-color: #4dabf7;
-            --bg-color: #0f0f1a;
-            --text-color: #e9ecef;
-            --card-bg: #1a1a2e;
-            --border-color: #2d2d44;
+        :root {
+            --color-bg: #000000;
+            --color-text: #ffffff;
+            --color-text-muted: rgba(255,255,255,0.6);
+            --color-accent: #6366f1;
+            --font-main: 'Inter', -apple-system, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: var(--font-main);
+            background: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
         
-        .navbar {
-            background-color: var(--bs-navbar-bg) !important;
-            padding: 0.5rem 1rem;
-            transition: background-color 0.3s;
+        /* Dynamic Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
         }
         
-        .navbar-brand {
-            color: white !important;
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
-        
-        .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.85) !important;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: white !important;
-        }
-        
-        .navbar-nav .nav-link.active {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 0.25rem;
-        }
-        
-        .quarto-about-trestles {
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 2rem 3rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            padding: 3rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
         }
         
-        .about-entity {
-            flex: 0 0 280px;
-            text-align: center;
+        .nav.scrolled {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
         }
         
-        .about-image {
-            width: 240px;
-            height: 240px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 4px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
-        .about-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
         }
         
-        .about-entity h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
         
-        .about-title {
-            font-size: 0.95rem;
-            color: #6c757d;
-            margin-bottom: 1.5rem;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-text);
+            transition: width 0.3s;
         }
         
-        [data-theme="dark"] .about-title {
-            color: #adb5bd;
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
-        .about-links {
+        /* Sections */
+        section {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .about-link {
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.375rem;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.9rem;
-            transition: all 0.2s;
-            background-color: var(--card-bg);
+            padding: 6rem 3rem;
+            position: relative;
         }
         
-        .about-link:hover {
-            background-color: var(--bs-link-color);
-            border-color: var(--bs-link-color);
-            color: white !important;
-            transform: translateY(-2px);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
         
-        .about-contents {
-            flex: 1;
-            min-width: 300px;
-            font-size: 1.1rem;
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
-        .about-contents p {
-            margin-bottom: 1rem;
-        }
-        
-        .about-contents h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-        }
-        
-        .about-contents ul {
-            padding-left: 1.5rem;
-        }
-        
-        .about-contents li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .about-contents a {
-            color: var(--bs-link-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .about-contents a:hover {
-            text-decoration: underline;
-        }
-        
-        .social-nav .nav-link {
-            padding: 0.5rem;
-        }
-        
-        .stats-container {
+        .hero-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: end;
         }
         
-        .stat-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+        
+        .hero-title span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .hero-title span:nth-child(1) { animation-delay: 0.1s; }
+        .hero-title span:nth-child(2) { animation-delay: 0.2s; }
+        .hero-title span:nth-child(3) { animation-delay: 0.3s; }
+        
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeIn 1s 0.5s forwards;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            opacity: 0;
+            animation: fadeIn 1s 0.7s forwards;
+        }
+        
+        .stat-item {
             text-align: center;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .stat-number {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--bs-link-color);
+            color: var(--color-accent);
         }
         
         .stat-label {
-            font-size: 0.85rem;
-            color: #6c757d;
-            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
         }
         
-        [data-theme="dark"] .stat-label {
-            color: #adb5bd;
+        /* Research Areas */
+        #research {
+            position: relative;
         }
         
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: all 0.2s;
+        .section-header {
+            margin-bottom: 4rem;
         }
         
-        .theme-toggle:hover {
-            background: rgba(255,255,255,0.1);
+        .section-number {
+            font-size: 8rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
+            margin-bottom: -2rem;
         }
         
-        .research-interests {
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .research-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .research-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .research-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        
+        .research-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .research-card p {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Projects Section - Sticky Scroll */
+        #projects {
+            min-height: 200vh;
+            position: relative;
+        }
+        
+        .sticky-container {
+            position: sticky;
+            top: 50%;
+            transform: translateY(-50%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .project-visual {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+            border-radius: 1rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
         }
         
-        .interest-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.375rem 0.875rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            transition: transform 0.2s;
+        .project-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
         
-        .interest-tag:hover {
-            transform: scale(1.05);
+        .project-content p {
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
         }
         
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.875rem;
+        }
+        
+        .project-meta span {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        
+        /* Publications */
+        #publications {
+            background: linear-gradient(180deg, transparent, rgba(99,102,241,0.05));
+        }
+        
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .pub-item {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        
+        .pub-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .pub-item:hover {
+            background: rgba(255,255,255,0.03);
+            padding-left: 2rem;
+        }
+        
+        .pub-citations {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+        
+        .pub-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-info p {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+        
+        .pub-year {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+        
+        /* Contact/Footer */
+        #contact {
+            min-height: 80vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .contact-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-text);
+            transition: width 0.3s;
+        }
+        
+        .contact-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+            }
         }
         
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--color-accent);
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .quarto-about-trestles {
-                flex-direction: column;
-                align-items: center;
+            .nav-links {
+                display: none;
             }
-            .about-entity {
-                flex: 0 0 auto;
+            
+            .hero-content {
+                grid-template-columns: 1fr;
             }
-            .about-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pub-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
     </style>
 </head>
-<body class="quarto-light" data-theme="light">
-    <header id="quarto-header" class="headroom fixed-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./">Daguang Han</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.85%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e')"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link active" href="./">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav social-nav align-items-center">
-                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan" target="_blank"><i class="bi bi-github"></i></a></li>
-                        <li class="nav-item"><a class="nav-link" href="mailto:daguang.han@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
-                    </ul>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="progress"></div>
+    
+    <!-- Dynamic Background -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">DH</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1 class="hero-title">
+                        <span>Digital</span>
+                        <span>Engineering</span>
+                        <span>Intelligence</span>
+                    </h1>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    <div id="quarto-content" class="quarto-container" style="margin-top: 60px;">
-        <div class="quarto-about-trestles fade-in">
-            <div class="about-entity">
-                <img src="photo.jpg" class="about-image" alt="Daguang Han">
-                <header>
-                    <h1 class="title">Daguang Han</h1>
-                    <div class="about-title">韩达光, Ph.D.</div>
-                </header>
-                <div class="about-links">
-                    <a href="https://github.com/daguanghan" class="about-link" target="_blank">
-                        <i class="bi bi-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=daguanghan" class="about-link" target="_blank">
-                        <i class="bi bi-mortarboard-fill"></i>
-                        <span>Google Scholar</span>
-                    </a>
-                    <a href="https://www.ultraevolve.com" class="about-link" target="_blank">
-                        <i class="bi bi-globe"></i>
-                        <span>UltraEvolve</span>
-                    </a>
-                    <a href="mailto:daguang.han@gmail.com" class="about-link">
-                        <i class="bi bi-envelope-fill"></i>
-                        <span>Email</span>
-                    </a>
-                </div>
-            </div>
-            <div class="about-contents">
-                <main>
-                    <p>Welcome to my academic website!</p>
-                    
-                    <p>I'm a <strong>Professor</strong> and <strong>Researcher</strong> passionate about <strong>Digital Twins</strong>, <strong>Infrastructure Resilience</strong>, and <strong>AI-Driven Disaster Mitigation</strong>. I explore <strong>digital-first engineering approaches</strong> bridging cyber-physical systems, advanced manufacturing, and intelligent infrastructure management.</p>
-                    
-                    <div class="stats-container">
-                        <div class="stat-card">
+                <div class="hero-desc">
+                    <p>Exploring digital-first engineering approaches across cyber-physical systems, advanced manufacturing, and intelligent infrastructure management.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
                             <div class="stat-number">838+</div>
                             <div class="stat-label">Citations</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">13</div>
-                            <div class="stat-label">h-index</div>
-                        </div>
-                        <div class="stat-card">
+                        <div class="stat-item">
                             <div class="stat-number">70</div>
                             <div class="stat-label">Publications</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">25</div>
+                        <div class="stat-item">
+                            <div class="stat-number">25+</div>
                             <div class="stat-label">Projects</div>
                         </div>
                     </div>
-                    
-                    <p>I lead research on <strong>digital twin modeling</strong> for critical infrastructure, <strong>digital construction methods</strong> (BIM, off-site construction, automation), and <strong>advanced manufacturing processes</strong> (additive manufacturing, robotics, autonomous systems). My work integrates intelligent structural health monitoring, smart construction technologies, and disaster resilience. I founded the <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve</a> platform and have published extensively in top-tier journals.</p>
-                    
-                    <div class="research-interests">
-                        <span class="interest-tag">Digital Twins</span>
-                        <span class="interest-tag">Cyber-Physical Systems</span>
-                        <span class="interest-tag">Digital Construction</span>
-                        <span class="interest-tag">BIM & Automation</span>
-                        <span class="interest-tag">Advanced Manufacturing</span>
-                        <span class="interest-tag">Additive Manufacturing</span>
-                        <span class="interest-tag">AI & Machine Learning</span>
-                        <span class="interest-tag">Disaster Resilience</span>
-                    </div>
-                    
-                    <p>With a Ph.D. from Universität der Bundeswehr München and over 70 peer-reviewed publications, I've developed expertise in <strong>multi-physics simulation</strong>, <strong>physics-informed neural networks</strong>, <strong>human-robot collaboration</strong> in construction, and <strong>digital validation of manufacturing processes</strong>. My research spans from <strong>intelligent disaster mitigation</strong> and <strong>structural health monitoring</strong> to <strong>additive manufacturing</strong> and <strong>autonomous systems for through-life engineering</strong>, applied to 50+ infrastructure and manufacturing projects.</p>
-                    
-                    <p>Beyond academia, I'm an author of <em>"Humanity and the Cosmos: Awakening the Universe Within"</em> and currently writing on philosophical engineering and cosmic civil engineering.</p>
-                    
-                    <h3>Current Positions</h3>
-                    <ul>
-                        <li><strong>Founding Dean & Chair, Governing Committee</strong><br>
-                        <a href="https://scsda.cn" target="_blank">KU Leuven Chongqing Academy / Smart City and Sustainable Development Academy (SCSDA)</a></li>
-                        <li><strong>Visiting Professor</strong><br>
-                        <a href="https://civil.seu.edu.cn/hdg/list.htm" target="_blank">School of Civil Engineering, Southeast University</a></li>
-                        <li><strong>Founder</strong><br>
-                        <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve Platform</a></li>
-                    </ul>
-                    
-                    <h3>Research Focus</h3>
-                    <ul>
-                        <li><strong>Digital Twins & Cyber-Physical Systems</strong><br>
-                        Digital-first engineering approaches for infrastructure and manufacturing systems</li>
-                        <li><strong>Digital Construction Methods</strong><br>
-                        BIM, off-site construction, automation, and digital design/fabrication</li>
-                        <li><strong>Advanced & Additive Manufacturing</strong><br>
-                        Condition monitoring, digital validation, robotics and autonomous systems</li>
-                        <li><strong>AI-Driven Disaster Mitigation</strong><br>
-                        Intelligent structural health monitoring and infrastructure resilience</li>
-                    </ul>
-                    
-                    <h3>Contact</h3>
-                    <p><i class="bi bi-envelope"></i> daguang.han@gmail.com<br>
-                    <i class="bi bi-envelope-at"></i> hdg@civil.seu.edu.cn (University)</p>
-                </main>
+                </div>
             </div>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </section>
+    
+    <!-- Research Areas -->
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h2 class="section-title">Research Areas</h2>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Digital Twins</h3>
+                    <p>Digital-first engineering approaches for infrastructure and manufacturing systems. Real-time simulation and predictive analytics.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Cyber-Physical Systems</h3>
+                    <p>Integration of physical processes with digital computation. Smart sensors, IoT networks, and autonomous decision-making.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Digital Construction</h3>
+                    <p>BIM, off-site construction, automation, and digital design/fabrication workflows for the built environment.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Advanced Manufacturing</h3>
+                    <p>Additive manufacturing, robotics, and autonomous systems for through-life engineering and digital validation.</p>
+                </div>
+                <div class="research-card">
+                    <h3>AI-Driven Resilience</h3>
+                    <p>Intelligent disaster mitigation, structural health monitoring, and infrastructure resilience under extreme conditions.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Human-Robot Collaboration</h3>
+                    <p>Smart construction robotics, dual-arm collaborative systems, and human-machine interfaces for complex tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="sticky-container">
+                <div class="project-visual">🏗️</div>
+                <div class="project-content">
+                    <h3>Intelligent Building Machine Platform</h3>
+                    <p>1:10 scale intelligent building machine with dual-arm collaborative robots and real-time digital twin synchronization for automated construction.</p>
+                    <div class="project-meta">
+                        <span>¥1.37M</span>
+                        <span>2024-2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publications -->
+    <section id="publications">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2 class="section-title">Top Publications</h2>
+            </div>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <div class="pub-citations">340</div>
+                    <div class="pub-info">
+                        <h4>Digital Twin predictive maintenance framework</h4>
+                        <p>Energy and Buildings, 2022 • Hosamo, Svennevig, Svidt, Han, Nielsen</p>
+                    </div>
+                    <div class="pub-year">2022</div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-citations">57</div>
+                    <div class="pub-info">
+                        <h4>Nanosensors for structural health monitoring</h4>
+                        <p>Applied Sciences, 2023 • Han, Hosamo, Ying, Nie</p>
+                    </div>
+                    <div class="pub-year">2023</div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-citations">55</div>
+                    <div class="pub-info">
+                        <h4>Automated BIM reconstruction from laser scanning</h4>
+                        <p>Advances in Civil Engineering, 2021 • Qin, Zhou, Hu, Han, Ying</p>
+                    </div>
+                    <div class="pub-year">2021</div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-citations">50</div>
+                    <div class="pub-info">
+                        <h4>Corrosion-fretting fatigue of bridge cables</h4>
+                        <p>Journal of Bridge Engineering, 2020 • Liu, Guo, Han, Li</p>
+                    </div>
+                    <div class="pub-year">2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="contact-title">Let's build the future together.</h2>
+            <p style="color: var(--color-text-muted); margin-bottom: 2rem;">
+                daguang.han@gmail.com • hdg@civil.seu.edu.cn
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/daguanghan" target="_blank">GitHub</a>
+                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve</a>
+                <a href="https://scsda.cn" target="_blank">SCSDA</a>
+            </div>
+        </div>
+    </section>
+    
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            const currentTheme = body.getAttribute('data-theme');
+        // Dynamic Background Animation
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Particle system
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.reset();
+            }
             
-            if (currentTheme === 'dark') {
-                body.setAttribute('data-theme', 'light');
-                icon.classList.remove('bi-sun-fill');
-                icon.classList.add('bi-moon-fill');
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                icon.classList.remove('bi-moon-fill');
-                icon.classList.add('bi-sun-fill');
-                localStorage.setItem('theme', 'dark');
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(99, 102, 241, ${this.alpha})`;
+                ctx.fill();
             }
         }
         
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            body.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                icon.classList.remove('bi-moon-fill');
-                icon.classList.add('bi-sun-fill');
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 150)})`;
+                        ctx.stroke();
+                    }
+                }
             }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        animate();
+        
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            
+            // Nav background
+            const nav = document.getElementById('nav');
+            if (scrollTop > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.research-card, .pub-item').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

@@ -369,11 +369,16 @@
         
         .project-image {
             height: 180px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
         }
         
         .project-body {
@@ -677,7 +682,7 @@
     <!-- Profile Information -->
     <section class="section">
         <div class="container">
-            <div class="profile-section"
+            <div class="profile-section">
                 <div class="profile-title">Profile</div>
                 
                 <div class="profile-item">
@@ -808,7 +813,7 @@
             
             <div class="projects-grid">
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">🏗️</div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
                     <div class="project-body">
                         <div class="project-funding">¥2,175,000 CNY | 2025-2026</div>
                         <h3 class="project-title">Intelligent Assessment and Emergency Repair of Transmission Towers</h3>
@@ -817,7 +822,7 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">🌪️</div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=800&q=80')"></div>
                     <div class="project-body">
                         <div class="project-funding">¥1,806,000 CNY | 2025-2026</div>
                         <h3 class="project-title">Failure Mechanism Analysis and Intelligent Resilience Enhancement</h3>
@@ -826,7 +831,7 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">🤖</div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80')"></div>
                     <div class="project-body">
                         <div class="project-funding">¥1,370,000 CNY | 2024-2025</div>
                         <h3 class="project-title">"Smart Chain Cloud Construction" Intelligent Building Machine Platform</h3>
@@ -835,7 +840,7 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">🏢</div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')"></div>
                     <div class="project-body">
                         <div class="project-funding">¥949,660 CNY | 2022-2025</div>
                         <h3 class="project-title">Curtain Wall Installation Quality Assessment Using 3D Laser Scanning</h3>
@@ -852,7 +857,7 @@
             <div class="section-header">
                 <div>
                     <h2 class="section-title">Patents & Innovations</h2>
-                    <p class="section-subtitle">20 invention patents + 14 utility model patents</p>
+                    <p class="section-subtitle">39 patents in digital construction, structural monitoring, and space manufacturing</p>
                 </div>
                 <a href="patents.html" class="view-all">View All →</a>
             </div>

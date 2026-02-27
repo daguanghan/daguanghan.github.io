@@ -1,47 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daguang Han - Digital Engineering & Infrastructure Intelligence</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Daguang Han - Digital Engineering Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --color-bg: #000000;
-            --color-text: #ffffff;
-            --color-text-muted: rgba(255,255,255,0.6);
-            --color-accent: #6366f1;
-            --font-main: 'Inter', -apple-system, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html {
             scroll-behavior: smooth;
         }
         
         body {
-            font-family: var(--font-main);
-            background: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #000;
+            color: #fff;
             overflow-x: hidden;
         }
         
-        /* Dynamic Background Canvas */
-        #bg-canvas {
+        /* Animated Background */
+        .bg-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 70%),
+                #000;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            animation: noise 8s steps(10) infinite;
+        }
+        
+        @keyframes noise {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(-15%, 0); }
+            90% { transform: translate(10%, 5%); }
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(99,102,241,0.6);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
         }
         
         /* Navigation */
@@ -55,18 +97,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
         
         .nav.scrolled {
             background: rgba(0,0,0,0.8);
             backdrop-filter: blur(20px);
+            padding: 1rem 3rem;
         }
         
         .nav-logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
@@ -76,24 +122,27 @@
         }
         
         .nav-links a {
-            color: var(--color-text);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            transition: color 0.3s;
             position: relative;
-            padding-bottom: 0.5rem;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
         }
         
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--color-text);
+            background: #6366f1;
             transition: width 0.3s;
         }
         
@@ -103,18 +152,14 @@
         
         /* Sections */
         section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 6rem 3rem;
             position: relative;
+            min-height: 100vh;
+            padding: 8rem 4rem;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
         }
         
         /* Hero Section */
@@ -122,194 +167,243 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
+            padding-bottom: 6rem;
         }
         
-        .hero-content {
+        .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: end;
+            align-items: flex-end;
         }
         
         .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3.5rem, 7vw, 6rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.05;
             letter-spacing: -0.03em;
         }
         
-        .hero-title span {
+        .hero-title .line {
             display: block;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s forwards;
+            transform: translateY(40px);
+            animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
-        .hero-title span:nth-child(1) { animation-delay: 0.1s; }
-        .hero-title span:nth-child(2) { animation-delay: 0.2s; }
-        .hero-title span:nth-child(3) { animation-delay: 0.3s; }
+        .hero-title .line:nth-child(1) { animation-delay: 0.1s; }
+        .hero-title .line:nth-child(2) { animation-delay: 0.2s; }
+        .hero-title .line:nth-child(3) { animation-delay: 0.3s; }
         
-        .hero-desc {
+        @keyframes reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-subtitle {
             font-size: 1.125rem;
-            color: var(--color-text-muted);
-            max-width: 500px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            max-width: 480px;
             opacity: 0;
             animation: fadeIn 1s 0.5s forwards;
         }
         
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
         .hero-stats {
             display: flex;
-            gap: 3rem;
+            gap: 4rem;
             margin-top: 4rem;
             opacity: 0;
             animation: fadeIn 1s 0.7s forwards;
         }
         
-        .stat-item {
-            text-align: center;
+        .stat {
+            text-align: left;
         }
         
-        .stat-number {
+        .stat-value {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--color-accent);
+            color: #6366f1;
+            line-height: 1;
         }
         
         .stat-label {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-muted);
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.5rem;
         }
         
-        /* Research Areas */
+        /* Section 01 - Research */
         #research {
+            min-height: 150vh;
             position: relative;
         }
         
-        .section-header {
-            margin-bottom: 4rem;
-        }
-        
         .section-number {
-            font-size: 8rem;
+            font-size: clamp(8rem, 20vw, 16rem);
             font-weight: 800;
-            color: rgba(255,255,255,0.05);
-            line-height: 1;
-            margin-bottom: -2rem;
+            color: rgba(255,255,255,0.03);
+            line-height: 0.8;
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            pointer-events: none;
         }
         
-        .section-title {
+        .section-header {
+            margin-bottom: 6rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-top: 2rem;
         }
         
-        .research-grid {
+        /* Sticky Cards */
+        .cards-container {
+            position: relative;
+            height: 200vh;
+        }
+        
+        .cards-sticky {
+            position: sticky;
+            top: 50%;
+            transform: translateY(-50%);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            padding: 0 4rem;
         }
         
-        .research-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s;
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(60px);
         }
         
-        .research-card.visible {
+        .card.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .research-card:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
+        .card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(99,102,241,0.3);
+            transform: translateY(-8px);
         }
         
-        .research-card h3 {
+        .card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            color: #fff;
         }
         
-        .research-card p {
-            font-size: 0.875rem;
-            color: var(--color-text-muted);
+        .card p {
+            font-size: 0.9375rem;
             line-height: 1.7;
+            color: rgba(255,255,255,0.5);
         }
         
-        /* Projects Section - Sticky Scroll */
+        /* Section 02 - Projects */
         #projects {
             min-height: 200vh;
             position: relative;
         }
         
-        .sticky-container {
+        .projects-sticky {
             position: sticky;
             top: 50%;
             transform: translateY(-50%);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 6rem;
             align-items: center;
+            padding: 0 4rem;
         }
         
         .project-visual {
-            height: 400px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+            position: relative;
+            height: 500px;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15));
+        }
+        
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('photo.jpg') center/cover;
+            opacity: 0.8;
+            transform: scale(1.1);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .project-visual:hover::before {
+            transform: scale(1);
         }
         
         .project-content h3 {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
         
         .project-content p {
-            color: var(--color-text-muted);
-            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
         }
         
         .project-meta {
             display: flex;
-            gap: 2rem;
-            font-size: 0.875rem;
+            gap: 3rem;
         }
         
         .project-meta span {
-            color: var(--color-accent);
+            font-size: 0.875rem;
+            color: #6366f1;
             font-weight: 600;
         }
         
-        /* Publications */
+        /* Section 03 - Publications */
         #publications {
-            background: linear-gradient(180deg, transparent, rgba(99,102,241,0.05));
+            position: relative;
         }
         
         .pub-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 0;
+            margin-top: 4rem;
         }
         
         .pub-item {
             display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 2rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            grid-template-columns: 100px 1fr 100px;
+            gap: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s;
             opacity: 0;
             transform: translateX(-30px);
@@ -321,74 +415,141 @@
         }
         
         .pub-item:hover {
-            background: rgba(255,255,255,0.03);
-            padding-left: 2rem;
+            padding-left: 1rem;
+            background: rgba(255,255,255,0.02);
         }
         
         .pub-citations {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--color-accent);
+            color: #6366f1;
         }
         
         .pub-info h4 {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
         
         .pub-info p {
-            font-size: 0.875rem;
-            color: var(--color-text-muted);
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.4);
         }
         
         .pub-year {
-            font-size: 0.875rem;
-            color: var(--color-text-muted);
+            text-align: right;
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.4);
         }
         
-        /* Contact/Footer */
+        /* Quote Section */
+        #quote {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .quote-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .quote-image {
+            width: 300px;
+            height: 400px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .quote-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .quote-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .quote-content h3 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .quote-author {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .quote-role {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.25rem;
+        }
+        
+        /* Footer */
         #contact {
             min-height: 80vh;
-            text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            position: relative;
         }
         
         .contact-title {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 800;
             margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards;
+            line-height: 1.1;
+        }
+        
+        .contact-email {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 3rem;
         }
         
         .contact-links {
             display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 3rem;
         }
         
         .contact-links a {
-            color: var(--color-text);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
             font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            transition: color 0.3s;
             position: relative;
-            padding-bottom: 0.5rem;
+        }
+        
+        .contact-links a:hover {
+            color: #fff;
         }
         
         .contact-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--color-text);
+            background: #6366f1;
             transition: width 0.3s;
         }
         
@@ -396,68 +557,53 @@
             width: 100%;
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
         /* Scroll Progress */
-        .scroll-progress {
+        .progress-bar {
             position: fixed;
             top: 0;
             left: 0;
             height: 2px;
-            background: var(--color-accent);
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
             z-index: 1000;
             transition: width 0.1s;
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-content {
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .projects-sticky {
                 grid-template-columns: 1fr;
             }
             
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .research-grid {
+            .cards-sticky {
                 grid-template-columns: 1fr;
             }
             
-            .sticky-container {
+            .quote-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .quote-image {
+                margin: 0 auto;
             }
             
             .pub-item {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
+            
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="progress"></div>
+    <div class="progress-bar" id="progress"></div>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
     
-    <!-- Dynamic Background -->
-    <canvas id="bg-canvas"></canvas>
-    
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-logo">DH</div>
         <ul class="nav-links">
@@ -469,88 +615,72 @@
         </ul>
     </nav>
     
-    <!-- Hero Section -->
     <section id="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-grid">
                 <div>
                     <h1 class="hero-title">
-                        <span>Digital</span>
-                        <span>Engineering</span>
-                        <span>Intelligence</span>
+                        <span class="line">Digital</span>
+                        <span class="line">Engineering</span>
+                        <span class="line">Intelligence</span>
                     </h1>
-                </div>
-                <div class="hero-desc">
-                    <p>Exploring digital-first engineering approaches across cyber-physical systems, advanced manufacturing, and intelligent infrastructure management.</p>
                     <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">838+</div>
+                        <div class="stat">
+                            <div class="stat-value">838+</div>
                             <div class="stat-label">Citations</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">70</div>
+                        <div class="stat">
+                            <div class="stat-value">70</div>
                             <div class="stat-label">Publications</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">25+</div>
+                        <div class="stat">
+                            <div class="stat-value">25</div>
                             <div class="stat-label">Projects</div>
                         </div>
+                    </div>
+                </div>
+                <div class="hero-subtitle">
+                    <p>Exploring digital-first engineering approaches across cyber-physical systems, advanced manufacturing, and intelligent infrastructure management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="research">
+        <div class="section-number">01</div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Areas</h2>
+            </div>
+            <div class="cards-container">
+                <div class="cards-sticky">
+                    <div class="card">
+                        <h3>Digital Twins</h3>
+                        <p>Digital-first engineering for infrastructure and manufacturing systems with real-time simulation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Cyber-Physical Systems</h3>
+                        <p>Integration of physical processes with digital computation, IoT networks, and autonomous systems.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Digital Construction</h3>
+                        <p>BIM, off-site construction, automation, and digital design/fabrication workflows.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Research Areas -->
-    <section id="research">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-number">01</div>
-                <h2 class="section-title">Research Areas</h2>
-            </div>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>Digital Twins</h3>
-                    <p>Digital-first engineering approaches for infrastructure and manufacturing systems. Real-time simulation and predictive analytics.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Cyber-Physical Systems</h3>
-                    <p>Integration of physical processes with digital computation. Smart sensors, IoT networks, and autonomous decision-making.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Digital Construction</h3>
-                    <p>BIM, off-site construction, automation, and digital design/fabrication workflows for the built environment.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Advanced Manufacturing</h3>
-                    <p>Additive manufacturing, robotics, and autonomous systems for through-life engineering and digital validation.</p>
-                </div>
-                <div class="research-card">
-                    <h3>AI-Driven Resilience</h3>
-                    <p>Intelligent disaster mitigation, structural health monitoring, and infrastructure resilience under extreme conditions.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Human-Robot Collaboration</h3>
-                    <p>Smart construction robotics, dual-arm collaborative systems, and human-machine interfaces for complex tasks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
     <section id="projects">
+        <div class="section-number">02</div>
         <div class="container">
-            <div class="section-header">
-                <div class="section-number">02</div>
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="sticky-container">
-                <div class="project-visual">🏗️</div>
+            <div class="projects-sticky">
+                <div class="project-visual"></div>
                 <div class="project-content">
                     <h3>Intelligent Building Machine Platform</h3>
                     <p>1:10 scale intelligent building machine with dual-arm collaborative robots and real-time digital twin synchronization for automated construction.</p>
                     <div class="project-meta">
-                        <span>¥1.37M</span>
+                        <span>¥1.37M Funding</span>
                         <span>2024-2025</span>
                     </div>
                 </div>
@@ -558,19 +688,18 @@
         </div>
     </section>
     
-    <!-- Publications -->
     <section id="publications">
+        <div class="section-number">03</div>
         <div class="container">
             <div class="section-header">
-                <div class="section-number">03</div>
-                <h2 class="section-title">Top Publications</h2>
+                <h2>Selected Publications</h2>
             </div>
             <div class="pub-list">
                 <div class="pub-item">
                     <div class="pub-citations">340</div>
                     <div class="pub-info">
                         <h4>Digital Twin predictive maintenance framework</h4>
-                        <p>Energy and Buildings, 2022 • Hosamo, Svennevig, Svidt, Han, Nielsen</p>
+                        <p>Energy and Buildings, 2022</p>
                     </div>
                     <div class="pub-year">2022</div>
                 </div>
@@ -578,7 +707,7 @@
                     <div class="pub-citations">57</div>
                     <div class="pub-info">
                         <h4>Nanosensors for structural health monitoring</h4>
-                        <p>Applied Sciences, 2023 • Han, Hosamo, Ying, Nie</p>
+                        <p>Applied Sciences, 2023</p>
                     </div>
                     <div class="pub-year">2023</div>
                 </div>
@@ -586,32 +715,38 @@
                     <div class="pub-citations">55</div>
                     <div class="pub-info">
                         <h4>Automated BIM reconstruction from laser scanning</h4>
-                        <p>Advances in Civil Engineering, 2021 • Qin, Zhou, Hu, Han, Ying</p>
+                        <p>Advances in Civil Engineering, 2021</p>
                     </div>
                     <div class="pub-year">2021</div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-citations">50</div>
-                    <div class="pub-info">
-                        <h4>Corrosion-fretting fatigue of bridge cables</h4>
-                        <p>Journal of Bridge Engineering, 2020 • Liu, Guo, Han, Li</p>
-                    </div>
-                    <div class="pub-year">2020</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Contact -->
+    <section id="quote">
+        <div class="container">
+            <div class="quote-grid">
+                <div class="quote-image">
+                    <img src="photo.jpg" alt="Daguang Han">
+                </div>
+                <div class="quote-content">
+                    <h3>"The future of infrastructure lies in the seamless integration of physical and digital realms, where AI empowers human ingenuity."</h3>
+                    <div class="quote-author">Daguang Han</div>
+                    <div class="quote-role">Professor & Researcher, Digital Engineering</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="contact">
         <div class="container">
             <h2 class="contact-title">Let's build the future together.</h2>
-            <p style="color: var(--color-text-muted); margin-bottom: 2rem;">
-                daguang.han@gmail.com • hdg@civil.seu.edu.cn
-            </p>
+            <div class="contact-email">
+                daguang.han@gmail.com • daguanghan@seu.edu.cn
+            </div>
             <div class="contact-links">
                 <a href="https://github.com/daguanghan" target="_blank">GitHub</a>
-                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://scholar.google.com" target="_blank">Scholar</a>
                 <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve</a>
                 <a href="https://scsda.cn" target="_blank">SCSDA</a>
             </div>
@@ -619,87 +754,18 @@
     </section>
     
     <script>
-        // Dynamic Background Animation
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        
-        // Particle system
-        const particles = [];
-        const particleCount = 50;
-        
-        class Particle {
-            constructor() {
-                this.reset();
-            }
-            
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
-                this.alpha = Math.random() * 0.5 + 0.1;
-            }
-            
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(99, 102, 241, ${this.alpha})`;
-                ctx.fill();
-            }
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
         }
         
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        function drawConnections() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 150)})`;
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            
-            drawConnections();
-            requestAnimationFrame(animate);
-        }
-        animate();
-        
-        // Scroll Progress
+        // Scroll progress
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -724,8 +790,17 @@
             });
         }, { threshold: 0.1 });
         
-        document.querySelectorAll('.research-card, .pub-item').forEach(el => {
+        document.querySelectorAll('.card, .pub-item').forEach(el => {
             observer.observe(el);
+        });
+        
+        // Parallax effect for project image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const projectVisual = document.querySelector('.project-visual::before');
+            if (projectVisual) {
+                projectVisual.style.transform = `scale(1.1) translateY(${scrolled * 0.1}px)`;
+            }
         });
     </script>
 </body>

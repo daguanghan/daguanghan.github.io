@@ -4,79 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daguang Han - Digital Engineering Intelligence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
-        :root {
-            --bg-dark: #0a0a0a;
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255,255,255,0.6);
-            --text-muted: rgba(255,255,255,0.4);
-            --accent: #6366f1;
-            --accent-glow: rgba(99,102,241,0.3);
-        }
-        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
+            background: #000;
+            color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
         }
         
-        /* Dynamic Background */
-        .bg-layers {
+        /* Animated Background */
+        .bg-animated {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            pointer-events: none;
+            overflow: hidden;
         }
         
-        .bg-layer {
+        .bg-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 20s ease-in-out infinite;
+            filter: blur(60px);
+            opacity: 0.5;
+            animation: drift 15s ease-in-out infinite;
         }
         
-        .bg-layer-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
-            top: -200px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-        
-        .bg-layer-2 {
+        .bg-orb-1 {
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
-            top: 40%;
-            right: -150px;
-            animation-delay: -7s;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: 10%;
+            left: -100px;
         }
         
-        .bg-layer-3 {
+        .bg-orb-2 {
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
-            bottom: 10%;
-            left: 20%;
-            animation-delay: -14s;
+            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
+            top: 50%;
+            right: -100px;
+            animation-delay: -5s;
         }
         
-        @keyframes float {
+        .bg-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes drift {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 10px) scale(1.02); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
         
         /* Navigation */
@@ -86,41 +75,38 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.25rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            background: transparent;
+            transition: all 0.3s;
         }
         
         .nav.scrolled {
-            background: rgba(10,10,10,0.8);
+            background: rgba(0,0,0,0.9);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
         }
         
         .nav-logo-icon {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 10px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.75rem;
             font-weight: 700;
-            font-size: 0.875rem;
-        }
-        
-        .nav-logo-text {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            letter-spacing: 0.02em;
         }
         
         .nav-links {
@@ -130,65 +116,59 @@
         }
         
         .nav-links a {
-            color: var(--text-secondary);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             font-weight: 500;
             transition: color 0.2s;
         }
         
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-links a:hover { color: #fff; }
         
-        /* Layout */
+        /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 6rem 0 4rem;
-            position: relative;
+            padding: 6rem 0 3rem;
         }
         
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: flex-end;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         
         .hero-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
         }
         
         .hero-title .line {
             display: block;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.8s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
         
         .hero-title .line:nth-child(1) { animation-delay: 0.1s; }
         .hero-title .line:nth-child(2) { animation-delay: 0.2s; }
         .hero-title .line:nth-child(3) { animation-delay: 0.3s; }
         
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .hero-right {
@@ -196,33 +176,32 @@
         }
         
         .hero-desc {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.25rem;
         }
         
         .hero-buttons {
             display: flex;
             gap: 0.75rem;
-            flex-wrap: wrap;
         }
         
         .btn {
-            padding: 0.75rem 1.25rem;
+            padding: 0.625rem 1.125rem;
             border-radius: 6px;
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.375rem;
         }
         
         .btn-outline {
             background: transparent;
-            color: var(--text-primary);
+            color: #fff;
             border: 1px solid rgba(255,255,255,0.2);
         }
         
@@ -231,33 +210,29 @@
             background: rgba(255,255,255,0.05);
         }
         
-        .btn-primary {
-            background: var(--text-primary);
-            color: var(--bg-dark);
+        .btn-solid {
+            background: #fff;
+            color: #000;
         }
         
-        .btn-primary:hover {
-            background: rgba(255,255,255,0.9);
-        }
+        .btn-solid:hover { background: rgba(255,255,255,0.9); }
         
-        /* Big Logo/Name */
-        .big-name-section {
+        /* Big Name */
+        .big-name-wrap {
             text-align: center;
             padding: 2rem 0;
         }
         
         .big-name {
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
             line-height: 1;
-            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: rgba(255,255,255,0.9);
         }
         
-        /* Section 01, 02 */
-        .section-feature {
+        /* Feature Sections */
+        .feature-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -267,136 +242,122 @@
         .feature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: 5rem;
             align-items: center;
         }
         
         .feature-visual {
-            position: relative;
-            height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 400px;
         }
         
-        .glass-orb {
-            width: 280px;
-            height: 280px;
-            position: relative;
-        }
-        
-        .glass-orb-inner {
-            width: 100%;
-            height: 100%;
+        .glass-shape {
+            width: 250px;
+            height: 250px;
             background: linear-gradient(135deg, 
-                rgba(99,102,241,0.2) 0%, 
-                rgba(139,92,246,0.15) 50%,
-                rgba(59,130,246,0.1) 100%);
+                rgba(99,102,241,0.25) 0%, 
+                rgba(139,92,246,0.2) 50%,
+                rgba(59,130,246,0.15) 100%);
             border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
             position: relative;
-            animation: morphOrb 10s ease-in-out infinite;
+            animation: morphShape 12s ease-in-out infinite;
             box-shadow: 
-                0 0 80px rgba(99,102,241,0.2),
+                0 0 60px rgba(99,102,241,0.25),
                 inset 0 0 40px rgba(255,255,255,0.05);
         }
         
-        .glass-orb-inner::before {
+        .glass-shape::before {
             content: '';
             position: absolute;
-            top: 15%;
-            left: 20%;
-            width: 25%;
-            height: 15%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+            top: 12%;
+            left: 18%;
+            width: 22%;
+            height: 12%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), transparent);
             border-radius: 50%;
-            filter: blur(8px);
+            filter: blur(6px);
         }
         
-        @keyframes morphOrb {
+        @keyframes morphShape {
             0%, 100% { 
                 border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
                 transform: rotate(0deg);
             }
-            25% { 
-                border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-            }
+            25% { border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%; }
             50% { 
                 border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
                 transform: rotate(180deg);
             }
-            75% { 
-                border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
-            }
+            75% { border-radius: 45% 55% 55% 45% / 55% 50% 50% 55%; }
         }
         
         .feature-content {
-            padding-left: 1rem;
+            padding-left: 0.5rem;
         }
         
-        .section-num {
-            font-size: clamp(6rem, 12vw, 10rem);
-            font-weight: 700;
-            line-height: 0.85;
-            margin-bottom: 1.5rem;
+        .section-number {
+            font-size: clamp(5rem, 10vw, 8rem);
+            font-weight: 600;
+            line-height: 0.9;
+            margin-bottom: 1rem;
             background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .feature-content h3 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.3;
+            font-size: 1.375rem;
+            font-weight: 500;
+            margin-bottom: 0.875rem;
+            line-height: 1.35;
         }
         
         .feature-content p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 0.75rem;
         }
         
-        /* Products Section */
+        /* Products */
         .products-section {
-            padding: 6rem 0;
-        }
-        
-        .section-header {
-            margin-bottom: 3rem;
+            padding: 5rem 0;
         }
         
         .section-tagline {
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-weight: 600;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 500;
             line-height: 1.4;
-            margin-bottom: 3rem;
-            max-width: 700px;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            color: rgba(255,255,255,0.9);
         }
         
         .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
         
         .product-card {
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
         
         .product-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(99,102,241,0.2);
+            border-color: rgba(99,102,241,0.15);
             background: rgba(255,255,255,0.03);
         }
         
         .product-img {
-            height: 200px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.08));
+            height: 160px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06));
             position: relative;
             overflow: hidden;
         }
@@ -413,158 +374,145 @@
         }
         
         .product-body {
-            padding: 1.25rem;
+            padding: 1rem;
         }
         
         .product-body h4 {
-            font-size: 1.0625rem;
+            font-size: 0.9375rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.375rem;
         }
         
         .product-body p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+            margin-bottom: 0.625rem;
         }
         
         .product-link {
-            color: var(--text-primary);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
         }
         
-        .product-link:hover {
-            color: var(--accent);
-        }
+        .product-link:hover { color: #fff; }
         
         /* Quote Section */
         .quote-section {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
         
         .quote-header {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 3rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.9);
         }
         
         .quote-grid {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 4rem;
+            grid-template-columns: 240px 1fr;
+            gap: 3rem;
             align-items: center;
         }
         
         .quote-photo {
             width: 100%;
-            height: 360px;
-            border-radius: 12px;
+            height: 300px;
+            border-radius: 10px;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.08));
         }
         
         .quote-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        
-        .quote-photo:hover img {
-            transform: scale(1.02);
+            /* 彩色照片，无黑白滤镜 */
         }
         
         .quote-text {
-            font-size: 1.375rem;
+            font-size: 1.25rem;
             line-height: 1.6;
-            color: var(--text-secondary);
+            color: rgba(255,255,255,0.75);
             font-weight: 400;
         }
         
         /* Name Section */
         .name-section {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
         
         .name-display {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 0.375rem;
         }
         
         .name-role {
-            font-size: 1rem;
-            color: var(--text-secondary);
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.5);
         }
         
         /* Footer */
         .footer {
-            padding: 6rem 0;
+            padding: 5rem 0;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
         
         .footer-cta {
-            font-size: clamp(1.75rem, 4vw, 3rem);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
         }
         
         .footer-email {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
+            gap: 0.375rem;
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            font-size: 1rem;
-            margin-bottom: 2rem;
+            font-size: 0.9375rem;
+            margin-bottom: 1.75rem;
             transition: color 0.2s;
         }
         
-        .footer-email:hover {
-            color: var(--text-primary);
-        }
+        .footer-email:hover { color: #fff; }
         
         .social-row {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
         }
         
         .social-row a {
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.4);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             transition: color 0.2s;
         }
         
-        .social-row a:hover {
-            color: var(--text-primary);
-        }
+        .social-row a:hover { color: #fff; }
         
         .footer-logo {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 600;
             letter-spacing: 0.05em;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.3);
         }
         
         /* Responsive */
-        @media (max-width: 968px) {
+        @media (max-width: 900px) {
             .hero-content,
             .feature-grid,
             .quote-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
             }
             
             .products-grid {
@@ -572,32 +520,36 @@
             }
             
             .feature-visual {
-                height: 300px;
+                height: 280px;
                 order: -1;
             }
             
-            .glass-orb {
-                width: 200px;
-                height: 200px;
+            .glass-shape {
+                width: 180px;
+                height: 180px;
             }
             
             .nav-links {
                 display: none;
             }
+            
+            .hero {
+                padding-top: 5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-layers">
-        <div class="bg-layer bg-layer-1"></div>
-        <div class="bg-layer bg-layer-2"></div>
-        <div class="bg-layer bg-layer-3"></div>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
     </div>
     
     <nav class="nav" id="nav">
         <div class="nav-logo">
             <div class="nav-logo-icon">DH</div>
-            <span class="nav-logo-text">DAGUANG HAN</span>
+            <span>DAGUANG HAN</span>
         </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -621,48 +573,44 @@
                     <p class="hero-desc">Exploring digital-first engineering approaches across cyber-physical systems, advanced manufacturing, and intelligent infrastructure management.</p>
                     <div class="hero-buttons">
                         <a href="#research" class="btn btn-outline">View Research</a>
-                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                        <a href="#contact" class="btn btn-solid">Get in Touch</a>
                     </div>
                 </div>
             </div>
             
-            <div class="big-name-section">
+            <div class="big-name-wrap">
                 <div class="big-name">DAGUANG HAN</div>
             </div>
         </div>
     </section>
     
-    <section class="section-feature" id="research">
+    <section class="feature-section" id="research">
         <div class="container">
             <div class="feature-grid">
                 <div class="feature-visual">
-                    <div class="glass-orb">
-                        <div class="glass-orb-inner"></div>
-                    </div>
+                    <div class="glass-shape"></div>
                 </div>
                 <div class="feature-content">
-                    <div class="section-num">01</div>
+                    <div class="section-number">01</div>
                     <h3>Digital Twins & Cyber-Physical Systems</h3>
-                    <p>Developing digital-first engineering methodologies for infrastructure and manufacturing systems. My research focuses on real-time simulation, IoT integration, and autonomous systems that bridge the physical and digital worlds.</p>
-                    <p>Current work includes intelligent building machines, automated construction workflows, and predictive maintenance frameworks using AI-driven digital twins.</p>
+                    <p>Developing digital-first engineering methodologies for infrastructure and manufacturing systems. My research focuses on real-time simulation, IoT integration, and autonomous systems.</p>
+                    <p>Current work includes intelligent building machines and predictive maintenance frameworks using AI-driven digital twins.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="section-feature" id="projects">
+    <section class="feature-section" id="projects">
         <div class="container">
             <div class="feature-grid">
                 <div class="feature-visual">
-                    <div class="glass-orb">
-                        <div class="glass-orb-inner" style="animation-delay: -5s;"></div>
-                    </div>
+                    <div class="glass-shape" style="animation-delay: -6s;"></div>
                 </div>
                 <div class="feature-content">
-                    <div class="section-num">02</div>
+                    <div class="section-number">02</div>
                     <h3>Intelligent Building Machine Platform</h3>
-                    <p>A 1:10 scale intelligent building machine featuring dual-arm collaborative robots with real-time digital twin synchronization for automated construction processes.</p>
-                    <p>This project demonstrates the practical application of digital engineering principles in construction automation, funded by the National Natural Science Foundation of China.</p>
+                    <p>A 1:10 scale intelligent building machine featuring dual-arm collaborative robots with real-time digital twin synchronization for automated construction.</p>
+                    <p>Funded by the National Natural Science Foundation of China.</p>
                 </div>
             </div>
         </div>
@@ -679,7 +627,7 @@
                     </div>
                     <div class="product-body">
                         <h4>Digital Twin Framework</h4>
-                        <p>Predictive maintenance and real-time monitoring systems for smart infrastructure.</p>
+                        <p>Predictive maintenance and real-time monitoring systems.</p>
                         <a href="#" class="product-link">Learn more →</a>
                     </div>
                 </div>
@@ -690,7 +638,7 @@
                     </div>
                     <div class="product-body">
                         <h4>Construction Automation</h4>
-                        <p>Robotic systems and automated workflows for next-generation construction.</p>
+                        <p>Robotic systems for next-generation construction.</p>
                         <a href="#" class="product-link">Learn more →</a>
                     </div>
                 </div>
@@ -701,7 +649,7 @@
                     </div>
                     <div class="product-body">
                         <h4>Academic Collaboration</h4>
-                        <p>Open to research partnerships and student supervision in digital engineering.</p>
+                        <p>Open to research partnerships and supervision.</p>
                         <a href="#contact" class="product-link">Get in touch →</a>
                     </div>
                 </div>
@@ -736,8 +684,7 @@
             <h2 class="footer-cta">Let's build the future together.</h2>
             
             <a href="mailto:daguanghan@seu.edu.cn" class="footer-email">
-                daguanghan@seu.edu.cn
-                <span>→</span>
+                daguanghan@seu.edu.cn →
             </a>
             
             <div class="social-row">
@@ -752,7 +699,6 @@
     </footer>
     
     <script>
-        // Nav scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {

@@ -183,7 +183,7 @@
         }
         
         .patent-item:hover {
-            border-color: rgba(99,102,241,0.2);
+            border-color: rgba(99,102,241,0.15);
             background: rgba(255,255,255,0.03);
         }
         
@@ -207,7 +207,7 @@
             font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-left: 1rem;
+            margin-left: 0.75rem;
             flex-shrink: 0;
         }
         
@@ -226,18 +226,17 @@
             color: #f59e0b;
         }
         
+        .badge-pending {
+            background: rgba(139,92,246,0.15);
+            color: #8b5cf6;
+        }
+        
         .patent-meta {
             display: flex;
             gap: 1.5rem;
             font-size: 0.8125rem;
             color: rgba(255,255,255,0.5);
             margin-bottom: 0.5rem;
-        }
-        
-        .patent-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
         }
         
         .patent-inventor {
@@ -339,14 +338,14 @@
     <header class="page-header">
         <div class="container">
             <h1 class="page-title">Patents & Innovations</h1>
-            <p class="page-subtitle">34 patents in digital construction, structural monitoring, and sustainable materials</p>
+            <p class="page-subtitle">39 patents in digital construction, structural monitoring, and space manufacturing</p>
         </div>
     </header>
     
     <div class="container">
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-number">20</div>
+                <div class="stat-number">25</div>
                 <div class="stat-label">Invention Patents</div>
             </div>
             <div class="stat-item">
@@ -374,8 +373,75 @@
                 <div class="category-label">BIM & Digital Twin</div>
             </div>
             <div class="category-card">
-                <div class="category-number">6</div>
-                <div class="category-label">Sustainable Materials</div>
+                <div class="category-number">5</div>
+                <div class="category-label">Space Manufacturing</div>
+            </div>
+        </div>
+        
+        <!-- Patents Pending (Space Manufacturing) -->
+        <div class="section">
+            <h2 class="section-title">Patents Pending - Space Manufacturing (2025-2026)</h2>
+            
+            <div class="patent-list">
+                <div class="patent-item">
+                    <div class="patent-header">
+                        <span class="patent-title">Physics-Informed Multimodal AI for 3D Metal Printing Structural Capacity Assessment</span>
+                        <span class="patent-badge badge-pending">Pending</span>
+                    </div>
+                    <div class="patent-meta">
+                        <span>📋 CNIPA Application</span>
+                        <span>📅 2025-2026</span>
+                    </div>
+                    <p class="patent-inventor"><strong>First Inventor</strong> | Physics-informed multimodal AI for 3D metal printing quality assessment</p>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-header">
+                        <span class="patent-title">In-Situ Reinforcement Method for Steel Structure Nodes Based on Wire Arc Additive Manufacturing (WAAM)</span>
+                        <span class="patent-badge badge-pending">Pending</span>
+                    </div>
+                    <div class="patent-meta">
+                        <span>📋 CNIPA Application</span>
+                        <span>📅 2025-2026</span>
+                    </div>
+                    <p class="patent-inventor"><strong>First Inventor</strong> | WAAM technology for in-situ reinforcement of steel structure nodes</p>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-header">
+                        <span class="patent-title">Full-Degree-of-Freedom Space 3D Printing Method and Device for 300 Series Stainless Steel for On-Orbit Manufacturing</span>
+                        <span class="patent-badge badge-pending">Pending</span>
+                    </div>
+                    <div class="patent-meta">
+                        <span>📋 CNIPA Application</span>
+                        <span>📅 2025-2026</span>
+                    </div>
+                    <p class="patent-inventor"><strong>First Inventor</strong> | Full-DOF 3D printing method for space in-orbit manufacturing of stainless steel structures</p>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-header">
+                        <span class="patent-title">Deployable Gantry-Based On-Orbit Autonomous Crawling 3D Weaving Manufacturing System for Lightweight High-Strength Structures</span>
+                        <span class="patent-badge badge-pending">Pending</span>
+                    </div>
+                    <div class="patent-meta">
+                        <span>📋 CNIPA Application</span>
+                        <span>📅 2025-2026</span>
+                    </div>
+                    <p class="patent-inventor"><strong>First Inventor</strong> | Deployable gantry architecture for on-orbit 3D weaving manufacturing</p>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-header">
+                        <span class="patent-title">Federated Learning-Based Emergency Repair Decision Optimization Method, Device and System for Transmission Towers</span>
+                        <span class="patent-badge badge-pending">Pending</span>
+                    </div>
+                    <div class="patent-meta">
+                        <span>📋 CNIPA Application</span>
+                        <span>📅 2025-2026</span>
+                    </div>
+                    <p class="patent-inventor"><strong>First Inventor</strong> | Federated learning-driven emergency repair decision optimization for transmission towers</p>
+                </div>
             </div>
         </div>
         
@@ -386,7 +452,7 @@
             <div class="patent-list">
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Spatial Synchronization and Information Recording System Based on 3D Real Scene Model</h3>
+                        <span class="patent-title">Spatial Synchronization and Information Recording System Based on 3D Real Scene Model</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -398,7 +464,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Arch Ring Line Shape Detection Method Based on 3D Laser Scanning</h3>
+                        <span class="patent-title">Arch Ring Line Shape Detection Method Based on 3D Laser Scanning</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -410,7 +476,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Reverse Modeling Method for Curved Tubular Enclosure Structures</h3>
+                        <span class="patent-title">Reverse Modeling Method for Curved Tubular Enclosure Structures</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -422,7 +488,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Structural Damage Assessment Method Based on Distributed Vibration Data and Convolutional Autoencoder Deep Learning</h3>
+                        <span class="patent-title">Structural Damage Assessment Method Based on Distributed Vibration Data and Convolutional Autoencoder Deep Learning</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -434,7 +500,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Comprehensive Control Method for Indoor Building Energy Consumption and Air Quality</h3>
+                        <span class="patent-title">Comprehensive Control Method for Indoor Building Energy Consumption and Air Quality</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -446,7 +512,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Torque Predictive Control Electric Drive Method Based on Stator Reference Flux Linkage Optimization Model</h3>
+                        <span class="patent-title">Torque Predictive Control Electric Drive Method Based on Stator Reference Flux Linkage Optimization Model</span>
                         <span class="patent-badge badge-granted">Granted</span>
                     </div>
                     <div class="patent-meta">
@@ -460,12 +526,12 @@
         
         <!-- First Inventor Patents -->
         <div class="section">
-            <h2 class="section-title">First Inventor Patents (8 Published)</h2>
+            <h2 class="section-title">First Inventor Patents - Published (8)</h2>
             
             <div class="patent-list">
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Method for High-Precision Parametric Adjustment of As-Built Curtain Wall Model Based on Point Cloud</h3>
+                        <span class="patent-title">Method for High-Precision Parametric Adjustment of As-Built Curtain Wall Model Based on Point Cloud</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -477,7 +543,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Method for Monitoring Existing Bridges Based on 3D Laser Scanning Combined with BIM</h3>
+                        <span class="patent-title">Method for Monitoring Existing Bridges Based on 3D Laser Scanning Combined with BIM</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -489,7 +555,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Manufactured Sand Recycled Concrete for Highway Base and Preparation Method</h3>
+                        <span class="patent-title">Manufactured Sand Recycled Concrete for Highway Base and Preparation Method</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -501,7 +567,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Slope Deformation Monitoring Method, Device, Terminal and Storage Medium</h3>
+                        <span class="patent-title">Slope Deformation Monitoring Method, Device, Terminal and Storage Medium</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -513,7 +579,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Road Surface Settlement Identification Method, Terminal and Computer-Readable Storage Medium</h3>
+                        <span class="patent-title">Road Surface Settlement Identification Method, Terminal and Computer-Readable Storage Medium</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -525,7 +591,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Bridge Detection Method and Device Based on Image Acquisition</h3>
+                        <span class="patent-title">Bridge Detection Method and Device Based on Image Acquisition</span>
                         <span class="patent-badge badge-published">Published</span>
                     </div>
                     <div class="patent-meta">
@@ -544,7 +610,7 @@
             <div class="patent-list">
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Efficient and Precise Concrete Batching Weighing Device</h3>
+                        <span class="patent-title">Efficient and Precise Concrete Batching Weighing Device</span>
                         <span class="patent-badge badge-utility">Utility Model</span>
                     </div>
                     <div class="patent-meta">
@@ -555,7 +621,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Urban Underground Pipeline 3D Detection and Display System</h3>
+                        <span class="patent-title">Urban Underground Pipeline 3D Detection and Display System</span>
                         <span class="patent-badge badge-utility">Utility Model</span>
                     </div>
                     <div class="patent-meta">
@@ -566,7 +632,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Target for 3D Laser Scanning</h3>
+                        <span class="patent-title">Target for 3D Laser Scanning</span>
                         <span class="patent-badge badge-utility">Utility Model</span>
                     </div>
                     <div class="patent-meta">
@@ -577,7 +643,7 @@
                 
                 <div class="patent-item">
                     <div class="patent-header">
-                        <h3 class="patent-title">Night-Use Digital Display 3D Laser Scanning Target</h3>
+                        <span class="patent-title">Night-Use Digital Display 3D Laser Scanning Target</span>
                         <span class="patent-badge badge-utility">Utility Model</span>
                     </div>
                     <div class="patent-meta">

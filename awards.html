@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards - Daguang Han (韩达光)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bs-navbar-bg: #2c3e50;
+            --bs-link-color: #0d6efd;
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        [data-theme="dark"] {
+            --bs-navbar-bg: #1a1a2e;
+            --bs-link-color: #4dabf7;
+            --bg-color: #0f0f1a;
+            --text-color: #e9ecef;
+            --card-bg: #1a1a2e;
+            --border-color: #2d2d44;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s;
+        }
+        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
+        .navbar-brand { color: white !important; font-weight: 600; }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .award-item { background: var(--card-bg); padding: 1.5rem; margin-bottom: 1.25rem; border-radius: 10px; border-left: 5px solid #ffd700; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+        .award-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .award-tier-1 { border-left-color: #ffd700; }
+        .award-tier-2 { border-left-color: #c0c0c0; }
+        .award-tier-3 { border-left-color: #cd7f32; }
+        .award-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-color); }
+        .award-org { color: #666; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .award-project { font-style: italic; color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .award-year { position: absolute; top: 1rem; right: 1rem; background: var(--bs-navbar-bg); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .award-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 0.5rem; }
+        .badge-first { background: #ffd700; color: #333; }
+        .badge-second { background: #c0c0c0; color: #333; }
+        .badge-outstanding { background: #e74c3c; color: white; }
+        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
+        [data-theme="dark"] .award-org { color: #aaa; }
+        [data-theme="dark"] .award-project { color: #888; }
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Daguang Han</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="awards.html">Awards</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
+                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1><i class="bi bi-trophy-fill"></i> Awards & Honors</h1>
+        <p class="text-muted">Recognition for research excellence and innovation</p>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-award"></i> Provincial & Ministerial Level Awards
+        </h2>
+
+        <div class="award-item award-tier-1">
+            <span class="award-year">2024</span>
+            <span class="award-badge badge-first">First Prize</span>
+            <div class="award-title">Scientific and Technological Innovation First Prize</div>
+            <div class="award-org">China Association for the Promotion of Industrial Development of Science and Technology</div>
+            <div class="award-project">Key Technologies and Applications for Structural Safety Diagnostics and Smart Disaster Prevention in Civil Infrastructure</div>
+        </div>
+
+        <div class="award-item award-tier-1">
+            <span class="award-year">2022</span>
+            <span class="award-badge badge-first">First Prize</span>
+            <div class="award-title">Science and Technology Progress Award</div>
+            <div class="award-org">China Highway and Transportation Society</div>
+            <div class="award-project">Key Technologies for Precise Diagnosis and Prevention of Fatigue Damage under Multi-factor Coupling Effects in Long-Span Bridges</div>
+        </div>
+
+        <div class="award-item award-tier-1">
+            <span class="award-year">2016</span>
+            <span class="award-badge badge-first">First Prize</span>
+            <div class="award-title">National Science and Technology Progress Award</div>
+            <div class="award-org">Ministry of Education of the People's Republic of China</div>
+            <div class="award-project">Key Technology and Engineering Application for Structural Capacity Enhancement of As-is Built</div>
+        </div>
+
+        <div class="award-item award-tier-2">
+            <span class="award-year">2014</span>
+            <span class="award-badge badge-outstanding">Outstanding</span>
+            <div class="award-title">Outstanding Scientific Researcher Award</div>
+            <div class="award-org">Ministry of Human Resources and Social Security, P.R. China</div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-globe"></i> International & University Awards
+        </h2>
+
+        <div class="award-item award-tier-2">
+            <span class="award-year">2009-2011</span>
+            <span class="award-badge badge-outstanding">Outstanding</span>
+            <div class="award-title">Outstanding Scientific Researcher Award</div>
+            <div class="award-org">Universität der Bundeswehr München, Germany</div>
+        </div>
+
+        <div class="award-item award-tier-2">
+            <span class="award-year">2010</span>
+            <span class="award-badge badge-second">Best Exhibition</span>
+            <div class="award-title">Best Exhibition Award</div>
+            <div class="award-org">World Congress of Surveying, Germany</div>
+            <div class="award-project">Research on Deformation Performance of Concrete Structure by 3D Laser Scanning Technology</div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-building"></i> Corporate Awards
+        </h2>
+
+        <div class="award-item award-tier-3">
+            <span class="award-year">2015</span>
+            <span class="award-badge badge-outstanding">Excellence</span>
+            <div class="award-title">Excellence Award for Outstanding Young Scientific Research Workers</div>
+            <div class="award-org">MCC Group (China Metallurgical Group Corporation)</div>
+        </div>
+
+        <div class="award-item award-tier-3">
+            <span class="award-year">2014</span>
+            <span class="award-badge badge-outstanding">Talent Award</span>
+            <div class="award-title">Young Talent Award for S.&T. Innovation</div>
+            <div class="award-org">MCC Group (China Metallurgical Group Corporation)</div>
+            <div class="award-project">Algorithm Research on RC Surface Cracks Based on 3D Laser Scanning Technology (Reality Capture)</div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-patch-check"></i> Professional Qualifications
+        </h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="award-item" style="border-left-color: #0d6efd;">
+                    <div class="award-title"><i class="bi bi-mortarboard"></i> Senior Engineer of Professional Technical Post</div>
+                    <div class="award-org">Chinese National Recognition Qualification | Since 2021</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="award-item" style="border-left-color: #0d6efd;">
+                    <div class="award-title"><i class="bi bi-person-check"></i> Teacher Qualification for Higher Education</div>
+                    <div class="award-org">Chinese National Recognition Qualification | Since 2018</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'bi bi-moon-fill';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
+</body>
+</html>

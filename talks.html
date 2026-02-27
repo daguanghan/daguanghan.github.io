@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks - Daguang Han (韩达光)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bs-navbar-bg: #2c3e50;
+            --bs-link-color: #0d6efd;
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        [data-theme="dark"] {
+            --bs-navbar-bg: #1a1a2e;
+            --bs-link-color: #4dabf7;
+            --bg-color: #0f0f1a;
+            --text-color: #e9ecef;
+            --card-bg: #1a1a2e;
+            --border-color: #2d2d44;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s;
+        }
+        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
+        .navbar-brand { color: white !important; font-weight: 600; }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .talk-item { background: var(--card-bg); padding: 1.5rem; margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid #e74c3c; transition: transform 0.2s; }
+        .talk-item:hover { transform: translateX(5px); }
+        .talk-date { display: inline-block; background: var(--bs-navbar-bg); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .talk-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .talk-venue { color: #666; font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .talk-desc { color: #888; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .talk-links { display: flex; gap: 1rem; }
+        .talk-link { color: var(--bs-link-color); text-decoration: none; font-size: 0.9rem; }
+        .talk-link:hover { text-decoration: underline; }
+        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
+        .upcoming { border-left-color: #27ae60; }
+        .upcoming .talk-date { background: #27ae60; }
+        [data-theme="dark"] .talk-venue { color: #aaa; }
+        [data-theme="dark"] .talk-desc { color: #888; }
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Daguang Han</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="talks.html">Talks</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
+                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1><i class="bi bi-mic-fill"></i> Talks & Presentations</h1>
+        <p class="text-muted">Selected presentations, invited talks, and conference speeches</p>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-calendar-event"></i> Upcoming
+        </h2>
+
+        <div class="talk-item upcoming">
+            <span class="talk-date">TBD 2025</span>
+            <div class="talk-title">Digital Twin-Driven Infrastructure Resilience: From Theory to Practice</div>
+            <div class="talk-venue">Invited Talk | International Conference on Smart Infrastructure</div>
+            <div class="talk-desc">
+                Exploring the integration of digital twin technology with AI for enhancing infrastructure resilience against extreme weather events.
+            </div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-calendar-check"></i> Past Talks
+        </h2>
+
+        <div class="talk-item">
+            <span class="talk-date">2024</span>
+            <div class="talk-title">AI-Driven Disaster Mitigation for Critical Infrastructure</div>
+            <div class="talk-venue">Keynote Speaker | National Conference on Civil Engineering Innovation</div>
+            <div class="talk-desc">
+                Presentation on multi-agent reinforcement learning applications in emergency response for power grid systems.
+            </div>
+        </div>
+
+        <div class="talk-item">
+            <span class="talk-date">2023</span>
+            <div class="talk-title">Smart Construction and Human-Robot Collaboration</div>
+            <div class="talk-venue">Invited Seminar | Southeast University, School of Civil Engineering</div>
+            <div class="talk-desc">
+                Discussing the development of intelligent building machine platforms and dual-arm collaborative robots for automated construction.
+            </div>
+        </div>
+
+        <div class="talk-item">
+            <span class="talk-date">2023</span>
+            <div class="talk-title">Digital Twin Technology for Bridge Health Monitoring</div>
+            <div class="talk-venue">Technical Workshop | China Highway and Transportation Society</div>
+            <div class="talk-desc">
+                Hands-on workshop on 3D laser scanning, BIM integration, and digital twin modeling for long-span bridge monitoring.
+            </div>
+        </div>
+
+        <div class="talk-item">
+            <span class="talk-date">2022</span>
+            <div class="talk-title">Nanosensors for Structural Health Monitoring: Innovations and Challenges</span>
+            <div class="talk-venue">Conference Presentation | International Conference on Smart Materials and Structures</div>
+            <div class="talk-desc">
+                Comprehensive review of emerging nanosensor technologies for bridge maintenance and structural health monitoring.
+            </div>
+        </div>
+
+        <div class="talk-item">
+            <span class="talk-date">2021</span>
+            <div class="talk-title">BIM and Reality Capture Integration for Smart Bridge Management</div>
+            <div class="talk-venue">Keynote Speaker | ECPPM 2021 - eWork and eBusiness in Architecture, Engineering and Construction</div>
+            <div class="talk-desc">
+                Presentation on the convergence of BIM, IoT, and 3D laser scanning technologies for intelligent infrastructure management.
+            </div>
+        </div>
+
+        <div class="talk-item">
+            <span class="talk-date">2019</span>
+            <div class="talk-title">Virtual Pre-assembly Technology for Complex Steel Structures</div>
+            <div class="talk-venue">Technical Session | IOP Conference Series: Earth and Environmental Science</div>
+            <div class="talk-desc">
+                Demonstration of terrestrial laser scanning applications in construction quality control and virtual assembly.
+            </div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-camera-video"></i> Media & Interviews
+        </h2>
+
+        <div class="talk-item">
+            <span class="talk-date">2024</span>
+            <div class="talk-title">UltraEvolve: Philosophy and Technology for the AI Era</div>
+            <div class="talk-venue">Podcast Interview | UltraEvolve Platform Launch</div>
+            <div class="talk-desc">
+                Discussion on the intersection of philosophy, engineering, and artificial intelligence in shaping humanity's future.
+            </div>
+            <div class="talk-links">
+                <a class="talk-link" href="https://www.ultraevolve.com" target="_blank"><i class="bi bi-link-45deg"></i> Platform Website</a>
+            </div>
+        </div>
+
+        <p class="text-muted mt-4">
+            <small>Interested in inviting me to speak? Contact: daguang.han@gmail.com</small>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'bi bi-moon-fill';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -7,29 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root {
-            --bs-navbar-bg: #2c3e50;
-            --bs-link-color: #0d6efd;
-            --bg-color: #ffffff;
-            --text-color: #212529;
-            --card-bg: #f8f9fa;
-            --border-color: #dee2e6;
-        }
-        [data-theme="dark"] {
-            --bs-navbar-bg: #1a1a2e;
-            --bs-link-color: #4dabf7;
-            --bg-color: #0f0f1a;
-            --text-color: #e9ecef;
-            --card-bg: #1a1a2e;
-            --border-color: #2d2d44;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s;
-        }
+        :root { --bs-navbar-bg: #2c3e50; --bg-color: #ffffff; --text-color: #212529; --card-bg: #f8f9fa; --border-color: #dee2e6; }
+        [data-theme="dark"] { --bs-navbar-bg: #1a1a2e; --bg-color: #0f0f1a; --text-color: #e9ecef; --card-bg: #1a1a2e; --border-color: #2d2d44; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); transition: all 0.3s; }
         .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
         .navbar-brand { color: white !important; font-weight: 600; }
         .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
@@ -47,12 +27,15 @@
         .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
         .tech-tag { background: rgba(13,110,253,0.1); color: #0d6efd; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
         .project-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: #666; border-top: 1px solid var(--border-color); padding-top: 1rem; }
-        .project-meta-item { display: flex; align-items: center; gap: 0.3rem; }
         .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
         .section-badge { display: inline-block; background: #0d6efd; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem; }
-        .platform-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-        .platform-card .project-header { background: rgba(255,255,255,0.1); }
-        [data-theme="dark"] .project-meta { color: #888; }
+        .tier-badge { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; margin-left: 0.5rem; }
+        .tier-flagship { background: #e74c3c; }
+        .tier-national { background: #9b59b6; }
+        .tier-industry { background: #27ae60; }
+        .compact-project { padding: 1rem; }
+        .compact-project .project-title { font-size: 1rem; }
+        .compact-project .project-desc { font-size: 0.9rem; margin-bottom: 0.5rem; }
     </style>
 </head>
 <body>
@@ -69,6 +52,8 @@
                         <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
                         <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
@@ -81,175 +66,249 @@
 
     <div class="content">
         <h1><i class="bi bi-kanban"></i> Research Projects</h1>
-        <p class="text-muted">Leading innovative research in infrastructure resilience, digital twins, and AI-driven construction</p>
+        <p class="text-muted">25+ research projects | Total funding: ¥25+ Million CNY</p>
 
-        <!-- UltraEvolve Platform -->
-        <div class="project-card platform-card">
-            <div class="project-header">
+        <!-- UltraEvolve -->
+        <div class="project-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="project-header" style="background: rgba(255,255,255,0.1);">
                 <span class="section-badge" style="background: rgba(255,255,255,0.2);"><i class="bi bi-rocket-takeoff"></i> PLATFORM</span>
                 <div class="project-title">UltraEvolve</div>
                 <div class="project-funding">Founder & Lead Developer | <a href="https://www.ultraevolve.com" target="_blank" style="color: #ffd700;">www.ultraevolve.com</a></div>
             </div>
-            <div class="project-body">
-                <div class="project-desc">
-                    An innovative platform for high-dimensional human development, deeply exploring AI frontiers. Integrating multi-agent systems, digital twins, blockchain, and metaverse technologies. Features include intelligent literature search, patent verification, technology roadmapping, and global academic position matching services.
-                </div>
+            <div class="project-body" style="color: white;">
+                <div class="project-desc">An innovative platform for high-dimensional human development, deeply exploring AI frontiers. Integrating multi-agent systems, digital twins, blockchain, and metaverse technologies.</div>
                 <div class="project-tech">
                     <span class="tech-tag" style="background: rgba(255,255,255,0.2); color: white;">Multi-Agent AI</span>
                     <span class="tech-tag" style="background: rgba(255,255,255,0.2); color: white;">Digital Twin</span>
                     <span class="tech-tag" style="background: rgba(255,255,255,0.2); color: white;">Blockchain</span>
-                    <span class="tech-tag" style="background: rgba(255,255,255,0.2); color: white;">Metaverse</span>
-                </div>
-                <div class="project-meta" style="border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8);">
-                    <span class="project-meta-item"><i class="bi bi-book"></i> 5 Books in UltraEvolve Series</span>
-                    <span class="project-meta-item"><i class="bi bi-people"></i> Global Research Community</span>
                 </div>
             </div>
         </div>
 
-        <h2 style="margin-top: 2.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-flag-fill"></i> Flagship Projects
-        </h2>
+        <h2><i class="bi bi-flag-fill"></i> Flagship Projects</h2>
 
         <div class="project-card">
             <div class="project-header">
-                <span class="section-badge">NATIONAL GRID</span>
+                <span class="section-badge">UTILITY FUNDED</span>
+                <span class="tier-badge tier-flagship">FLAGSHIP</span>
                 <div class="project-title">Intelligent Assessment and Emergency Repair of Transmission Towers Under Typhoon Disasters</div>
-                <div class="project-funding">
-                    <span class="project-funding-amount">¥2,175,000 CNY</span> (~$300,000 USD) | State Grid Zhejiang Electric Power
-                </div>
+                <div class="project-funding"><span class="project-funding-amount">¥2,175,000</span> | PI | 2025-2026</div>
             </div>
             <div class="project-body">
-                <div class="project-desc">
-                    AI-driven damage assessment using drone imagery and deep learning algorithms for rapid post-typhoon transmission tower damage identification. Multi-Agent Reinforcement Learning (MARL) optimizes emergency resource dispatch, significantly reducing repair time and improving grid resilience.
-                </div>
+                <div class="project-desc">AI-driven damage assessment using drone imagery and deep learning. Multi-Agent Reinforcement Learning (MARL) optimizes emergency resource dispatch for power grid resilience.</div>
                 <div class="project-tech">
                     <span class="tech-tag">Drone Imagery</span>
                     <span class="tech-tag">Deep Learning</span>
                     <span class="tech-tag">MARL</span>
                     <span class="tech-tag">PINNs</span>
-                    <span class="tech-tag">Disaster Response</span>
-                </div>
-                <div class="project-meta">
-                    <span class="project-meta-item"><i class="bi bi-person-check"></i> Role: Principal Investigator</span>
-                    <span class="project-meta-item"><i class="bi bi-calendar"></i> 2025-2026</span>
                 </div>
             </div>
         </div>
 
         <div class="project-card">
             <div class="project-header">
-                <span class="section-badge">NATIONAL GRID</span>
+                <span class="section-badge">UTILITY FUNDED</span>
+                <span class="tier-badge tier-flagship">FLAGSHIP</span>
                 <div class="project-title">Tower-Line System Failure Mechanism and Intelligent Resilience Enhancement</div>
-                <div class="project-funding">
-                    <span class="project-funding-amount">¥1,806,000 CNY</span> (~$250,000 USD) | State Grid Zhejiang Electric Power
-                </div>
+                <div class="project-funding"><span class="project-funding-amount">¥1,806,000</span> | PI | 2025-2026</div>
             </div>
             <div class="project-body">
-                <div class="project-desc">
-                    High-precision digital twin modeling of tower-line systems, analyzing coupled vibration effects under strong winds. Revealing collapse patterns and weak links of transmission towers under extreme wind loads. Developing resilience enhancement technologies based on new materials and structural optimization.
-                </div>
+                <div class="project-desc">High-precision digital twin modeling of tower-line systems. Revealing collapse patterns under extreme wind loads and developing resilience enhancement technologies.</div>
                 <div class="project-tech">
                     <span class="tech-tag">Digital Twin</span>
-                    <span class="tech-tag">Multi-physics Simulation</span>
-                    <span class="tech-tag">Structural Analysis</span>
+                    <span class="tech-tag">Multi-physics</span>
                     <span class="tech-tag">Wind Engineering</span>
-                </div>
-                <div class="project-meta">
-                    <span class="project-meta-item"><i class="bi bi-person-check"></i> Role: Principal Investigator</span>
-                    <span class="project-meta-item"><i class="bi bi-calendar"></i> 2025-2026</span>
                 </div>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="project-header">
-                <span class="section-badge" style="background: #e74c3c;">SMART CONSTRUCTION</span>
+            <div class="project-header" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                <span class="section-badge" style="background: rgba(255,255,255,0.2);">UNIVERSITY FUNDED</span>
+                <span class="tier-badge tier-flagship">FLAGSHIP</span>
                 <div class="project-title">"Smart Chain Cloud Construction" Intelligent Building Machine Platform</div>
-                <div class="project-funding">
-                    <span class="project-funding-amount">¥1,370,000 CNY</span> (~$190,000 USD) | Southeast University
-                </div>
+                <div class="project-funding"><span class="project-funding-amount">¥1,370,000</span> | PI | 2024-2025</div>
             </div>
             <div class="project-body">
-                <div class="project-desc">
-                    1:10 scale intelligent building machine physical experimental platform. Dual-arm collaborative robot integrated with PLC control system for automated construction. Digital twin system for real-time synchronization between physical platform and virtual model, enabling human-robot collaboration in construction.
-                </div>
+                <div class="project-desc">1:10 scale intelligent building machine platform with dual-arm collaborative robots. Digital twin system for real-time synchronization between physical and virtual models.</div>
                 <div class="project-tech">
                     <span class="tech-tag">Human-Robot Collaboration</span>
                     <span class="tech-tag">Digital Twin</span>
                     <span class="tech-tag">PLC Control</span>
-                    <span class="tech-tag">Smart Construction</span>
-                    <span class="tech-tag">Dual-Arm Robot</span>
-                </div>
-                <div class="project-meta">
-                    <span class="project-meta-item"><i class="bi bi-person-check"></i> Role: Principal Investigator</span>
-                    <span class="project-meta-item"><i class="bi bi-calendar"></i> 2024-2025</span>
                 </div>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="project-header">
-                <span class="section-badge" style="background: #27ae60;">BIM & SCANNING</span>
-                <div class="project-title">Curtain Wall Installation Quality Assessment Using 3D Laser Scanning and LDV</div>
-                <div class="project-funding">
-                    <span class="project-funding-amount">¥949,660 CNY</span> (~$130,000 USD) | Guangzhou Lihao Real Estate
-                </div>
+            <div class="project-header" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                <span class="section-badge" style="background: rgba(255,255,255,0.2);">INDUSTRY FUNDED</span>
+                <span class="tier-badge tier-flagship">FLAGSHIP</span>
+                <div class="project-title">Curtain Wall Quality Assessment Using 3D Laser Scanning and LDV</div>
+                <div class="project-funding"><span class="project-funding-amount">¥949,660</span> | PI | 2022-2025</div>
             </div>
             <div class="project-body">
-                <div class="project-desc">
-                    Parametric glass curtain wall BIM model construction for 28-story financial headquarters (138.25m height). 3D laser scanning digital twin for automated point cloud analysis. LDV (Laser Doppler Vibrometer) for remote vibration performance and safety state assessment. Smart target system with LED display and electromagnetic base.
-                </div>
+                <div class="project-desc">28-story financial headquarters (138.25m height). Parametric BIM, 3D laser scanning, and LDV for remote vibration performance assessment. Smart target system with LED display.</div>
                 <div class="project-tech">
                     <span class="tech-tag">3D Laser Scanning</span>
                     <span class="tech-tag">LDV</span>
                     <span class="tech-tag">BIM</span>
                     <span class="tech-tag">Point Cloud</span>
-                    <span class="tech-tag">Quality Assessment</span>
-                </div>
-                <div class="project-meta">
-                    <span class="project-meta-item"><i class="bi bi-person-check"></i> Role: Principal Investigator</span>
-                    <span class="project-meta-item"><i class="bi bi-calendar"></i> 2022-2025</span>
-                    <span class="project-meta-item"><i class="bi bi-building"></i> 244,465 m² Building</span>
                 </div>
             </div>
         </div>
 
-        <h2 style="margin-top: 2.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-globe"></i> National & International Projects
-        </h2>
+        <h2><i class="bi bi-globe"></i> Competitive Research Programmes</h2>
 
         <div class="row">
             <div class="col-md-6">
-                <div class="project-card h-100">
-                    <div class="project-header" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);">
-                        <span class="section-badge" style="background: rgba(255,255,255,0.2);">NATIONAL R&D</span>
-                        <div class="project-title" style="font-size: 1rem;">Large-Scale Experimental Models for Cross-Type Disaster Accidents in Long-Span Structures</div>
+                <div class="project-card compact-project h-100">
+                    <div class="project-header" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%); padding: 0.75rem 1rem;">
+                        <span class="section-badge" style="background: rgba(255,255,255,0.2); font-size: 0.7rem; padding: 0.15rem 0.5rem;">NATIONAL COMPETITIVE R&D</span>
+                        <div class="project-title" style="font-size: 0.95rem;">Large-Scale Experimental Models for Cross-Type Disaster Accidents</div>
                     </div>
-                    <div class="project-body">
-                        <div class="project-desc" style="font-size: 0.9rem;">
-                            National Key R&D Program (Ministry of Emergency Management). Sub-topic leader for large-scale multi-parameter coupling experiments and non-equilibrium scenario reconstruction technology for power grid structures.
-                        </div>
+                    <div class="project-body" style="padding: 1rem;">
+                        <div class="project-desc">Large-scale multi-parameter coupling experiments for power grid structures under cross-type disasters.</div>
                         <div class="project-tech">
-                            <span class="tech-tag">Disaster Simulation</span>
-                            <span class="tech-tag">Power Grid</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Disaster Simulation</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Power Grid</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="project-card h-100">
-                    <div class="project-header" style="background: linear-gradient(135deg, #16a085 0%, #27ae60 100%);">
-                        <span class="section-badge" style="background: rgba(255,255,255,0.2);">NSFC</span>
-                        <div class="project-title" style="font-size: 1rem;">High-Altitude and Cold Region Large Bridge Damage Mechanism and Safety Early Warning</div>
+                <div class="project-card compact-project h-100">
+                    <div class="project-header" style="background: linear-gradient(135deg, #16a085 0%, #27ae60 100%); padding: 0.75rem 1rem;">
+                        <span class="section-badge" style="background: rgba(255,255,255,0.2); font-size: 0.7rem; padding: 0.15rem 0.5rem;">NATIONAL COMPETITIVE RESEARCH GRANT</span>
+                        <div class="project-title" style="font-size: 0.95rem;">High-Altitude Large Bridge Damage Mechanism and Safety Early Warning</div>
                     </div>
-                    <div class="project-body">
-                        <div class="project-desc" style="font-size: 0.9rem;">
-                            National Natural Science Foundation of China (Key Project). Key R&D member for research on damage mechanism, health monitoring, and safety early warning technology for large bridges in high-altitude and cold regions.
-                        </div>
+                    <div class="project-body" style="padding: 1rem;">
+                        <div class="project-desc">Health monitoring and early warning technology for large bridges in high-altitude and cold regions.</div>
                         <div class="project-tech">
-                            <span class="tech-tag">SHM</span>
-                            <span class="tech-tag">Early Warning</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">SHM</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Early Warning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project-card compact-project h-100">
+                    <div class="project-header" style="padding: 0.75rem 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">PROVINCIAL RESEARCH GRANT</span>
+                        <div class="project-title" style="font-size: 0.95rem;">Digital Twin Theory for Long-Span Bridge Performance Evaluation</div>
+                    </div>
+                    <div class="project-body" style="padding: 1rem;">
+                        <div class="project-desc">Service performance evaluation and prediction mechanisms for long-span complex bridges based on digital twin theory.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Digital Twin</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Performance Prediction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-card compact-project h-100">
+                    <div class="project-header" style="padding: 0.75rem 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">OUTSTANDING OVERSEAS RESEARCHER GRANT</span>
+                        <div class="project-title" style="font-size: 0.95rem;">Crack Width Algorithm from Laser-Scanned Point Clouds</div>
+                    </div>
+                    <div class="project-body" style="padding: 1rem;">
+                        <div class="project-desc">Algorithms for automatic crack width detection on RC structure surfaces from laser-scanned point clouds.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Point Cloud</span>
+                            <span class="tech-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2><i class="bi bi-building"></i> Industry-Funded R&D Contracts</h2>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">UTILITY FUNDED</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">Intelligent Emergency Repair Based on Large Models</div>
+                        <div class="project-desc">Typhoon disaster response using large language models for power transmission lines.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">RESEARCH INSTITUTE</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">Semantic Recognition and Intelligent Rule Base Generation</div>
+                        <div class="project-desc">Model-driven intelligent rule base generation and updating for BIM compliance.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">UTILITY FUNDED</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">Wind Disaster Simulation and Risk Assessment</div>
+                        <div class="project-desc">Extreme weather process simulation and disaster-resilience enhancement methods.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">AIRPORT GROUP</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">Digital Transformation and BIM Digital Delivery</div>
+                        <div class="project-desc">Consultant for digital transformation at Hohhot Airport Company.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">CONSTRUCTION GROUP</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">MEMS Sensing System for Cable-Stayed Bridges</div>
+                        <div class="project-desc">Whole life cycle health monitoring using advanced MEMS sensors.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">TRANSPORTATION DEPT</span>
+                        <div class="project-title" style="font-size: 0.9rem; margin-top: 0.5rem;">Mountainous Area Arch Bridge 3D Monitoring</div>
+                        <div class="project-desc">BIM and Reality Capture technology for long-span arch bridges in mountainous areas.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2><i class="bi bi-recycle"></i> Sustainability & Recycled Materials</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">RAILWAY BUREAU</span>
+                        <div class="project-title" style="font-size: 0.95rem; margin-top: 0.5rem;">High-Speed Railway Waste Recycled Concrete</div>
+                        <div class="project-desc">Recycled aggregate concrete from high-speed railway construction waste. Mix designs for non-structural railway infrastructure components.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag" style="font-size: 0.75rem;">Recycled Concrete</span>
+                            <span class="tech-tag" style="font-size: 0.75rem;">Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-card compact-project h-100">
+                    <div class="project-body" style="padding: 1rem;">
+                        <span class="section-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">HIGHWAY PROJECT</span>
+                        <div class="project-title" style="font-size: 0.95rem; margin-top: 0.5rem;">Highway Subgrade Excavation Waste Recycling</div>
+                        <div class="project-desc">C25-grade recycled backfill material from highway subgrade excavation and repair waste.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag" style="font-size: 0.75rem;">Waste Recycling</span>
+                            <span class="tech-tag" style="font-size: 0.75rem;">Circular Economy</span>
                         </div>
                     </div>
                 </div>
@@ -257,7 +316,7 @@
         </div>
 
         <p class="text-muted mt-4 text-center">
-            <small>Total Research Funding: <strong>¥25+ Million CNY</strong> | 25+ Projects | 4 National Level | 3 Provincial Level</small>
+            <small>Total: <strong>25+ Projects</strong> | Funding: <strong>¥25+ Million CNY</strong> | Categories: Competitive Research (4) | Industry Contracts (15+) | Sustainability (4)</small>
         </p>
     </div>
 

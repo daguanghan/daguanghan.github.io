@@ -17,7 +17,6 @@
             overflow-x: hidden;
         }
         
-        /* Animated Background */
         .bg-animated {
             position: fixed;
             top: 0;
@@ -68,7 +67,6 @@
             66% { transform: translate(-30px, 30px) scale(0.9); }
         }
         
-        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -127,14 +125,12 @@
         
         .nav-links a:hover, .nav-links a.active { color: #fff; }
         
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -244,7 +240,6 @@
         
         .btn-solid:hover { background: rgba(255,255,255,0.9); }
         
-        /* Big Name */
         .big-name-wrap {
             text-align: center;
             padding: 2rem 0;
@@ -258,7 +253,6 @@
             color: rgba(255,255,255,0.9);
         }
         
-        /* Section Styles */
         .section {
             padding: 4rem 0;
         }
@@ -292,85 +286,8 @@
             transition: color 0.2s;
         }
         
-        .view-all:hover {
-            color: #fff;
-        }
+        .view-all:hover { color: #fff; }
         
-        /* Cards Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-        
-        .card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(99,102,241,0.2);
-            background: rgba(255,255,255,0.03);
-        }
-        
-        .card-image {
-            height: 140px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.08));
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        
-        .card:hover .card-image img {
-            transform: scale(1.03);
-        }
-        
-        .card-body {
-            padding: 1rem;
-        }
-        
-        .card-meta {
-            font-size: 0.6875rem;
-            color: #6366f1;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.375rem;
-        }
-        
-        .card-title {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: 0.375rem;
-            line-height: 1.4;
-        }
-        
-        .card-desc {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
-        }
-        
-        .card-footer {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-        }
-        
-        /* Publications List */
         .pub-list {
             display: flex;
             flex-direction: column;
@@ -428,7 +345,6 @@
             font-weight: 500;
         }
         
-        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -441,6 +357,9 @@
             border-radius: 10px;
             overflow: hidden;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .project-card:hover {
@@ -451,13 +370,10 @@
         .project-image {
             height: 180px;
             background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
-            position: relative;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
         }
         
         .project-body {
@@ -483,7 +399,64 @@
             line-height: 1.5;
         }
         
-        /* Quote Section */
+        .patent-list-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .patent-item-compact {
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .patent-item-compact:hover {
+            border-color: rgba(99,102,241,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .patent-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.375rem;
+        }
+        
+        .patent-title-compact {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .patent-badge {
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .badge-granted {
+            background: rgba(34,197,94,0.15);
+            color: #22c55e;
+        }
+        
+        .badge-published {
+            background: rgba(99,102,241,0.15);
+            color: #6366f1;
+        }
+        
+        .patent-meta-compact {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+        
         .quote-section {
             padding: 4rem 0;
         }
@@ -516,7 +489,6 @@
             font-style: italic;
         }
         
-        /* Name Section */
         .name-section {
             padding: 3rem 0;
             text-align: center;
@@ -533,7 +505,6 @@
             color: rgba(255,255,255,0.5);
         }
         
-        /* Footer */
         .footer {
             padding: 4rem 0;
             text-align: center;
@@ -580,7 +551,46 @@
             color: rgba(255,255,255,0.3);
         }
         
-        /* Responsive */
+        .profile-section {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #6366f1;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-item {
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .profile-label {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .profile-value {
+            color: #fff;
+        }
+        
+        .profile-link {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        
+        .profile-link:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 900px) {
             .hero-content,
             .quote-grid {
@@ -588,7 +598,6 @@
                 gap: 2rem;
             }
             
-            .cards-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -600,10 +609,6 @@
             
             .nav-links {
                 display: none;
-            }
-            
-            .hero-stats {
-                gap: 1.5rem;
             }
         }
     </style>
@@ -655,7 +660,7 @@
                             <div class="stat-label">h-index</div>
                         </div>
                     </div>
-                    <p class="hero-desc">Professor at Southeast University. Research focuses on digital twins, cyber-physical systems, and intelligent infrastructure. Founder of UltraEvolve platform for AI-driven research innovation.</p>
+                    <p class="hero-desc">Founding Dean and Chair of Governing Committee, KU Leuven Chongqing Academy / Smart City and Sustainable Development Academy (SCSDA). Research focuses on digital twins, cyber-physical systems, and intelligent infrastructure.</p>
                     <div class="hero-buttons">
                         <a href="publications.html" class="btn btn-outline">View Publications</a>
                         <a href="projects.html" class="btn btn-solid">Explore Projects</a>
@@ -665,6 +670,40 @@
             
             <div class="big-name-wrap">
                 <div class="big-name">DAGUANG HAN</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Profile Information -->
+    <section class="section">
+        <div class="container">
+            <div class="profile-section"
+                <div class="profile-title">Profile</div>
+                
+                <div class="profile-item">
+                    <span class="profile-label">Primary Appointment: </span>
+                    <span class="profile-value">Founding Dean; Chair of Governing Committee, KU Leuven Chongqing Academy / Smart City and Sustainable Development Academy (SCSDA)</span>
+                </div>
+                
+                <div class="profile-item">
+                    <span class="profile-label">Academic Appointment: </span>
+                    <span class="profile-value">Visiting Professor (part-time; by invitation), School of Civil Engineering, Southeast University</span>
+                </div>
+                
+                <div class="profile-item">
+                    <span class="profile-label">Education: </span>
+                    <span class="profile-value">Ph.D. in Civil & Environmental Engineering, Universität der Bundeswehr München, Germany (2008-2011)</span>
+                </div>
+                
+                <div class="profile-item">
+                    <span class="profile-label">ORCID: </span>
+                    <a href="https://orcid.org/0000-0003-3787-963X" target="_blank" class="profile-link">0000-0003-3787-963X</a>
+                </div>
+                
+                <div class="profile-item">
+                    <span class="profile-label">University Homepage: </span>
+                    <a href="https://civil.seu.edu.cn/hdg/list.htm" target="_blank" class="profile-link">https://civil.seu.edu.cn/hdg/list.htm</a>
+                </div>
             </div>
         </div>
     </section>
@@ -724,7 +763,7 @@
                     </div>
                     <div class="pub-content">
                         <h4>Experimental study on corrosion-fretting fatigue behavior of bridge cable wires</h4>
-                        <p>Journal of Bridge Engineering, ASCE</p>
+                        <p>Journal of Bridge Engineering, ASCE, 2020</p>
                     </div>
                     <div class="pub-year">2020</div>
                 </a>
@@ -736,7 +775,7 @@
                     </div>
                     <div class="pub-content">
                         <h4>Bayesian-driven Monte Carlo approach for managing construction project risks</h4>
-                        <p>Expert Systems, IF: 8.5</p>
+                        <p>Expert Systems, 2022 | IF: 8.5</p>
                     </div>
                     <div class="pub-year">2022</div>
                 </a>
@@ -748,7 +787,7 @@
                     </div>
                     <div class="pub-content">
                         <h4>Mechanical state inversion method based on computer vision and deep learning for bridge structures</h4>
-                        <p>Computer-Aided Civil and Infrastructure Engineering, IF: 11.8</p>
+                        <p>Computer-Aided Civil and Infrastructure Engineering, 2023 | IF: 11.8</p>
                     </div>
                     <div class="pub-year">2023</div>
                 </a>
@@ -769,9 +808,7 @@
             
             <div class="projects-grid">
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Transmission Tower Project">
-                    </div>
+                    <div class="project-image">🏗️</div>
                     <div class="project-body">
                         <div class="project-funding">¥2,175,000 CNY | 2025-2026</div>
                         <h3 class="project-title">Intelligent Assessment and Emergency Repair of Transmission Towers</h3>
@@ -780,9 +817,7 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Resilience Enhancement Project">
-                    </div>
+                    <div class="project-image">🌪️</div>
                     <div class="project-body">
                         <div class="project-funding">¥1,806,000 CNY | 2025-2026</div>
                         <h3 class="project-title">Failure Mechanism Analysis and Intelligent Resilience Enhancement</h3>
@@ -791,9 +826,7 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Smart Building Machine">
-                    </div>
+                    <div class="project-image">🤖</div>
                     <div class="project-body">
                         <div class="project-funding">¥1,370,000 CNY | 2024-2025</div>
                         <h3 class="project-title">"Smart Chain Cloud Construction" Intelligent Building Machine Platform</h3>
@@ -802,12 +835,10 @@
                 </a>
                 
                 <a href="projects.html" class="project-card">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Curtain Wall Project">
-                    </div>
+                    <div class="project-image">🏢</div>
                     <div class="project-body">
                         <div class="project-funding">¥949,660 CNY | 2022-2025</div>
-                        <h3 class="project-title">Curtain Wall Installation Quality Assessment with 3D Laser Scanning</h3>
+                        <h3 class="project-title">Curtain Wall Installation Quality Assessment Using 3D Laser Scanning</h3>
                         <p class="project-desc">Parametric glass curtain wall BIM model construction using 3D laser scanning and Laser Doppler Vibrometer.</p>
                     </div>
                 </a>
@@ -815,7 +846,7 @@
         </div>
     </section>
     
-    <!-- Patents & Demos -->
+    <!-- Patents Section (Text Only) -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -826,93 +857,30 @@
                 <a href="patents.html" class="view-all">View All →</a>
             </div>
             
-            <div class="cards-grid">
-                <a href="patents.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="Patent 1">
+            <div class="patent-list-compact">
+                <div class="patent-item-compact">
+                    <div class="patent-header-row">
+                        <span class="patent-title-compact">Spatial Synchronization and Information Recording System Based on 3D Real Scene Model</span>
+                        <span class="patent-badge badge-granted">Granted</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-meta">Granted Patent</div>
-                        <h3 class="card-title">Spatial Synchronization System Based on 3D Real Scene Model</h3>
-                        <p class="card-desc">3D real scene model-based spatial positioning and information recording system.</p>
-                        <div class="card-footer">CN104809754B | First Inventor</div>
-                    </div>
-                </a>
-                
-                <a href="patents.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="Patent 2">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta">Published</div>
-                        <h3 class="card-title">High-Precision Parametric Adjustment of As-Built Curtain Wall Model</h3>
-                        <p class="card-desc">Point cloud processing for curtain wall model adjustment using 3D laser scanning.</p>
-                        <div class="card-footer">CN116385703A | First Inventor</div>
-                    </div>
-                </a>
-                
-                <a href="patents.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="Patent 3">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta">Published</div>
-                        <h3 class="card-title">Bridge Monitoring Based on 3D Laser Scanning Combined with BIM</h3>
-                        <p class="card-desc">Integrated BIM and 3D laser scanning technology for structural health monitoring.</p>
-                        <div class="card-footer">CN116305436A | First Inventor</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Demos Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Interactive Demos</h2>
-                    <p class="section-subtitle">Explore digital twins, AI models, and research tools</p>
+                    <div class="patent-meta-compact">CN104809754B | First Inventor | Oct 16, 2018</div>
                 </div>
-                <a href="demos.html" class="view-all">View All →</a>
-            </div>
-            
-            <div class="cards-grid">
-                <a href="demos.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="UltraEvolve Demo">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta">Platform</div>
-                        <h3 class="card-title">UltraEvolve Research Platform</h3>
-                        <p class="card-desc">AI-powered literature search, patent analysis, and research roadmap planning.</p>
-                        <div class="card-footer">https://www.ultraevolve.com</div>
-                    </div>
-                </a>
                 
-                <a href="demos.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="Digital Twin Demo">
+                <div class="patent-item-compact">
+                    <div class="patent-header-row">
+                        <span class="patent-title-compact">High-Precision Parametric Adjustment of As-Built Curtain Wall Model Based on Point Cloud</span>
+                        <span class="patent-badge badge-published">Published</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-meta">Digital Twin</div>
-                        <h3 class="card-title">Tower-Line System Digital Twin</h3>
-                        <p class="card-desc">Real-time simulation and predictive maintenance for transmission infrastructure.</p>
-                        <div class="card-footer">Interactive 3D Visualization</div>
-                    </div>
-                </a>
+                    <div class="patent-meta-compact">CN116385703A | First Inventor | Jul 4, 2023</div>
+                </div>
                 
-                <a href="demos.html" class="card">
-                    <div class="card-image">
-                        <img src="photo.jpg" alt="Robot Demo">
+                <div class="patent-item-compact">
+                    <div class="patent-header-row">
+                        <span class="patent-title-compact">Method for Monitoring Existing Bridges Based on 3D Laser Scanning Combined with BIM</span>
+                        <span class="patent-badge badge-published">Published</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-meta">Robotics</div>
-                        <h3 class="card-title">Intelligent Building Machine</h3>
-                        <p class="card-desc">Dual-arm collaborative robot control with real-time digital twin synchronization.</p>
-                        <div class="card-footer">Video Demo Available</div>
-                    </div>
-                </a>
+                    <div class="patent-meta-compact">CN116305436A | First Inventor | Jun 23, 2023</div>
+                </div>
             </div>
         </div>
     </section>
@@ -935,11 +903,10 @@
     <section class="name-section">
         <div class="container">
             <div class="name-display">Daguang Han</div>
-            <div class="name-role">Professor, Southeast University | Founding Dean, SCSDA</div>
+            <div class="name-role">Founding Dean, SCSDA | Visiting Professor, Southeast University</div>
         </div>
     </section>
     
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <h2 class="footer-cta">Let's build the future together.</h2>

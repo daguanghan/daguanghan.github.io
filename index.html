@@ -3,206 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Daguang Han - Professor &amp; Engineer</title>
+    <title>Daguang Han</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         :root {
             --color-bg: #ffffff;
-            --color-bg-secondary: #f5f5f7;
-            --color-text: #1d1d1f;
-            --color-text-secondary: #86868b;
-            --color-accent: #0071e3;
-            --color-border: #d2d2d7;
-            --font-main: 'Inter', -apple-system, sans-serif;
+            --color-bg-secondary: #f8f9fa;
+            --color-text: #212529;
+            --color-text-secondary: #6c757d;
+            --color-accent: #0d6efd;
+            --color-border: #dee2e6;
+            --color-navbar-bg: #2c3e50;
+            --color-navbar-text: #ffffff;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
-        header { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
-        .logo { font-size: 20px; font-weight: 600; color: var(--color-text); text-decoration: none; }
-        nav { display: flex; align-items: center; gap: 30px; }
-        nav a { font-size: 14px; font-weight: 500; color: var(--color-text); text-decoration: none; }
-        nav a:hover { color: var(--color-accent); }
-        .social-icons { display: flex; gap: 15px; margin-left: 20px; }
-        .social-icons a { font-size: 16px; color: var(--color-text-secondary); }
-        .social-icons a:hover { color: var(--color-accent); }
-        main { margin-top: 60px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        .hero { padding: 120px 0 80px; text-align: center; background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%); }
-        .hero h1 { font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; }
-        .hero .tagline { font-size: 24px; color: var(--color-text-secondary); margin-bottom: 30px; }
-        .hero .description { font-size: 20px; max-width: 700px; margin: 0 auto 40px; }
-        .hero-buttons { display: flex; gap: 20px; justify-content: center; margin-bottom: 60px; }
-        .btn { padding: 14px 32px; font-size: 16px; font-weight: 500; border-radius: 50px; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-primary { background: var(--color-accent); color: white; }
-        .btn-secondary { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
-        .stats-bar { display: flex; justify-content: center; gap: 60px; padding: 40px 0; border-top: 1px solid var(--color-border); }
-        .stat-item { text-align: center; }
-        .stat-number { font-size: 48px; font-weight: 700; display: block; }
-        .stat-label { font-size: 14px; color: var(--color-text-secondary); text-transform: uppercase; }
-        section { padding: 80px 0; }
-        section h2 { font-size: 48px; font-weight: 700; margin-bottom: 40px; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 30px; transition: all 0.3s; }
-        .card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
-        .service-tag { display: inline-block; background: var(--color-bg-secondary); padding: 6px 14px; border-radius: 20px; font-size: 13px; color: var(--color-text-secondary); margin-right: 8px; margin-bottom: 8px; }
-        footer { background: var(--color-bg-secondary); padding: 60px 0; text-align: center; border-top: 1px solid var(--color-border); }
-        .social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
-        .social-links a { font-size: 24px; color: var(--color-text-secondary); }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 42px; }
-            .stats-bar { flex-wrap: wrap; gap: 30px; }
-            .container { padding: 0 20px; }
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: var(--font-main); 
+            background: var(--color-bg); 
+            color: var(--color-text); 
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--color-navbar-bg);
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-navbar-text);
+            text-decoration: none;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-navbar-text);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .social-nav {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-nav a {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+        
+        .social-nav a:hover {
+            color: var(--color-navbar-text);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+        }
+        
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+        }
+        
+        /* Left Sidebar */
+        .about-sidebar {
+            text-align: center;
+        }
+        
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 4px solid var(--color-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+        
+        .about-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        
+        .about-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .about-link:hover {
+            background: var(--color-bg-secondary);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        
+        .about-link i {
+            font-size: 16px;
+        }
+        
+        /* Right Content */
+        .about-content {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .about-content p {
+            margin-bottom: 18px;
+        }
+        
+        .about-content strong {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        
+        .about-content a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .about-content a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--color-text);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-border);
+        }
+        
+        .about-content ul {
+            margin-left: 24px;
+            margin-bottom: 18px;
+        }
+        
+        .about-content li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-bg-secondary);
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+            margin-top: 60px;
+        }
+        
+        footer p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 24px;
+            }
+            
+            .about-sidebar {
+                text-align: center;
+            }
+            
+            .about-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .navbar-nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Daguang Han</a>
         <nav>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#projects">Projects</a>
-            <a href="#demos">Demos</a>
-            <a href="#thoughts">Thoughts</a>
-            <div class="social-icons">
-                <a href="https://scholar.google.com" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://orcid.org" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com" target="_blank" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="./" class="navbar-brand">Daguang Han</a>
+            <ul class="navbar-nav">
+                <li><a href="./" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#talks" class="nav-link">Talks</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="social-nav">
+                    <a href="https://github.com/daguanghan" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>Dr. Daguang Han</h1>
-                <p class="tagline">Professor &middot; Engineer &middot; Visionary</p>
-                <p class="description">Bridging Civil Engineering and AI for Infrastructure Resilience. Founding Dean of SCSDA, Creator of UltraEvolve.</p>
-                <div class="hero-buttons">
-                    <a href="#publications" class="btn btn-primary"><i class="fas fa-book"></i> View Publications</a>
-                    <a href="#demos" class="btn btn-secondary"><i class="fas fa-play"></i> Explore Demos</a>
-                </div>
+        <div class="about-container">
+            <div class="about-sidebar">
+                <img src="https://via.placeholder.com/400x400/2c3e50/ffffff?text=DH" alt="Daguang Han" class="about-image">
+                <h1 class="about-title">Daguang Han</h1>
                 
-                <div class="stats-bar">
-                    <div class="stat-item"><span class="stat-number">838</span><span class="stat-label">Citations</span></div>
-                    <div class="stat-item"><span class="stat-number">h-index 13</span><span class="stat-label">Impact</span></div>
-                    <div class="stat-item"><span class="stat-number">70</span><span class="stat-label">Publications</span></div>
-                    <div class="stat-item"><span class="stat-number">20</span><span class="stat-label">Patents</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" style="background: var(--color-bg-secondary);">
-            <div class="container">
-                <h2>About</h2>
-                
-                <p style="font-size: 22px; max-width: 800px; margin-bottom: 30px;">
-                    I'm a professor, philosopher-engineer, and frontier technology explorer committed to co-creating humanity's path toward a conscious, collaborative, and regenerative civilization in the age of AI.
-                </p>
-                
-                <p style="font-size: 18px; color: var(--color-text-secondary); max-width: 800px; margin-bottom: 30px;">
-                    With 20 years of experience in research, innovation, and academic leadership, I bridge Eastern metaphysics, scientific logic, and technological foresight to build an integrated theory of human awakening and planetary transformation.
-                </p>
-
-                <!-- Academic Service -->
-                <div style="margin-top: 40px;">
-                    <h3 style="font-size: 24px; margin-bottom: 20px;">Academic Service</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-                        <span class="service-tag">Guest Editor, Applied Sciences (MDPI)</span>
-                        <span class="service-tag">Co-Chair, ISEGT 2025</span>
-                        <span class="service-tag">Founding Dean, SCSDA</span>
-                        <span class="service-tag">Visiting Professor, SEU</span>
-                    </div>
-                    
-                    <p style="font-size: 15px; color: var(--color-text-secondary); max-width: 800px;">
-                        Currently serving as Guest Editor for Applied Sciences Special Issue on Digital Advancements in Civil Engineering and Construction (Submission deadline: November 20, 2026), and Co-Chair of Conference for ISEGT 2025.
-                    </p>
+                <div class="about-links">
+                    <a href="https://github.com/daguanghan" class="about-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="about-link">
+                        <i class="bi bi-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="about-link">
+                        <i class="bi bi-twitter-x"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="mailto:daguang.han@example.com" class="about-link">
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>Email</span>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Research Areas -->
-        <section id="research">
-            <div class="container">
-                <h2>Research Areas</h2>
+            
+            <div class="about-content">
+                <p>Thanks for stopping by my little corner of the internet!</p>
                 
-                <div class="card-grid">
-                    <div class="card">
-                        <i class="fas fa-building" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
-                        <h3>Infrastructure Resilience &amp; Digital Twins</h3>
-                        <p>Tower-line system digital twin modeling, multi-physics coupling simulation under extreme disasters.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <i class="fas fa-heartbeat" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
-                        <h3>Intelligent Structural Health Monitoring</h3>
-                        <p>AI/deep learning for damage identification, Physics-Informed Neural Networks (PINNs).</p>
-                    </div>
-                    
-                    <div class="card">
-                        <i class="fas fa-robot" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
-                        <h3>Smart Construction &amp; Human-Robot Collaboration</h3>
-                        <p>Intelligent building machine platforms, dual-arm collaborative robot control.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <i class="fas fa-brain" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
-                        <h3>AI-Driven Disaster Mitigation</h3>
-                        <p>Multi-Agent Reinforcement Learning (MARL), federated learning frameworks.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" style="background: var(--color-bg-secondary);">
-            <div class="container">
-                <h2>Featured Projects</h2>
+                <p>I'm a <strong>Professor</strong> and <strong>Researcher</strong> passionate about advancing knowledge in my field and mentoring the next generation of researchers.</p>
                 
-                <div class="card-grid">
-                    <div class="card">
-                        <span style="font-size: 12px; color: var(--color-accent); font-weight: 600;">FLAGSHIP PROJECT</span>
-                        <h3 style="margin-top: 8px;">Intelligent Assessment of Transmission Towers</h3>
-                        <p>AI-driven damage assessment using drone imagery and deep learning.</p>
-                        <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>¥2.175M</strong> | Principal Investigator</p>
-                    </div>
-                    
-                    <div class="card">
-                        <span style="font-size: 12px; color: var(--color-accent); font-weight: 600;">FLAGSHIP PROJECT</span>
-                        <h3 style="margin-top: 8px;">Smart Chain Cloud Construction</h3>
-                        <p>1:10 scale intelligent building machine with dual-arm robots.</p>
-                        <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>¥1.37M</strong> | Principal Investigator</p>
-                    </div>
-                    
-                    <div class="card">
-                        <span style="font-size: 12px; color: var(--color-accent); font-weight: 600;">NATIONAL PROJECT</span>
-                        <h3 style="margin-top: 8px;">Cross-Type Disaster Experimental Models</h3>
-                        <p>National Key R&D Program for infrastructure resilience.</p>
-                        <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>National Key R&D</strong> | Sub-Leader</p>
-                    </div>
-                </div>
+                <p>My research focuses on [your research area], where I explore [specific research topics]. I lead several research projects and collaborate with international teams to push the boundaries of our understanding.</p>
+                
+                <p>With a background in [your background], I've developed expertise in [your expertise areas]. I'm committed to open science and reproducible research practices.</p>
+                
+                <p>Beyond academia, I enjoy [your hobbies/interests].</p>
+                
+                <h3 class="section-title">Current Position</h3>
+                <p>Professor</p>
+                <ul>
+                    <li><a href="#">Department of [Your Department]</a></li>
+                    <li><a href="#">[Your University/Institution]</a></li>
+                    <li><a href="#">[Your Research Group/Lab]</a></li>
+                </ul>
+                
+                <h3 class="section-title">Research Interests</h3>
+                <ul>
+                    <li>[Research Interest 1]</li>
+                    <li>[Research Interest 2]</li>
+                    <li>[Research Interest 3]</li>
+                    <li>[Research Interest 4]</li>
+                </ul>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fas fa-graduation-cap"></i></a>
-                <a href="#"><i class="fab fa-orcid"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-            <p>&copy; 2026 Dr. Daguang Han. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Daguang Han. All rights reserved.</p>
     </footer>
 </body>
 </html>

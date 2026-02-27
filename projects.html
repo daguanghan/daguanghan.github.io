@@ -175,16 +175,11 @@
         }
         
         .project-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 1.5rem;
             padding: 1.5rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 10px;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
+            transition: all 0.3s ease;
         }
         
         .project-item:hover {
@@ -193,44 +188,38 @@
             transform: translateY(-2px);
         }
         
-        .project-image {
-            height: 140px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
-            border-radius: 6px;
-            overflow: hidden;
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
         }
         
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .project-content h3 {
+        .project-title {
             font-size: 1.125rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            flex: 1;
         }
         
         .project-funding {
             font-size: 0.75rem;
             color: #6366f1;
             font-weight: 600;
+            margin-left: 1rem;
+            flex-shrink: 0;
         }
         
-        .project-year {
-            font-size: 0.75rem;
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.8125rem;
             color: rgba(255,255,255,0.4);
+            margin-bottom: 0.75rem;
         }
         
         .project-desc {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: rgba(255,255,255,0.6);
             line-height: 1.6;
             margin-bottom: 0.75rem;
@@ -265,12 +254,17 @@
         }
         
         @media (max-width: 768px) {
-            .project-item {
-                grid-template-columns: 1fr;
-            }
-            
             .stats-bar {
                 gap: 2rem;
+            }
+            
+            .project-header {
+                flex-direction: column;
+            }
+            
+            .project-funding {
+                margin-left: 0;
+                margin-top: 0.5rem;
             }
             
             .nav-links {
@@ -328,40 +322,36 @@
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Cross-Type Disaster Project">
+                    <div class="project-header">
+                        <h3 class="project-title">Cross-Type Disaster Large-Scale Experimental Models for Long-Span Structures</h3>
+                        <span class="project-funding">National Key R&D Program</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Cross-Type Disaster Large-Scale Experimental Models for Long-Span Structures</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">National Key R&D Program</span>
-                            <span class="project-year">2024-Present</span>
-                        </div>
-                        <p class="project-desc">Large-scale multi-parameter coupling experiments and non-equilibrium scenario reconstruction for long-line power grid structures under cross-type disasters. Role: Sub-Project Leader.</p>
-                        <div class="project-tags">
-                            <span class="tag">Disaster Engineering</span>
-                            <span class="tag">Power Grid</span>
-                            <span class="tag">Experimental Modeling</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2024-Present</span>
+                        <span>👤 Role: Sub-Project Leader</span>
+                    </div>
+                    <p class="project-desc">Large-scale multi-parameter coupling experiments and non-equilibrium scenario reconstruction for long-line power grid structures under cross-type disasters.</p>
+                    <div class="project-tags">
+                        <span class="tag">Disaster Engineering</span>
+                        <span class="tag">Power Grid</span>
+                        <span class="tag">Experimental Modeling</span>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="High-Altitude Bridge Project">
+                    <div class="project-header">
+                        <h3 class="project-title">Damage Mechanism and Health Monitoring for High-Altitude Bridges</h3>
+                        <span class="project-funding">NSFC Key Project</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Damage Mechanism and Health Monitoring for High-Altitude Bridges</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">NSFC Key Project</span>
-                            <span class="project-year">2024-2026</span>
-                        </div>
-                        <p class="project-desc">Mechanism of damage, health monitoring, and safety early warning technology for large bridges in high-altitude and cold regions. Role: Key R&D Member.</p>
-                        <div class="project-tags">
-                            <span class="tag">Structural Health Monitoring</span>
-                            <span class="tag">Cold Regions</span>
-                            <span class="tag">Safety Warning</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2024-2026</span>
+                        <span>👤 Role: Key R&D Member</span>
+                    </div>
+                    <p class="project-desc">Mechanism of damage, health monitoring, and safety early warning technology for large bridges in high-altitude and cold regions.</p>
+                    <div class="project-tags">
+                        <span class="tag">Structural Health Monitoring</span>
+                        <span class="tag">Cold Regions</span>
+                        <span class="tag">Safety Warning</span>
                     </div>
                 </div>
             </div>
@@ -373,118 +363,111 @@
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Transmission Tower Project">
+                    <div class="project-header">
+                        <h3 class="project-title">Intelligent Assessment and Emergency Repair of Transmission Towers</h3>
+                        <span class="project-funding">¥2,175,000 CNY</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Intelligent Assessment and Emergency Repair of Transmission Towers</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">¥2,175,000 CNY</span>
-                            <span class="project-year">2025-2026</span>
-                        </div>
-                        <p class="project-desc">AI-driven damage assessment using drone imagery and deep learning. Multi-Agent Reinforcement Learning for emergency resource optimization. 30% reduction in repair time through AI-assisted decision making.</p>
-                        <div class="project-tags">
-                            <span class="tag">AI Assessment</span>
-                            <span class="tag">Drone Imagery</span>
-                            <span class="tag">MARL</span>
-                            <span class="tag">PINNs</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2025-2026</span>
+                        <span>🏢 State Grid Zhejiang</span>
+                        <span>👤 PI</span>
                     </div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Resilience Project">
-                    </div>
-                    <div class="project-content">
-                        <h3>Failure Mechanism Analysis and Intelligent Resilience Enhancement</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">¥1,806,000 CNY</span>
-                            <span class="project-year">2025-2026</span>
-                        </div>
-                        <p class="project-desc">Digital twin coupling analysis for tower-line systems. Extreme wind load failure mechanism research. Resilience enhancement through novel materials and structural optimization.</p>
-                        <div class="project-tags">
-                            <span class="tag">Digital Twin</span>
-                            <span class="tag">Wind Load</span>
-                            <span class="tag">Resilience</span>
-                        </div>
+                    <p class="project-desc">AI-driven damage assessment using drone imagery and deep learning. Multi-Agent Reinforcement Learning for emergency resource optimization. 30% reduction in repair time through AI-assisted decision making.</p>
+                    <div class="project-tags">
+                        <span class="tag">AI Assessment</span>
+                        <span class="tag">Drone Imagery</span>
+                        <span class="tag">MARL</span>
+                        <span class="tag">PINNs</span>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Smart Building Machine">
+                    <div class="project-header">
+                        <h3 class="project-title">Failure Mechanism Analysis and Intelligent Resilience Enhancement</h3>
+                        <span class="project-funding">¥1,806,000 CNY</span>
                     </div>
-                    <div class="project-content">
-                        <h3>"Smart Chain Cloud Construction" Intelligent Building Machine Platform</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">¥1,370,000 CNY</span>
-                            <span class="project-year">2024-2025</span>
-                        </div>
-                        <p class="project-desc">1:10 scale intelligent building machine with dual-arm collaborative robots and real-time digital twin synchronization. Breakthrough in intelligent construction equipment with automated quality monitoring.</p>
-                        <div class="project-tags">
-                            <span class="tag">Human-Robot Collaboration</span>
-                            <span class="tag">Digital Twin</span>
-                            <span class="tag">PLC Control</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2025-2026</span>
+                        <span>🏢 State Grid Zhejiang</span>
+                        <span>👤 PI</span>
                     </div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Curtain Wall Project">
-                    </div>
-                    <div class="project-content">
-                        <h3>Curtain Wall Installation Quality Assessment Using 3D Laser Scanning and LDV</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">¥949,660 CNY</span>
-                            <span class="project-year">2022-2025</span>
-                        </div>
-                        <p class="project-desc">Parametric glass curtain wall BIM model construction using 3D laser scanning and Laser Doppler Vibrometer. Intelligent target system with LED display and electromagnetic base for quality assessment.</p>
-                        <div class="project-tags">
-                            <span class="tag">3D Laser Scanning</span>
-                            <span class="tag">BIM</span>
-                            <span class="tag">LDV</span>
-                            <span class="tag">Quality Control</span>
-                        </div>
+                    <p class="project-desc">Digital twin coupling analysis for tower-line systems. Extreme wind load failure mechanism research. Resilience enhancement through novel materials and structural optimization.</p>
+                    <div class="project-tags">
+                        <span class="tag">Digital Twin</span>
+                        <span class="tag">Wind Load</span>
+                        <span class="tag">Resilience</span>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="MEMS Bridge Monitoring">
+                    <div class="project-header">
+                        <h3 class="project-title">"Smart Chain Cloud Construction" Intelligent Building Machine Platform</h3>
+                        <span class="project-funding">¥1,370,000 CNY</span>
                     </div>
-                    <div class="project-content">
-                        <h3>MEMS-Based Cable-Stayed Bridge Health Monitoring</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">Industry Funded</span>
-                            <span class="project-year">2022-2023</span>
-                        </div>
-                        <p class="project-desc">Whole life cycle health monitoring using advanced MEMS sensing systems for cable-stayed bridges. Real-time data acquisition and structural performance evaluation.</p>
-                        <div class="project-tags">
-                            <span class="tag">MEMS Sensors</span>
-                            <span class="tag">Cable-Stayed Bridge</span>
-                            <span class="tag">Life Cycle</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2024-2025</span>
+                        <span>🏢 Southeast University</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">1:10 scale intelligent building machine with dual-arm collaborative robots and real-time digital twin synchronization. Breakthrough in intelligent construction equipment with automated quality monitoring.</p>
+                    <div class="project-tags">
+                        <span class="tag">Human-Robot Collaboration</span>
+                        <span class="tag">Digital Twin</span>
+                        <span class="tag">PLC Control</span>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="BIM Big Data Project">
+                    <div class="project-header">
+                        <h3 class="project-title">Curtain Wall Installation Quality Assessment Using 3D Laser Scanning and LDV</h3>
+                        <span class="project-funding">¥949,660 CNY</span>
                     </div>
-                    <div class="project-content">
-                        <h3>BIM and Big Data for Building Structural Safety and Intelligent Diagnosis</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">Jiangsu International Cooperation</span>
-                            <span class="project-year">2021-2023</span>
-                        </div>
-                        <p class="project-desc">International science and technology cooperation project focusing on BIM and big data analytics for structural safety assessment and intelligent diagnosis systems.</p>
-                        <div class="project-tags">
-                            <span class="tag">BIM</span>
-                            <span class="tag">Big Data</span>
-                            <span class="tag">International Cooperation</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2022-2025</span>
+                        <span>🏢 Guangzhou Litong Real Estate</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">Parametric glass curtain wall BIM model construction using 3D laser scanning and Laser Doppler Vibrometer. Intelligent target system with LED display and electromagnetic base for quality assessment.</p>
+                    <div class="project-tags">
+                        <span class="tag">3D Laser Scanning</span>
+                        <span class="tag">BIM</span>
+                        <span class="tag">LDV</span>
+                        <span class="tag">Quality Control</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">MEMS-Based Cable-Stayed Bridge Health Monitoring</h3>
+                        <span class="project-funding">Industry Funded</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>📅 2022-2023</span>
+                        <span>🏢 Chongqing Construction Industry Group</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">Whole life cycle health monitoring using advanced MEMS sensing systems for cable-stayed bridges. Real-time data acquisition and structural performance evaluation.</p>
+                    <div class="project-tags">
+                        <span class="tag">MEMS Sensors</span>
+                        <span class="tag">Cable-Stayed Bridge</span>
+                        <span class="tag">Life Cycle</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">BIM and Big Data for Building Structural Safety and Intelligent Diagnosis</h3>
+                        <span class="project-funding">Jiangsu International Cooperation</span>
+                    </div>
+                    <div class="project-meta">
+                        <span>📅 2021-2023</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">International science and technology cooperation project focusing on BIM and big data analytics for structural safety assessment and intelligent diagnosis systems.</p>
+                    <div class="project-tags">
+                        <span class="tag">BIM</span>
+                        <span class="tag">Big Data</span>
+                        <span class="tag">International Cooperation</span>
                     </div>
                 </div>
             </div>
@@ -496,38 +479,34 @@
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="Digital Twin Bridge">
+                    <div class="project-header">
+                        <h3 class="project-title">Digital Twin-Based Service Performance Evaluation for Long-Span Bridges</h3>
+                        <span class="project-funding">Chongqing S&T Bureau</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Digital Twin-Based Service Performance Evaluation for Long-Span Bridges</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">Chongqing Science & Technology Bureau</span>
-                            <span class="project-year">2023-Present</span>
-                        </div>
-                        <p class="project-desc">Service performance evaluation and prediction mechanisms for long-span complex bridges based on digital twin theory. Role: Principal Investigator.</p>
-                        <div class="project-tags">
-                            <span class="tag">Digital Twin</span>
-                            <span class="tag">Performance Evaluation</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2023-Present</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">Service performance evaluation and prediction mechanisms for long-span complex bridges based on digital twin theory.</p>
+                    <div class="project-tags">
+                        <span class="tag">Digital Twin</span>
+                        <span class="tag">Performance Evaluation</span>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image">
-                        <img src="photo.jpg" alt="SCSDA Establishment">
+                    <div class="project-header">
+                        <h3 class="project-title">New R&D Institution Construction - SCSDA</h3>
+                        <span class="project-funding">Chongqing S&T Bureau</span>
                     </div>
-                    <div class="project-content">
-                        <h3>New R&D Institution Construction - SCSDA</h3>
-                        <div class="project-meta">
-                            <span class="project-funding">Chongqing Science & Technology Bureau</span>
-                            <span class="project-year">2023-2024</span>
-                        </div>
-                        <p class="project-desc">Establishment of Smart City and Sustainable Development Academy (SCSDA). Building research infrastructure and collaboration platforms for smart city development.</p>
-                        <div class="project-tags">
-                            <span class="tag">Institution Building</span>
-                            <span class="tag">Smart City</span>
-                        </div>
+                    <div class="project-meta">
+                        <span>📅 2023-2024</span>
+                        <span>👤 PI</span>
+                    </div>
+                    <p class="project-desc">Establishment of Smart City and Sustainable Development Academy (SCSDA). Building research infrastructure and collaboration platforms for smart city development.</p>
+                    <div class="project-tags">
+                        <span class="tag">Institution Building</span>
+                        <span class="tag">Smart City</span>
                     </div>
                 </div>
             </div>

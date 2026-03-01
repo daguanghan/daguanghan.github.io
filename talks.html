@@ -1,394 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Talks - Daguang Han</title>
-<style>
-body{background:#000;color:#fff;font-family:Inter,sans-serif;margin:0}
-.nav{position:fixed;top:0;left:0;right:0;padding:1.5rem 3rem;display:flex;justify-content:space-between;background:rgba(0,0,0,0.9);z-index:1000}
-.nav-logo{color:#fff;text-decoration:none;font-weight:700}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none}
-.nav-links a.active{color:#fff}
-.main{padding:8rem 2rem 4rem;max-width:1000px;margin:0 auto}
-.header h1{font-size:3rem;margin-bottom:1rem}
-.header p{color:rgba(255,255,255,0.7)}
-.stats{display:flex;gap:3rem;margin:3rem 0;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1)}
-.stat-value{font-size:2rem;color:#6366f1;font-weight:700}
-.stat-label{color:rgba(255,255,255,0.5);font-size:0.875rem;text-transform:uppercase}
-.year-section{margin-bottom:3rem}
-.year-header{display:flex;align-items:center;gap:1rem;border-bottom:2px solid #6366f1;padding-bottom:0.5rem;margin-bottom:1.5rem}
-.year-title{font-size:1.75rem}
-.year-count{background:rgba(255,255,255,0.1);padding:0.25rem 0.75rem;border-radius:100px;font-size:0.875rem;color:rgba(255,255,255,0.7)}
-.talk-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
-.talk-item.upcoming{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.1)}
-.talk-type{display:inline-block;font-size:0.7rem;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:4px;margin-bottom:0.5rem}
-.type-keynote{background:rgba(99,102,241,0.3);color:#818cf8}
-.type-invited{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
-.type-conference{background:rgba(139,92,246,0.3);color:#a78bfa}
-.talk-date{color:#6366f1;font-size:0.8rem;font-weight:600;text-transform:uppercase;display:block;margin-bottom:0.5rem}
-.talk-title{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
-.talk-venue{color:rgba(255,255,255,0.7);font-size:0.9rem}
-.talk-location{color:rgba(255,255,255,0.5);font-size:0.85rem}
-.footer{margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);text-align:center;color:rgba(255,255,255,0.5)}
-.footer a{color:#6366f1}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks - Daguang Han</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Mouse-following spotlight effect */
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+        }
+        
+        .bg-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
+            bottom: 10%;
+            right: -150px;
+            animation-delay: -7s;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            padding: 7rem 0 2rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .page-subtitle {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #6366f1;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.625rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.375rem;
+        }
+        
+        .year-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .year-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 2px solid #6366f1;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .year-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .year-count {
+            background: rgba(255,255,255,0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .talk-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s;
+        }
+        
+        .talk-item:hover {
+            border-color: rgba(99,102,241,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .talk-item.upcoming {
+            border-color: rgba(99,102,241,0.3);
+            background: rgba(99,102,241,0.05);
+        }
+        
+        .talk-type {
+            display: inline-block;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .type-keynote {
+            background: rgba(99,102,241,0.2);
+            color: #818cf8;
+        }
+        
+        .type-invited {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .type-conference {
+            background: rgba(139,92,246,0.2);
+            color: #a78bfa;
+        }
+        
+        .talk-date {
+            color: #6366f1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.375rem;
+        }
+        
+        .talk-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            line-height: 1.4;
+        }
+        
+        .talk-venue {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8125rem;
+        }
+        
+        .talk-location {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="nav"><a href="index.html" class="nav-logo">DH</a>
-<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="publications.html">Publications</a></li><li><a href="projects.html">Projects</a></li><li><a href="patents.html">Patents</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="talks.html" class="active">Talks</a></li><li><a href="demos.html">Demos</a></li></ul></nav>
-<main class="main">
-<div class="header"><h1>Talks & Presentations</h1><p>Keynote speeches, invited lectures, and conference presentations on digital engineering, infrastructure intelligence, and AI applications in civil engineering (2018-2026).</p></div>
-<div class="stats"><div><div class="stat-value">60+</div><div class="stat-label">Total Talks</div></div><div><div class="stat-value">15</div><div class="stat-label">Countries</div></div><div><div class="stat-value">25+</div><div class="stat-label">Universities</div></div><div><div class="stat-value">8</div><div class="stat-label">Keynotes</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2026</h2><span class="year-count">8 talks</span></div>
-<div class="talk-item upcoming"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">June 2026</span><div class="talk-title">Generative AI for Infrastructure Design: From Concept to Construction</div><div class="talk-venue">Keynote Speaker | International Conference on Computational Civil Engineering</div><div class="talk-location">Stanford University, USA</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2026</span><div class="talk-title">Digital Twin Ecosystems for Smart Cities</div><div class="talk-venue">Distinguished Lecture | MIT Department of Civil and Environmental Engineering</div><div class="talk-location">Massachusetts Institute of Technology, USA</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">April 2026</span><div class="talk-title">Autonomous Construction Systems: Challenges and Opportunities</div><div class="talk-venue">Seminar Series | University of Cambridge School of Engineering</div><div class="talk-location">University of Cambridge, UK</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-conference">Conference</span><span class="talk-date">March 2026</span><div class="talk-title">Multi-Agent Reinforcement Learning for Traffic Infrastructure Management</div><div class="talk-venue">Technical Session | IEEE International Conference on Smart Infrastructure</div><div class="talk-location">Singapore</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2026</span><div class="talk-title">UltraEvolve Platform: Democratizing AI for Engineering Research</div><div class="talk-venue">Invited Seminar | Tsinghua University Department of Civil Engineering</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">February 2026</span><div class="talk-title">Large Language Models in Engineering Knowledge Management</div><div class="talk-venue">Workshop | Tongji University College of Civil Engineering</div><div class="talk-location">Shanghai, China</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-conference">Conference</span><span class="talk-date">January 2026</span><div class="talk-title">Sustainable Infrastructure Through Digitalization</div><div class="talk-venue">Panel Discussion | World Economic Forum - Infrastructure 4.0</div><div class="talk-location">Davos, Switzerland</div></div>
-<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">January 2026</span><div class="talk-title">AI-Driven Predictive Maintenance for Bridge Networks</div><div class="talk-venue">Technical Workshop | Federal Highway Administration</div><div class="talk-location">Washington DC, USA</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2025</h2><span class="year-count">9 talks</span></div>
-<div class="talk-item"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">November 2025</span><div class="talk-title">AI-Enabled Bridge Health Monitoring and Predictive Maintenance</div><div class="talk-venue">Keynote Address | Annual Conference of China Highway and Transportation Society</div><div class="talk-location">Nanjing, China</div></div>
-<div class="talk-item"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">September 2025</span><div class="talk-title">Digital Twin-Driven Infrastructure Resilience: From Theory to Practice</div><div class="talk-venue">Keynote Speaker | International Conference on Smart Infrastructure</div><div class="talk-location">Technical University of Munich, Germany</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">August 2025</span><div class="talk-title">Foundation Models for Engineering Applications</div><div class="talk-venue">Distinguished Lecture | Imperial College London Department of Computing</div><div class="talk-location">London, UK</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2025</span><div class="talk-title">UltraEvolve Platform: Transforming Research Paradigms in the AI Era</div><div class="talk-venue">Invited Lecture | Zhejiang University School of Civil Engineering</div><div class="talk-location">Hangzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">May 2025</span><div class="talk-title">Human-Robot Collaboration in Construction: A Digital Twin Approach</div><div class="talk-venue">Technical Session | International Symposium on Automation and Robotics in Construction</div><div class="talk-location">Liege, Belgium</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2025</span><div class="talk-title">Large Language Models for Engineering Knowledge Graphs</div><div class="talk-venue">Workshop | Tongji University College of Civil Engineering</div><div class="talk-location">Shanghai, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">February 2025</span><div class="talk-title">Smart Construction: From BIM to Digital Twins</div><div class="talk-venue">Executive Training | Skanska Corporation</div><div class="talk-location">Stockholm, Sweden</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">January 2025</span><div class="talk-title">Uncertainty Quantification in Digital Twin Models</div><div class="talk-venue">Technical Paper | ASCE International Conference on Computing in Civil Engineering</div><div class="talk-location">Pittsburgh, USA</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2024</h2><span class="year-count">9 talks</span></div>
-<div class="talk-item"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">December 2024</span><div class="talk-title">Intelligent Construction and Human-Robot Collaboration: Theory to Industrialization</div><div class="talk-venue">Keynote Address | Smart Construction Division, Architectural Society of China</div><div class="talk-location">Guangzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">October 2024</span><div class="talk-title">AI for Science: Applications and Prospects in Engineering</div><div class="talk-venue">Keynote Speaker | National Conference on Civil Engineering Innovation</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">September 2024</span><div class="talk-title">Neural Operators for Physics-Informed Infrastructure Simulation</div><div class="talk-venue">Research Seminar | National University of Singapore Department of Civil Engineering</div><div class="talk-location">Singapore</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">August 2024</span><div class="talk-title">Digital Twin Applications in Global Mega-Projects</div><div class="talk-venue">Distinguished Lecture | Hong Kong Polytechnic University</div><div class="talk-location">Hong Kong SAR</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">July 2024</span><div class="talk-title">Computer Vision for Structural Health Monitoring</div><div class="talk-venue">Summer School | ETH Zurich School of Engineering</div><div class="talk-location">Zurich, Switzerland</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">June 2024</span><div class="talk-title">Graph Neural Networks for Bridge Network Analysis</div><div class="talk-venue">Technical Session | IABSE Symposium</div><div class="talk-location">Zurich, Switzerland</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2024</span><div class="talk-title">UltraEvolve: Philosophy and Technology for the AI Era</div><div class="talk-venue">Podcast Interview | UltraEvolve Platform Launch</div><div class="talk-location">Virtual</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2024</span><div class="talk-title">Multi-Agent Reinforcement Learning for Power Grid Emergency Response</div><div class="talk-venue">Technical Workshop | State Grid Smart Grid Research Institute</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">February 2024</span><div class="talk-title">Federated Learning for Privacy-Preserving Infrastructure Analytics</div><div class="talk-venue">Workshop | AAAI Conference on Artificial Intelligence</div><div class="talk-location">Vancouver, Canada</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2023</h2><span class="year-count">8 talks</span></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">November 2023</span><div class="talk-title">Digital Technologies for High-Rise Building Construction</div><div class="talk-venue">Executive Briefing | Guangzhou Litong Financial Center</div><div class="talk-location">Guangzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">October 2023</span><div class="talk-title">Digital Airport Construction and Operations</div><div class="talk-venue">Executive Lecture | Hohhot Airport Authority</div><div class="talk-location">Hohhot, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">September 2023</span><div class="talk-title">Smart Construction and Human-Robot Collaboration</div><div class="talk-venue">Invited Seminar | Southeast University School of Civil Engineering</div><div class="talk-location">Nanjing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">August 2023</span><div class="talk-title">Digital Twin Technology for Bridge Health Monitoring</div><div class="talk-venue">Technical Workshop | China Highway and Transportation Society</div><div class="talk-location">Chengdu, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">July 2023</span><div class="talk-title">BIM and Reality Capture Integration for Smart Bridge Management</div><div class="talk-venue">Keynote Speaker | ECPPM 2023 - eWork and eBusiness in AEC</div><div class="talk-location">Delft, Netherlands</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2023</span><div class="talk-title">Nanosensors for Structural Health Monitoring: Innovations and Challenges</div><div class="talk-venue">Conference Presentation | International Conference on Smart Materials and Structures</div><div class="talk-location">Tokyo, Japan</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">March 2023</span><div class="talk-title">Virtual Pre-assembly Technology for Complex Steel Structures</div><div class="talk-venue">Technical Session | IOP Conference Series: Earth and Environmental Science</div><div class="talk-location">London, UK</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">January 2023</span><div class="talk-title">Digital Transformation in Infrastructure Construction</div><div class="talk-venue">Executive Training | China Communications Construction Company</div><div class="talk-location">Beijing, China</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2022</h2><span class="year-count">9 talks</span></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">November 2022</span><div class="talk-title">World Transport Convention Special Report</div><div class="talk-venue">Special Session | World Transport Convention</div><div class="talk-location">Wuhan, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2022</span><div class="talk-title">Digital Twin Technologies for Bridge Performance Assessment</div><div class="talk-venue">Key Lecture | World Bridge Conference</div><div class="talk-location">Orlando, USA</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2022</span><div class="talk-title">Southeast University Bridge Center Annual Conference</div><div class="talk-venue">Conference Presentation | Bridge Engineering Research Center</div><div class="talk-location">Southeast University, Nanjing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2022</span><div class="talk-title">Glasgow University Distinguished Lecture on Smart Infrastructure</div><div class="talk-venue">Distinguished Lecture | University of Glasgow School of Engineering</div><div class="talk-location">Glasgow, Scotland, UK</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">May 2022</span><div class="talk-title">Ministry of Transport Demonstration Project Achievement Recognition</div><div class="talk-venue">Project Presentation | Ministry of Transport of China</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2022</span><div class="talk-title">Norwegian Industry-Academia Exchange on Digital Construction</div><div class="talk-venue">Industry Exchange | Norwegian Construction Industry Association</div><div class="talk-location">Oslo, Norway</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">January 2022</span><div class="talk-title">MEMS Sensor Technology for Structural Monitoring</div><div class="talk-venue">Technical Seminar | Chongqing Construction Engineering Group</div><div class="talk-location">Chongqing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">January 2022</span><div class="talk-title">CCCC Second Harbor Engineering Company Technical Center Workshop</div><div class="talk-venue">Invited Workshop | CCCC Second Harbor Engineering Company</div><div class="talk-location">Wuhan, China</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2021</h2><span class="year-count">8 talks</span></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">December 2021</span><div class="talk-title">Shenyang Jianzhu University Presidential Team Distinguished Lecture</div><div class="talk-venue">Distinguished Lecture | Presidential Office</div><div class="talk-location">Shenyang Jianzhu University, Shenyang, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">December 2021</span><div class="talk-title">Digital Twins and Smart Factory at Volvo Taiyuan Plant</div><div class="talk-venue">Executive Lecture | Volvo Cars Manufacturing</div><div class="talk-location">Taiyuan, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">December 2021</span><div class="talk-title">China Construction Association Digital Certification Alliance Luncheon Talk</div><div class="talk-venue">Luncheon Talk | China Construction Association</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">November 2021</span><div class="talk-title">Loughborough University School of Architecture, Building and Civil Engineering Exchange</div><div class="talk-venue">Academic Exchange | School of Architecture, Building and Civil Engineering</div><div class="talk-location">Loughborough University, UK</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">October 2021</span><div class="talk-title">CCCC Second Harbor Engineering Baijusi Bridge Project Presentation</div><div class="talk-venue">Project Presentation | CCCC Second Harbor Engineering Company</div><div class="talk-location">Chongqing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">October 2021</span><div class="talk-title">Digital Automotive Factory - Volvo China Beijing Presentation</div><div class="talk-venue">Industry Presentation | Volvo Cars China</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">September 2021</span><div class="talk-title">FM+BIM Beijing Symposium - CITIC Plaza China Zun Presentation</div><div class="talk-venue">Symposium Presentation | FM+BIM Beijing Symposium</div><div class="talk-location">Beijing, China</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2020</h2><span class="year-count">7 talks</span></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">November 2020</span><div class="talk-title">Post-Pandemic Digital Transformation in Construction</div><div class="talk-venue">Webinar | Royal Institution of Chartered Surveyors (RICS)</div><div class="talk-location">Virtual - London, UK</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">October 2020</span><div class="talk-title">Remote Sensing Applications in Bridge Inspection</div><div class="talk-venue">Technical Session | International Conference on Structural Health Monitoring</div><div class="talk-location">Virtual - Stanford, USA</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">September 2020</span><div class="talk-title">BIM Implementation in Chinese Infrastructure Projects</div><div class="talk-venue">Guest Lecture | Department of Civil Engineering</div><div class="talk-location">University of Queensland, Australia (Virtual)</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">August 2020</span><div class="talk-title">Machine Learning for Construction Safety Monitoring</div><div class="talk-venue">Paper Presentation | CIB World Building Congress</div><div class="talk-location">Virtual - Auckland, New Zealand</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">July 2020</span><div class="talk-title">Digital Technologies for Post-COVID Construction Recovery</div><div class="talk-venue">Executive Briefing | China State Construction Engineering Corporation</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2020</span><div class="talk-title">Virtual Design and Construction Best Practices</div><div class="talk-venue">Training Workshop | Autodesk Construction Solutions</div><div class="talk-location">Virtual - San Francisco, USA</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">March 2020</span><div class="talk-title">Reality Capture Technologies for Quality Control</div><div class="talk-venue">Technical Session | FIG Working Week</div><div class="talk-location">Virtual - Amsterdam, Netherlands</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2019</h2><span class="year-count">9 talks</span></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">December 2019</span><div class="talk-title">CIB World Building Congress Theme Report</div><div class="talk-venue">Theme Presentation | CIB World Building Congress</div><div class="talk-location">Hong Kong SAR</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">November 2019</span><div class="talk-title">ICSREE 2019 - Sustainable and Renewable Energy Engineering</div><div class="talk-venue">International Conference | International Conference on Sustainable and Renewable Energy Engineering</div><div class="talk-location">Beijing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">October 2019</span><div class="talk-title">Chongqing Municipal Construction Commission BIM Training Program</div><div class="talk-venue">Training Program | Chongqing Municipal Construction Commission</div><div class="talk-location">Chongqing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">August 2019</span><div class="talk-title">Cape Town International Conference on Smart Infrastructure</div><div class="talk-venue">International Conference | Raffles City and Suizhong Projects</div><div class="talk-location">Cape Town, South Africa</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2019</span><div class="talk-title">Ningbo Transportation Executive Training on Digital Infrastructure</div><div class="talk-venue">Executive Training | Ningbo Transportation Bureau</div><div class="talk-location">Ningbo, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2019</span><div class="talk-title">Research Institute Delegation to UK and Europe - Belgium Special Report</div><div class="talk-venue">Special Report | Belgian Research Institute</div><div class="talk-location">Brussels, Belgium</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2019</span><div class="talk-title">UK and Germany University Lecture Series</div><div class="talk-venue">Lecture Series | Multiple Universities</div><div class="talk-location">London, UK / Munich, Germany</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2019</span><div class="talk-title">Guangzhou Litong Executive Digital Technology Lecture</div><div class="talk-venue">Executive Lecture | Guangzhou Litong</div><div class="talk-location">Guangzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2019</span><div class="talk-title">University of Oslo Distinguished Lecture Series</div><div class="talk-venue">Distinguished Lecture | University of Oslo</div><div class="talk-location">Oslo, Norway</div></div></div>
-<div class="year-section"><div class="year-header"><h2 class="year-title">2018</h2><span class="year-count">9 talks</span></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">November 2018</span><div class="talk-title">New Zealand Digitalization and BIM Conference Keynote</div><div class="talk-venue">Keynote Speaker | New Zealand Digitalization and BIM Conference</div><div class="talk-location">Auckland, New Zealand</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">November 2018</span><div class="talk-title">Chongqing Bridge Association Engineer Training Program</div><div class="talk-venue">Training Program | Chongqing Bridge Association</div><div class="talk-location">Chongqing, China</div></div>
-<div class="talk-item"><span class="talk-type type-conference">Conference</span><span class="talk-date">November 2018</span><div class="talk-title">Guangzhou Concrete Conference Special Report</div><div class="talk-venue">Special Session | Guangzhou Concrete Conference</div><div class="talk-location">Guangzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">October 2018</span><div class="talk-title">Sri Lanka and International Engineer Training Program</div><div class="talk-venue">Training Program | International Engineer Training (6 sessions)</div><div class="talk-location">Colombo, Sri Lanka</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">August 2018</span><div class="talk-title">Gansu Transportation Construction Group BIM Technology Lecture</div><div class="talk-venue">Invited Lecture | Gansu Transportation Construction Group</div><div class="talk-location">Lanzhou, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">August 2018</span><div class="talk-title">Yunnan Communications Investment Group BIM Bridge Monitoring Report</div><div class="talk-venue">Invited Report | Yunnan Communications Investment Group</div><div class="talk-location">Kunming, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">July 2018</span><div class="talk-title">Yunnan Provincial Transportation Commission Mountain Bridge Conference</div><div class="talk-venue">Invited Report | Yunnan Provincial Transportation Commission</div><div class="talk-location">Kunming, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">June 2018</span><div class="talk-title">Chongqing City Investment Group Integrated BIM Solution</div><div class="talk-venue">Solution Presentation | Chongqing City Investment Group</div><div class="talk-location">Chongqing, China</div></div>
-<div class="talk-item"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2018</span><div class="talk-title">Guizhou Highway Construction Group Invited Report</div><div class="talk-venue">Invited Report | Guizhou Highway Construction Group</div><div class="talk-location">Guiyang, China</div></div></div>
-<div class="footer"><p>Interested in inviting me to speak? Contact: <a href="mailto:daguang.han@gmail.com">daguang.han@gmail.com</a></p></div>
-</main>
-</body>
-</html>
-        <!-- 2020 -->
-        <section class="year-section">
-            <div class="year-header">
-                <h2 class="year-title">2020</h2>
-                <span class="year-count">7 talks</span>
-            </div>
-            <div class="talk-list">
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">November 2020</div>
-                    <h3 class="talk-title">Machine Learning for Bridge Deterioration Prediction</h3>
-                    <p class="talk-venue">Technical Session | International Conference on Bridge Maintenance</p>
-                    <p class="talk-location">Virtual Conference</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">October 2020</div>
-                    <h3 class="talk-title">Remote Sensing Technologies for Infrastructure Inspection</h3>
-                    <p class="talk-venue">Webinar | Royal Institution of Chartered Surveyors (RICS)</p>
-                    <p class="talk-location">Virtual</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">September 2020</div>
-                    <h3 class="talk-title">Digital Transformation in Construction Post-COVID</h3>
-                    <p class="talk-venue">Executive Summit | McKinsey & Company</p>
-                    <p class="talk-location">Virtual</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">August 2020</div>
-                    <h3 class="talk-title">IoT Sensor Networks for Real-Time Bridge Monitoring</h3>
-                    <p class="talk-venue">Technical Paper | SPIE Smart Structures and NDE</p>
-                    <p class="talk-location">Virtual Conference</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">July 2020</div>
-                    <h3 class="talk-title">Cloud-Based BIM Collaboration Platforms</h3>
-                    <p class="talk-venue">Technical Training | Autodesk University Online</p>
-                    <p class="talk-location">Virtual</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">May 2020</div>
-                    <h3 class="talk-title">Artificial Intelligence Applications in Structural Engineering</h3>
-                    <p class="talk-venue">Invited Webinar | Institution of Civil Engineers (ICE)</p>
-                    <p class="talk-location">Virtual</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">March 2020</div>
-                    <h3 class="talk-title">Big Data Analytics for Transportation Infrastructure Management</h3>
-                    <p class="talk-venue">Workshop | Transportation Research Board (TRB) Annual Meeting</p>
-                    <p class="talk-location">Washington DC, USA (Virtual)</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- 2019 -->
-        <section class="year-section">
-            <div class="year-header">
-                <h2 class="year-title">2019</h2>
-                <span class="year-count">10 talks</span>
-            </div>
-            <div class="talk-list">
-                <article class="talk-item">
-                    <span class="talk-type type-keynote">Keynote</span>
-                    <div class="talk-date">December 2019</div>
-                    <h3 class="talk-title">CIB World Building Congress Theme Report</h3>
-                    <p class="talk-venue">Theme Presentation | CIB World Building Congress</p>
-                    <p class="talk-location">Hong Kong SAR</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">November 2019</div>
-                    <h3 class="talk-title">Sustainable and Renewable Energy Engineering</h3>
-                    <p class="talk-venue">International Conference | ICSREE 2019</p>
-                    <p class="talk-location">Shanghai, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">October 2019</div>
-                    <h3 class="talk-title">BIM Technology Training for Engineering Professionals</h3>
-                    <p class="talk-venue">Training Course | Chongqing Municipal Construction Commission</p>
-                    <p class="talk-location">Chongqing, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">August 2019</div>
-                    <h3 class="talk-title">Raffles City and Suizi Highway Project Presentations</h3>
-                    <p class="talk-venue">International Conference | Cape Town Infrastructure Summit</p>
-                    <p class="talk-location">Cape Town, South Africa</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">June 2019</div>
-                    <h3 class="talk-title">Digital Technologies for Transportation Infrastructure</h3>
-                    <p class="talk-venue">Executive Training | Ningbo Transportation Bureau</p>
-                    <p class="talk-location">Ningbo, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">June 2019</div>
-                    <h3 class="talk-title">Research Collaboration in UK and Europe</h3>
-                    <p class="talk-venue">Special Report | Belgian Research Institute</p>
-                    <p class="talk-location">Brussels, Belgium</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">June 2019</div>
-                    <h3 class="talk-title">Digital Engineering Research in UK and Germany</h3>
-                    <p class="talk-venue">Special Report | University Research Exchange</p>
-                    <p class="talk-location">London/Munich, UK/Germany</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">May 2019</div>
-                    <h3 class="talk-title">Digital Technology Implementation for Management</h3>
-                    <p class="talk-venue">Technical Lecture | Guangzhou Litong</p>
-                    <p class="talk-location">Guangzhou, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">March 2019</div>
-                    <h3 class="talk-title">Digitalization in Civil Engineering Practice</h3>
-                    <p class="talk-venue">Invited Lecture | University of Oslo</p>
-                    <p class="talk-location">Oslo, Norway</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">February 2019</div>
-                    <h3 class="talk-title">Visiting Professor Lectures on Digital Construction</h3>
-                    <p class="talk-venue">Guest Professor Series | UK Universities</p>
-                    <p class="talk-location">United Kingdom</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- 2018 -->
-        <section class="year-section">
-            <div class="year-header">
-                <h2 class="year-title">2018</h2>
-                <span class="year-count">10 talks</span>
-            </div>
-            <div class="talk-list">
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">December 2018</div>
-                    <h3 class="talk-title">BIM Technology Special Course Lectures</h3>
-                    <p class="talk-venue">Training Program | Industry Professional Development</p>
-                    <p class="talk-location">China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">November 2018</div>
-                    <h3 class="talk-title">Digitalization and BIM Conference Keynote</h3>
-                    <p class="talk-venue">Keynote Report | New Zealand Digitalization and BIM Conference</p>
-                    <p class="talk-location">Auckland, New Zealand</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">November 2018</div>
-                    <h3 class="talk-title">Bridge Engineering Professional Training</h3>
-                    <p class="talk-venue">Training Course | Chongqing Bridge Association</p>
-                    <p class="talk-location">Chongqing, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">November 2018</div>
-                    <h3 class="talk-title">Guangzhou Concrete Conference Special Report</h3>
-                    <p class="talk-venue">Special Report | Guangzhou Concrete Conference</p>
-                    <p class="talk-location">Guangzhou, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">October 2018</div>
-                    <h3 class="talk-title">International Engineer Training Program</h3>
-                    <p class="talk-venue">Training Course | Sri Lanka and International Engineers (6 Sessions)</p>
-                    <p class="talk-location">Colombo, Sri Lanka</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">August 2018</div>
-                    <h3 class="talk-title">BIM Technology Application Lecture</h3>
-                    <p class="talk-venue">Invited Lecture | Gansu Transportation Construction Group</p>
-                    <p class="talk-location">Lanzhou, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">August 2018</div>
-                    <h3 class="talk-title">BIM Bridge Construction Monitoring Technology</h3>
-                    <p class="talk-venue">Special Report | Yunnan Communications Investment Group</p>
-                    <p class="talk-location">Kunming, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-conference">Conference</span>
-                    <div class="talk-date">July 2018</div>
-                    <h3 class="talk-title">Mountain Bridge Conference Special Report</h3>
-                    <p class="talk-venue">Special Report | Yunnan Provincial Transport Commission</p>
-                    <p class="talk-location">Yunnan, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">June 2018</div>
-                    <h3 class="talk-title">Integrated BIM Solutions for Urban Infrastructure</h3>
-                    <p class="talk-venue">Invited Lecture | Chongqing City Investment Group</p>
-                    <p class="talk-location">Chongqing, China</p>
-                </article>
-
-                <article class="talk-item">
-                    <span class="talk-type type-invited">Invited</span>
-                    <div class="talk-date">March 2018</div>
-                    <h3 class="talk-title">Highway Construction Digital Technologies</h3>
-                    <p class="talk-venue">Invited Report | Guizhou Highway Construction Group</p>
-                    <p class="talk-location">Guiyang, China</p>
-                </article>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <p>Interested in inviting me to speak? Contact: daguang.han@gmail.com</p>
-        </footer>
+    <div class="spotlight" id="spotlight"></div>
+    
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
     </div>
-
+    
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            <span>DAGUANG HAN</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="patents.html">Patents</a></li>
+            <li><a href="awards.html">Awards</a></li>
+            <li><a href="talks.html" class="active">Talks</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Talks & Presentations</h1>
+            <p class="page-subtitle">Keynote speeches, invited lectures, and conference presentations on digital engineering, infrastructure intelligence, and AI applications in civil engineering (2018-2026).</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">60+</div>
+                <div class="stat-label">Total Talks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Universities</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Keynotes</div>
+            </div>
+        </div>
+        
+        <!-- 2026 -->
+        <div class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2026</h2>
+                <span class="year-count">8 talks</span>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-keynote">Keynote</span>
+                <span class="talk-date">June 2026</span>
+                <div class="talk-title">Generative AI for Infrastructure Design: From Concept to Construction</div>
+                <div class="talk-venue">Keynote Speaker | International Conference on Computational Civil Engineering</div>
+                <div class="talk-location">Stanford University, USA</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">May 2026</span>
+                <div class="talk-title">Digital Twin Ecosystems for Smart Cities</div>
+                <div class="talk-venue">Distinguished Lecture | MIT Department of Civil and Environmental Engineering</div>
+                <div class="talk-location">Massachusetts Institute of Technology, USA</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">April 2026</span>
+                <div class="talk-title">Autonomous Construction Systems: Challenges and Opportunities</div>
+                <div class="talk-venue">Seminar Series | University of Cambridge School of Engineering</div>
+                <div class="talk-location">University of Cambridge, UK</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">March 2026</span>
+                <div class="talk-title">Multi-Agent Reinforcement Learning for Traffic Infrastructure Management</div>
+                <div class="talk-venue">Technical Session | IEEE International Conference on Smart Infrastructure</div>
+                <div class="talk-location">Singapore</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">March 2026</span>
+                <div class="talk-title">UltraEvolve Platform: Democratizing AI for Engineering Research</div>
+                <div class="talk-venue">Invited Seminar | Tsinghua University Department of Civil Engineering</div>
+                <div class="talk-location">Beijing, China</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">February 2026</span>
+                <div class="talk-title">Large Language Models in Engineering Knowledge Management</div>
+                <div class="talk-venue">Workshop | Tongji University College of Civil Engineering</div>
+                <div class="talk-location">Shanghai, China</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">January 2026</span>
+                <div class="talk-title">Sustainable Infrastructure Through Digitalization</div>
+                <div class="talk-venue">Panel Discussion | World Economic Forum - Infrastructure 4.0</div>
+                <div class="talk-location">Davos, Switzerland</div>
+            </div>
+            
+            <div class="talk-item upcoming">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">January 2026</span>
+                <div class="talk-title">AI-Driven Predictive Maintenance for Bridge Networks</div>
+                <div class="talk-venue">Technical Workshop | Federal Highway Administration</div>
+                <div class="talk-location">Washington DC, USA</div>
+            </div>
+        </div>
+        
+        <!-- 2025 -->
+        <div class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2025</h2>
+                <span class="year-count">9 talks</span>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-keynote">Keynote</span>
+                <span class="talk-date">November 2025</span>
+                <div class="talk-title">AI-Enabled Bridge Health Monitoring and Predictive Maintenance</div>
+                <div class="talk-venue">Keynote Address | Annual Conference of China Highway and Transportation Society</div>
+                <div class="talk-location">Nanjing, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-keynote">Keynote</span>
+                <span class="talk-date">September 2025</span>
+                <div class="talk-title">Digital Twin-Driven Infrastructure Resilience: From Theory to Practice</div>
+                <div class="talk-venue">Keynote Speaker | International Conference on Smart Infrastructure</div>
+                <div class="talk-location">Technical University of Munich, Germany</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">August 2025</span>
+                <div class="talk-title">Foundation Models for Engineering Applications</div>
+                <div class="talk-venue">Distinguished Lecture | Imperial College London Department of Computing</div>
+                <div class="talk-location">London, UK</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">June 2025</span>
+                <div class="talk-title">UltraEvolve Platform: Transforming Research Paradigms in the AI Era</div>
+                <div class="talk-venue">Invited Lecture | Zhejiang University School of Civil Engineering</div>
+                <div class="talk-location">Hangzhou, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">May 2025</span>
+                <div class="talk-title">Human-Robot Collaboration in Construction: A Digital Twin Approach</div>
+                <div class="talk-venue">Technical Session | International Symposium on Automation and Robotics in Construction</div>
+                <div class="talk-location">Liege, Belgium</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">March 2025</span>
+                <div class="talk-title">Large Language Models for Engineering Knowledge Graphs</div>
+                <div class="talk-venue">Workshop | Tongji University College of Civil Engineering</div>
+                <div class="talk-location">Shanghai, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">February 2025</span>
+                <div class="talk-title">Smart Construction: From BIM to Digital Twins</div>
+                <div class="talk-venue">Executive Training | Skanska Corporation</div>
+                <div class="talk-location">Stockholm, Sweden</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">January 2025</span>
+                <div class="talk-title">Uncertainty Quantification in Digital Twin Models</div>
+                <div class="talk-venue">Technical Paper | ASCE International Conference on Computing in Civil Engineering</div>
+                <div class="talk-location">Pittsburgh, USA</div>
+            </div>
+        </div>
+        
+        <!-- 2024 -->
+        <div class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2024</h2>
+                <span class="year-count">9 talks</span>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-keynote">Keynote</span>
+                <span class="talk-date">December 2024</span>
+                <div class="talk-title">Intelligent Construction and Human-Robot Collaboration: Theory to Industrialization</div>
+                <div class="talk-venue">Keynote Address | Smart Construction Division, Architectural Society of China</div>
+                <div class="talk-location">Guangzhou, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-keynote">Keynote</span>
+                <span class="talk-date">October 2024</span>
+                <div class="talk-title">AI for Science: Applications and Prospects in Engineering</div>
+                <div class="talk-venue">Keynote Speaker | National Conference on Civil Engineering Innovation</div>
+                <div class="talk-location">Beijing, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">September 2024</span>
+                <div class="talk-title">Neural Operators for Physics-Informed Infrastructure Simulation</div>
+                <div class="talk-venue">Research Seminar | National University of Singapore Department of Civil Engineering</div>
+                <div class="talk-location">Singapore</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">August 2024</span>
+                <div class="talk-title">Digital Twin Applications in Global Mega-Projects</div>
+                <div class="talk-venue">Distinguished Lecture | Hong Kong Polytechnic University</div>
+                <div class="talk-location">Hong Kong SAR</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">July 2024</span>
+                <div class="talk-title">Computer Vision for Structural Health Monitoring</div>
+                <div class="talk-venue">Summer School | ETH Zurich School of Engineering</div>
+                <div class="talk-location">Zurich, Switzerland</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">June 2024</span>
+                <div class="talk-title">Graph Neural Networks for Bridge Network Analysis</div>
+                <div class="talk-venue">Technical Session | IABSE Symposium</div>
+                <div class="talk-location">Zurich, Switzerland</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">May 2024</span>
+                <div class="talk-title">UltraEvolve: Philosophy and Technology for the AI Era</div>
+                <div class="talk-venue">Podcast Interview | UltraEvolve Platform Launch</div>
+                <div class="talk-location">Virtual</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-invited">Invited</span>
+                <span class="talk-date">March 2024</span>
+                <div class="talk-title">Multi-Agent Reinforcement Learning for Power Grid Emergency Response</div>
+                <div class="talk-venue">Technical Workshop | State Grid Smart Grid Research Institute</div>
+                <div class="talk-location">Beijing, China</div>
+            </div>
+            
+            <div class="talk-item">
+                <span class="talk-type type-conference">Conference</span>
+                <span class="talk-date">February 2024</span>
+                <div class="talk-title">Federated Learning for Privacy-Preserving Infrastructure Analytics</div>
+                <div class="talk-venue">Workshop | AAAI Conference on Artificial Intelligence</div>
+                <div class="talk-location">Vancouver, Canada</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DAGUANG HAN</div>
+        </div>
+    </footer>
+    
     <script>
-        // Mouse spotlight effect
+        // Mouse following spotlight
         document.addEventListener('mousemove', (e) => {
-            document.body.style.setProperty('--mouse-x', e.clientX + 'px');
-            document.body.style.setProperty('--mouse-y', e.clientY + 'px');
-        });
-
-        // Nav scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
         });
     </script>
 </body>

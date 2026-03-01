@@ -15,6 +15,25 @@
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Mouse-following spotlight effect */
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
         }
         
         .bg-animated {
@@ -23,7 +42,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             overflow: hidden;
         }
         
@@ -38,7 +57,7 @@
         .bg-orb-1 {
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(99,102,241,0.5) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
             bottom: -200px;
             left: -100px;
         }
@@ -316,6 +335,8 @@
     </style>
 </head>
 <body>
+    <div class="spotlight" id="spotlight"></div>
+    
     <div class="bg-animated">
         <div class="bg-orb bg-orb-1"></div>
     </div>
@@ -330,7 +351,9 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="patents.html" class="active">Patents</a></li>
+            <li><a href="awards.html">Awards</a></li>
             <li><a href="talks.html">Talks</a></li>
+            <li><a href="membership.html">Membership</a></li>
             <li><a href="demos.html">Demos</a></li>
         </ul>
     </nav>
@@ -660,5 +683,16 @@
             <div class="footer-logo">DAGUANG HAN</div>
         </div>
     </footer>
+    
+    <script>
+        // Mouse following spotlight
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
 </body>
 </html>

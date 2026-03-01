@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awards - Daguang Han</title>
+    <title>Membership - Daguang Han</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,7 +59,7 @@
             height: 600px;
             background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
             top: -200px;
-            left: -100px;
+            right: -100px;
         }
         
         .bg-orb-2 {
@@ -67,7 +67,7 @@
             height: 500px;
             background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
             bottom: 10%;
-            right: -150px;
+            left: -150px;
             animation-delay: -7s;
         }
         
@@ -153,36 +153,6 @@
             color: rgba(255,255,255,0.5);
         }
         
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #6366f1;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 0.625rem;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 0.375rem;
-        }
-        
         .section {
             margin-bottom: 2.5rem;
         }
@@ -198,13 +168,13 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
-        .award-list {
+        .membership-list {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
         }
         
-        .award-item {
+        .membership-item {
             padding: 1.25rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
@@ -212,26 +182,26 @@
             transition: all 0.2s;
         }
         
-        .award-item:hover {
+        .membership-item:hover {
             border-color: rgba(99,102,241,0.15);
             background: rgba(255,255,255,0.03);
         }
         
-        .award-header {
+        .membership-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
         }
         
-        .award-title {
+        .membership-org {
             font-size: 1rem;
             font-weight: 500;
             line-height: 1.5;
             flex: 1;
         }
         
-        .award-badge {
+        .membership-badge {
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
             font-size: 0.625rem;
@@ -241,30 +211,37 @@
             flex-shrink: 0;
         }
         
-        .badge-first {
+        .badge-active {
             background: rgba(34,197,94,0.15);
             color: #22c55e;
         }
         
-        .badge-second {
+        .badge-progress {
             background: rgba(99,102,241,0.15);
             color: #6366f1;
         }
         
-        .badge-third {
+        .badge-interested {
             background: rgba(139,92,246,0.15);
             color: #8b5cf6;
         }
         
-        .award-org {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.5);
+        .membership-role {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
             margin-bottom: 0.25rem;
         }
         
-        .award-year {
+        .membership-status {
             font-size: 0.75rem;
             color: rgba(255,255,255,0.4);
+        }
+        
+        .membership-desc {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.5rem;
+            line-height: 1.5;
         }
         
         .footer {
@@ -286,11 +263,11 @@
                 display: none;
             }
             
-            .award-header {
+            .membership-header {
                 flex-direction: column;
             }
             
-            .award-badge {
+            .membership-badge {
                 margin-left: 0;
                 margin-top: 0.5rem;
             }
@@ -315,152 +292,96 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="patents.html">Patents</a></li>
-            <li><a href="awards.html" class="active">Awards</a></li>
+            <li><a href="awards.html">Awards</a></li>
             <li><a href="talks.html">Talks</a></li>
-            <li><a href="membership.html">Membership</a></li>
+            <li><a href="membership.html" class="active">Membership</a></li>
             <li><a href="demos.html">Demos</a></li>
         </ul>
     </nav>
     
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title">Awards & Honors</h1>
-            <p class="page-subtitle">Recognition for excellence in research, innovation, and engineering practice</p>
+            <h1 class="page-title">Professional Membership</h1>
+            <p class="page-subtitle">Active participation in professional engineering societies and academic organizations</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Total Awards</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label">First Prizes</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Second Prizes</div>
-            </div>
-        </div>
-        
-        <!-- Technology Advancement Awards -->
+        <!-- Current Memberships -->
         <div class="section">
-            <h2 class="section-title">Scientific and Technological Progress Awards</h2>
+            <h2 class="section-title">Current Memberships</h2>
             
-            <div class="award-list">
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">First Prize of Scientific and Technological Progress Award</span>
-                        <span class="award-badge badge-first">First Prize</span>
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">China Highway and Transportation Society (CHTS)</span>
+                        <span class="membership-badge badge-active">Active</span>
                     </div>
-                    <div class="award-org">China Highway and Transportation Society (CHTS)</div>
-                    <div class="award-year">2023</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Second Prize of Scientific and Technological Progress Award</span>
-                        <span class="award-badge badge-second">Second Prize</span>
-                    </div>
-                    <div class="award-org">China Highway and Transportation Society (CHTS)</div>
-                    <div class="award-year">2022</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">First Prize of Scientific and Technological Progress Award</span>
-                        <span class="award-badge badge-first">First Prize</span>
-                    </div>
-                    <div class="award-org">Chongqing Municipal Science and Technology Commission</div>
-                    <div class="award-year">2021</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Second Prize of Scientific and Technological Progress Award</span>
-                        <span class="award-badge badge-second">Second Prize</span>
-                    </div>
-                    <div class="award-org">China Construction Industry Association</div>
-                    <div class="award-year">2020</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Third Prize of Scientific and Technological Progress Award</span>
-                        <span class="award-badge badge-third">Third Prize</span>
-                    </div>
-                    <div class="award-org">Chongqing Municipal Science and Technology Commission</div>
-                    <div class="award-year">2019</div>
+                    <div class="membership-role">Deputy Director, Smart Manufacturing Branch</div>
+                    <div class="membership-status">Member since 2022</div>
+                    <div class="membership-desc">Leading the Smart Manufacturing Branch of China Highway and Transportation Society, promoting digital transformation and intelligent manufacturing in transportation infrastructure.</div>
                 </div>
             </div>
         </div>
         
-        <!-- Innovation Awards -->
+        <!-- Applications in Progress -->
         <div class="section">
-            <h2 class="section-title">Innovation & Engineering Excellence Awards</h2>
+            <h2 class="section-title">Applications in Progress</h2>
             
-            <div class="award-list">
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">First Prize of Engineering Consulting Achievement Award</span>
-                        <span class="award-badge badge-first">First Prize</span>
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">American Society of Civil Engineers (ASCE)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
                     </div>
-                    <div class="award-org">China Association of Engineering Consultants (CAEC)</div>
-                    <div class="award-year">2022</div>
+                    <div class="membership-role">Member</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">The American Society of Civil Engineers represents more than 150,000 members of the civil engineering profession in 177 countries. Founded in 1852, ASCE is the nation's oldest engineering society.</div>
                 </div>
                 
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Second Prize of Engineering Consulting Achievement Award</span>
-                        <span class="award-badge badge-second">Second Prize</span>
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Chartered Institute of Building (CIOB)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
                     </div>
-                    <div class="award-org">China Association of Engineering Consultants (CAEC)</div>
-                    <div class="award-year">2021</div>
+                    <div class="membership-role">Chartered Member (MCIOB)</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">The Chartered Institute of Building is at the heart of a management career in construction. CIOB delivers the highest level of accreditation in the industry, promoting excellence in the built environment.</div>
                 </div>
                 
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Second Prize of BIM Application Excellence Award</span>
-                        <span class="award-badge badge-second">Second Prize</span>
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Advance HE (Higher Education Academy)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
                     </div>
-                    <div class="award-org">China Construction Industry Association</div>
-                    <div class="award-year">2020</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Outstanding Young Engineer Award</span>
-                        <span class="award-badge badge-first">Individual Honor</span>
-                    </div>
-                    <div class="award-org">Chongqing Engineering Consulting Association</div>
-                    <div class="award-year">2019</div>
+                    <div class="membership-role">Senior Fellow (SFHEA)</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">Advance HE is a member-led charity of and for the sector. Senior Fellowship (SFHEA) recognizes experienced professionals who demonstrate a broad understanding of effective approaches to learning and teaching.</div>
                 </div>
             </div>
         </div>
         
-        <!-- Academic & Research Awards -->
+        <!-- Interested Organizations -->
         <div class="section">
-            <h2 class="section-title">Academic & Research Recognition</h2>
+            <h2 class="section-title">Organizations of Interest</h2>
             
-            <div class="award-list">
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Best Paper Award - International Conference on Smart Infrastructure</span>
-                        <span class="award-badge badge-first">Best Paper</span>
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Institution of Structural Engineers (IStructE)</span>
+                        <span class="membership-badge badge-interested">Actively Pursuing</span>
                     </div>
-                    <div class="award-org">International Conference on Smart Infrastructure and Construction</div>
-                    <div class="award-year">2023</div>
+                    <div class="membership-role">Member / Chartered Engineer</div>
+                    <div class="membership-desc">The Institution of Structural Engineers is the world's largest membership organization dedicated to the art and science of structural engineering. Actively exploring membership opportunities for professional development and international recognition.</div>
                 </div>
                 
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Outstanding Reviewer Recognition</span>
-                        <span class="award-badge badge-second">Recognition</span>
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">China Computer Federation (CCF)</span>
+                        <span class="membership-badge badge-interested">Actively Pursuing</span>
                     </div>
-                    <div class="award-org">Automation in Construction (Elsevier)</div>
-                    <div class="award-year">2022-2024</div>
+                    <div class="membership-role">Senior Member</div>
+                    <div class="membership-desc">China Computer Federation is the leading professional organization for computer science and technology in China. Exploring membership to strengthen interdisciplinary collaboration between civil engineering and computer science.</div>
                 </div>
             </div>
         </div>

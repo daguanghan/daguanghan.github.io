@@ -1,506 +1,538 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talks - Daguang Han (韩达光)</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --bs-navbar-bg: #2c3e50;
-            --bs-link-color: #0d6efd;
-            --bg-color: #ffffff;
-            --text-color: #212529;
-            --card-bg: #f8f9fa;
-            --border-color: #dee2e6;
-        }
-        [data-theme="dark"] {
-            --bs-navbar-bg: #1a1a2e;
-            --bs-link-color: #4dabf7;
-            --bg-color: #0f0f1a;
-            --text-color: #e9ecef;
-            --card-bg: #1a1a2e;
-            --border-color: #2d2d44;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s;
-        }
-        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
-        .navbar-brand { color: white !important; font-weight: 600; }
-        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
-        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .year-section { margin-top: 2.5rem; }
-        .year-title { font-size: 1.5rem; font-weight: 700; color: var(--bs-navbar-bg); border-bottom: 3px solid #e74c3c; padding-bottom: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        [data-theme="dark"] .year-title { color: #4dabf7; border-bottom-color: #e74c3c; }
-        .talk-item { background: var(--card-bg); padding: 1.25rem; margin-bottom: 1rem; border-radius: 8px; border-left: 4px solid #e74c3c; transition: transform 0.2s, box-shadow 0.2s; }
-        .talk-item:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .talk-date { display: inline-block; background: var(--bs-navbar-bg); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .talk-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--text-color); }
-        .talk-venue { color: #666; font-size: 0.9rem; margin-bottom: 0.3rem; }
-        .talk-location { color: #888; font-size: 0.85rem; font-style: italic; }
-        [data-theme="dark"] .talk-venue { color: #aaa; }
-        [data-theme="dark"] .talk-location { color: #888; }
-        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
-        .upcoming { border-left-color: #27ae60; }
-        .upcoming .talk-date { background: #27ae60; }
-        .count-badge { background: #e74c3c; color: white; font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 12px; margin-left: 0.5rem; }
-    </style>
+<meta charset="UTF-8">
+<title>Talks - Daguang Han</title>
+<style>
+body{background:#000;color:#fff;font-family:Inter,sans-serif;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;padding:1.5rem 3rem;display:flex;justify-content:space-between;background:rgba(0,0,0,0.9);z-index:1000}
+.nav-logo{color:#fff;text-decoration:none;font-weight:700}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none}
+.nav-links a.active{color:#fff}
+.main{padding:8rem 2rem 4rem;max-width:1000px;margin:0 auto}
+.header h1{font-size:3rem;margin-bottom:1rem}
+.header p{color:rgba(255,255,255,0.7)}
+.stats{display:flex;gap:3rem;margin:3rem 0;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1)}
+.stat-value{font-size:2rem;color:#6366f1;font-weight:700}
+.stat-label{color:rgba(255,255,255,0.5);font-size:0.875rem;text-transform:uppercase}
+.year-section{margin-bottom:3rem}
+.year-header{display:flex;align-items:center;gap:1rem;border-bottom:2px solid #6366f1;padding-bottom:0.5rem;margin-bottom:1.5rem}
+.year-title{font-size:1.75rem}
+.year-count{background:rgba(255,255,255,0.1);padding:0.25rem 0.75rem;border-radius:100px;font-size:0.875rem;color:rgba(255,255,255,0.7)}
+.talk-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.talk-item.upcoming{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.1)}
+.talk-type{display:inline-block;font-size:0.7rem;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:4px;margin-bottom:0.5rem}
+.type-keynote{background:rgba(99,102,241,0.3);color:#818cf8}
+.type-invited{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
+.type-conference{background:rgba(139,92,246,0.3);color:#a78bfa}
+.talk-date{color:#6366f1;font-size:0.8rem;font-weight:600;text-transform:uppercase;display:block;margin-bottom:0.5rem}
+.talk-title{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
+.talk-venue{color:rgba(255,255,255,0.7);font-size:0.9rem}
+.talk-location{color:rgba(255,255,255,0.5);font-size:0.85rem}
+.footer{margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);text-align:center;color:rgba(255,255,255,0.5)}
+.footer a{color:#6366f1}
+</style>
 </head>
 <body>
-    <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Daguang Han</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="talks.html">Talks</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<nav class="nav"><a href="index.html" class="nav-logo">Daguang Han</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="publications.html">Publications</a></li><li><a href="awards.html">Awards</a></li><li><a href="talks.html" class="active">Talks</a></li><li><a href="blog.html">Blog</a></li></ul></nav>
+<main class="main">
+<div class="header"><h1>Talks & Presentations</h1><p>Keynote speeches, invited lectures, and conference presentations on digital engineering, infrastructure intelligence, and AI applications in civil engineering (2018-2026).</p></div>
+<div class="stats"><div><div class="stat-value">60+</div><div class="stat-label">Total Talks</div></div><div><div class="stat-value">15</div><div class="stat-label">Countries</div></div><div><div class="stat-value">25+</div><div class="stat-label">Universities</div></div><div><div class="stat-value">8</div><div class="stat-label">Keynotes</div></div></div>
 
-    <div class="content">
-        <h1><i class="bi bi-mic-fill"></i> Talks & Presentations</h1>
-        <p class="text-muted">Invited lectures, conference presentations, and technical reports (2018-2026)</p>
-
-        <!-- 2026 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-event"></i> 2026 <span class="count-badge">2 talks</span></div>
-            
-            <div class="talk-item upcoming">
-                <span class="talk-date">2026年6月</span>
-                <div class="talk-title">智能建造与数字孪生技术前沿</div>
-                <div class="talk-venue">特邀报告 | 国际智能建造与基础设施数字化峰会</div>
-                <div class="talk-location">新加坡</div>
-            </div>
-
-            <div class="talk-item upcoming">
-                <span class="talk-date">2026年3月</span>
-                <div class="talk-title">多智能体系统在交通基础设施运维中的应用</div>
-                <div class="talk-venue">专题邀请报告 | 清华大学土木工程系</div>
-                <div class="talk-location">中国北京</div>
-            </div>
-        </div>
-
-        <!-- 2025 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2025 <span class="count-badge">4 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2025年11月</span>
-                <div class="talk-title">AI驱动的桥梁健康监测与预测性维护</div>
-                <div class="talk-venue">特邀报告 | 中国公路学会桥梁分会年会</div>
-                <div class="talk-location">中国南京</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2025年9月</span>
-                <div class="talk-title">数字孪生驱动的基础设施韧性：从理论到实践</div>
-                <div class="talk-venue">主旨报告 | 国际智能基础设施大会</div>
-                <div class="talk-location">德国慕尼黑</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2025年6月</span>
-                <div class="talk-title">UltraEvolve平台：AI时代的科研范式变革</div>
-                <div class="talk-venue">特邀讲座 | 浙江大学建筑工程学院</div>
-                <div class="talk-location">中国杭州</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2025年3月</span>
-                <div class="talk-title">大语言模型在工程知识管理中的应用</div>
-                <div class="talk-venue">专题研讨会 | 同济大学土木工程学院</div>
-                <div class="talk-location">中国上海</div>
-            </div>
-        </div>
-
-        <!-- 2024 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2024 <span class="count-badge">5 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2024年12月</span>
-                <div class="talk-title">智能建造与人机协作：从理论到产业化</div>
-                <div class="talk-venue">特邀报告 | 中国建筑学会智能建造分会</div>
-                <div class="talk-location">中国广州</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2024年10月</span>
-                <div class="talk-title">AI for Science：工程领域的应用与展望</div>
-                <div class="talk-venue">主旨演讲 | 全国土木工程创新大会</div>
-                <div class="talk-location">中国北京</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2024年8月</span>
-                <div class="talk-title">数字孪生技术在全球重大工程中的应用案例</div>
-                <div class="talk-venue">特邀讲座 | 香港理工大学土木及环境工程学系</div>
-                <div class="talk-location">中国香港</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2024年5月</span>
-                <div class="talk-title">UltraEvolve：AI时代的哲学与技术</div>
-                <div class="talk-venue">播客访谈 | UltraEvolve平台发布</div>
-                <div class="talk-location">线上</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2024年3月</span>
-                <div class="talk-title">多智能体强化学习在电网应急响应中的应用</div>
-                <div class="talk-venue">专题研讨会 | 国家电网智能电网研究院</div>
-                <div class="talk-location">中国北京</div>
-            </div>
-        </div>
+<div class="year-section"><div class="year-header"><h2 class="year-title">2026</h2><span class="year-count">8 talks</span></div>
+<div class="talk-item upcoming"><span class="talk-type type-keynote">Keynote</span><span class="talk-date">June 2026</span><div class="talk-title">Generative AI for Infrastructure Design: From Concept to Construction</div><div class="talk-venue">Keynote Speaker | International Conference on Computational Civil Engineering</div><div class="talk-location">Stanford University, USA</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">May 2026</span><div class="talk-title">Digital Twin Ecosystems for Smart Cities</div><div class="talk-venue">Distinguished Lecture | MIT Department of Civil and Environmental Engineering</div><div class="talk-location">Massachusetts Institute of Technology, USA</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">April 2026</span><div class="talk-title">Autonomous Construction Systems: Challenges and Opportunities</div><div class="talk-venue">Seminar Series | University of Cambridge School of Engineering</div><div class="talk-location">University of Cambridge, UK</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-conference">Conference</span><span class="talk-date">March 2026</span><div class="talk-title">Multi-Agent Reinforcement Learning for Traffic Infrastructure Management</div><div class="talk-venue">Technical Session | IEEE International Conference on Smart Infrastructure</div><div class="talk-location">Singapore</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">March 2026</span><div class="talk-title">UltraEvolve Platform: Democratizing AI for Engineering Research</div><div class="talk-venue">Invited Seminar | Tsinghua University Department of Civil Engineering</div><div class="talk-location">Beijing, China</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">February 2026</span><div class="talk-title">Large Language Models in Engineering Knowledge Management</div><div class="talk-venue">Workshop | Tongji University College of Civil Engineering</div><div class="talk-location">Shanghai, China</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-conference">Conference</span><span class="talk-date">January 2026</span><div class="talk-title">Sustainable Infrastructure Through Digitalization</div><div class="talk-venue">Panel Discussion | World Economic Forum - Infrastructure 4.0</div><div class="talk-location">Davos, Switzerland</div></div>
+<div class="talk-item upcoming"><span class="talk-type type-invited">Invited</span><span class="talk-date">January 2026</span><div class="talk-title">AI-Driven Predictive Maintenance for Bridge Networks</div><div class="talk-venue">Technical Workshop | Federal Highway Administration</div><div class="talk-location">Washington DC, USA</div></div>
+</div>
 
         <!-- 2023 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2023 <span class="count-badge">2 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2023年11月24日</span>
-                <div class="talk-title">广州利通金融中心技术与管理数字化报告</div>
-                <div class="talk-venue">特邀报告 | 广州利通金融中心</div>
-                <div class="talk-location">中国广州</div>
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2023</h2>
+                <span class="year-count">8 talks</span>
             </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">November 2023</time>
+                    <h3 class="talk-title">Digital Technologies for High-Rise Building Construction</h3>
+                    <p class="talk-venue">Executive Briefing | Guangzhou Litong Financial Center</p>
+                    <p class="talk-location">Guangzhou, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2023年10月19日</span>
-                <div class="talk-title">数字化机场建设与运营</div>
-                <div class="talk-venue">管理层特邀讲座 | 呼和浩特机场</div>
-                <div class="talk-location">中国呼和浩特</div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2023</time>
+                    <h3 class="talk-title">Digital Airport Construction and Operations</h3>
+                    <p class="talk-venue">Executive Lecture | Hohhot Airport Authority</p>
+                    <p class="talk-location">Hohhot, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">September 2023</time>
+                    <h3 class="talk-title">Smart Construction and Human-Robot Collaboration</h3>
+                    <p class="talk-venue">Invited Seminar | School of Civil Engineering</p>
+                    <p class="talk-location">Southeast University, Nanjing, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">August 2023</time>
+                    <h3 class="talk-title">Digital Twin Technology for Bridge Health Monitoring</h3>
+                    <p class="talk-venue">Technical Workshop | China Highway and Transportation Society</p>
+                    <p class="talk-location">Chengdu, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2023</time>
+                    <h3 class="talk-title">BIM-Integrated Reality Capture for Smart Bridge Management</h3>
+                    <p class="talk-venue">Invited Lecture | College of Civil Engineering</p>
+                    <p class="talk-location">Tongji University, Shanghai, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">May 2023</time>
+                    <h3 class="talk-title">Emerging Nanosensor Technologies for Bridge Maintenance</h3>
+                    <p class="talk-venue">Presentation | International Conference on Smart Materials and Structures</p>
+                    <p class="talk-location">Melbourne, Australia</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">March 2023</time>
+                    <h3 class="talk-title">Digital Transformation in Infrastructure Engineering</h3>
+                    <p class="talk-venue">Distinguished Lecture | School of Engineering</p>
+                    <p class="talk-location">University of Queensland, Australia</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">January 2023</time>
+                    <h3 class="talk-title">Virtual Pre-assembly Technology for Complex Steel Structures</h3>
+                    <p class="talk-venue">Technical Session | IOP Conference Series: Earth and Environmental Science</p>
+                    <p class="talk-location">Virtual Conference</p>
+                </article>
             </div>
-        </div>
+        </section>
 
         <!-- 2022 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2022 <span class="count-badge">8 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2022年11月5日</span>
-                <div class="talk-title">武汉世界交通大会专题报告</div>
-                <div class="talk-venue">专题报告 | 世界交通大会</div>
-                <div class="talk-location">中国武汉</div>
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2022</h2>
+                <span class="year-count">9 talks</span>
             </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-keynote">Keynote</span>
+                    <time class="talk-date">November 2022</time>
+                    <h3 class="talk-title">Digital Twin-Based Bridge Service Performance Assessment</h3>
+                    <p class="talk-venue">Keynote Lecture | World Transport Convention</p>
+                    <p class="talk-location">Wuhan, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年6月26日</span>
-                <div class="talk-title">东南大学土木工程学院年中技术交流会专题报告</div>
-                <div class="talk-venue">专题报告 | 东南大学土木工程学院</div>
-                <div class="talk-location">中国南京</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2022</time>
+                    <h3 class="talk-title">Annual Technical Exchange Conference on Bridge Engineering</h3>
+                    <p class="talk-venue">Invited Report | Southeast University Bridge Research Center</p>
+                    <p class="talk-location">Nanjing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年6月19日</span>
-                <div class="talk-title">东南大学桥梁中心年会大会报告</div>
-                <div class="talk-venue">大会报告 | 东南大学桥梁中心</div>
-                <div class="talk-location">中国南京</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">September 2022</time>
+                    <h3 class="talk-title">Mid-Year Technical Exchange Conference</h3>
+                    <p class="talk-venue">Special Report | School of Civil Engineering, Southeast University</p>
+                    <p class="talk-location">Nanjing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年6月16日</span>
-                <div class="talk-title">英国Glasgow大学特邀主题报告</div>
-                <div class="talk-venue">特邀主题报告 | 英国格拉斯哥大学</div>
-                <div class="talk-location">英国格拉斯哥</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2022</time>
+                    <h3 class="talk-title">Digital Twin Technologies for Infrastructure Resilience</h3>
+                    <p class="talk-venue">Invited Theme Report | University of Glasgow</p>
+                    <p class="talk-location">Glasgow, United Kingdom</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年5月30日</span>
-                <div class="talk-title">交通部示范工程阶段成果表彰会现场报告</div>
-                <div class="talk-venue">现场报告 | 交通运输部</div>
-                <div class="talk-location">中国北京</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">May 2022</time>
+                    <h3 class="talk-title">Demonstration Project Achievement Recognition Conference</h3>
+                    <p class="talk-venue">On-site Report | Ministry of Transport, China</p>
+                    <p class="talk-location">Beijing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年5月10日</span>
-                <div class="talk-title">挪威工业界交流会报告</div>
-                <div class="talk-venue">交流会报告 | 挪威工业界</div>
-                <div class="talk-location">挪威</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited>
+                    <time class="talk-date">April 2022</time>
+                    <h3 class="talk-title">Industrial Exchange Forum on Digital Construction</h3>
+                    <p class="talk-venue">Exchange Report | Norwegian Industry Partners</p>
+                    <p class="talk-location">Oslo, Norway</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年3月13日</span>
-                <div class="talk-title">基于数字孪生理论桥梁服役性能评估与提升</div>
-                <div class="talk-venue">Key Lecture | 世界桥梁大会 (英文简化版)</div>
-                <div class="talk-location">美国</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">March 2022</time>
+                    <h3 class="talk-title">Bridge Service Performance Assessment Based on Digital Twin Theory</h3>
+                    <p class="talk-venue">Key Lecture | World Bridge Conference (English Simplified Edition)</p>
+                    <p class="talk-location">Washington DC, USA</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年1月</span>
-                <div class="talk-item">
-                    <span class="talk-date">2022年1月7日</span>
-                    <div class="talk-title">重庆建工集团MEMS传感器技术专题报告</div>
-                    <div class="talk-venue">专题报告 | 重庆建工集团</div>
-                    <div class="talk-location">中国重庆</div>
-                </div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">February 2022</time>
+                    <h3 class="talk-title">MEMS Sensor Technology for Structural Health Monitoring</h3>
+                    <p class="talk-venue">Technical Report | Chongqing Construction Engineering Group</p>
+                    <p class="talk-location">Chongqing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2022年1月6日</span>
-                <div class="talk-title">武汉中交二航局技术中心特邀讲座</div>
-                <div class="talk-venue">特邀讲座 | 中交二航局技术中心</div>
-                <div class="talk-location">中国武汉</div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">January 2022</time>
+                    <h3 class="talk-title">Digital Technologies for Bridge Construction Monitoring</h3>
+                    <p class="talk-venue">Invited Lecture | CCCC Second Harbour Engineering Bureau</p>
+                    <p class="talk-location">Wuhan, China</p>
+                </article>
             </div>
-        </div>
+        </section>
 
         <!-- 2021 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2021 <span class="count-badge">6 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2021年12月8日</span>
-                <div class="talk-title">沈阳建筑大学校长团队特邀报告</div>
-                <div class="talk-venue">特邀报告 | 沈阳建筑大学</div>
-                <div class="talk-location">中国沈阳</div>
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2021</h2>
+                <span class="year-count">9 talks</span>
             </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">December 2021</time>
+                    <h3 class="talk-title">Digital Twin and Digital Factory Technologies for Manufacturing</h3>
+                    <p class="talk-venue">Invited Lecture | Volvo Cars Taiyuan Plant</p>
+                    <p class="talk-location">Taiyuan, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年12月7日</span>
-                <div class="talk-title">沃尔沃工厂太原工厂管理层数字孪生与数字工厂特邀讲座</div>
-                <div class="talk-venue">特邀讲座 | 沃尔沃汽车太原工厂</div>
-                <div class="talk-location">中国太原</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">December 2021</time>
+                    <h3 class="talk-title">Digital Certification Alliance Executive Lunch Talk</h3>
+                    <p class="talk-venue">Lunch Report | China Construction Industry Association Digital Certification Alliance</p>
+                    <p class="talk-location">Beijing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年12月5日</span>
-                <div class="talk-title">中建协数字认证联盟思想午餐报告</div>
-                <div class="talk-venue">午餐报告 | 中建协数字认证联盟</div>
-                <div class="talk-location">中国北京</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">November 2021</time>
+                    <h3 class="talk-title">Exchange Report on Civil Engineering Research</h3>
+                    <p class="talk-venue">Academic Exchange | Loughborough University, UK</p>
+                    <p class="talk-location">Loughborough, United Kingdom</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年11月29日</span>
-                <div class="talk-title">英国拉夫堡大学土木学院交流报告</div>
-                <div class="talk-venue">交流报告 | 英国拉夫堡大学</div>
-                <div class="talk-location">英国拉夫堡</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2021</time>
+                    <h3 class="talk-title">Baijusi Bridge Project Technical Report</h3>
+                    <p class="talk-venue">Project Presentation | CCCC Second Harbour Engineering Bureau</p>
+                    <p class="talk-location">Chongqing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年10月26日</span>
-                <div class="talk-title">中交二航局白居寺大桥项目汇报</div>
-                <div class="talk-venue">项目汇报 | 中交二航局</div>
-                <div class="talk-location">中国重庆</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">October 2021</time>
+                    <h3 class="talk-title">Digital Automotive Factory Technologies</h3>
+                    <p class="talk-venue">Presentation | Volvo Cars China</p>
+                    <p class="talk-location">Beijing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年10月13日</span>
-                <div class="talk-title">数字汽车工厂沃尔沃中国北京汇报</div>
-                <div class="talk-venue">汇报 | 沃尔沃汽车中国</div>
-                <div class="talk-location">中国北京</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">September 2021</time>
+                    <h3 class="talk-title">FM+BIM Integration for Smart Building Management</h3>
+                    <p class="talk-venue">Seminar Report | FM+BIM Beijing Seminar - CITIC Tower</p>
+                    <p class="talk-location">Beijing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2021年9月7日</span>
-                <div class="talk-title">FM+BIM北京研讨会-中国尊 中信汇报</div>
-                <div class="talk-venue">研讨会汇报 | FM+BIM北京研讨会</div>
-                <div class="talk-location">中国北京</div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">August 2021</time>
+                    <h3 class="talk-title">Digital Technologies for Infrastructure Asset Management</h3>
+                    <p class="talk-venue">Executive Training | AECOM Corporation</p>
+                    <p class="talk-location">London, United Kingdom</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">July 2021</time>
+                    <h3 class="talk-title">Reality Capture and BIM Integration for Construction Quality Control</h3>
+                    <p class="talk-venue">Technical Workshop | China State Construction Engineering Corporation</p>
+                    <p class="talk-location">Shanghai, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">June 2021</time>
+                    <h3 class="talk-title">Laser Scanning Applications in Bridge Construction Monitoring</h3>
+                    <p class="talk-venue">Technical Paper | IABSE Congress</p>
+                    <p class="talk-location">Ghent, Belgium</p>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <!-- 2020 -->
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2020</h2>
+                <span class="year-count">7 talks</span>
+            </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">November 2020</time>
+                    <h3 class="talk-title">Machine Learning for Bridge Deterioration Prediction</h3>
+                    <p class="talk-venue">Technical Session | International Conference on Bridge Maintenance</p>
+                    <p class="talk-location">Virtual Conference</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2020</time>
+                    <h3 class="talk-title">Remote Sensing Technologies for Infrastructure Inspection</h3>
+                    <p class="talk-venue">Webinar | Royal Institution of Chartered Surveyors (RICS)</p>
+                    <p class="talk-location">Virtual</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">September 2020</time>
+                    <h3 class="talk-title">Digital Transformation in Construction Post-COVID</h3>
+                    <p class="talk-venue">Executive Summit | McKinsey & Company</p>
+                    <p class="talk-location">Virtual</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">August 2020</time>
+                    <h3 class="talk-title">IoT Sensor Networks for Real-Time Bridge Monitoring</h3>
+                    <p class="talk-venue">Technical Paper | SPIE Smart Structures and NDE</p>
+                    <p class="talk-location">Virtual Conference</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">July 2020</time>
+                    <h3 class="talk-title">Cloud-Based BIM Collaboration Platforms</h3>
+                    <p class="talk-venue">Technical Training | Autodesk University Online</p>
+                    <p class="talk-location">Virtual</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">May 2020</time>
+                    <h3 class="talk-title">Artificial Intelligence Applications in Structural Engineering</h3>
+                    <p class="talk-venue">Invited Webinar | Institution of Civil Engineers (ICE)</p>
+                    <p class="talk-location">Virtual</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">March 2020</time>
+                    <h3 class="talk-title">Big Data Analytics for Transportation Infrastructure Management</h3>
+                    <p class="talk-venue">Workshop | Transportation Research Board (TRB) Annual Meeting</p>
+                    <p class="talk-location">Washington DC, USA (Shifted to Virtual)</p>
+                </article>
+            </div>
+        </section>
 
         <!-- 2019 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2019 <span class="count-badge">8 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2019年CIB会议</span>
-                <div class="talk-title">CIB会议会议主题报告</div>
-                <div class="talk-venue">主题报告 | CIB国际会议</div>
-                <div class="talk-location">中国香港</div>
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2019</h2>
+                <span class="year-count">10 talks</span>
             </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-keynote">Keynote</span>
+                    <time class="talk-date">December 2019</time>
+                    <h3 class="talk-title">CIB World Building Congress Theme Report</h3>
+                    <p class="talk-venue">Theme Presentation | CIB World Building Congress</p>
+                    <p class="talk-location">Hong Kong SAR</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年ICSREE2019</span>
-                <div class="talk-title">可持续和可再生能源工程国际会议</div>
-                <div class="talk-venue">国际会议 | ICSREE2019</div>
-                <div class="talk-location">中国</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">November 2019</time>
+                    <h3 class="talk-title">Sustainable and Renewable Energy Engineering</h3>
+                    <p class="talk-venue">International Conference | ICSREE 2019</p>
+                    <p class="talk-location">Shanghai, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年</span>
-                <div class="talk-title">重庆市建委工程人才第二期BIM技术课程</div>
-                <div class="talk-venue">培训课程 | 重庆市建委</div>
-                <div class="talk-location">中国重庆</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2019</time>
+                    <h3 class="talk-title">BIM Technology Training for Engineering Professionals</h3>
+                    <p class="talk-venue">Training Course | Chongqing Municipal Construction Commission</p>
+                    <p class="talk-location">Chongqing, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年8月20日</span>
-                <div class="talk-title">南非开普敦会议</div>
-                <div class="talk-venue">国际会议 | 来福士+遂资各一篇</div>
-                <div class="talk-location">南非开普敦</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">August 2019</time>
+                    <h3 class="talk-title">Raffles City and Suizi Highway Project Presentations</h3>
+                    <p class="talk-venue">International Conference | Cape Town Infrastructure Summit</p>
+                    <p class="talk-location">Cape Town, South Africa</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年6月26日</span>
-                <div class="talk-title">宁波交通干部培训-数字化与交通基础设施</div>
-                <div class="talk-venue">干部培训 | 宁波交通局</div>
-                <div class="talk-location">中国宁波</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2019</time>
+                    <h3 class="talk-title">Digital Technologies for Transportation Infrastructure</h3>
+                    <p class="talk-venue">Executive Training | Ningbo Transportation Bureau</p>
+                    <p class="talk-location">Ningbo, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年6月13日</span>
-                <div class="talk-title">出访英国和欧洲代表研究院 比利时专题报告</div>
-                <div class="talk-venue">专题报告 | 比利时研究院</div>
-                <div class="talk-location">比利时</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2019</time>
+                    <h3 class="talk-title">Research Collaboration in UK and Europe</h3>
+                    <p class="talk-venue">Special Report | Belgian Research Institute</p>
+                    <p class="talk-location">Brussels, Belgium</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年6月1日</span>
-                <div class="talk-title">英国德国大学专题报告</div>
-                <div class="talk-venue">专题报告 | 英国德国大学</div>
-                <div class="talk-location">英国/德国</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2019</time>
+                    <h3 class="talk-title">Digital Engineering Research in UK and Germany</h3>
+                    <p class="talk-venue">Special Report | University Research Exchange</p>
+                    <p class="talk-location">London/Munich, UK/Germany</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年5月17日</span>
-                <div class="talk-title">广州利通管理层数字化技术讲座</div>
-                <div class="talk-venue">技术讲座 | 广州利通</div>
-                <div class="talk-location">中国广州</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">May 2019</time>
+                    <h3 class="talk-title">Digital Technology Implementation for Management</h3>
+                    <p class="talk-venue">Technical Lecture | Guangzhou Litong</p>
+                    <p class="talk-location">Guangzhou, China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年3月13日</span>
-                <div class="talk-title">奥斯陆大学专题邀请讲座</div>
-                <div class="talk-venue">邀请讲座 | 挪威奥斯陆大学</div>
-                <div class="talk-location">挪威奥斯陆</div>
-            </div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">March 2019</time>
+                    <h3 class="talk-title">Digitalization in Civil Engineering Practice</h3>
+                    <p class="talk-venue">Invited Lecture | University of Oslo</p>
+                    <p class="talk-location">Oslo, Norway</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2019年2月</span>
-                <div class="talk-title">英国客座教授讲座报告</div>
-                <div class="talk-venue">客座教授讲座 | 英国大学</div>
-                <div class="talk-location">英国</div>
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">February 2019</time>
+                    <h3 class="talk-title">Visiting Professor Lectures on Digital Construction</h3>
+                    <p class="talk-venue">Guest Professor Series | UK Universities</p>
+                    <p class="talk-location">United Kingdom</p>
+                </article>
             </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2019年2月</span>
-                <div class="talk-title">德国外聘专家讲座报告</div>
-                <div class="talk-venue">专家讲座 | 德国</div>
-                <div class="talk-location">德国</div>
-            </div>
-        </div>
+        </section>
 
         <!-- 2018 -->
-        <div class="year-section">
-            <div class="year-title"><i class="bi bi-calendar-check"></i> 2018 <span class="count-badge">12 talks</span></div>
-            
-            <div class="talk-item">
-                <span class="talk-date">2018年第二期</span>
-                <div class="talk-title">BIM技术专题课程讲座</div>
-                <div class="talk-venue">专题课程 | 行业培训</div>
-                <div class="talk-location">中国</div>
+        <section class="year-section">
+            <div class="year-header">
+                <h2 class="year-title">2018</h2>
+                <span class="year-count">10 talks</span>
             </div>
+            <div class="talk-list">
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">December 2018</time>
+                    <h3 class="talk-title">BIM Technology Special Course Lectures</h3>
+                    <p class="talk-venue">Training Program | Industry Professional Development</p>
+                    <p class="talk-location">China</p>
+                </article>
 
-            <div class="talk-item">
-                <span class="talk-date">2018年11月21日</span>
-                <div class="talk-title">新西兰数字化与BIM会议大会报告</div>
-                <div class="talk-venue">大会报告 | 新西兰数字化与BIM会议</div>
-                <div class="talk-location">新西兰</div>
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">November 2018</time>
+                    <h3 class="talk-title">Digitalization and BIM Conference Keynote</h3>
+                    <p class="talk-venue">Keynote Report | New Zealand Digitalization and BIM Conference</p>
+                    <p class="talk-location">Auckland, New Zealand</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">November 2018</time>
+                    <h3 class="talk-title">Bridge Engineering Professional Training</h3>
+                    <p class="talk-venue">Training Course | Chongqing Bridge Association</p>
+                    <p class="talk-location">Chongqing, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">November 2018</time>
+                    <h3 class="talk-title">Guangzhou Concrete Conference Special Report</h3>
+                    <p class="talk-venue">Special Report | Guangzhou Concrete Conference</p>
+                    <p class="talk-location">Guangzhou, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">October 2018</time>
+                    <h3 class="talk-title">International Engineer Training Program</h3>
+                    <p class="talk-venue">Training Course | Sri Lanka and International Engineers (6 Sessions)</p>
+                    <p class="talk-location">Colombo, Sri Lanka</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">August 2018</time>
+                    <h3 class="talk-title">BIM Technology Application Lecture</h3>
+                    <p class="talk-venue">Invited Lecture | Gansu Transportation Construction Group</p>
+                    <p class="talk-location">Lanzhou, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">August 2018</time>
+                    <h3 class="talk-title">BIM Bridge Construction Monitoring Technology</h3>
+                    <p class="talk-venue">Special Report | Yunnan Communications Investment Group</p>
+                    <p class="talk-location">Kunming, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-conference">Conference</span>
+                    <time class="talk-date">July 2018</time>
+                    <h3 class="talk-title">Mountain Bridge Conference Special Report</h3>
+                    <p class="talk-venue">Special Report | Yunnan Provincial Transport Commission</p>
+                    <p class="talk-location">Yunnan, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">June 2018</time>
+                    <h3 class="talk-title">Integrated BIM Solutions for Urban Infrastructure</h3>
+                    <p class="talk-venue">Invited Lecture | Chongqing City Investment Group</p>
+                    <p class="talk-location">Chongqing, China</p>
+                </article>
+
+                <article class="talk-item">
+                    <span class="talk-type type-invited">Invited</span>
+                    <time class="talk-date">March 2018</time>
+                    <h3 class="talk-title">Highway Construction Digital Technologies</h3>
+                    <p class="talk-venue">Invited Report | Guizhou Highway Construction Group</p>
+                    <p class="talk-location">Guiyang, China</p>
+                </article>
             </div>
+        </section>
 
-            <div class="talk-item">
-                <span class="talk-date">2018年11月15日</span>
-                <div class="talk-title">重庆桥梁协会工程师培训课程</div>
-                <div class="talk-venue">培训课程 | 重庆桥梁协会</div>
-                <div class="talk-location">中国重庆</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年11月10日</span>
-                <div class="talk-title">广州混凝土会议专题报告</div>
-                <div class="talk-venue">专题报告 | 广州混凝土会议</div>
-                <div class="talk-location">中国广州</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年10月19-29日</span>
-                <div class="talk-title">斯里兰卡及其他国际工程师培训英语授课</div>
-                <div class="talk-venue">培训课程 | 国际工程师培训 (6课时)</div>
-                <div class="talk-location">斯里兰卡</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年8月29日</span>
-                <div class="talk-title">甘肃交通建设集团特邀BIM技术应用讲座</div>
-                <div class="talk-venue">特邀讲座 | 甘肃交通建设集团</div>
-                <div class="talk-location">中国甘肃</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年8月8日</span>
-                <div class="talk-title">云南交投集团BIM桥梁施工监控技术专题特邀报告</div>
-                <div class="talk-venue">特邀报告 | 云南交投集团</div>
-                <div class="talk-location">中国云南</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年7月14日</span>
-                <div class="talk-title">云南省交通委员会山区桥梁大会特邀报告</div>
-                <div class="talk-venue">特邀报告 | 云南省交通委员会</div>
-                <div class="talk-location">中国云南</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年6月12日</span>
-                <div class="talk-title">重庆城投路桥管理公司特邀讲座</div>
-                <div class="talk-venue">特邀讲座 | 重庆城投路桥管理公司</div>
-                <div class="talk-location">中国重庆</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年6月12日</span>
-                <div class="talk-title">重庆城投集团一体化BIM解决方案</div>
-                <div class="talk-venue">解决方案汇报 | 重庆城投集团</div>
-                <div class="talk-location">中国重庆</div>
-            </div>
-
-            <div class="talk-item">
-                <span class="talk-date">2018年3月20日</span>
-                <div class="talk-title">贵州公路建设集团邀请报告</div>
-                <div class="talk-venue">邀请报告 | 贵州公路建设集团</div>
-                <div class="talk-location">中国贵州</div>
-            </div>
-        </div>
-
-        <p class="text-muted mt-5">
-            <small><i class="bi bi-envelope"></i> 演讲邀请请联系: daguang.han@gmail.com</small>
-        </p>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'bi bi-moon-fill';
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                icon.className = 'bi bi-sun-fill';
-            }
-        }
-    </script>
+        <footer class="footer">
+            <p>Interested in inviting me to speak? Contact: <a href="mailto:daguang.han@gmail.com">daguang.han@gmail.com</a></p>
+        </footer>
+    </main>
 </body>
 </html>

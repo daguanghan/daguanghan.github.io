@@ -23,8 +23,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             overflow: hidden;
+        }
+        
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
         }
         
         .bg-orb {
@@ -373,7 +390,9 @@
             <li><a href="publications.html">Publications</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="patents.html">Patents</a></li>
+            <li><a href="awards.html">Awards</a></li>
             <li><a href="talks.html">Talks</a></li>
+            <li><a href="membership.html">Membership</a></li>
             <li><a href="demos.html" class="active">Demos</a></li>
         </ul>
     </nav>
@@ -509,4 +528,12 @@
         </div>
     </footer>
 </body>
+    <div class="spotlight"></div>
+
+<script>
+    document.addEventListener('mousemove', (e) => {
+        document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+    });
+</script>
 </html>

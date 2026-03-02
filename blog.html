@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Daguang Han (韩达光)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bs-navbar-bg: #2c3e50;
+            --bs-link-color: #0d6efd;
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        [data-theme="dark"] {
+            --bs-navbar-bg: #1a1a2e;
+            --bs-link-color: #4dabf7;
+            --bg-color: #0f0f1a;
+            --text-color: #e9ecef;
+            --card-bg: #1a1a2e;
+            --border-color: #2d2d44;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s;
+        }
+        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
+        .navbar-brand { color: white !important; font-weight: 600; }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .blog-item { background: var(--card-bg); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 10px; transition: transform 0.2s, box-shadow 0.2s; }
+        .blog-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .blog-category { display: inline-block; background: #0d6efd; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .blog-category-book { background: #764ba2; }
+        .blog-category-tech { background: #27ae60; }
+        .blog-category-philosophy { background: #e74c3c; }
+        .blog-title { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .blog-meta { color: #888; font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .blog-excerpt { color: var(--text-color); margin-bottom: 1rem; }
+        .blog-link { color: var(--bs-link-color); text-decoration: none; font-weight: 500; }
+        .blog-link:hover { text-decoration: underline; }
+        .book-card { border-left: 4px solid #764ba2; }
+        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
+        .rss-btn { background: #fd7e14; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; }
+        .rss-btn:hover { background: #e56b0a; color: white; }
+        [data-theme="dark"] .blog-meta { color: #888; }
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Daguang Han</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
+                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1><i class="bi bi-journal-text"></i> Blog</h1>
+                <p class="text-muted">Thoughts on engineering, philosophy, and the future</p>
+            </div>
+            <a href="#" class="rss-btn"><i class="bi bi-rss"></i> RSS</a>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-book-fill"></i> Books
+        </h2>
+
+        <div class="blog-item book-card">
+            <span class="blog-category blog-category-book">PUBLISHED</span>
+            <div class="blog-title">Humanity and the Cosmos: Awakening the Universe Within</div>
+            <div class="blog-meta">December 2024 | Amazon UK | Philosophy & Consciousness</div>
+            <div class="blog-excerpt">
+                A groundbreaking exploration that bridges Eastern philosophy (Taoism, Buddhism), Theosophy, and modern consciousness science. This book reveals the fundamental unity between humanity and the cosmos, offering practical pathways for personal awakening through elevated brainwave frequencies and cosmic connection.
+            </div>
+            <a class="blog-link" href="https://www.amazon.co.uk/dp/B0F3LRH71M" target="_blank">
+                <i class="bi bi-amazon"></i> View on Amazon →
+            </a>
+        </div>
+
+        <div class="blog-item book-card">
+            <span class="blog-category blog-category-book">IN PROGRESS</span>
+            <div class="blog-title">Philosophical Engineering: Ethical Frameworks for AI-Era Innovation</div>
+            <div class="blog-meta">Expected Q2 2026 | Philosophy & Technology</div>
+            <div class="blog-excerpt">
+                Philosophy is the only discipline capable of providing direction for technological innovation. This book establishes ethical frameworks for human-AI coexistence, proposes a new educational system aligned with philosophical engineering principles, and integrates Theosophy, Buddhism, quantum mechanics, AI, and ethics into a unified framework.
+            </div>
+        </div>
+
+        <div class="blog-item book-card">
+            <span class="blog-category blog-category-book">IN PROGRESS</span>
+            <div class="blog-title">Cosmic Civil Engineering: From Earth to Cosmos</div>
+            <div class="blog-meta">Expected Q4 2025 | Space Engineering</div>
+            <div class="blog-excerpt">
+                Pioneering the new discipline of "Cosmic Civil Engineering." Technical blueprints for space elevators, lunar bases, orbital construction, and planetary cities. Engineering foundations for microgravity construction mechanics, lunar regolith concrete, 3D-printed space materials, and closed ecological systems.
+            </div>
+        </div>
+
+        <div class="blog-item book-card">
+            <span class="blog-category blog-category-book">IN PROGRESS</span>
+            <div class="blog-title">Earth Economics in the Age of AI</div>
+            <div class="blog-meta">Expected 2026 | Economics & Blockchain</div>
+            <div class="blog-excerpt">
+                Contribution-based token economics redefining value systems (time + consciousness + contribution). Blockchain applications for decentralized intellectual property management and global collaboration incentives. Brainwave economics: higher frequency = higher income, with economic rewards for altruistic behavior.
+            </div>
+        </div>
+
+        <div class="blog-item book-card">
+            <span class="blog-category blog-category-book">IN PROGRESS</span>
+            <div class="blog-title">The Future Learning System: AI-Collaborative Personalized Lifelong Education</div>
+            <div class="blog-meta">Expected Q3 2026 | Education</div>
+            <div class="blog-excerpt">
+                A new paradigm for AI-collaborative, decentralized, personalized lifelong learning ecosystems. Redefining core human competencies for the AI era beyond traditional academic credentials. Customized AI tutors for every student, fostering human-machine collaboration to cultivate future creators.
+            </div>
+        </div>
+
+        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <i class="bi bi-lightbulb-fill"></i> Articles & Insights
+        </h2>
+
+        <div class="blog-item">
+            <span class="blog-category blog-category-tech">TECHNOLOGY</span>
+            <div class="blog-title">The Evolution of Digital Twins in Infrastructure Management</div>
+            <div class="blog-meta">February 2025 | 8 min read</div>
+            <div class="blog-excerpt">
+                From static 3D models to living, breathing digital ecosystems—how digital twin technology is transforming the way we design, build, and maintain critical infrastructure. Exploring the integration of IoT, AI, and physics-based simulation.
+            </div>
+            <a class="blog-link" href="#">Read more →</a>
+        </div>
+
+        <div class="blog-item">
+            <span class="blog-category blog-category-tech">RESEARCH</span>
+            <div class="blog-title">Multi-Agent Reinforcement Learning for Emergency Response Optimization</div>
+            <div class="blog-meta">January 2025 | 12 min read</div>
+            <div class="blog-excerpt">
+                Our recent work on applying MARL to typhoon disaster response for power grid systems. How autonomous agents can coordinate repair crews, allocate resources, and minimize downtime in critical infrastructure.
+            </div>
+            <a class="blog-link" href="#">Read more →</a>
+        </div>
+
+        <div class="blog-item">
+            <span class="blog-category blog-category-philosophy">PHILOSOPHY</span>
+            <div class="blog-title">Consciousness and Engineering: Bridging Two Worlds</div>
+            <div class="blog-meta">December 2024 | 10 min read</div>
+            <div class="blog-excerpt">
+                Reflections on the intersection of Eastern metaphysics and Western engineering. How ancient wisdom traditions can inform modern technological development and guide us toward a more harmonious human-AI coexistence.
+            </div>
+            <a class="blog-link" href="#">Read more →</a>
+        </div>
+
+        <p class="text-muted mt-4 text-center">
+            <small>More articles coming soon. Subscribe via RSS for updates.</small>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'bi bi-moon-fill';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
+</body>
+</html>

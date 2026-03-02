@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - Daguang Han</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Mouse-following spotlight effect */
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        .bg-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%);
+            bottom: 10%;
+            left: -150px;
+            animation-delay: -7s;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            padding: 7rem 0 2rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .page-subtitle {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .membership-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .membership-item {
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .membership-item:hover {
+            border-color: rgba(99,102,241,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .membership-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .membership-org {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .membership-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .badge-active {
+            background: rgba(34,197,94,0.15);
+            color: #22c55e;
+        }
+        
+        .badge-progress {
+            background: rgba(99,102,241,0.15);
+            color: #6366f1;
+        }
+        
+        .badge-interested {
+            background: rgba(139,92,246,0.15);
+            color: #8b5cf6;
+        }
+        
+        .membership-role {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.25rem;
+        }
+        
+        .membership-status {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .membership-desc {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .membership-header {
+                flex-direction: column;
+            }
+            
+            .membership-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight" id="spotlight"></div>
+    
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
+    
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            <span>DAGUANG HAN</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="patents.html">Patents</a></li>
+            <li><a href="awards.html">Awards</a></li>
+            <li><a href="talks.html">Talks</a></li>
+            <li><a href="membership.html" class="active">Membership</a></li>
+            <li><a href="demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Professional Membership</h1>
+            <p class="page-subtitle">Active participation in professional engineering societies and academic organizations</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Current Memberships -->
+        <div class="section">
+            <h2 class="section-title">Current Memberships</h2>
+            
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">China Highway and Transportation Society (CHTS)</span>
+                        <span class="membership-badge badge-active">Active</span>
+                    </div>
+                    <div class="membership-role">Deputy Director, Smart Manufacturing Branch</div>
+                    <div class="membership-status">Member since 2022</div>
+                    <div class="membership-desc">Leading the Smart Manufacturing Branch of China Highway and Transportation Society, promoting digital transformation and intelligent manufacturing in transportation infrastructure.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Applications in Progress -->
+        <div class="section">
+            <h2 class="section-title">Applications in Progress</h2>
+            
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">American Society of Civil Engineers (ASCE)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
+                    </div>
+                    <div class="membership-role">Member</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">The American Society of Civil Engineers represents more than 150,000 members of the civil engineering profession in 177 countries. Founded in 1852, ASCE is the nation's oldest engineering society.</div>
+                </div>
+                
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Chartered Institute of Building (CIOB)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
+                    </div>
+                    <div class="membership-role">Chartered Member (MCIOB)</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">The Chartered Institute of Building is at the heart of a management career in construction. CIOB delivers the highest level of accreditation in the industry, promoting excellence in the built environment.</div>
+                </div>
+                
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Advance HE (Higher Education Academy)</span>
+                        <span class="membership-badge badge-progress">Application in Progress</span>
+                    </div>
+                    <div class="membership-role">Senior Fellow (SFHEA)</div>
+                    <div class="membership-status">Application submitted - 2025</div>
+                    <div class="membership-desc">Advance HE is a member-led charity of and for the sector. Senior Fellowship (SFHEA) recognizes experienced professionals who demonstrate a broad understanding of effective approaches to learning and teaching.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interested Organizations -->
+        <div class="section">
+            <h2 class="section-title">Organizations of Interest</h2>
+            
+            <div class="membership-list">
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">Institution of Structural Engineers (IStructE)</span>
+                        <span class="membership-badge badge-interested">Actively Pursuing</span>
+                    </div>
+                    <div class="membership-role">Member / Chartered Engineer</div>
+                    <div class="membership-desc">The Institution of Structural Engineers is the world's largest membership organization dedicated to the art and science of structural engineering. Actively exploring membership opportunities for professional development and international recognition.</div>
+                </div>
+                
+                <div class="membership-item">
+                    <div class="membership-header">
+                        <span class="membership-org">China Computer Federation (CCF)</span>
+                        <span class="membership-badge badge-interested">Actively Pursuing</span>
+                    </div>
+                    <div class="membership-role">Senior Member</div>
+                    <div class="membership-desc">China Computer Federation is the leading professional organization for computer science and technology in China. Exploring membership to strengthen interdisciplinary collaboration between civil engineering and computer science.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DAGUANG HAN</div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mouse following spotlight
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
+</body>
+</html>

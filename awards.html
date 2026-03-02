@@ -7,17 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #000;
             color: #fff;
             line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
         }
-        
         .nav {
             position: fixed;
             top: 0;
@@ -32,18 +27,15 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        
         .nav-logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
             font-size: 0.875rem;
-            letter-spacing: 0.02em;
             text-decoration: none;
             color: #fff;
         }
-        
         .nav-logo-icon {
             width: 28px;
             height: 28px;
@@ -55,34 +47,27 @@
             font-size: 0.75rem;
             font-weight: 700;
         }
-        
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-        
         .nav-links a {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
             font-size: 0.8125rem;
             font-weight: 500;
-            transition: color 0.2s;
         }
-        
         .nav-links a:hover, .nav-links a.active { color: #fff; }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
         .page-header {
             padding: 8rem 0 3rem;
             text-align: center;
         }
-        
         .page-title {
             font-size: 3rem;
             font-weight: 700;
@@ -90,18 +75,14 @@
             background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        
         .page-subtitle {
             color: rgba(255,255,255,0.6);
             font-size: 1.125rem;
         }
-        
         .section {
             margin-bottom: 5rem;
         }
-        
         .section-title {
             font-size: 1.75rem;
             font-weight: 600;
@@ -109,34 +90,26 @@
             padding-bottom: 0.75rem;
             border-bottom: 2px solid rgba(99,102,241,0.5);
         }
-        
         .award-list {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-        
         .award-item {
             display: grid;
             grid-template-columns: 80px 1fr;
-            gap: 0;
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
         .award-item:hover {
             background: rgba(255,255,255,0.05);
             border-color: rgba(99,102,241,0.3);
             transform: translateY(-4px);
         }
-        
         .award-tier-1 { border-left: 4px solid #ffd700; }
-        .award-tier-2 { border-left: 4px solid #c0c0c0; }
-        .award-tier-3 { border-left: 4px solid #cd7f32; }
-        
         .award-year {
             display: flex;
             align-items: center;
@@ -146,11 +119,9 @@
             font-size: 0.875rem;
             font-weight: 600;
         }
-        
         .award-content {
             padding: 1.5rem;
         }
-        
         .award-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -159,37 +130,29 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        
         .badge-first { background: #ffd700; color: #333; }
-        .badge-second { background: #c0c0c0; color: #333; }
-        .badge-outstanding { background: #e74c3c; color: white; }
-        
         .award-title {
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #fff;
         }
-        
         .award-org {
             color: rgba(255,255,255,0.6);
             font-size: 0.875rem;
             margin-bottom: 0.25rem;
         }
-        
         .award-project {
             color: rgba(255,255,255,0.4);
             font-size: 0.9rem;
             font-style: italic;
         }
-        
         .footer {
             padding: 3rem 0;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
             margin-top: 5rem;
         }
-        
         .footer-logo {
             font-size: 0.875rem;
             font-weight: 600;
@@ -226,7 +189,6 @@
     <div class="container">
         <div class="section">
             <h2 class="section-title">Provincial & Ministerial Level Awards</h2>
-            
             <div class="award-list">
                 <div class="award-item award-tier-1">
                     <div class="award-year">2024</div>
@@ -235,26 +197,6 @@
                         <div class="award-title">Scientific and Technological Innovation First Prize</div>
                         <div class="award-org">China Association for the Promotion of Industrial Development of Science and Technology</div>
                         <div class="award-project">Key Technologies and Applications for Structural Safety Diagnostics and Smart Disaster Prevention in Civil Infrastructure</div>
-                    </div>
-                </div>
-                
-                <div class="award-item award-tier-1">
-                    <div class="award-year">2022</div>
-                    <div class="award-content">
-                        <span class="award-badge badge-first">First Prize</span>
-                        <div class="award-title">Science and Technology Progress Award</div>
-                        <div class="award-org">China Highway and Transportation Society</div>
-                        <div class="award-project">Key Technologies for Precise Diagnosis and Prevention of Fatigue Damage under Multi-factor Coupling Effects in Long-Span Bridges</div>
-                    </div>
-                </div>
-                
-                <div class="award-item award-tier-1">
-                    <div class="award-year">2016</div>
-                    <div class="award-content">
-                        <span class="award-badge badge-first">First Prize</span>
-                        <div class="award-title">National Science and Technology Progress Award</div>
-                        <div class="award-org">Ministry of Science and Technology</div>
-                        <div class="award-project">Key Technologies for Structural Health Monitoring and Safety Assessment of Long-Span Bridges</div>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership - Daguang Han</title>
+    <title>Professional Qualifications - Dr.-Ing. Daguang Han</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,7 +18,6 @@
             min-height: 100vh;
         }
         
-        /* Mouse-following spotlight effect */
         .spotlight {
             position: fixed;
             top: 0;
@@ -154,60 +153,74 @@
         }
         
         .section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         
         .section-title {
-            font-size: 0.8125rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(99,102,241,0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        .membership-list {
+        .section-icon {
+            font-size: 1.25rem;
+        }
+        
+        .qual-list {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
-        .membership-item {
+        .qual-item {
             padding: 1.25rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.2s;
         }
         
-        .membership-item:hover {
-            border-color: rgba(99,102,241,0.15);
+        .qual-item:hover {
+            border-color: rgba(99,102,241,0.2);
             background: rgba(255,255,255,0.03);
         }
         
-        .membership-header {
+        .qual-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
         
-        .membership-org {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.5;
+        .qual-title-group {
             flex: 1;
         }
         
-        .membership-badge {
-            padding: 0.25rem 0.5rem;
+        .qual-org {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        
+        .qual-role {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .qual-badge {
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.625rem;
+            font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-left: 0.75rem;
             flex-shrink: 0;
         }
         
@@ -221,34 +234,115 @@
             color: #6366f1;
         }
         
-        .badge-interested {
+        .badge-target {
             background: rgba(139,92,246,0.15);
             color: #8b5cf6;
         }
         
-        .membership-role {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.7);
+        .qual-year {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.25rem;
+        }
+        
+        .qual-value {
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(99,102,241,0.08);
+            border-radius: 6px;
+            border-left: 3px solid #6366f1;
+        }
+        
+        .qual-value-title {
+            font-size: 0.75rem;
+            color: #6366f1;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 0.25rem;
         }
         
-        .membership-status {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
+        .qual-value ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.875rem;
+            line-height: 1.6;
         }
         
-        .membership-desc {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.5rem;
-            line-height: 1.5;
+        .qual-value li {
+            margin-bottom: 0.2rem;
+        }
+        
+        .why-section {
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,197,94,0.05));
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .why-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .why-check {
+            color: #22c55e;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+        }
+        
+        .cta-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .cta-email {
+            color: #6366f1;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-email:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-note {
+            color: #22c55e;
+            font-size: 0.875rem;
         }
         
         .footer {
             padding: 2.5rem 0;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 3rem;
         }
         
         .footer-logo {
@@ -259,18 +353,10 @@
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .membership-header {
-                flex-direction: column;
-            }
-            
-            .membership-badge {
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
+            .nav-links { display: none; }
+            .qual-header { flex-direction: column; }
+            .qual-badge { margin-left: 0; }
+            .why-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -285,7 +371,7 @@
     <nav class="nav">
         <a href="index.html" class="nav-logo">
             <div class="nav-logo-icon">DH</div>
-            <span>DAGUANG HAN</span>
+            <span>Dr.-Ing. Daguang Han</span>
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -301,100 +387,232 @@
     
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title">Professional Membership</h1>
-            <p class="page-subtitle">Active participation in professional engineering societies and academic organizations</p>
+            <h1 class="page-title">Professional Qualifications</h1>
+            <p class="page-subtitle">Professional Memberships, Accreditations, and International Recognition</p>
         </div>
     </header>
     
     <div class="container">
-        <!-- Current Memberships -->
+        <!-- Current Qualifications -->
         <div class="section">
-            <h2 class="section-title">Current Memberships</h2>
+            <h2 class="section-title">
+                <span class="section-icon">✅</span>
+                Current Qualifications
+            </h2>
             
-            <div class="membership-list">
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">China Highway and Transportation Society (CHTS)</span>
-                        <span class="membership-badge badge-active">Active</span>
+            <div class="qual-list">
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">China Highway and Transportation Society (CHTS)</div>
+                            <div class="qual-role">Deputy Director, Smart Manufacturing Branch</div>
+                            <div class="qual-year">Active since 2022</div>
+                        </div>
+                        <span class="qual-badge badge-active">Active</span>
                     </div>
-                    <div class="membership-role">Deputy Director, Smart Manufacturing Branch</div>
-                    <div class="membership-status">Member since 2022</div>
-                    <div class="membership-desc">Leading the Smart Manufacturing Branch of China Highway and Transportation Society, promoting digital transformation and intelligent manufacturing in transportation infrastructure.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Value for Employers</div>
+                        <ul>
+                            <li>Leading national committee on smart manufacturing in transportation</li>
+                            <li>Access to industry standards and policy development</li>
+                            <li>Network of 10,000+ transportation infrastructure professionals</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">Senior Engineer Certification</div>
+                            <div class="qual-role">Senior Engineer (Gaoji Gongchengshi)</div>
+                            <div class="qual-year">Certified 2022</div>
+                        </div>
+                        <span class="qual-badge badge-active">Active</span>
+                    </div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Value for Employers</div>
+                        <ul>
+                            <li>Highest professional engineering rank in China</li>
+                            <li>Authorized to sign off on major infrastructure projects</li>
+                            <li>Recognized technical leadership and project management capability</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">ISO/TC 59/SC 13 JWG 14</div>
+                            <div class="qual-role">Member, Joint Working Group on BIM Standards</div>
+                            <div class="qual-year">Member since 2023</div>
+                        </div>
+                        <span class="qual-badge badge-active">Active</span>
+                    </div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Value for Employers</div>
+                        <ul>
+                            <li>International standards development for BIM and digital construction</li>
+                            <li>Direct involvement in ISO 19650 series implementation</li>
+                            <li>Global network of BIM standardization experts</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Applications in Progress -->
+        <!-- In Progress -->
         <div class="section">
-            <h2 class="section-title">Applications in Progress</h2>
+            <h2 class="section-title">
+                <span class="section-icon">📝</span>
+                In Progress (Expected 2025)
+            </h2>
             
-            <div class="membership-list">
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">American Society of Civil Engineers (ASCE)</span>
-                        <span class="membership-badge badge-progress">Application in Progress</span>
+            <div class="qual-list">
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">American Society of Civil Engineers (ASCE)</div>
+                            <div class="qual-role">Member</div>
+                            <div class="qual-year">Application in progress — Expected 2025</div>
+                        </div>
+                        <span class="qual-badge badge-progress">In Progress</span>
                     </div>
-                    <div class="membership-role">Member</div>
-                    <div class="membership-status">Application submitted - 2025</div>
-                    <div class="membership-desc">The American Society of Civil Engineers represents more than 150,000 members of the civil engineering profession in 177 countries. Founded in 1852, ASCE is the nation's oldest engineering society.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Why ASCE Matters</div>
+                        <ul>
+                            <li><strong>150,000+ members</strong> across 177 countries — largest civil engineering society globally</li>
+                            <li>Founded in <strong>1852</strong> — oldest and most respected engineering institution in the US</li>
+                            <li><strong>North American market standard</strong> — essential for US/Canada engineering roles</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">Chartered Institute of Building (CIOB)</span>
-                        <span class="membership-badge badge-progress">Application in Progress</span>
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">Chartered Institute of Building (CIOB)</div>
+                            <div class="qual-role">Chartered Member (MCIOB)</div>
+                            <div class="qual-year">Application in progress — Expected 2025</div>
+                        </div>
+                        <span class="qual-badge badge-progress">In Progress</span>
                     </div>
-                    <div class="membership-role">Chartered Member (MCIOB)</div>
-                    <div class="membership-status">Application submitted - 2025</div>
-                    <div class="membership-desc">The Chartered Institute of Building is at the heart of a management career in construction. CIOB delivers the highest level of accreditation in the industry, promoting excellence in the built environment.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Why CIOB Matters</div>
+                        <ul>
+                            <li><strong>UK construction industry gold standard</strong> — recognized across Commonwealth markets</li>
+                            <li>MCIOB is the <strong>highest management-level accreditation</strong> in construction</li>
+                            <li>Essential for <strong>senior roles in UK building projects</strong> and consultancy</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">Advance HE (Higher Education Academy)</span>
-                        <span class="membership-badge badge-progress">Application in Progress</span>
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">Advance HE (Higher Education Academy)</div>
+                            <div class="qual-role">Senior Fellow (SFHEA)</div>
+                            <div class="qual-year">Application in progress — Expected 2025</div>
+                        </div>
+                        <span class="qual-badge badge-progress">In Progress</span>
                     </div>
-                    <div class="membership-role">Senior Fellow (SFHEA)</div>
-                    <div class="membership-status">Application submitted - 2025</div>
-                    <div class="membership-desc">Advance HE is a member-led charity of and for the sector. Senior Fellowship (SFHEA) recognizes experienced professionals who demonstrate a broad understanding of effective approaches to learning and teaching.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Why SFHEA Matters</div>
+                        <ul>
+                            <li><strong>UK university teaching qualification</strong> — required for academic positions</li>
+                            <li>Recognizes <strong>experienced educators</strong> with broad pedagogical expertise</li>
+                            <li>Essential for <strong>Lecturer/Professor roles</strong> in UK higher education</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Interested Organizations -->
+        <!-- Target Qualifications -->
         <div class="section">
-            <h2 class="section-title">Organizations of Interest</h2>
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                Target Qualifications
+            </h2>
             
-            <div class="membership-list">
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">Institution of Structural Engineers (IStructE)</span>
-                        <span class="membership-badge badge-interested">Actively Pursuing</span>
+            <div class="qual-list">
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">Institution of Structural Engineers (IStructE)</div>
+                            <div class="qual-role">Member / Chartered Structural Engineer</div>
+                        </div>
+                        <span class="qual-badge badge-target">Target</span>
                     </div>
-                    <div class="membership-role">Member / Chartered Engineer</div>
-                    <div class="membership-desc">The Institution of Structural Engineers is the world's largest membership organization dedicated to the art and science of structural engineering. Actively exploring membership opportunities for professional development and international recognition.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Why IStructE Matters</div>
+                        <ul>
+                            <li><strong>World's largest structural engineering body</strong> — 27,000+ members in 105 countries</li>
+                            <li><strong>UK structural engineering gold standard</strong> — essential for bridge/building design roles</li>
+                            <li>Chartered status enables <strong>signing to UK/EU codes</strong></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="membership-item">
-                    <div class="membership-header">
-                        <span class="membership-org">China Computer Federation (CCF)</span>
-                        <span class="membership-badge badge-interested">Actively Pursuing</span>
+                <div class="qual-item">
+                    <div class="qual-header">
+                        <div class="qual-title-group">
+                            <div class="qual-org">Institution of Civil Engineers (ICE)</div>
+                            <div class="qual-role">Member / Chartered Engineer (CEng)</div>
+                        </div>
+                        <span class="qual-badge badge-target">Target</span>
                     </div>
-                    <div class="membership-role">Senior Member</div>
-                    <div class="membership-desc">China Computer Federation is the leading professional organization for computer science and technology in China. Exploring membership to strengthen interdisciplinary collaboration between civil engineering and computer science.</div>
+                    <div class="qual-value">
+                        <div class="qual-value-title">Why ICE Matters</div>
+                        <ul>
+                            <li><strong>UK's premier civil engineering institution</strong> — founded 1818, 95,000+ members</li>
+                            <li>CEng is the <strong>UK engineering license</strong> — required for signing off projects</li>
+                            <li>Essential for <strong>infrastructure and public works</strong> roles in UK</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Why These Qualifications Matter -->
+        <div class="why-section">
+            <h3 class="why-title">Why These Qualifications Matter for UK/US Roles</h3>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <span class="why-check">✓</span>
+                    <span><strong>ASCE</strong> — North America market recognition</span>
+                </div>
+                <div class="why-item">
+                    <span class="why-check">✓</span>
+                    <span><strong>CIOB</strong> — UK construction industry essential</span>
+                </div>
+                <div class="why-item">
+                    <span class="why-check">✓</span>
+                    <span><strong>IStructE/ICE</strong> — UK infrastructure gold standard</span>
+                </div>
+                <div class="why-item">
+                    <span class="why-check">✓</span>
+                    <span><strong>SFHEA</strong> — UK university teaching qualification</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Leverage My International Qualifications?</h2>
+            <a href="mailto:daguang.han@gmail.com" class="cta-email">daguang.han@gmail.com</a>
+            <p class="cta-note">UK Work Authorization: No sponsorship required — Available immediately</p>
         </div>
     </div>
     
+    
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DAGUANG HAN</div>
+            <div class="footer-logo">DR.-ING. DAGUANG HAN</div>
         </div>
     </footer>
     
     <script>
-        // Mouse following spotlight
         document.addEventListener('mousemove', (e) => {
             const spotlight = document.getElementById('spotlight');
             const x = (e.clientX / window.innerWidth) * 100;

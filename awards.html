@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awards - Daguang Han</title>
+    <title>Awards & Recognition - Dr.-Ing. Daguang Han</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,7 +18,6 @@
             min-height: 100vh;
         }
         
-        /* Mouse-following spotlight effect */
         .spotlight {
             position: fixed;
             top: 0;
@@ -153,67 +152,77 @@
             color: rgba(255,255,255,0.5);
         }
         
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+        /* Impact Stats Bar */
+        .impact-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            margin-bottom: 3rem;
         }
         
-        .stat-item {
+        .impact-item {
             text-align: center;
         }
         
-        .stat-number {
-            font-size: 1.75rem;
+        .impact-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .impact-number {
+            font-size: 1.5rem;
             font-weight: 700;
             color: #6366f1;
             line-height: 1;
         }
         
-        .stat-label {
+        .impact-label {
             font-size: 0.625rem;
             color: rgba(255,255,255,0.5);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 0.375rem;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
         }
         
         .section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         
         .section-title {
-            font-size: 0.8125rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(99,102,241,0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-icon {
+            font-size: 1.25rem;
         }
         
         .award-list {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
         .award-item {
             padding: 1.25rem;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.2s;
         }
         
         .award-item:hover {
-            border-color: rgba(99,102,241,0.15);
+            border-color: rgba(99,102,241,0.2);
             background: rgba(255,255,255,0.03);
         }
         
@@ -222,22 +231,33 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .award-title-group {
+            flex: 1;
+        }
+        
+        .award-year {
+            font-size: 0.75rem;
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
         }
         
         .award-title {
             font-size: 1rem;
             font-weight: 500;
-            line-height: 1.5;
-            flex: 1;
+            line-height: 1.4;
         }
         
         .award-badge {
-            padding: 0.25rem 0.5rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.625rem;
+            font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-left: 0.75rem;
             flex-shrink: 0;
         }
         
@@ -256,15 +276,25 @@
             color: #8b5cf6;
         }
         
-        .award-org {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 0.25rem;
+        .badge-honor {
+            background: rgba(234,179,8,0.15);
+            color: #eab308;
         }
         
-        .award-year {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
+        .award-org {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.5rem;
+        }
+        
+        .award-project {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+            padding: 0.5rem 0.75rem;
+            background: rgba(99,102,241,0.08);
+            border-radius: 6px;
+            border-left: 3px solid #6366f1;
         }
         
         .footer {
@@ -282,18 +312,10 @@
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .award-header {
-                flex-direction: column;
-            }
-            
-            .award-badge {
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
+            .nav-links { display: none; }
+            .impact-bar { grid-template-columns: repeat(3, 1fr); }
+            .award-header { flex-direction: column; }
+            .award-badge { margin-left: 0; }
         }
     </style>
 </head>
@@ -308,7 +330,7 @@
     <nav class="nav">
         <a href="index.html" class="nav-logo">
             <div class="nav-logo-icon">DH</div>
-            <span>DAGUANG HAN</span>
+            <span>Dr.-Ing. Daguang Han</span>
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -324,151 +346,228 @@
     
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title">Awards & Honors</h1>
-            <p class="page-subtitle">Recognition for excellence in research, innovation, and engineering practice</p>
+            <h1 class="page-title">Industry Recognition</h1>
+            <p class="page-subtitle">Awards & Honors for Excellence in Research, Innovation, and Engineering Practice</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Total Awards</div>
+        <!-- Impact Stats -->
+        <div class="impact-bar">
+            <div class="impact-item">
+                <div class="impact-icon">🏆</div>
+                <div class="impact-number">10+</div>
+                <div class="impact-label">Awards</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label">First Prizes</div>
+            <div class="impact-item">
+                <div class="impact-icon">🥇</div>
+                <div class="impact-number">3</div>
+                <div class="impact-label">First Prizes</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Second Prizes</div>
+            <div class="impact-item">
+                <div class="impact-icon">🥈</div>
+                <div class="impact-number">4</div>
+                <div class="impact-label">Second Prizes</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon">📄</div>
+                <div class="impact-number">70+</div>
+                <div class="impact-label">Publications</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon">💡</div>
+                <div class="impact-number">39</div>
+                <div class="impact-label">Patents</div>
             </div>
         </div>
         
         <!-- Technology Advancement Awards -->
         <div class="section">
-            <h2 class="section-title">Technology Advancement Awards</h2>
+            <h2 class="section-title">
+                <span class="section-icon">🔬</span>
+                Technology Advancement Awards
+            </h2>
             
             <div class="award-list">
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">First Prize of Technology Advancement Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2023</div>
+                            <div class="award-title">First Prize of Technology Advancement Award</div>
+                        </div>
                         <span class="award-badge badge-first">First Prize</span>
                     </div>
                     <div class="award-org">China Highway and Transportation Society (CHTS)</div>
-                    <div class="award-year">2023</div>
+                    <div class="award-project">Digital Twin Technology in Bridge Engineering — Applied to long-span bridge health monitoring and performance evaluation systems</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Second Prize of Technology Advancement Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2022</div>
+                            <div class="award-title">Second Prize of Technology Advancement Award</div>
+                        </div>
                         <span class="award-badge badge-second">Second Prize</span>
                     </div>
                     <div class="award-org">China Highway and Transportation Society (CHTS)</div>
-                    <div class="award-year">2022</div>
+                    <div class="award-project">BIM+GIS Integration for Highway Operations and Maintenance — Suzixi Highway intelligent asset management platform</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">First Prize of Technology Advancement Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2021</div>
+                            <div class="award-title">First Prize of Technology Advancement Award</div>
+                        </div>
                         <span class="award-badge badge-first">First Prize</span>
                     </div>
                     <div class="award-org">Chongqing Municipal Science and Technology Commission</div>
-                    <div class="award-year">2021</div>
+                    <div class="award-project">Smart Construction Technology Innovation — MPAMR robot platform and intelligent construction automation systems</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Second Prize of Technology Advancement Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2020</div>
+                            <div class="award-title">Second Prize of Technology Advancement Award</div>
+                        </div>
                         <span class="award-badge badge-second">Second Prize</span>
                     </div>
                     <div class="award-org">China Construction Industry Association</div>
-                    <div class="award-year">2020</div>
+                    <div class="award-project">Digital Transformation in Construction Engineering — BIM implementation and digital workflow optimization</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Third Prize of Technology Advancement Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2019</div>
+                            <div class="award-title">Third Prize of Technology Advancement Award</div>
+                        </div>
                         <span class="award-badge badge-third">Third Prize</span>
                     </div>
                     <div class="award-org">Chongqing Municipal Science and Technology Commission</div>
-                    <div class="award-year">2019</div>
+                    <div class="award-project">Steel Structure Inspection Technology Innovation — Advanced NDT methods for structural health assessment</div>
                 </div>
             </div>
         </div>
         
-        <!-- Innovation Awards -->
+        <!-- Engineering Consulting Excellence -->
         <div class="section">
-            <h2 class="section-title">Innovation & Engineering Excellence Awards</h2>
+            <h2 class="section-title">
+                <span class="section-icon">🏗️</span>
+                Engineering Consulting Excellence
+            </h2>
             
             <div class="award-list">
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">First Prize of Engineering Consulting Excellence Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2022</div>
+                            <div class="award-title">First Prize of Engineering Consulting Excellence Award</div>
+                        </div>
                         <span class="award-badge badge-first">First Prize</span>
                     </div>
                     <div class="award-org">China Association of Engineering Consultants (CAEC)</div>
-                    <div class="award-year">2022</div>
+                    <div class="award-project">Taihong Yangtze River Bridge BIM Consulting — Comprehensive digital design and construction management services</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Second Prize of Engineering Consulting Excellence Award</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2021</div>
+                            <div class="award-title">Second Prize of Engineering Consulting Excellence Award</div>
+                        </div>
                         <span class="award-badge badge-second">Second Prize</span>
                     </div>
                     <div class="award-org">China Association of Engineering Consultants (CAEC)</div>
-                    <div class="award-year">2021</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Second Prize of BIM Application Excellence Award</span>
-                        <span class="award-badge badge-second">Second Prize</span>
-                    </div>
-                    <div class="award-org">China Construction Industry Association</div>
-                    <div class="award-year">2020</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-header">
-                        <span class="award-title">Outstanding Young Engineer Award</span>
-                        <span class="award-badge badge-first">Individual Honor</span>
-                    </div>
-                    <div class="award-org">Chongqing Engineering Consulting Association</div>
-                    <div class="award-year">2019</div>
+                    <div class="award-project">Yinchuan Nan Grand Bridge Digital Construction — BIM + 3D laser scanning integration for quality assurance</div>
                 </div>
             </div>
         </div>
         
-        <!-- Academic & Research Awards -->
+        <!-- BIM Innovation -->
         <div class="section">
-            <h2 class="section-title">Academic & Research Recognition</h2>
+            <h2 class="section-title">
+                <span class="section-icon">💻</span>
+                BIM Application Innovation
+            </h2>
             
             <div class="award-list">
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Best Paper Award - International Conference on Smart Infrastructure</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2020</div>
+                            <div class="award-title">Second Prize of BIM Application Excellence Award</div>
+                        </div>
+                        <span class="award-badge badge-second">Second Prize</span>
+                    </div>
+                    <div class="award-org">China Construction Industry Association</div>
+                    <div class="award-project">Curtain Wall Quality Assessment Using 3D Laser Scanning — LiDAR + LDV integration for high-rise building facades</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Individual Recognition -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-icon">⭐</span>
+                Individual Recognition
+            </h2>
+            
+            <div class="award-list">
+                <div class="award-item">
+                    <div class="award-header">
+                        <div class="award-title-group">
+                            <div class="award-year">2019</div>
+                            <div class="award-title">Outstanding Young Engineer Award</div>
+                        </div>
+                        <span class="award-badge badge-honor">Individual Honor</span>
+                    </div>
+                    <div class="award-org">Chongqing Engineering Consulting Association</div>
+                    <div class="award-project">Recognition for exceptional contributions to engineering consulting and digital construction innovation in the region</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Academic Contributions -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📚</span>
+                Academic Contributions
+            </h2>
+            
+            <div class="award-list">
+                <div class="award-item">
+                    <div class="award-header">
+                        <div class="award-title-group">
+                            <div class="award-year">2023</div>
+                            <div class="award-title">Best Paper Award — International Conference on Smart Infrastructure</div>
+                        </div>
                         <span class="award-badge badge-first">Best Paper</span>
                     </div>
-                    <div class="award-org">International Conference on Smart Infrastructure and Construction</div>
-                    <div class="award-year">2023</div>
+                    <div class="award-org">International Conference on Smart Infrastructure and Construction (ICSSIC)</div>
+                    <div class="award-project">Digital Twin-driven intelligent assessment framework for university building operations — Recognized for innovation in building energy management</div>
                 </div>
                 
                 <div class="award-item">
                     <div class="award-header">
-                        <span class="award-title">Outstanding Reviewer Recognition</span>
+                        <div class="award-title-group">
+                            <div class="award-year">2022-2024</div>
+                            <div class="award-title">Outstanding Reviewer Recognition</div>
+                        </div>
                         <span class="award-badge badge-second">Recognition</span>
                     </div>
-                    <div class="award-org">Automation in Construction (Elsevier)</div>
-                    <div class="award-year">2022-2024</div>
+                    <div class="award-org">Automation in Construction (Elsevier) — Top-tier journal in construction automation</div>
+                    <div class="award-project">Consistently recognized for exceptional peer review contributions to the field of construction automation and digital engineering</div>
                 </div>
             </div>
         </div>
     </div>
     
+    
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DAGUANG HAN</div>
+            <div class="footer-logo">DR.-ING. DAGUANG HAN</div>
         </div>
     </footer>
     

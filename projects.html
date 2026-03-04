@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Dr.-Ing. Daguang Han | UK Work Authorized</title>
+    <title>Projects - Daguang Han</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -146,28 +146,9 @@
             font-size: 1.125rem;
         }
         
-        .uk-notice {
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,197,94,0.1));
-            border: 1px solid rgba(99,102,241,0.3);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .uk-notice-text {
-            font-size: 0.9375rem;
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .uk-notice-highlight {
-            color: #22c55e;
-            font-weight: 600;
-        }
-        
         .stats-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin: 3rem 0 4rem;
             padding: 2rem;
@@ -219,15 +200,20 @@
         .project-list {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 2rem;
         }
         
         .project-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 16px;
-            padding: 2rem;
+            overflow: hidden;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
         
         .project-item:hover {
@@ -236,176 +222,126 @@
             transform: translateY(-4px);
         }
         
-        .project-header {
-            margin-bottom: 1.25rem;
+        /* Clickable project highlight styles */
+        .project-item.clickable {
+            border: 2px solid rgba(99,102,241,0.4);
+            box-shadow: 0 0 20px rgba(99,102,241,0.15);
+            position: relative;
         }
         
-        .project-id {
-            display: inline-block;
-            background: rgba(99,102,241,0.2);
-            color: #6366f1;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        .project-item.clickable::before {
+            content: "→ View Details";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-right: 0.75rem;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-item.clickable:hover::before {
+            opacity: 1;
+        }
+        
+        .project-item.clickable .project-content h3 {
+            color: #6366f1;
+            transition: color 0.3s ease;
+        }
+        
+        .project-item.clickable:hover .project-content h3 {
+            color: #8b5cf6;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+        
+        .funding-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.75rem;
             vertical-align: middle;
         }
         
-        .project-title {
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: #fff;
-            display: inline;
-        }
-        
-        .project-meta-line {
+        .project-meta {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 0.75rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
-            font-size: 0.875rem;
         }
         
-        .project-client {
+        .project-type {
+            font-size: 0.75rem;
             color: #6366f1;
-            font-weight: 500;
-        }
-        
-        .project-funding {
-            color: #22c55e;
-            font-weight: 600;
-        }
-        
-        .project-year {
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .project-role {
-            color: rgba(255,255,255,0.6);
-            font-style: italic;
-        }
-        
-        .project-desc {
-            color: rgba(255,255,255,0.75);
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            margin: 1rem 0;
-        }
-        
-        .business-value {
-            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05));
-            border-left: 3px solid #22c55e;
-            padding: 1rem 1.25rem;
-            border-radius: 0 8px 8px 0;
-            margin-top: 1rem;
-        }
-        
-        .business-value-title {
-            color: #22c55e;
-            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
         }
         
-        .business-value ul {
-            margin: 0;
-            padding-left: 1.25rem;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
+        .project-year {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .project-desc {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9375rem;
             line-height: 1.6;
+            margin-bottom: 1rem;
         }
         
-        .business-value li {
-            margin-bottom: 0.25rem;
+        .project-role {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+            font-style: italic;
+            margin-bottom: 1rem;
         }
         
         .project-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
         }
         
         .tag {
             font-size: 0.6875rem;
             color: rgba(255,255,255,0.7);
             background: rgba(255,255,255,0.1);
-            padding: 0.25rem 0.6rem;
+            padding: 0.25rem 0.5rem;
             border-radius: 4px;
-        }
-        
-        .why-us-section {
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05));
-            border: 1px solid rgba(99,102,241,0.2);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 4rem 0;
-        }
-        
-        .why-us-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .why-us-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.9375rem;
-            color: rgba(255,255,255,0.85);
-        }
-        
-        .why-us-check {
-            color: #22c55e;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        .cta-section {
-            text-align: center;
-            padding: 4rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 3rem;
-        }
-        
-        .cta-title {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-email {
-            color: #6366f1;
-            font-size: 1.125rem;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 0.75rem;
-        }
-        
-        .cta-email:hover {
-            text-decoration: underline;
-        }
-        
-        .cta-note {
-            color: #22c55e;
-            font-size: 0.9375rem;
         }
         
         .footer {
             padding: 3rem 0;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 5rem;
         }
         
         .footer-logo {
@@ -418,8 +354,10 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .page-title { font-size: 2rem; }
-            .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .why-us-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: 1fr; }
+            .project-item { grid-template-columns: 1fr; }
+            .project-image { min-height: 150px; }
+            .project-item.clickable::before { display: none; }
         }
     </style>
 </head>
@@ -432,7 +370,7 @@
     <nav class="nav">
         <a href="index.html" class="nav-logo">
             <div class="nav-logo-icon">DH</div>
-            Dr.-Ing. Daguang Han
+            Daguang Han
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -449,13 +387,7 @@
     <header class="page-header">
         <div class="container">
             <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">40+ Projects Completed | 39 Patents | 8 Commercialized Products</p>
-            
-            <div class="uk-notice">
-                <p class="uk-notice-text">
-                    <span class="uk-notice-highlight">UK Work Authorized:</span> Partner eVisa — Unrestricted Right to Work, no sponsorship required, valid to October 2026
-                </p>
-            </div>
+            <p class="page-subtitle">40+ Technology R&D Projects | Technical Consulting | Technology Services</p>
         </div>
     </header>
     
@@ -473,501 +405,458 @@
                 <div class="stat-number">17</div>
                 <div class="stat-label">Consulting Projects</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">8</div>
-                <div class="stat-label">Commercial Products</div>
-            </div>
         </div>
         
-        <!-- Section 1: AI & Digital Solutions -->
+        <!-- Section 1: Technology R&D | AI & Digital Solutions -->
         <div class="section">
-            <h2 class="section-title">I. AI & Digital Solutions</h2>
+            <h2 class="section-title">Technology R&D | AI & Digital Solutions</h2>
             <p class="section-subtitle">Physics-informed AI, digital twins, and intelligent systems for infrastructure resilience</p>
             
             <div class="project-list">
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[09/14]</span>
-                        <span class="project-title">PINN+MARL Intelligent Wind Damage Assessment for Power Grid</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">State Grid Zhejiang Wenzhou</span>
-                            <span class="project-funding">£240K</span>
-                            <span class="project-year">2025-2026</span>
-                            <span class="project-role">Role: Principal Investigator</span>
+                <a href="projects/pinn-wind-assessment.html" class="project-item clickable">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>PINN+MARL Intelligent Wind Disaster Assessment for Power Grid<span class="funding-highlight">¥2.175M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Power Industry Competitive Project</span>
+                            <span class="project-year">2024-2026</span>
+                        </div>
+                        <p class="project-desc">Physics-informed neural networks (PINN) combined with multi-agent reinforcement learning (MARL) for intelligent wind disaster assessment of transmission tower-line systems. Advanced AI methodology for critical infrastructure risk assessment.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: AI-powered disaster prediction, grid resilience, risk mitigation</p>
+                        <div class="project-tags">
+                            <span class="tag">PINN</span>
+                            <span class="tag">MARL</span>
+                            <span class="tag">Wind Disaster</span>
+                            <span class="tag">Power Grid</span>
+                            <span class="tag">AI</span>
                         </div>
                     </div>
-                    <p class="project-desc">Physics-Informed Neural Networks (PINN) combined with Multi-Agent Reinforcement Learning (MARL) for real-time wind damage prediction of transmission tower-line systems. Advanced AI methodology that integrates physical laws with deep learning for critical infrastructure risk assessment.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Provides <strong>48-hour advance warning</strong> of typhoon damage to power grid infrastructure</li>
-                            <li>Reduces emergency response costs by <strong>80%</strong> through predictive risk assessment</li>
-                            <li>Prevents <strong>£10M+ annual losses</strong> from power outages for utility companies</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">PINN</span>
-                        <span class="tag">MARL</span>
-                        <span class="tag">Power Grid</span>
-                        <span class="tag">Disaster Prediction</span>
-                    </div>
-                </div>
+                </a>
                 
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[10/15]</span>
-                        <span class="project-title">LLM + Digital Twin Emergency Repair Decision System</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">State Grid Zhejiang Wenzhou</span>
-                            <span class="project-funding">£200K</span>
-                            <span class="project-year">2025-2026</span>
-                            <span class="project-role">Role: Principal Investigator</span>
+                <a href="projects/llm-digital-twin.html" class="project-item clickable">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>LLM + Digital Twin Emergency Repair Decision System<span class="funding-highlight">¥1.806M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Power Industry Competitive Project</span>
+                            <span class="project-year">2024-2026</span>
+                        </div>
+                        <p class="project-desc">Large language model (LLM) integrated with digital twin technology for intelligent emergency repair decision-making in power grid infrastructure. Real-time situational awareness and automated response recommendations.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Emergency response automation, decision support, operational efficiency</p>
+                        <div class="project-tags">
+                            <span class="tag">LLM</span>
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">Emergency Repair</span>
+                            <span class="tag">Decision Support</span>
                         </div>
                     </div>
-                    <p class="project-desc">Large Language Model integrated with digital twin platform for intelligent emergency repair dispatch. Retrieval-Augmented Generation (RAG) architecture enables real-time access to historical repair data and automated resource allocation decisions for critical infrastructure failures.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li><strong>Shortens emergency repair response time by 60%</strong> through AI-powered decision support</li>
-                            <li>Reduces power outage duration, minimizing <strong>revenue loss for utility operators</strong></li>
-                            <li>Automates resource allocation, <strong>cutting operational costs by 35%</strong></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">LLM</span>
-                        <span class="tag">RAG</span>
-                        <span class="tag">Digital Twin</span>
-                        <span class="tag">Emergency Response</span>
-                    </div>
-                </div>
+                </a>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[03]</span>
-                        <span class="project-title">Digital Twin Service Performance Evaluation for Long-Span Bridges</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">National Natural Science Foundation</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Digital Twin-Based Service Performance Evaluation for Long-Span Bridges</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Power Industry Competitive Project</span>
                             <span class="project-year">2021-2023</span>
-                            <span class="project-role">Role: Principal Investigator</span>
                         </div>
-                    </div>
-                    <p class="project-desc">Digital twin technology for comprehensive service performance evaluation of long-span bridges. Real-time structural health monitoring integrated with predictive analytics enables condition-based maintenance scheduling and lifecycle cost optimization.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Enables <strong>predictive maintenance</strong> instead of reactive repairs, extending asset lifespan</li>
-                            <li>Reduces lifecycle maintenance costs by <strong>up to 25%</strong> through data-driven scheduling</li>
-                            <li>Provides <strong>real-time safety assurance</strong> for critical transport infrastructure</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Digital Twin</span>
-                        <span class="tag">Performance Evaluation</span>
-                        <span class="tag">Predictive Analytics</span>
+                        <p class="project-desc">Digital twin technology for comprehensive service performance evaluation of long-span bridges. Real-time structural health monitoring integrated with predictive analytics for maintenance optimization.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Predictive maintenance, lifecycle cost reduction, safety assurance</p>
+                        <div class="project-tags">
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">Long-Span Bridge</span>
+                            <span class="tag">Performance Evaluation</span>
+                            <span class="tag">Predictive Analytics</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[17]</span>
-                        <span class="project-title">BIM+GIS Operations and Maintenance System for Suzixi Highway</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Industry Client</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>BIM+GIS Operations and Maintenance System for Suzixi Highway</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Funded</span>
                             <span class="project-year">2023-2024</span>
-                            <span class="project-role">Role: Principal Investigator</span>
+                        </div>
+                        <p class="project-desc">Integrated BIM and GIS platform for highway operations and maintenance management. Spatial data integration with building information modeling for comprehensive infrastructure asset management.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Asset management, maintenance optimization, operational visibility</p>
+                        <div class="project-tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">GIS</span>
+                            <span class="tag">Highway</span>
+                            <span class="tag">Asset Management</span>
                         </div>
                     </div>
-                    <p class="project-desc">Integrated BIM and GIS platform for highway operations and maintenance management. Spatial data integration with building information modeling provides comprehensive infrastructure asset visibility and streamlined maintenance workflows.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Centralizes asset data, improving <strong>operational visibility</strong> for highway management</li>
-                            <li>Optimizes maintenance scheduling, <strong>reducing downtime and costs</strong></li>
-                            <li>Enables data-driven asset management decisions for <strong>extended infrastructure life</strong></li>
-                        </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Industry Competitive Project — Multi-hazard Coupling Effects on Bridges</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Competitive Project</span>
+                            <span class="project-year">2022-2025</span>
+                        </div>
+                        <p class="project-desc">Research on multi-hazard coupling effects and disaster mechanisms for long-span bridges in mountainous areas. Comprehensive risk assessment methodology for complex environmental conditions.</p>
+                        <p class="project-role">Role: Key R&D Member | Business Value: Multi-hazard resilience, risk assessment, design optimization</p>
+                        <div class="project-tags">
+                            <span class="tag">Multi-hazard</span>
+                            <span class="tag">Long-Span Bridge</span>
+                            <span class="tag">Risk Assessment</span>
+                            <span class="tag">Mountainous Areas</span>
+                        </div>
                     </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">BIM</span>
-                        <span class="tag">GIS</span>
-                        <span class="tag">Asset Management</span>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Industry Competitive Project — Damage Monitoring for Cold Region Bridges</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Competitive Project</span>
+                            <span class="project-year">2024-2026</span>
+                        </div>
+                        <p class="project-desc">Mechanism of damage, health monitoring, and safety early warning technology for large bridges in high-altitude and cold regions. Specialized monitoring solutions for extreme climate conditions.</p>
+                        <p class="project-role">Role: Key R&D Member | Business Value: Cold-region infrastructure safety, early warning systems, climate resilience</p>
+                        <div class="project-tags">
+                            <span class="tag">Cold Regions</span>
+                            <span class="tag">Damage Monitoring</span>
+                            <span class="tag">Safety Warning</span>
+                            <span class="tag">Climate Resilience</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Section 2: Smart Construction & Robotics -->
+        <!-- Section 2: Technology R&D | Smart Construction Robotics -->
         <div class="section">
-            <h2 class="section-title">II. Smart Construction & Robotics</h2>
+            <h2 class="section-title">Technology R&D | Smart Construction Robotics</h2>
             <p class="section-subtitle">Autonomous construction systems and robotics for next-generation building technologies</p>
             
             <div class="project-list">
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[05/16]</span>
-                        <span class="project-title">MPAMR Intelligent Construction Robot Platform / Smart Chain Cloud</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Industry Funded</span>
-                            <span class="project-funding">£147K</span>
+                <a href="projects/smart-chain-mpamr.html" class="project-item clickable">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Smart Chain Cloud Construction / MPAMR Robot Platform<span class="funding-highlight">¥1.37M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Funded</span>
                             <span class="project-year">2023-2025</span>
-                            <span class="project-role">Role: Principal Investigator</span>
+                        </div>
+                        <p class="project-desc">Development of Smart Chain Cloud Construction platform and Multi-Purpose Autonomous Mobile Robot (MPAMR) for intelligent construction applications. Cloud-based construction management with autonomous robotics integration.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Construction automation, productivity enhancement, safety improvement</p>
+                        <div class="project-tags">
+                            <span class="tag">Construction Robotics</span>
+                            <span class="tag">MPAMR</span>
+                            <span class="tag">Cloud Platform</span>
+                            <span class="tag">Automation</span>
                         </div>
                     </div>
-                    <p class="project-desc">Development of Smart Chain Cloud Construction platform and Multi-Purpose Autonomous Mobile Robot (MPAMR) for intelligent construction applications. Cloud-based construction management with autonomous robotics integration enables remote monitoring and control of construction operations.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Automates repetitive construction tasks, <strong>increasing productivity by 40%</strong></li>
-                            <li>Reduces on-site labor requirements, <strong>improving safety</strong> and reducing insurance costs</li>
-                            <li>Enables <strong>24/7 remote monitoring</strong> of construction progress through cloud platform</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Construction Robotics</span>
-                        <span class="tag">MPAMR</span>
-                        <span class="tag">Cloud Platform</span>
-                        <span class="tag">Automation</span>
+                </a>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>National Smart Construction Robot Testbed Platform<span class="funding-highlight">$26.3M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Competitive Project</span>
+                            <span class="project-year">2023-2026</span>
+                        </div>
+                        <p class="project-desc">Industry-level testbed platform for smart construction robot development and validation. Comprehensive testing infrastructure for next-generation construction automation technologies.</p>
+                        <p class="project-role">Role: Key R&D Member | Business Value: R&D infrastructure, technology validation, industry standards</p>
+                        <div class="project-tags">
+                            <span class="tag">Testbed Platform</span>
+                            <span class="tag">Construction Robot</span>
+                            <span class="tag">Industry Project</span>
+                            <span class="tag">R&D Infrastructure</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[01]</span>
-                        <span class="project-title">Multi-Hazard Coupling Effects on Long-Span Bridges</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">National Key R&D Program</span>
-                            <span class="project-year">2022-2025</span>
-                            <span class="project-role">Role: Key R&D Member</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Digital Design and Intelligent Manufacturing Innovation Center</h3>
+                        <div class="project-meta">
+                            <span class="project-type">University-Industry Partnership</span>
+                            <span class="project-year">2023-2025</span>
                         </div>
-                    </div>
-                    <p class="project-desc">Research on multi-hazard coupling effects and disaster mechanisms for long-span bridges in mountainous areas. Comprehensive risk assessment methodology addresses complex environmental conditions including earthquakes, wind, and geological hazards.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Provides <strong>scientific basis for resilient infrastructure design</strong> in hazard-prone regions</li>
-                            <li>Reduces <strong>lifecycle repair costs</strong> through optimized disaster-resistant design</li>
-                            <li>Informs <strong>insurance and risk assessment</strong> for critical transport infrastructure</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Multi-hazard</span>
-                        <span class="tag">Long-Span Bridge</span>
-                        <span class="tag">Risk Assessment</span>
+                        <p class="project-desc">Laboratory planning and design for digital design and intelligent manufacturing international innovation center. Strategic consulting for R&D facility development and technology transfer infrastructure.</p>
+                        <p class="project-role">Role: Laboratory Planning Lead | Business Value: R&D infrastructure, innovation ecosystem, technology transfer</p>
+                        <div class="project-tags">
+                            <span class="tag">Digital Design</span>
+                            <span class="tag">Intelligent Manufacturing</span>
+                            <span class="tag">Lab Planning</span>
+                            <span class="tag">Innovation Center</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Section 3: Advanced Sensing & Monitoring -->
+        <!-- Section 3: Technology R&D | Advanced Sensing & Monitoring -->
         <div class="section">
-            <h2 class="section-title">III. Advanced Sensing & Monitoring</h2>
+            <h2 class="section-title">Technology R&D | Advanced Sensing & Monitoring</h2>
             <p class="section-subtitle">MEMS sensors, LiDAR, and intelligent monitoring systems for infrastructure safety</p>
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[14]</span>
-                        <span class="project-title">MEMS Sensor Product Line — 8 Products, 50+ Projects</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Multiple Commercial Clients</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>MEMS Sensor Chip Development and Commercialization<span class="funding-highlight">50+ Projects, 8 Products</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Multi-Client Commercial</span>
                             <span class="project-year">2019-Present</span>
-                            <span class="project-role">Role: Principal Investigator</span>
                         </div>
-                    </div>
-                    <p class="project-desc">8 commercialized MEMS sensor products deployed across 50+ infrastructure monitoring projects. Self-developed sensing technology provides real-time structural health data with 90% cost reduction compared to traditional monitoring systems. Clients include Chongqing Construction Engineering Group and major infrastructure operators.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li><strong>90% cost reduction</strong> vs traditional monitoring, making predictive maintenance accessible</li>
-                            <li>Deployed in <strong>50+ bridge projects</strong>, enabling condition-based maintenance for asset owners</li>
-                            <li>Prevents catastrophic failures through <strong>early warning of structural anomalies</strong></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">MEMS Sensors</span>
-                        <span class="tag">Commercial Product</span>
-                        <span class="tag">Predictive Maintenance</span>
-                        <span class="tag">50+ Projects</span>
+                        <p class="project-desc">Whole life cycle health monitoring using advanced MEMS sensing systems for cable-stayed bridges and critical infrastructure. Commercial deployment across 50+ projects with 8 product lines, delivering proven ROI through predictive maintenance.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Commercial products, real-time monitoring, predictive maintenance, risk reduction</p>
+                        <div class="project-tags">
+                            <span class="tag">MEMS Sensors</span>
+                            <span class="tag">Commercial Product</span>
+                            <span class="tag">Life Cycle Monitoring</span>
+                            <span class="tag">Cable-Stayed Bridge</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[13]</span>
-                        <span class="project-title">Curtain Wall Quality Assessment with LiDAR + LDV</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Guangzhou Litong Financial Center</span>
-                            <span class="project-funding">£105K</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>LiDAR + LDV Quality Assessment of 28-Storey Curtain Wall<span class="funding-highlight">¥949,660</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Funded</span>
                             <span class="project-year">2022-2025</span>
-                            <span class="project-role">Role: Principal Investigator</span>
                         </div>
-                    </div>
-                    <p class="project-desc">LiDAR + Laser Doppler Vibrometer integrated solution for automated curtain wall installation quality control. 3D laser scanning combined with vibration analysis detects installation defects invisible to manual inspection.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li><strong>Identifies quality issues early</strong>, preventing costly post-installation failures</li>
-                            <li>Reduces rework costs by <strong>30%</strong> through automated defect detection</li>
-                            <li>Accelerates project handover with <strong>objective quality documentation</strong></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">3D Laser Scanning</span>
-                        <span class="tag">LDV</span>
-                        <span class="tag">Quality Control</span>
-                        <span class="tag">Curtain Wall</span>
+                        <p class="project-desc">Parametric glass curtain wall BIM model construction using 3D laser scanning and Laser Doppler Vibrometer (LDV) for installation quality assessment of high-rise building facades.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Quality assurance, reduced rework, safety compliance, as-built verification</p>
+                        <div class="project-tags">
+                            <span class="tag">3D Laser Scanning</span>
+                            <span class="tag">BIM</span>
+                            <span class="tag">LDV</span>
+                            <span class="tag">Quality Control</span>
+                            <span class="tag">Curtain Wall</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[02]</span>
-                        <span class="project-title">Damage Monitoring for Cold Region Bridges</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">NSFC Key Project</span>
-                            <span class="project-year">2024-2026</span>
-                            <span class="project-role">Role: Key R&D Member</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Fatigue Performance Intelligent Monitoring for Major Infrastructure</h3>
+                        <div class="project-meta">
+                            <span class="project-type">International Cooperation</span>
+                            <span class="project-year">2021-2023</span>
+                        </div>
+                        <p class="project-desc">International science and technology cooperation project focusing on fatigue performance intelligent monitoring and lifespan enhancement technology for major civil infrastructure.</p>
+                        <p class="project-role">Role: Key R&D Member | Business Value: Extended infrastructure life, safety improvement, maintenance optimization</p>
+                        <div class="project-tags">
+                            <span class="tag">Fatigue Monitoring</span>
+                            <span class="tag">International Cooperation</span>
+                            <span class="tag">Lifespan Enhancement</span>
+                            <span class="tag">Major Infrastructure</span>
                         </div>
                     </div>
-                    <p class="project-desc">Mechanism of damage, health monitoring, and safety early warning technology for large bridges in high-altitude and cold regions. Specialized monitoring solutions address extreme climate conditions including freeze-thaw cycles and ice loading.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Enables <strong>safe operation</strong> of critical infrastructure in extreme climates</li>
-                            <li>Provides <strong>early warning of cold-weather damage</strong>, preventing catastrophic failures</li>
-                            <li>Extends service life of <strong>high-value assets</strong> in challenging environments</li>
-                        </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>3D Monitoring Technology for Long-Span Arch Bridges in Mountainous Areas</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Industry Competitive Project</span>
+                            <span class="project-year">2019-2025</span>
+                        </div>
+                        <p class="project-desc">BIM and reality capture technology for 3D monitoring of long-span arch bridges in mountainous areas. Comprehensive digital design and construction management for challenging terrain infrastructure.</p>
+                        <p class="project-role">Role: Implementation Lead | Business Value: Design optimization, construction efficiency, safety monitoring</p>
+                        <div class="project-tags">
+                            <span class="tag">3D Monitoring</span>
+                            <span class="tag">Arch Bridge</span>
+                            <span class="tag">Mountainous Areas</span>
+                            <span class="tag">Reality Capture</span>
+                        </div>
                     </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Cold Regions</span>
-                        <span class="tag">Damage Monitoring</span>
-                        <span class="tag">Safety Warning</span>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>BIM and Big Data for Building Structural Safety</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Provincial Technology Program</span>
+                            <span class="project-year">2019-2022</span>
+                        </div>
+                        <p class="project-desc">Key technology research and development for BIM and big data analytics in building structural safety assessment and intelligent diagnosis systems.</p>
+                        <p class="project-role">Role: Key R&D Member | Business Value: Safety assessment automation, risk prediction, data-driven insights</p>
+                        <div class="project-tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">Big Data</span>
+                            <span class="tag">Structural Safety</span>
+                            <span class="tag">Intelligent Diagnosis</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Section 4: Technical Consulting Services -->
+        <!-- Section 4: Technical Consulting | Digital Construction Services -->
         <div class="section">
-            <h2 class="section-title">IV. Technical Consulting Services</h2>
+            <h2 class="section-title">Technical Consulting | Digital Construction Services</h2>
             <p class="section-subtitle">BIM consulting, laser scanning, and digital transformation for engineering projects</p>
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[18]</span>
-                        <span class="project-title">Taihong Yangtze River Bridge — BIM Digital Design</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Bridge Engineering Client</span>
-                            <span class="project-funding">£215K</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Taihong Yangtze River Bridge — BIM Digital Design<span class="funding-highlight">¥2M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Bridge Engineering</span>
                             <span class="project-year">2019-2025</span>
-                            <span class="project-role">Role: Implementation Lead</span>
                         </div>
-                    </div>
-                    <p class="project-desc">Comprehensive BIM digital design services for major Yangtze River bridge project. End-to-end digital workflow from design through construction documentation and asset handover ensures data continuity across project phases.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li><strong>Reduces design errors</strong> through 3D coordination, preventing costly site changes</li>
-                            <li>Accelerates construction with <strong>accurate digital documentation</strong></li>
-                            <li>Provides <strong>digital asset handover</strong> for facility management</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">BIM</span>
-                        <span class="tag">Digital Design</span>
-                        <span class="tag">Bridge</span>
+                        <p class="project-desc">Comprehensive BIM digital design services for major Yangtze River bridge project. End-to-end digital workflow from design through construction documentation and asset handover.</p>
+                        <p class="project-role">Role: Implementation Lead | Business Value: Design optimization, construction efficiency, cost control, digital delivery</p>
+                        <div class="project-tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">Digital Design</span>
+                            <span class="tag">Bridge</span>
+                            <span class="tag">Yangtze River</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[19/20]</span>
-                        <span class="project-title">Yinchuan Nan Grand Bridge — BIM + 3D Laser Scanning</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Bridge Engineering Client</span>
-                            <span class="project-funding">£67K</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Yinchuan Nan Grand Bridge — BIM + 3D Laser Scanning<span class="funding-highlight">¥620,000</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Bridge Engineering</span>
                             <span class="project-year">2022-2023</span>
-                            <span class="project-role">Role: Business Director & PI</span>
                         </div>
-                    </div>
-                    <p class="project-desc">Intelligent digital construction integrating 3D laser scanning, BIM, and digital twin technologies for bridge projects. As-built documentation and quality verification services ensure construction accuracy matches design intent.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Provides <strong>accurate as-built documentation</strong> for asset management</li>
-                            <li>Verifies construction quality, <strong>reducing warranty claims</strong></li>
-                            <li>Creates <strong>digital twin foundation</strong> for future maintenance</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">3D Scanning</span>
-                        <span class="tag">BIM</span>
-                        <span class="tag">Digital Twin</span>
-                        <span class="tag">Quality Control</span>
+                        <p class="project-desc">Intelligent digital construction integrating 3D laser scanning, BIM, and digital twin technologies for bridge projects. As-built documentation and quality verification services.</p>
+                        <p class="project-role">Role: Business Director & PI | Business Value: As-built accuracy, quality verification, documentation, asset management</p>
+                        <div class="project-tags">
+                            <span class="tag">3D Scanning</span>
+                            <span class="tag">BIM</span>
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">Bridge</span>
+                            <span class="tag">Quality Control</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[C1]</span>
-                        <span class="project-title">Guangzhou Nansha Smart Safety Supervision Platform "Huijianguan"</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Guangzhou Government</span>
-                            <span class="project-funding">£12K</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Guangzhou Nansha Smart Safety Supervision Platform "Huijianguan"<span class="funding-highlight">¥111,804</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Government Digital Platform</span>
                             <span class="project-year">2023-2024</span>
-                            <span class="project-role">Role: Principal Investigator</span>
                         </div>
-                    </div>
-                    <p class="project-desc">Smart safety supervision platform development for construction site monitoring and regulatory compliance. Digital transformation of government safety oversight processes enables real-time monitoring of construction sites across the jurisdiction.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Enables <strong>proactive regulatory compliance</strong>, reducing safety incidents</li>
-                            <li>Streamlines inspection workflows, <strong>improving government efficiency</strong></li>
-                            <li>Provides <strong>data-driven insights</strong> for policy development</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Smart Platform</span>
-                        <span class="tag">Safety Supervision</span>
-                        <span class="tag">Digital Government</span>
+                        <p class="project-desc">Smart safety supervision platform development for construction site monitoring and regulatory compliance. Digital transformation of government safety oversight processes.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Regulatory compliance, safety oversight, digital transformation</p>
+                        <div class="project-tags">
+                            <span class="tag">Smart Platform</span>
+                            <span class="tag">Safety Supervision</span>
+                            <span class="tag">Digital Government</span>
+                            <span class="tag">Construction</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-id">[C6]</span>
-                        <span class="project-title">Tiananmen Gate Structure Safety Inspection</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Beijing Municipal Government</span>
-                            <span class="project-year">2013</span>
-                            <span class="project-role">Role: Technical Lead</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>Hohhot Airport Digital Construction and Operations</h3>
+                        <div class="project-meta">
+                            <span class="project-type">Aviation Industry Funded</span>
+                            <span class="project-year">2023-2024</span>
+                        </div>
+                        <p class="project-desc">Digital transformation consulting and BIM digital delivery for airport infrastructure projects. End-to-end digital workflow implementation from construction through operations.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Digital workflow, asset handover, facility management, operational efficiency</p>
+                        <div class="project-tags">
+                            <span class="tag">Digital Transformation</span>
+                            <span class="tag">BIM</span>
+                            <span class="tag">Aviation</span>
+                            <span class="tag">Airport</span>
+                            <span class="tag">Facility Management</span>
                         </div>
                     </div>
-                    <p class="project-desc">Structural safety inspection and assessment of the iconic Tiananmen Gate. Comprehensive evaluation of historic structure integrity using advanced monitoring and assessment techniques for this nationally significant heritage structure.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Demonstrates capability for <strong>highest-profile, high-sensitivity projects</strong></li>
-                            <li>Proven <strong>heritage preservation expertise</strong> for historic asset protection</li>
-                            <li>Validates <strong>technical rigor</strong> for government-level projects</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Heritage Structure</span>
-                        <span class="tag">Safety Inspection</span>
-                        <span class="tag">Historic Preservation</span>
-                        <span class="tag">Government Project</span>
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
         
         <!-- Section 5: Platform Building & Technology Transfer -->
         <div class="section">
-            <h2 class="section-title">V. Platform Building & Technology Transfer</h2>
+            <h2 class="section-title">Platform Building & Technology Transfer</h2>
             <p class="section-subtitle">Research institution building and technology commercialization</p>
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-title">SCSDA Smart City and Sustainable Development Academy</span>
-                        <div class="project-meta-line">
-                            <span class="project-client">Municipal Funded</span>
-                            <span class="project-funding">45-Person Team, 3500m²</span>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>SCSDA Smart City and Sustainable Development Academy<span class="funding-highlight">45-Person Team, 3500m²</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Municipal Funded</span>
                             <span class="project-year">2023-2024</span>
-                            <span class="project-role">Role: Project Leader</span>
+                        </div>
+                        <p class="project-desc">Establishment of Smart City and Sustainable Development Academy (SCSDA). Building research infrastructure and collaboration platforms for smart city development. 45-person research team with 3500m² state-of-the-art facility.</p>
+                        <p class="project-role">Role: Project Leader | Business Value: Research ecosystem, talent development, industry collaboration, technology transfer</p>
+                        <div class="project-tags">
+                            <span class="tag">Institution Building</span>
+                            <span class="tag">Smart City</span>
+                            <span class="tag">Research Platform</span>
+                            <span class="tag">Sustainable Development</span>
                         </div>
                     </div>
-                    <p class="project-desc">Establishment of Smart City and Sustainable Development Academy (SCSDA). Building research infrastructure and collaboration platforms for smart city development. 45-person research team with 3500m² state-of-the-art facility.</p>
-                    
-                    <div class="business-value">
-                        <div class="business-value-title">Business Value</div>
-                        <ul>
-                            <li>Creates <strong>R&D ecosystem</strong> for industry-academia collaboration</li>
-                            <li>Accelerates <strong>technology transfer</strong> from lab to market</li>
-                            <li>Develops <strong>talent pipeline</strong> for digital engineering sector</li>
-                        </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>BIM Innovation Center Leadership — OsloMet Collaboration</h3>
+                        <div class="project-meta">
+                            <span class="project-type">International Partnership</span>
+                            <span class="project-year">2019-2022</span>
+                        </div>
+                        <p class="project-desc">Leadership role in BIM Innovation Center in collaboration with Oslo Metropolitan University. Driving international research collaboration and technology transfer in digital construction.</p>
+                        <p class="project-role">Role: Center Leadership | Business Value: International collaboration, knowledge exchange, technology transfer, global partnerships</p>
+                        <div class="project-tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">International Collaboration</span>
+                            <span class="tag">OsloMet</span>
+                            <span class="tag">Innovation Center</span>
+                            <span class="tag">Technology Transfer</span>
+                        </div>
                     </div>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Institution Building</span>
-                        <span class="tag">Smart City</span>
-                        <span class="tag">Research Platform</span>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>BIM Research Center Leadership — Chongqing Jiaotong University</h3>
+                        <div class="project-meta">
+                            <span class="project-type">University Research Center</span>
+                            <span class="project-year">2016-2019</span>
+                        </div>
+                        <p class="project-desc">Leadership of BIM Research Center at Chongqing Jiaotong University. Establishing research programs, industry partnerships, and technology commercialization pathways for digital construction.</p>
+                        <p class="project-role">Role: Center Director | Business Value: Research leadership, industry partnerships, technology commercialization, talent cultivation</p>
+                        <div class="project-tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">Research Center</span>
+                            <span class="tag">University Leadership</span>
+                            <span class="tag">Industry Partnership</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Why Choose Us Section -->
-        <div class="why-us-section">
-            <h2 class="why-us-title">Why Work With Dr.-Ing. Daguang Han?</h2>
-            <div class="why-us-grid">
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>40+ project experience</strong> across power grid, bridges, buildings, and energy sectors</span>
-                </div>
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>8 self-developed commercial products</strong> with proven technology transfer capability</span>
-                </div>
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>39 patents</strong> (20+ invention patents) — proprietary core technology</span>
-                </div>
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>International experience</strong>: China, Germany, Norway, UK — global perspective</span>
-                </div>
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>UK Work Authorization</strong>: No sponsorship required — available immediately</span>
-                </div>
-                <div class="why-us-item">
-                    <span class="why-us-check">✓</span>
-                    <span><strong>Proven ROI delivery</strong>: Measurable cost reduction and risk mitigation results</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- CTA Section -->
-        <div class="cta-section">
-            <h2 class="cta-title">Let's Discuss Your Project Needs</h2>
-            <a href="mailto:daguang.han@gmail.com" class="cta-email">daguang.han@gmail.com</a>
-            <p class="cta-note">UK Work Authorization: No sponsorship required — Available immediately</p>
         </div>
     </div>
-    
+    </div>
     
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DR.-ING. DAGUANG HAN</div>
+            <div class="footer-logo">DAGUANG HAN</div>
         </div>
     </footer>
     

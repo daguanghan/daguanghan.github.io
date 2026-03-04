@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME_EN}} | Dr.-Ing. Daguang Han</title>
+    <meta name="description" content="{{PROJECT_DESCRIPTION}}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Project Header */
+        .project-header {
+            padding: 8rem 0 3rem;
+            text-align: center;
+        }
+        
+        .project-id {
+            display: inline-block;
+            background: rgba(99,102,241,0.2);
+            color: #6366f1;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-title {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .project-title-cn {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9375rem;
+        }
+        
+        .project-meta span {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .project-meta strong {
+            color: #6366f1;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(99,102,241,0.5);
+        }
+        
+        .section-content {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .section-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Business Value */
+        .business-value-box {
+            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05));
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .business-value-box ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        .business-value-box li {
+            margin-bottom: 0.75rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        /* Related Projects */
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .related-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+        
+        .related-item:hover {
+            border-color: rgba(99,102,241,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .related-id {
+            font-size: 0.75rem;
+            color: #6366f1;
+            font-weight: 600;
+        }
+        
+        .related-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+        
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05));
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-email {
+            color: #6366f1;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-email:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-note {
+            color: #22c55e;
+            font-size: 0.9375rem;
+        }
+        
+        .footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .project-meta { flex-direction: column; gap: 0.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight" id="spotlight"></div>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+    </div>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            Dr.-Ing. Daguang Han
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../patents.html">Patents</a></li>
+            <li><a href="../awards.html">Awards</a></li>
+            <li><a href="../talks.html">Talks</a></li>
+            <li><a href="../membership.html">Membership</a></li>
+            <li><a href="../demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container">
+            <span class="project-id">{{PROJECT_ID}}</span>
+            <h1 class="project-title">{{PROJECT_NAME_EN}}</h1>
+            <div class="project-title-cn">{{PROJECT_NAME_CN}}</div>
+            
+            <div class="project-meta">
+                <span><strong>Client:</strong> {{CLIENT}}</span>
+                <span><strong>Budget:</strong> {{BUDGET}}</span>
+                <span><strong>Period:</strong> {{PERIOD}}</span>
+                <span><strong>Role:</strong> {{ROLE}}</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Project Overview -->
+        <section class="section">
+            <h2 class="section-title">项目概述 / Project Overview</h2>
+            <div class="section-content">
+                <p>{{OVERVIEW_CN}}</p>
+                <p>{{OVERVIEW_EN}}</p>
+            </div>
+        </section>
+        
+        <!-- Business Value -->
+        <section class="section">
+            <h2 class="section-title">商业价值 / Business Value</h2>
+            <div class="business-value-box">
+                <ul>
+                    <li>{{BUSINESS_VALUE_1}}</li>
+                    <li>{{BUSINESS_VALUE_2}}</li>
+                    <li>{{BUSINESS_VALUE_3}}</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Technical Approach -->
+        <section class="section">
+            <h2 class="section-title">技术方案 / Technical Approach</h2>
+            <div class="section-content">
+                <ul>
+                    <li>{{TECH_1}}</li>
+                    <li>{{TECH_2}}</li>
+                    <li>{{TECH_3}}</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Project Gallery -->
+        <section class="section">
+            <h2 class="section-title">项目图片 / Project Images</h2>
+            <div class="gallery-grid">
+                {{GALLERY_IMAGES}}
+            </div>
+        </section>
+        
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2 class="section-title">成果与影响 / Results & Impact</h2>
+            <div class="section-content">
+                <ul>
+                    <li>{{RESULT_1}}</li>
+                    <li>{{RESULT_2}}</li>
+                    <li>{{RESULT_3}}</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Related Projects -->
+        <section class="section">
+            <h2 class="section-title">相关项目 / Related Projects</h2>
+            <div class="related-list">
+                {{RELATED_PROJECTS}}
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">Let's Discuss Your Project</h2>
+            <a href="mailto:daguang.han@gmail.com" class="cta-email">daguang.han@gmail.com</a>
+            <p class="cta-note">UK Work Authorization: No sponsorship required</p>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DR.-ING. DAGUANG HAN</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
+</body>
+</html>

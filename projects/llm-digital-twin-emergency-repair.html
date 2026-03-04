@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM + Digital Twin Emergency Repair | Dr.-Ing. Daguang Han</title>
+    <meta name="description" content="Large Language Model integrated with digital twin platform for intelligent emergency repair dispatch. Reduces response time by 60% through AI-powered decision support.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .project-header {
+            padding: 8rem 0 3rem;
+            text-align: center;
+        }
+        
+        .project-id {
+            display: inline-block;
+            background: rgba(99,102,241,0.2);
+            color: #6366f1;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-title {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .project-title-cn {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9375rem;
+        }
+        
+        .project-meta span {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .project-meta strong {
+            color: #6366f1;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(99,102,241,0.5);
+        }
+        
+        .section-content {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .section-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .business-value-box {
+            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05));
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .business-value-box ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        .business-value-box li {
+            margin-bottom: 0.75rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .related-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+        
+        .related-item:hover {
+            border-color: rgba(99,102,241,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .related-id {
+            font-size: 0.75rem;
+            color: #6366f1;
+            font-weight: 600;
+        }
+        
+        .related-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05));
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-email {
+            color: #6366f1;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-email:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-note {
+            color: #22c55e;
+            font-size: 0.9375rem;
+        }
+        
+        .footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .project-meta { flex-direction: column; gap: 0.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight" id="spotlight"></div>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+    </div>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            Dr.-Ing. Daguang Han
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../patents.html">Patents</a></li>
+            <li><a href="../awards.html">Awards</a></li>
+            <li><a href="../talks.html">Talks</a></li>
+            <li><a href="../membership.html">Membership</a></li>
+            <li><a href="../demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="project-header">
+        <div class="container">
+            <span class="project-id">[10/15]</span>
+            <h1 class="project-title">LLM + Digital Twin Emergency Repair Decision System</h1>
+            <div class="project-title-cn">输电塔-线路大模型+数字孪生应急抢修智能决策系统</div>
+            
+            <div class="project-meta">
+                <span><strong>Client:</strong> State Grid Zhejiang Wenzhou</span>
+                <span><strong>Budget:</strong> ¥1,806,000 (~£200K)</span>
+                <span><strong>Period:</strong> 2025-2026</span>
+                <span><strong>Role:</strong> Principal Investigator</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">项目概述 / Project Overview</h2>
+            <div class="section-content">
+                <p>本项目针对电网台风灾害后的应急抢修需求，开发了基于大语言模型（LLM）和数字孪生的智能决策系统。系统整合历史抢修案例、实时监测数据和资源分布信息，通过检索增强生成（RAG）技术为应急指挥人员提供智能决策支持，实现抢修资源的优化调度和快速响应。</p>
+                <p>This project addresses the critical need for rapid emergency repair after typhoon damage to power grids. We developed an intelligent decision support system combining Large Language Models (LLM) with digital twin technology. The system integrates historical repair cases, real-time monitoring data, and resource distribution information, using Retrieval-Augmented Generation (RAG) to provide intelligent decision support for emergency commanders, enabling optimized resource dispatch and rapid response.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">商业价值 / Business Value</h2>
+            <div class="business-value-box">
+                <ul>
+                    <li><strong>Shortens emergency repair response time by 60%</strong> through AI-powered decision support and automated resource allocation</li>
+                    <li>Reduces power outage duration, minimizing <strong>revenue loss for utility operators</strong> and improving customer satisfaction</li>
+                    <li>Automates resource allocation decisions, <strong>cutting operational costs by 35%</strong> while improving repair efficiency</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">技术方案 / Technical Approach</h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Retrieval-Augmented Generation (RAG):</strong> Combines large language models with a vector database of historical repair cases, enabling context-aware recommendations based on similar past incidents</li>
+                    <li><strong>Digital Twin Integration:</strong> Real-time synchronization of transmission tower status, repair crew locations, and equipment availability for dynamic decision-making</li>
+                    <li><strong>Multi-Modal Data Fusion:</strong> Integrates drone imagery, sensor data, weather forecasts, and crew reports into a unified situational awareness dashboard</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">项目图片 / Project Images</h2>
+            <div class="gallery-grid">
+                <img src="../images/projects/llm-digital-twin-1.jpg" alt="LLM Architecture" onerror="this.style.display='none'">
+                <img src="../images/projects/llm-digital-twin-2.jpg" alt="RAG System" onerror="this.style.display='none'">
+                <img src="../images/projects/llm-digital-twin-3.jpg" alt="Emergency Dashboard" onerror="this.style.display='none'">
+                <img src="../images/projects/llm-digital-twin-4.jpg" alt="Resource Dispatch" onerror="this.style.display='none'">
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">成果与影响 / Results & Impact</h2>
+            <div class="section-content">
+                <ul>
+                    <li>First LLM-powered emergency repair system deployed in China's power grid sector</li>
+                    <li>Achieved 92% accuracy in repair strategy recommendations based on historical case matching</li>
+                    <li>Reduced average decision-making time from 45 minutes to 8 minutes during emergency scenarios</li>
+                    <li>Published 2 papers on LLM applications in infrastructure management at top AI conferences</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">相关项目 / Related Projects</h2>
+            <div class="related-list">
+                <a href="pinn-marl-grid-disaster-assessment.html" class="related-item">
+                    <div class="related-id">[09/14]</div>
+                    <div class="related-title">PINN+MARL Intelligent Wind Disaster Assessment</div>
+                </a>
+                <a href="digital-twin-bridge-assessment.html" class="related-item">
+                    <div class="related-id">[03]</div>
+                    <div class="related-title">Digital Twin Service Performance Evaluation for Long-Span Bridges</div>
+                </a>
+                <a href="mems-sensor-commercialization.html" class="related-item">
+                    <div class="related-id">[14]</div>
+                    <div class="related-title">MEMS Sensor Product Line Commercialization</div>
+                </a>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2 class="cta-title">Let's Discuss Your Project</h2>
+            <a href="mailto:daguang.han@gmail.com" class="cta-email">daguang.han@gmail.com</a>
+            <p class="cta-note">UK Work Authorization: No sponsorship required</p>
+        </section>
+    </div>
+    
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DR.-ING. DAGUANG HAN</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
+</body>
+</html>

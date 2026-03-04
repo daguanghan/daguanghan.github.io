@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINN+MARL Wind Disaster Assessment - Daguang Han</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .project-header {
+            padding: 8rem 0 3rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: #fff; }
+        
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+        }
+        
+        .project-meta-bar {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .funding-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.1));
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            background-image: url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .section-content {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box {
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #6366f1;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .tech-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .tech-card p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .tag {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.1);
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+        }
+        
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 5rem;
+        }
+        
+        .footer-logo {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .project-title { font-size: 1.75rem; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight"></div>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+    </div>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            Daguang Han
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../projects.html" class="active">Projects</a></li>
+            <li><a href="../patents.html">Patents</a></li>
+            <li><a href="../awards.html">Awards</a></li>
+            <li><a href="../talks.html">Talks</a></li>
+            <li><a href="../membership.html">Membership</a></li>
+            <li><a href="../demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="project-header">
+        <div class="container">
+            <a href="../projects.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-title">PINN+MARL Intelligent Wind Disaster Assessment for Power Grid</h1>
+            <div class="project-meta-bar">
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Power Industry Competitive Project</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">2024-2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Principal Investigator</span>
+                </div>
+            </div>
+            <span class="funding-badge">¥2.175M Funding</span>
+            <div class="hero-image"></div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="section-content">
+                <p>This project develops an advanced AI-powered system for intelligent wind disaster assessment of transmission tower-line systems. By combining Physics-Informed Neural Networks (PINN) with Multi-Agent Reinforcement Learning (MARL), we create a cutting-edge methodology for critical infrastructure risk assessment that can predict and mitigate wind-induced failures in power grid infrastructure.</p>
+                
+                <div class="highlight-box">
+                    <h4>Business Value</h4>
+                    <p>AI-powered disaster prediction enables proactive grid resilience planning and risk mitigation, reducing downtime and maintenance costs while ensuring power supply reliability during extreme weather events.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Key Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Physics-Informed Neural Networks (PINN)</h4>
+                    <p>Integrates physical laws and engineering principles into deep learning models, ensuring predictions are physically consistent and interpretable.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Multi-Agent Reinforcement Learning (MARL)</h4>
+                    <p>Enables coordinated decision-making across multiple system components for optimal emergency response and resource allocation.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Wind Load Modeling</h4>
+                    <p>Advanced computational fluid dynamics and stochastic modeling for accurate wind load prediction on complex tower-line geometries.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Real-time Monitoring</h4>
+                    <p>Integration with IoT sensors and weather data for continuous structural health assessment and early warning.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Research Objectives</h2>
+            <div class="section-content">
+                <p>1. <strong>Develop PINN-based wind load prediction models</strong> that incorporate fluid-structure interaction physics for transmission tower-line systems under extreme wind conditions.</p>
+                <p>2. <strong>Create MARL algorithms</strong> for coordinated emergency response and repair resource optimization across multiple transmission lines.</p>
+                <p>3. <strong>Build a digital twin framework</strong> for real-time structural health monitoring and predictive maintenance scheduling.</p>
+                <p>4. <strong>Validate the system</strong> through field deployment and comparison with traditional assessment methods.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Expected Outcomes</h2>
+            <div class="section-content">
+                <p>• <strong>Prediction Accuracy:</strong> 95%+ accuracy in wind disaster risk assessment</p>
+                <p>• <strong>Response Time:</strong> Real-time assessment capability with <5 second latency</p>
+                <p>• <strong>Cost Reduction:</strong> 30% reduction in emergency repair costs through predictive maintenance</p>
+                <p>• <strong>System Resilience:</strong> 40% improvement in grid reliability during extreme weather events</p>
+            </div>
+        </div>
+        
+        <div class="tags">
+            <span class="tag">PINN</span>
+            <span class="tag">MARL</span>
+            <span class="tag">Wind Disaster</span>
+            <span class="tag">Power Grid</span>
+            <span class="tag">AI</span>
+            <span class="tag">Digital Twin</span>
+            <span class="tag">Structural Health Monitoring</span>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DAGUANG HAN</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.querySelector('.spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
+</body>
+</html>

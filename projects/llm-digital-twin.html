@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Digital Twin Emergency Repair - Daguang Han</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(99,102,241,0.15), 
+                    transparent 40%),
+                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(139,92,246,0.1), 
+                    transparent 30%);
+        }
+        
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .nav-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .project-header {
+            padding: 8rem 0 3rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: #fff; }
+        
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+        }
+        
+        .project-meta-bar {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .funding-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(99,102,241,0.1));
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .section-content {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box {
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #8b5cf6;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .tech-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .tech-card p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .tag {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.1);
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+        }
+        
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 5rem;
+        }
+        
+        .footer-logo {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .project-title { font-size: 1.75rem; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight"></div>
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+    </div>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">DH</div>
+            Daguang Han
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../projects.html" class="active">Projects</a></li>
+            <li><a href="../patents.html">Patents</a></li>
+            <li><a href="../awards.html">Awards</a></li>
+            <li><a href="../talks.html">Talks</a></li>
+            <li><a href="../membership.html">Membership</a></li>
+            <li><a href="../demos.html">Demos</a></li>
+        </ul>
+    </nav>
+    
+    <header class="project-header">
+        <div class="container">
+            <a href="../projects.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-title">LLM + Digital Twin Emergency Repair Decision System</h1>
+            <div class="project-meta-bar">
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Power Industry Competitive Project</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">2024-2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Principal Investigator</span>
+                </div>
+            </div>
+            <span class="funding-badge">¥1.806M Funding</span>
+            <div class="hero-image"></div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="section-content">
+                <p>This groundbreaking project integrates Large Language Models (LLM) with Digital Twin technology to create an intelligent emergency repair decision-making system for power grid infrastructure. The system provides real-time situational awareness and automated response recommendations during critical infrastructure failures.</p>
+                
+                <div class="highlight-box">
+                    <h4>Business Value</h4>
+                    <p>Emergency response automation and intelligent decision support dramatically reduce downtime, improve operational efficiency, and ensure faster recovery from infrastructure failures.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Key Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Large Language Models (LLM)</h4>
+                    <p>Advanced natural language processing for understanding emergency reports, generating repair protocols, and providing human-like decision support.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Digital Twin Technology</h4>
+                    <p>Real-time virtual replica of power grid infrastructure enabling simulation, prediction, and scenario analysis for repair planning.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Knowledge Graph</h4>
+                    <p>Structured representation of equipment relationships, failure modes, and repair procedures for intelligent reasoning.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Multi-modal Data Fusion</h4>
+                    <p>Integration of sensor data, weather information, maintenance records, and field reports for comprehensive situational awareness.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">System Capabilities</h2>
+            <div class="section-content">
+                <ul class="feature-list">
+                    <li><strong>Intelligent Incident Analysis:</strong> Automatic parsing of emergency reports and extraction of critical information</li>
+                    <li><strong>Real-time Digital Twin Simulation:</strong> Live modeling of grid state and failure propagation</li>
+                    <li><strong>Automated Repair Recommendations:</strong> AI-generated repair strategies with resource requirements</li>
+                    <li><strong>Natural Language Interface:</strong> Conversational interaction for field engineers and operators</li>
+                    <li><strong>Predictive Impact Assessment:</strong> Forecast of repair outcomes and service restoration time</li>
+                    <li><strong>Historical Knowledge Integration:</strong> Learning from past incidents and best practices</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Expected Impact</h2>
+            <div class="section-content">
+                <p>• <strong>Response Time Reduction:</strong> 60% faster emergency response through automated analysis</p>
+                <p>• <strong>Decision Accuracy:</strong> 90%+ accuracy in repair strategy recommendations</p>
+                <p>• <strong>Operational Efficiency:</strong> 35% improvement in resource allocation during emergencies</p>
+                <p>• <strong>Knowledge Retention:></strong> Systematic capture and reuse of institutional repair expertise</p>
+            </div>
+        </div>
+        
+        <div class="tags">
+            <span class="tag">LLM</span>
+            <span class="tag">Digital Twin</span>
+            <span class="tag">Emergency Repair</span>
+            <span class="tag">Decision Support</span>
+            <span class="tag">AI</span>
+            <span class="tag">Knowledge Graph</span>
+            <span class="tag">Natural Language Processing</span>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">DAGUANG HAN</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.querySelector('.spotlight');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            spotlight.style.setProperty('--mouse-x', x + '%');
+            spotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    </script>
+</body>
+</html>

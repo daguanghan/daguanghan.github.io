@@ -212,50 +212,12 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
         }
         
         .project-item:hover {
             background: rgba(255,255,255,0.05);
             border-color: rgba(99,102,241,0.3);
             transform: translateY(-4px);
-        }
-        
-        /* Clickable project highlight styles */
-        .project-item.clickable {
-            border: 2px solid rgba(99,102,241,0.4);
-            box-shadow: 0 0 20px rgba(99,102,241,0.15);
-            position: relative;
-        }
-        
-        .project-item.clickable::before {
-            content: "→ View Details";
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: #fff;
-            padding: 0.375rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .project-item.clickable:hover::before {
-            opacity: 1;
-        }
-        
-        .project-item.clickable .project-content h3 {
-            color: #6366f1;
-            transition: color 0.3s ease;
-        }
-        
-        .project-item.clickable:hover .project-content h3 {
-            color: #8b5cf6;
         }
         
         .project-image {
@@ -357,7 +319,6 @@
             .stats-bar { grid-template-columns: 1fr; }
             .project-item { grid-template-columns: 1fr; }
             .project-image { min-height: 150px; }
-            .project-item.clickable::before { display: none; }
         }
     </style>
 </head>
@@ -387,18 +348,18 @@
     <header class="page-header">
         <div class="container">
             <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">38+ Technology R&D Projects | Technical Consulting | Technology Services</p>
+            <p class="page-subtitle">40+ Technology R&D Projects | Technical Consulting | Technology Services</p>
         </div>
     </header>
     
     <div class="container">
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-number">38+</div>
+                <div class="stat-number">40+</div>
                 <div class="stat-label">Total Projects</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">21</div>
+                <div class="stat-number">23</div>
                 <div class="stat-label">R&D Projects</div>
             </div>
             <div class="stat-item">
@@ -414,11 +375,50 @@
             
             <div class="project-list">
                 <div class="project-item">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80')"></div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>PINN+MARL Intelligent Wind Disaster Assessment for Power Grid<span class="funding-highlight">¥2.175M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Power Industry Competitive Project</span>
+                            <span class="project-year">2024-2026</span>
+                        </div>
+                        <p class="project-desc">Physics-informed neural networks (PINN) combined with multi-agent reinforcement learning (MARL) for intelligent wind disaster assessment of transmission tower-line systems. Advanced AI methodology for critical infrastructure risk assessment.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: AI-powered disaster prediction, grid resilience, risk mitigation</p>
+                        <div class="project-tags">
+                            <span class="tag">PINN</span>
+                            <span class="tag">MARL</span>
+                            <span class="tag">Wind Disaster</span>
+                            <span class="tag">Power Grid</span>
+                            <span class="tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80')"></div>
+                    <div class="project-content">
+                        <h3>LLM + Digital Twin Emergency Repair Decision System<span class="funding-highlight">¥1.806M</span></h3>
+                        <div class="project-meta">
+                            <span class="project-type">Power Industry Competitive Project</span>
+                            <span class="project-year">2024-2026</span>
+                        </div>
+                        <p class="project-desc">Large language model (LLM) integrated with digital twin technology for intelligent emergency repair decision-making in power grid infrastructure. Real-time situational awareness and automated response recommendations.</p>
+                        <p class="project-role">Role: Principal Investigator | Business Value: Emergency response automation, decision support, operational efficiency</p>
+                        <div class="project-tags">
+                            <span class="tag">LLM</span>
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">Emergency Repair</span>
+                            <span class="tag">Decision Support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
                     <div class="project-content">
                         <h3>Digital Twin-Based Service Performance Evaluation for Long-Span Bridges</h3>
                         <div class="project-meta">
-                            <span class="project-type">Industry Competitive Project</span>
+                            <span class="project-type">Power Industry Competitive Project</span>
                             <span class="project-year">2021-2023</span>
                         </div>
                         <p class="project-desc">Digital twin technology for comprehensive service performance evaluation of long-span bridges. Real-time structural health monitoring integrated with predictive analytics for maintenance optimization.</p>
@@ -452,7 +452,7 @@
                 </div>
                 
                 <div class="project-item">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&q=80')"></div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80')"></div>
                     <div class="project-content">
                         <h3>Industry Competitive Project — Multi-hazard Coupling Effects on Bridges</h3>
                         <div class="project-meta">
@@ -497,10 +497,10 @@
             <p class="section-subtitle">Autonomous construction systems and robotics for next-generation building technologies</p>
             
             <div class="project-list">
-                <a href="projects/smart-chain-mpamr.html" class="project-item clickable">
+                <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>Smart Chain Cloud Construction / MPAMR Robot Platform<span class="funding-highlight">£150K</span></h3>
+                        <h3>Smart Chain Cloud Construction / MPAMR Robot Platform<span class="funding-highlight">¥1.37M</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Industry Funded</span>
                             <span class="project-year">2023-2025</span>
@@ -514,12 +514,12 @@
                             <span class="tag">Automation</span>
                         </div>
                     </div>
-                </a>
+                </div>
                 
                 <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>National Smart Construction Robot Testbed Platform<span class="funding-highlight">£2.9M</span></h3>
+                        <h3>National Smart Construction Robot Testbed Platform<span class="funding-highlight">$26.3M</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Industry Competitive Project</span>
                             <span class="project-year">2023-2026</span>
@@ -584,7 +584,7 @@
                 <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>LiDAR + LDV Quality Assessment of 28-Storey Curtain Wall<span class="funding-highlight">£105K</span></h3>
+                        <h3>LiDAR + LDV Quality Assessment of 28-Storey Curtain Wall<span class="funding-highlight">¥949,660</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Industry Funded</span>
                             <span class="project-year">2022-2025</span>
@@ -669,7 +669,7 @@
                 <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>Taihong Yangtze River Bridge — BIM Digital Design<span class="funding-highlight">£220K</span></h3>
+                        <h3>Taihong Yangtze River Bridge — BIM Digital Design<span class="funding-highlight">¥2M</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Bridge Engineering</span>
                             <span class="project-year">2019-2025</span>
@@ -688,7 +688,7 @@
                 <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>Yinchuan Nan Grand Bridge — BIM + 3D Laser Scanning<span class="funding-highlight">£68K</span></h3>
+                        <h3>Yinchuan Nan Grand Bridge — BIM + 3D Laser Scanning<span class="funding-highlight">¥620,000</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Bridge Engineering</span>
                             <span class="project-year">2022-2023</span>
@@ -708,7 +708,7 @@
                 <div class="project-item">
                     <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80')"></div>
                     <div class="project-content">
-                        <h3>Guangzhou Nansha Smart Safety Supervision Platform "Huijianguan"<span class="funding-highlight">£12K</span></h3>
+                        <h3>Guangzhou Nansha Smart Safety Supervision Platform "Huijianguan"<span class="funding-highlight">¥111,804</span></h3>
                         <div class="project-meta">
                             <span class="project-type">Government Digital Platform</span>
                             <span class="project-year">2023-2024</span>
@@ -742,6 +742,7 @@
                             <span class="tag">Facility Management</span>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

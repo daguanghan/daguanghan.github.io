@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="keywords" content="{{ .Site.Params.keywords }}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-bg-secondary: #f5f5f7;
+            --color-text: #1d1d1f;
+            --color-text-secondary: #86868b;
+            --color-accent: #0071e3;
+            --color-accent-hover: #0077ed;
+            --color-border: #d2d2d7;
+            --font-main: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            --header-height: 60px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo:hover {
+            color: var(--color-accent);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+        
+        .social-icons a {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height));
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+        
+        .hero .tagline {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .hero .description {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-bg-secondary);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-text);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: var(--color-text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-bg-secondary);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        footer .social-links a {
+            font-size: 24px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s;
+        }
+        
+        footer .social-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        footer p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero .tagline {
+                font-size: 18px;
+            }
+            
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #000000;
+                --color-bg-secondary: #1c1c1e;
+                --color-text: #ffffff;
+                --color-text-secondary: #8e8e93;
+                --color-border: #38383a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Daguang Han</a>
+        <nav>
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ end }}
+            <div class="social-icons">
+                <a href="{{ .Site.Params.google_scholar }}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="{{ .Site.Params.orcid }}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                <a href="{{ .Site.Params.researchgate }}" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                <a href="{{ .Site.Params.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="{{ .Site.Params.x_twitter }}" target="_blank" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="{{ .Site.Params.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="{{ .Site.Params.google_scholar }}" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="{{ .Site.Params.orcid }}" target="_blank"><i class="fab fa-orcid"></i></a>
+                <a href="{{ .Site.Params.researchgate }}" target="_blank"><i class="fab fa-researchgate"></i></a>
+                <a href="{{ .Site.Params.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="{{ .Site.Params.x_twitter }}" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="{{ .Site.Params.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="{{ .Site.Params.ultraevolve }}" target="_blank" title="UltraEvolve"><i class="fas fa-rocket"></i></a>
+            </div>
+            <p>&copy; {{ now.Year }} Dr. Daguang Han. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

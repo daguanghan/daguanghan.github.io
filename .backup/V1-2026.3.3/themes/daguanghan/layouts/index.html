@@ -1,0 +1,186 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="container">
+        <h1>Dr. Daguang Han</h1>
+        <p class="tagline">Professor &middot; Engineer &middot; Visionary</p>
+        <p class="description">
+            Bridging Civil Engineering and AI for Infrastructure Resilience.
+            Founding Dean of <a href="http://www.scsda.cn" target="_blank">SCSDA</a>,
+            Creator of <a href="https://www.ultraevolve.com" target="_blank">UltraEvolve</a>.
+        </p>
+        
+        <div class="hero-buttons">
+            <a href="/publications/" class="btn btn-primary">
+                <i class="fas fa-book"></i> View Publications
+            </a>
+            <a href="/demos/" class="btn btn-secondary">
+                <i class="fas fa-play"></i> Explore Demos
+            </a>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">{{ .Site.Params.citations }}</span>
+                <span class="stat-label">Citations</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">h-index {{ .Site.Params.h_index }}</span>
+                <span class="stat-label">Impact</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ .Site.Params.publications }}</span>
+                <span class="stat-label">Publications</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ .Site.Params.patents }}</span>
+                <span class="stat-label">Patents</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="container">
+        <h2>About</h2>
+        <div class="about-content">
+            <p style="font-size: 20px; max-width: 800px; margin-bottom: 30px;">
+                I'm a professor, philosopher-engineer, and frontier technology explorer 
+                committed to co-creating humanity's path toward a conscious, collaborative, 
+                and regenerative civilization in the age of AI.
+            </p>
+            <p style="font-size: 18px; color: var(--color-text-secondary); max-width: 800px; margin-bottom: 30px;">
+                With 20 years of experience in research, innovation, and academic leadership, 
+                I bridge Eastern metaphysics, scientific logic, and technological foresight 
+                to build an integrated theory of human awakening and planetary transformation.
+            </p>
+            
+            <a href="/about/" class="btn btn-secondary">Read Full Bio &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<section class="research-areas" style="background: var(--color-bg-secondary);">
+    <div class="container">
+        <h2>Research Areas</h2>
+        
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-building" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
+                <h3>Infrastructure Resilience &amp; Digital Twins</h3>
+                <p>Tower-line system digital twin modeling, multi-physics coupling simulation under extreme disasters.</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-heartbeat" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
+                <h3>Intelligent Structural Health Monitoring</h3>
+                <p>AI/deep learning for damage identification, Physics-Informed Neural Networks (PINNs).</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-robot" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
+                <h3>Smart Construction &amp; Human-Robot Collaboration</h3>
+                <p>Intelligent building machine platforms, dual-arm collaborative robot control.</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-brain" style="font-size: 32px; color: var(--color-accent); margin-bottom: 16px;"></i>
+                <h3>AI-Driven Disaster Mitigation</h3>
+                <p>Multi-Agent Reinforcement Learning (MARL), federated learning frameworks.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-projects">
+    <div class="container">
+        <h2>Featured Projects</h2>
+        
+        <div class="card-grid">
+            <div class="card">
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 600; text-transform: uppercase;">Flagship Project</span>
+                <h3 style="margin-top: 8px;">Intelligent Assessment of Transmission Towers</h3>
+                <p>AI-driven damage assessment using drone imagery and deep learning for post-typhoon rapid identification.</p>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>Funding:</strong> ¥2.175M | <strong>Role:</strong> Principal Investigator</p>
+            </div>
+            
+            <div class="card">
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 600; text-transform: uppercase;">Flagship Project</span>
+                <h3 style="margin-top: 8px;">Smart Chain Cloud Construction Platform</h3>
+                <p>1:10 scale intelligent building machine platform with dual-arm collaborative robots and digital twin system.</p>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>Funding:</strong> ¥1.37M | <strong>Role:</strong> Principal Investigator</p>
+            </div>
+            
+            <div class="card">
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 600; text-transform: uppercase;">Industry Project</span>
+                <h3 style="margin-top: 8px;">Cross-Type Disaster Experimental Models</h3>
+                <p>Industry Competitive Project for large-scale multi-parameter coupling experiments in long-span structures.</p>
+                <p style="margin-top: 16px; font-size: 14px; color: var(--color-text-secondary);"><strong>Program:</strong> Industry Competitive Project | <strong>Role:</strong> Sub-Leader</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/projects/" class="btn btn-secondary">View All Projects &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<section class="ultraevolve" style="background: linear-gradient(135deg, #1d1d1f 0%, #2d2d2f 100%); color: white;">
+    <div class="container">
+        <h2 style="color: white;">UltraEvolve Platform</h2>
+        
+        <p style="font-size: 20px; max-width: 700px; margin-bottom: 30px; opacity: 0.9;">
+            An innovation platform for high-dimensional human development, integrating 
+            multi-agent systems, digital twins, blockchain, and metaverse technologies.
+        </p>
+        
+        <div class="card-grid" style="margin-top: 40px;">
+            <div class="card" style="background: rgba(255,255,255,0.1); border: none; color: white;">
+                <h3 style="color: white;"><i class="fas fa-book"></i> Five Books</h3>
+                <p style="color: rgba(255,255,255,0.8);">From "Humanity and the Cosmos" to "Cosmic Civil Engineering" - a complete knowledge system.</p>
+            </div>
+            
+            <div class="card" style="background: rgba(255,255,255,0.1); border: none; color: white;">
+                <h3 style="color: white;"><i class="fas fa-rocket"></i> Space Elevator</h3>
+                <p style="color: rgba(255,255,255,0.8);">Developing the essential technology for humanity to become a planetary civilization.</p>
+            </div>
+            
+            <div class="card" style="background: rgba(255,255,255,0.1); border: none; color: white;">
+                <h3 style="color: white;"><i class="fas fa-brain"></i> Consciousness Elevation</h3>
+                <p style="color: rgba(255,255,255,0.8);">Brain-computer interface exploration for human-AI-Agent interconnection.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://www.ultraevolve.com" target="_blank" class="btn btn-primary" style="background: white; color: #1d1d1f;">
+                Visit UltraEvolve &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="latest-thoughts">
+    <div class="container">
+        <h2>Latest Thoughts</h2>
+        
+        <div class="thoughts-list">
+            <div class="card" style="display: flex; gap: 20px; align-items: flex-start;">
+                <div style="min-width: 60px; text-align: center;">
+                    <span style="font-size: 32px;">🌌</span>
+                </div>
+                <div>
+                    <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 8px;">February 27, 2026</p>
+                    <p style="font-size: 16px;">
+                        The space elevator is not just a transportation system - it's the gateway for humanity 
+                        to become a truly planetary civilization. Every calculation, every material test brings 
+                        us closer to this vision.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/thoughts/" class="btn btn-secondary">View All Thoughts &rarr;</a>
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Digital Twin Emergency Repair - Daguang Han</title>
+    <title>Construction Robotics Digital Twin Testbed - Daguang Han</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,14 +56,14 @@
         .bg-orb-1 {
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
             top: -200px;
-            left: -100px;
+            right: -100px;
         }
         
         @keyframes drift {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
         }
         
         .nav {
@@ -193,10 +193,10 @@
         .hero-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(99,102,241,0.1));
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.1));
             border-radius: 16px;
             margin-bottom: 3rem;
-            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -223,15 +223,15 @@
         }
         
         .highlight-box {
-            background: rgba(139,92,246,0.1);
-            border: 1px solid rgba(139,92,246,0.3);
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.3);
             border-radius: 12px;
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
         
         .highlight-box h4 {
-            color: #8b5cf6;
+            color: #3b82f6;
             font-size: 0.875rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -266,23 +266,31 @@
             line-height: 1.6;
         }
         
-        .feature-list {
-            list-style: none;
-            margin: 1rem 0;
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
         
-        .feature-list li {
-            padding: 0.75rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        .spec-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
         }
         
-        .feature-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #8b5cf6;
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.25rem;
+        }
+        
+        .spec-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
         }
         
         .tags {
@@ -318,6 +326,7 @@
             .nav-links { display: none; }
             .project-title { font-size: 1.75rem; }
             .tech-grid { grid-template-columns: 1fr; }
+            .spec-grid { grid-template-columns: 1fr; }
             .hero-image { height: 250px; }
         }
     </style>
@@ -348,22 +357,22 @@
     <header class="project-header">
         <div class="container">
             <a href="../projects.html" class="back-link">← Back to Projects</a>
-            <h1 class="project-title">LLM + Digital Twin Emergency Repair Decision System</h1>
+            <h1 class="project-title">Construction Robotics Digital Twin Testbed</h1>
             <div class="project-meta-bar">
                 <div class="meta-item">
                     <span class="meta-label">Type</span>
-                    <span class="meta-value">Power Industry Competitive Project</span>
+                    <span class="meta-value">Industry Funded</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Duration</span>
-                    <span class="meta-value">2024-2026</span>
+                    <span class="meta-value">2023-2025</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
                     <span class="meta-value">Principal Investigator</span>
                 </div>
             </div>
-            <span class="funding-badge">¥1.806M Funding</span>
+            <span class="funding-badge">Research Demonstrator</span>
             <div class="hero-image"></div>
         </div>
     </header>
@@ -372,11 +381,29 @@
         <div class="section">
             <h2 class="section-title">Project Overview</h2>
             <div class="section-content">
-                <p>This groundbreaking project integrates Large Language Models (LLM) with Digital Twin technology to create an intelligent emergency repair decision-making system for power grid infrastructure. The system provides real-time situational awareness and automated response recommendations during critical infrastructure failures.</p>
+                <p>This research demonstrator develops a digital-twin-enabled construction robotics testbed for intelligent construction applications. The work combines collaborative robotics, control systems, and virtual-physical synchronisation to study construction automation in a controlled laboratory setting.</p>
                 
                 <div class="highlight-box">
                     <h4>Business Value</h4>
-                    <p>Emergency response automation and intelligent decision support dramatically reduce downtime, improve operational efficiency, and ensure faster recovery from infrastructure failures.</p>
+                    <p>The demonstrator supports teaching, prototyping, and research on construction automation, human-robot collaboration, quality control, and safer work methods.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Demonstrator Features</h2>
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <div class="spec-value">Scaled</div>
+                    <div class="spec-label">Physical Testbed</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">Robotic</div>
+                    <div class="spec-label">Control System</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">Live</div>
+                    <div class="spec-label">Digital Twin Sync</div>
                 </div>
             </div>
         </div>
@@ -385,20 +412,20 @@
             <h2 class="section-title">Key Technologies</h2>
             <div class="tech-grid">
                 <div class="tech-card">
-                    <h4>Large Language Models (LLM)</h4>
-                    <p>Advanced natural language processing for understanding emergency reports, generating repair protocols, and providing human-like decision support.</p>
+                    <h4>Construction Data Platform</h4>
+                    <p>Data environment for construction planning, scheduling, sensing, and monitoring in laboratory demonstrations.</p>
                 </div>
                 <div class="tech-card">
-                    <h4>Digital Twin Technology</h4>
-                    <p>Real-time virtual replica of power grid infrastructure enabling simulation, prediction, and scenario analysis for repair planning.</p>
+                    <h4>Robotics Control</h4>
+                    <p>Robotics control workflows for navigation, task sequencing, and supervised operation in controlled environments.</p>
                 </div>
                 <div class="tech-card">
-                    <h4>Knowledge Graph</h4>
-                    <p>Structured representation of equipment relationships, failure modes, and repair procedures for intelligent reasoning.</p>
+                    <h4>Digital Twin Integration</h4>
+                    <p>Synchronisation between physical equipment and virtual models for monitoring, analysis, and teaching demonstrations.</p>
                 </div>
                 <div class="tech-card">
-                    <h4>Multi-modal Data Fusion</h4>
-                    <p>Integration of sensor data, weather information, maintenance records, and field reports for comprehensive situational awareness.</p>
+                    <h4>Collaborative Robotics</h4>
+                    <p>Human-robot collaboration concepts for construction tasks, safety-aware planning, and repeatable quality workflows.</p>
                 </div>
             </div>
         </div>
@@ -406,35 +433,30 @@
         <div class="section">
             <h2 class="section-title">System Capabilities</h2>
             <div class="section-content">
-                <ul class="feature-list">
-                    <li><strong>Intelligent Incident Analysis:</strong> Automatic parsing of emergency reports and extraction of critical information</li>
-                    <li><strong>Real-time Digital Twin Simulation:</strong> Live modeling of grid state and failure propagation</li>
-                    <li><strong>Automated Repair Recommendations:</strong> AI-generated repair strategies with resource requirements</li>
-                    <li><strong>Natural Language Interface:</strong> Conversational interaction for field engineers and operators</li>
-                    <li><strong>Predictive Impact Assessment:</strong> Forecast of repair outcomes and service restoration time</li>
-                    <li><strong>Historical Knowledge Integration:</strong> Learning from past incidents and best practices</li>
-                </ul>
+                <p>• <strong>Construction automation:</strong> task sequencing and supervised robotic operation</p>
+                <p>• <strong>Digital twin synchronisation:</strong> virtual-physical state tracking for teaching and research</p>
+                <p>• <strong>Human-robot collaboration:</strong> safety-aware workflows and repeatable quality procedures</p>
+                <p>• <strong>Data-driven control:</strong> integration of sensor data, model state, and operational rules</p>
             </div>
         </div>
         
         <div class="section">
-            <h2 class="section-title">Expected Impact</h2>
+            <h2 class="section-title">Expected Outcomes</h2>
             <div class="section-content">
-                <p>• <strong>Response Time Reduction:</strong> 60% faster emergency response through automated analysis</p>
-                <p>• <strong>Decision Accuracy:</strong> 90%+ accuracy in repair strategy recommendations</p>
-                <p>• <strong>Operational Efficiency:</strong> 35% improvement in resource allocation during emergencies</p>
-                <p>• <strong>Knowledge Retention:></strong> Systematic capture and reuse of institutional repair expertise</p>
+                <p>• A reusable teaching and research demonstrator for construction robotics and digital twins</p>
+                <p>• Prototype workflows for linking physical equipment, BIM data, and operational decision support</p>
+                <p>• Evidence for future collaboration in digital engineering, robotics, and smart construction education</p>
             </div>
         </div>
         
         <div class="tags">
-            <span class="tag">LLM</span>
+            <span class="tag">Construction Robotics</span>
+            <span class="tag">Research Testbed</span>
+            <span class="tag">Digital Platform</span>
+            <span class="tag">Automation</span>
             <span class="tag">Digital Twin</span>
-            <span class="tag">Emergency Repair</span>
-            <span class="tag">Decision Support</span>
-            <span class="tag">AI</span>
-            <span class="tag">Knowledge Graph</span>
-            <span class="tag">Natural Language Processing</span>
+            <span class="tag">Collaborative Robots</span>
+            <span class="tag">Smart Construction</span>
         </div>
     </div>
     

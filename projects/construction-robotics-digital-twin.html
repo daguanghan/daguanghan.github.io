@@ -3,477 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construction Robotics Digital Twin Testbed - Daguang Han</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            background: 
-                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                    rgba(99,102,241,0.15), 
-                    transparent 40%),
-                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                    rgba(139,92,246,0.1), 
-                    transparent 30%);
-        }
-        
-        .bg-animated {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-        
-        .bg-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: drift 20s ease-in-out infinite;
-        }
-        
-        .bg-orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
-            top: -200px;
-            right: -100px;
-        }
-        
-        @keyframes drift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-30px, 30px) scale(1.1); }
-        }
-        
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 0.02em;
-            text-decoration: none;
-            color: #fff;
-        }
-        
-        .nav-logo-icon {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        
-        .nav-links a:hover, .nav-links a.active { color: #fff; }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .project-header {
-            padding: 8rem 0 3rem;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-        }
-        
-        .back-link:hover { color: #fff; }
-        
-        .project-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.3;
-        }
-        
-        .project-meta-bar {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .meta-label {
-            font-size: 0.6875rem;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .meta-value {
-            font-size: 1rem;
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        .funding-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.1));
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            background-image: url('https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-        
-        .section-content {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-        
-        .section-content p {
-            margin-bottom: 1rem;
-        }
-        
-        .highlight-box {
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .highlight-box h4 {
-            color: #3b82f6;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .tech-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        
-        .tech-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-        
-        .tech-card p {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
-        }
-        
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .spec-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        .spec-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 0.25rem;
-        }
-        
-        .spec-label {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .tag {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.1);
-            padding: 0.375rem 0.75rem;
-            border-radius: 20px;
-        }
-        
-        .footer {
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 5rem;
-        }
-        
-        .footer-logo {
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .project-title { font-size: 1.75rem; }
-            .tech-grid { grid-template-columns: 1fr; }
-            .spec-grid { grid-template-columns: 1fr; }
-            .hero-image { height: 250px; }
-        }
-    </style>
+    <meta name="description" content="Construction robotics and digital twin research testbed by Dr.-Ing. Daguang Han, presented as a public capability summary.">
+    <title>Construction Robotics Research Testbed | Daguang Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../site.css">
 </head>
 <body>
-    <div class="spotlight"></div>
-    <div class="bg-animated">
-        <div class="bg-orb bg-orb-1"></div>
-    </div>
-
-    <nav class="nav">
-        <a href="../index.html" class="nav-logo">
-            <div class="nav-logo-icon">DH</div>
-            Daguang Han
-        </a>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../publications.html">Publications</a></li>
-            <li><a href="../projects.html" class="active">Projects</a></li>
-            <li><a href="../patents.html">Patents</a></li>
-            <li><a href="../awards.html">Awards</a></li>
-            <li><a href="../talks.html">Talks</a></li>
-            <li><a href="../membership.html">Membership</a></li>
-            <li><a href="../demos.html">Demos</a></li>
-        </ul>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand"><span class="brand-mark">DH</span><span>Daguang Han</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../publications.html">Publications</a></li>
+                <li><a href="../projects.html" class="active">Projects</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../patents.html">Patents</a></li>
+                <li><a href="../talks.html">Talks</a></li>
+                <li><a href="../awards.html">Awards</a></li>
+                <li><a href="../membership.html">Membership</a></li>
+                <li><a href="../demos.html">Demos</a></li>
+                <li><a href="../blog.html">Notes</a></li>
+            </ul>
+        </div>
     </nav>
-    
-    <header class="project-header">
+
+    <header class="page-header">
         <div class="container">
-            <a href="../projects.html" class="back-link">← Back to Projects</a>
-            <h1 class="project-title">Construction Robotics Digital Twin Testbed</h1>
-            <div class="project-meta-bar">
-                <div class="meta-item">
-                    <span class="meta-label">Type</span>
-                    <span class="meta-value">Industry Funded</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Duration</span>
-                    <span class="meta-value">2023-2025</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Principal Investigator</span>
-                </div>
+            <p class="eyebrow">Project Capability</p>
+            <h1 class="page-title">Construction robotics and digital twin research testbed</h1>
+            <p class="page-subtitle">A public capability summary for construction automation research, teaching and knowledge transfer. No restricted-partner system details, internal interfaces or restricted datasets are disclosed.</p>
+            <div class="action-row">
+                <a class="btn secondary" href="../projects.html">Back to Projects</a>
+                <a class="btn secondary" href="../research.html">Research Agenda</a>
             </div>
-            <span class="funding-badge">Research Demonstrator</span>
-            <div class="hero-image"></div>
         </div>
     </header>
-    
-    <div class="container">
-        <div class="section">
-            <h2 class="section-title">Project Overview</h2>
-            <div class="section-content">
-                <p>This research demonstrator develops a digital-twin-enabled construction robotics testbed for intelligent construction applications. The work combines collaborative robotics, control systems, and virtual-physical synchronisation to study construction automation in a controlled laboratory setting.</p>
-                
-                <div class="highlight-box">
-                    <h4>Business Value</h4>
-                    <p>The demonstrator supports teaching, prototyping, and research on construction automation, human-robot collaboration, quality control, and safer work methods.</p>
-                </div>
+
+    <main>
+        <section class="section">
+            <div class="container grid two">
+                <article class="media-card">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Professional industrial automation equipment">
+                    <div class="media-body">
+                        <p class="kicker">Research demonstrator</p>
+                        <h3>Digital-physical construction workflow</h3>
+                        <p>The testbed links robotic perception, task planning, digital process models and teaching demonstrations in a controlled research environment.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <p class="kicker">Methods</p>
+                    <h3>What the testbed supports</h3>
+                    <p>Robotic sensing, process coordination, digital twin modelling, safe automation workflows, laboratory exercises and reproducible research demonstrations.</p>
+                    <div class="tag-row"><span class="tag">construction robotics</span><span class="tag">digital twin modelling</span><span class="tag">teaching demonstrator</span></div>
+                </article>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">Demonstrator Features</h2>
-            <div class="spec-grid">
-                <div class="spec-item">
-                    <div class="spec-value">Scaled</div>
-                    <div class="spec-label">Physical Testbed</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">Robotic</div>
-                    <div class="spec-label">Control System</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">Live</div>
-                    <div class="spec-label">Digital Twin Sync</div>
-                </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid">
+                <article class="card">
+                    <h3>Academic value</h3>
+                    <p>Supports research questions in human-machine collaboration, automation reliability, digital construction workflows and infrastructure productivity.</p>
+                </article>
+                <article class="card">
+                    <h3>Teaching value</h3>
+                    <p>Provides a controlled environment for students to connect sensing, modelling, robotics and engineering decision making.</p>
+                </article>
+                <article class="card">
+                    <h3>Industry value</h3>
+                    <p>Demonstrates transferable workflows for construction automation and knowledge transfer without publishing restricted-partner details.</p>
+                </article>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">Key Technologies</h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h4>Construction Data Platform</h4>
-                    <p>Data environment for construction planning, scheduling, sensing, and monitoring in laboratory demonstrations.</p>
-                </div>
-                <div class="tech-card">
-                    <h4>Robotics Control</h4>
-                    <p>Robotics control workflows for navigation, task sequencing, and supervised operation in controlled environments.</p>
-                </div>
-                <div class="tech-card">
-                    <h4>Digital Twin Integration</h4>
-                    <p>Synchronisation between physical equipment and virtual models for monitoring, analysis, and teaching demonstrations.</p>
-                </div>
-                <div class="tech-card">
-                    <h4>Collaborative Robotics</h4>
-                    <p>Human-robot collaboration concepts for construction tasks, safety-aware planning, and repeatable quality workflows.</p>
-                </div>
+        </section>
+
+        <section class="section compact">
+            <div class="container safe-note">
+                Public information is limited to research methods and capability. System parameters, partner identities, internal platform names and restricted project details are intentionally excluded.
             </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">System Capabilities</h2>
-            <div class="section-content">
-                <p>• <strong>Construction automation:</strong> task sequencing and supervised robotic operation</p>
-                <p>• <strong>Digital twin synchronisation:</strong> virtual-physical state tracking for teaching and research</p>
-                <p>• <strong>Human-robot collaboration:</strong> safety-aware workflows and repeatable quality procedures</p>
-                <p>• <strong>Data-driven control:</strong> integration of sensor data, model state, and operational rules</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">Expected Outcomes</h2>
-            <div class="section-content">
-                <p>• A reusable teaching and research demonstrator for construction robotics and digital twins</p>
-                <p>• Prototype workflows for linking physical equipment, BIM data, and operational decision support</p>
-                <p>• Evidence for future collaboration in digital engineering, robotics, and smart construction education</p>
-            </div>
-        </div>
-        
-        <div class="tags">
-            <span class="tag">Construction Robotics</span>
-            <span class="tag">Research Testbed</span>
-            <span class="tag">Digital Platform</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Digital Twin</span>
-            <span class="tag">Collaborative Robots</span>
-            <span class="tag">Smart Construction</span>
-        </div>
-    </div>
-    
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DAGUANG HAN</div>
+            <h2>Construction Robotics Research Testbed</h2>
+            <p>Public capability summary for academic and industry readers.</p>
         </div>
     </footer>
-    
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const spotlight = document.querySelector('.spotlight');
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            spotlight.style.setProperty('--mouse-x', x + '%');
-            spotlight.style.setProperty('--mouse-y', y + '%');
-        });
-    </script>
 </body>
 </html>

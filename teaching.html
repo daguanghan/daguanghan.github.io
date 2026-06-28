@@ -3,440 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching - Daguang Han</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            background: 
-                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                    rgba(99,102,241,0.15), 
-                    transparent 40%),
-                radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                    rgba(139,92,246,0.1), 
-                    transparent 30%);
-        }
-        
-        .bg-animated {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-        
-        .bg-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: drift 20s ease-in-out infinite;
-        }
-        
-        .bg-orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
-            top: -200px;
-            right: -100px;
-        }
-        
-        @keyframes drift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-30px, 30px) scale(1.1); }
-        }
-        
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            letter-spacing: 0.02em;
-            text-decoration: none;
-            color: #fff;
-        }
-        
-        .nav-logo-icon {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        
-        .nav-links a:hover, .nav-links a.active { color: #fff; }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .page-header {
-            padding: 7rem 0 2rem;
-            text-align: center;
-        }
-        
-        .page-title {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        
-        .page-subtitle {
-            font-size: 0.9375rem;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .philosophy-box {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .philosophy-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.75);
-            font-style: italic;
-        }
-        
-        .course-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .course-item {
-            padding: 1.25rem;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-        
-        .course-item:hover {
-            border-color: rgba(99,102,241,0.15);
-            background: rgba(255,255,255,0.03);
-        }
-        
-        .course-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-        
-        .course-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .course-level {
-            font-size: 0.6875rem;
-            color: #6366f1;
-            font-weight: 600;
-            padding: 0.2rem 0.5rem;
-            background: rgba(99,102,241,0.1);
-            border-radius: 4px;
-        }
-        
-        .course-desc {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .course-meta {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-        }
-        
-        .student-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .student-card {
-            padding: 1rem;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 8px;
-        }
-        
-        .student-card h4 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #6366f1;
-        }
-        
-        .student-card p {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.5;
-        }
-        
-        .footer {
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 3rem;
-        }
-        
-        .footer-logo {
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .student-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <meta name="description" content="Teaching profile of Dr.-Ing. Daguang Han: UK teaching readiness, English-medium teaching, project-based learning, supervision and FHEA application in preparation.">
+    <title>Teaching | Daguang Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <div class="spotlight" id="spotlight"></div>
-    
-    <div class="bg-animated">
-        <div class="bg-orb bg-orb-1"></div>
-    </div>
-    
-    <nav class="nav">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">DH</div>
-            <span>DAGUANG HAN</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="patents.html">Patents</a></li>
-            <li><a href="teaching.html" class="active">Teaching</a></li>
-            <li><a href="talks.html">Talks</a></li>
-            <li><a href="demos.html">Demos</a></li>
-        </ul>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand"><span class="brand-mark">DH</span><span>Daguang Han</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="teaching.html" class="active">Teaching</a></li>
+                <li><a href="patents.html">Patents</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="blog.html">Notes</a></li>
+            </ul>
+        </div>
     </nav>
-    
+
     <header class="page-header">
         <div class="container">
-            <h1 class="page-title">Teaching</h1>
-            <p class="page-subtitle">Educational philosophy, courses, and student mentorship</p>
+            <p class="eyebrow">Teaching</p>
+            <h1 class="page-title">Research-led digital engineering education</h1>
+            <p class="page-subtitle">Evidence for UK teaching readiness: English-medium teaching, project-based learning, postgraduate supervision, guest teaching in the UK, and an FHEA application in preparation.</p>
         </div>
     </header>
-    
-    <div class="container">
-        <!-- Teaching Philosophy -->
-        <div class="section">
-            <h2 class="section-title">Teaching Philosophy</h2>
-            
-            <div class="philosophy-box">
-                <p class="philosophy-text">"My teaching philosophy centers on bridging the gap between theoretical knowledge and practical application. I believe in cultivating students' critical thinking abilities through project-based learning, encouraging them to tackle real-world engineering challenges using cutting-edge digital technologies. By integrating industry experiences into classroom teaching, I aim to prepare students not just for their first job, but for lifelong careers in the rapidly evolving field of civil engineering and digital construction."</p>
+
+    <main>
+        <section class="section">
+            <div class="container grid">
+                <article class="card">
+                    <p class="kicker">UK teaching readiness</p>
+                    <h3>FHEA application in preparation</h3>
+                    <p>Currently completing an FHEA application using evidence from English-medium teaching, project supervision, assessment and feedback practice, and research-led digital engineering education.</p>
+                </article>
+                <article class="card">
+                    <p class="kicker">English-medium teaching</p>
+                    <h3>Former Associate Professor at OsloMet</h3>
+                    <p>Taught and supervised postgraduate digital construction and BIM-related work in an international academic setting.</p>
+                </article>
+                <article class="card">
+                    <p class="kicker">UK engagement</p>
+                    <h3>Loughborough guest teaching</h3>
+                    <p>Guest lecturer in a Smart and Sustainable Cities module, connecting digital engineering research with UK classroom expectations.</p>
+                </article>
             </div>
-        </div>
-        
-        <!-- Courses Taught -->
-        <div class="section">
-            <h2 class="section-title">Courses Taught</h2>
-            
-            <div class="course-list">
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">BIM Technology and Applications</span>
-                        <span class="course-level">Graduate</span>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Teaching Areas</h2>
+                <div class="list">
+                    <div class="list-item">
+                        <p class="list-meta">Graduate teaching</p>
+                        <h3>BIM Technology and Applications</h3>
+                        <p>Information modelling, interoperability, digital delivery, and project-based learning for built-environment students.</p>
                     </div>
-                    <p class="course-desc">Comprehensive coverage of Building Information Modeling fundamentals, interoperability standards, and practical applications in construction management. Students learn to create, manage, and apply BIM models throughout the project lifecycle.</p>
-                    <p class="course-meta">Southeast University | 32 hours | Project-based learning</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Digital Twins for Smart Infrastructure</span>
-                        <span class="course-level">Graduate</span>
+                    <div class="list-item">
+                        <p class="list-meta">Graduate teaching</p>
+                        <h3>Digital Twins for Smart Infrastructure</h3>
+                        <p>Digital twin concepts, sensing integration, data analytics, model updating and predictive maintenance for civil infrastructure.</p>
                     </div>
-                    <p class="course-desc">Advanced course on digital twin theory, implementation strategies, and applications in infrastructure operation and maintenance. Covers sensor integration, data analytics, and predictive maintenance.</p>
-                    <p class="course-meta">Southeast University | 32 hours | Case study based</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Structural Health Monitoring</span>
-                        <span class="course-level">Undergraduate/Graduate</span>
+                    <div class="list-item">
+                        <p class="list-meta">Undergraduate and graduate teaching</p>
+                        <h3>Structural Health Monitoring</h3>
+                        <p>Sensor systems, data acquisition, signal processing, anomaly detection and interpretation for engineering evidence.</p>
                     </div>
-                    <p class="course-desc">Principles and practices of structural health monitoring systems, including sensor technologies, data acquisition, signal processing, and damage detection algorithms for civil infrastructure.</p>
-                    <p class="course-meta">Southeast University | 48 hours | Lab sessions included</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Intelligent Construction and Robotics</span>
-                        <span class="course-level">Graduate</span>
+                    <div class="list-item">
+                        <p class="list-meta">Research-led teaching</p>
+                        <h3>Reality Capture, Point Clouds and Digital Construction</h3>
+                        <p>3D laser scanning, point-cloud processing, BIM integration and engineering-quality workflows.</p>
                     </div>
-                    <p class="course-desc">Emerging technologies in construction automation, including construction robotics, automated quality inspection, AI-driven project management, and human-robot collaboration in building construction.</p>
-                    <p class="course-meta">Southeast University | 32 hours | Hands-on workshops</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">3D Laser Scanning and Point Cloud Processing</span>
-                        <span class="course-level">Undergraduate/Graduate</span>
-                    </div>
-                    <p class="course-desc">Technical principles of 3D laser scanning, point cloud data processing, registration algorithms, and applications in as-built documentation, quality control, and deformation monitoring.</p>
-                    <p class="course-meta">Southeast University | 32 hours | Field practice included</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Student Supervision -->
-        <div class="section">
-            <h2 class="section-title">Student Supervision</h2>
-            
-            <div class="student-section">
-                <div class="student-card">
-                    <h4>Ph.D. Students</h4>
-                    <p>Supervising 3 Ph.D. candidates in the areas of digital twins, structural health monitoring, and intelligent construction. Graduated 2 Ph.D. students who are now faculty members at top universities.</p>
-                </div>
-                
-                <div class="student-card">
-                    <h4>Master's Students</h4>
-                    <p>Supervised 15+ master's students with thesis topics ranging from BIM implementation to AI applications in construction. Several students received outstanding thesis awards.</p>
-                </div>
-                
-                <div class="student-card">
-                    <h4>International Students</h4>
-                    <p>Mentored international students from Germany, Pakistan, and Middle East countries. Collaborative research has resulted in high-impact SCI publications.</p>
-                </div>
-                
-                <div class="student-card">
-                    <h4>Undergraduate Research</h4>
-                    <p>Guided undergraduate research projects and graduation designs. Students have won awards in national competitions including the Challenge Cup and BIM application contests.</p>
-                </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid two">
+                <article class="card">
+                    <h3>Supervision</h3>
+                    <p>Doctoral co-supervision and 20+ master's projects across digital twins, BIM, structural health monitoring, sensing, reality capture, and intelligent construction.</p>
+                </article>
+                <article class="card">
+                    <h3>Teaching approach</h3>
+                    <p>Project-based learning, reproducible digital workflows, research-to-practice assignments, and feedback cycles that help students translate technical methods into engineering judgement.</p>
+                </article>
             </div>
-        </div>
-        
-        <!-- Teaching Achievements -->
-        <div class="section">
-            <h2 class="section-title">Teaching Achievements</h2>
-            
-            <div class="course-list">
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Teaching Excellence Award</span>
-                        <span class="course-level">2023</span>
-                    </div>
-                    <p class="course-desc">Recognized for outstanding teaching performance and innovative course design in digital construction technologies at Southeast University.</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Best Course Design Award</span>
-                        <span class="course-level">2022</span>
-                    </div>
-                    <p class="course-desc">Awarded for the "BIM Technology and Applications" course design, integrating industry case studies with hands-on software training.</p>
-                </div>
-                
-                <div class="course-item">
-                    <div class="course-header">
-                        <span class="course-title">Student Mentorship Excellence</span>
-                        <span class="course-level">2021-2024</span>
-                    </div>
-                    <p class="course-desc">Supervised students winning 5+ national-level awards in innovation and entrepreneurship competitions related to smart construction and digital engineering.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DAGUANG HAN</div>
+            <h2>Teaching and Supervision</h2>
+            <p>Available for UK digital engineering, civil engineering, BIM, structural health monitoring, and infrastructure resilience teaching.</p>
         </div>
     </footer>
-    
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const spotlight = document.getElementById('spotlight');
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            spotlight.style.setProperty('--mouse-x', x + '%');
-            spotlight.style.setProperty('--mouse-y', y + '%');
-        });
-    </script>
 </body>
 </html>

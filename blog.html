@@ -1,146 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Daguang Han (韩达光)</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --bs-navbar-bg: #2c3e50;
-            --bs-link-color: #0d6efd;
-            --bg-color: #ffffff;
-            --text-color: #212529;
-            --card-bg: #f8f9fa;
-            --border-color: #dee2e6;
-        }
-        [data-theme="dark"] {
-            --bs-navbar-bg: #1a1a2e;
-            --bs-link-color: #4dabf7;
-            --bg-color: #0f0f1a;
-            --text-color: #e9ecef;
-            --card-bg: #1a1a2e;
-            --border-color: #2d2d44;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: all 0.3s;
-        }
-        .navbar { background-color: var(--bs-navbar-bg) !important; padding: 0.5rem 1rem; }
-        .navbar-brand { color: white !important; font-weight: 600; }
-        .navbar-nav .nav-link { color: rgba(255,255,255,0.85) !important; }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: white !important; }
-        .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; margin-top: 60px; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .blog-item { background: var(--card-bg); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 10px; transition: transform 0.2s, box-shadow 0.2s; }
-        .blog-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .blog-category { display: inline-block; background: #0d6efd; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .blog-category-book { background: #764ba2; }
-        .blog-category-tech { background: #27ae60; }
-        .blog-category-philosophy { background: #e74c3c; }
-        .blog-title { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .blog-meta { color: #888; font-size: 0.85rem; margin-bottom: 0.75rem; }
-        .blog-excerpt { color: var(--text-color); margin-bottom: 1rem; }
-        .blog-link { color: var(--bs-link-color); text-decoration: none; font-weight: 500; }
-        .blog-link:hover { text-decoration: underline; }
-        .book-card { border-left: 4px solid #764ba2; }
-        .theme-toggle { cursor: pointer; padding: 0.5rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: white; }
-        .rss-btn { background: #fd7e14; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; }
-        .rss-btn:hover { background: #e56b0a; color: white; }
-        [data-theme="dark"] .blog-meta { color: #888; }
-    </style>
+    <meta name="description" content="Research notes by Dr.-Ing. Daguang Han on AI-enabled infrastructure resilience, digital twins, and research-led digital engineering teaching.">
+    <title>Research Notes | Daguang Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Daguang Han</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
-                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><button class="theme-toggle" onclick="toggleTheme()"><i class="bi bi-moon-fill" id="theme-icon"></i></button></li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/daguanghan"><i class="bi bi-github"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand"><span class="brand-mark">DH</span><span>Daguang Han</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="patents.html">Patents</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="blog.html" class="active">Notes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="eyebrow">Research Notes</p>
+            <h1 class="page-title">Short public notes on digital engineering</h1>
+            <p class="page-subtitle">Concise, non-confidential notes that explain research direction and teaching priorities for academic and industry readers.</p>
+        </div>
     </header>
 
-    <div class="content">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-                <h1><i class="bi bi-journal-text"></i> Research Notes</h1>
-                <p class="text-muted">Short notes on digital twins, structural health monitoring, and resilient infrastructure</p>
+    <main>
+        <section class="section">
+            <div class="container grid">
+                <article class="note">
+                    <p class="kicker">Infrastructure resilience</p>
+                    <h3>Why AI-enabled infrastructure resilience matters for UK civil engineering</h3>
+                    <p>Infrastructure owners need defensible evidence for maintenance and investment decisions. AI is useful when it is connected to engineering constraints, sensing evidence and accountable judgement.</p>
+                </article>
+                <article class="note">
+                    <p class="kicker">Digital twins</p>
+                    <h3>Digital twins as research infrastructure, not only software platforms</h3>
+                    <p>The research value of a digital twin is not the model itself; it is the repeatable evidence workflow that links measurement, simulation, decision making and verification.</p>
+                </article>
+                <article class="note">
+                    <p class="kicker">Teaching</p>
+                    <h3>Research-led teaching in digital engineering and infrastructure data</h3>
+                    <p>Students learn digital engineering most effectively when they work from messy measurement data to clear engineering decisions, rather than only learning software operation.</p>
+                </article>
             </div>
-            <a href="#" class="rss-btn"><i class="bi bi-rss"></i> RSS</a>
-        </div>
+        </section>
 
-        <h2 style="margin-top: 2rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            <i class="bi bi-lightbulb-fill"></i> Articles & Insights
-        </h2>
-
-        <div class="blog-item">
-            <span class="blog-category blog-category-tech">TECHNOLOGY</span>
-            <div class="blog-title">The Evolution of Digital Twins in Infrastructure Management</div>
-            <div class="blog-meta">February 2025 | 8 min read</div>
-            <div class="blog-excerpt">
-                From static 3D models to continuously updated engineering evidence: how digital twin technology can support inspection planning, predictive maintenance, and whole-life decision-making for civil infrastructure.
+        <section class="section compact">
+            <div class="container safe-note">
+                Notes do not discuss live applications, partner identities, agreement information, unpublished inventions or restricted datasets.
             </div>
-            <a class="blog-link" href="#">Read more →</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h2>Research Notes</h2>
+            <p>Public notes support clarity of academic positioning without exposing confidential project material.</p>
         </div>
-
-        <div class="blog-item">
-            <span class="blog-category blog-category-tech">RESEARCH</span>
-            <div class="blog-title">AI-Assisted Maintenance Planning for Resilient Infrastructure</div>
-            <div class="blog-meta">January 2025 | 12 min read</div>
-            <div class="blog-excerpt">
-                Notes on translating reinforcement learning, inspection data, and engineering constraints into maintenance-planning workflows for infrastructure operators, without exposing client-specific datasets or project details.
-            </div>
-            <a class="blog-link" href="#">Read more →</a>
-        </div>
-
-        <div class="blog-item">
-            <span class="blog-category blog-category-tech">TEACHING</span>
-            <div class="blog-title">Teaching Digital Engineering through Real Infrastructure Problems</div>
-            <div class="blog-meta">December 2024 | 10 min read</div>
-            <div class="blog-excerpt">
-                Reflections on project-based learning in BIM, point-cloud processing, digital twins, and structural health monitoring, drawing on postgraduate teaching in Norway, China, and guest teaching in the UK.
-            </div>
-            <a class="blog-link" href="#">Read more →</a>
-        </div>
-
-        <p class="text-muted mt-4 text-center">
-            <small>More articles coming soon. Subscribe via RSS for updates.</small>
-        </p>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'bi bi-moon-fill';
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                icon.className = 'bi bi-sun-fill';
-            }
-        }
-    </script>
+    </footer>
 </body>
 </html>

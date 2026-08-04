@@ -1,0 +1,2127 @@
+[
+ {
+  "id": "a-digital-twin-predictive-maintenance-fr",
+  "type": "article-journal",
+  "title": "A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics",
+  "author": [
+   {
+    "literal": "Hosamo, Haidar Hosamo"
+   },
+   {
+    "literal": "Svennevig, Paul Ragnar"
+   },
+   {
+    "literal": "Svidt, Kjeld"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Nielsen, Henrik Kofoed"
+   }
+  ],
+  "container-title": "Energy and Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html",
+  "volume": "261",
+  "page": "111988",
+  "ISSN": "0378-7788",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.enbuild.2022.111988"
+ },
+ {
+  "id": "a-comprehensive-review-and-analysis-of-n",
+  "type": "article-journal",
+  "title": "A Comprehensive Review and Analysis of Nanosensors for Structural Health Monitoring in Bridge Maintenance: Innovations, Challenges, and Future Perspectives",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Hosamo, Haidar"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Nie, Ruimin"
+   }
+  ],
+  "container-title": "Applied Sciences",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-comprehensive-review-and-analysis-of-nanosensors-for-structural-heal.html",
+  "volume": "13",
+  "issue": "20",
+  "page": "11149",
+  "ISSN": "2076-3417",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/app132011149"
+ },
+ {
+  "id": "automated-reconstruction-of-parametric-b",
+  "type": "article-journal",
+  "title": "Automated Reconstruction of Parametric BIM for Bridge Based on Terrestrial Laser Scanning Data",
+  "author": [
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   }
+  ],
+  "container-title": "Advances in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/automated-reconstruction-of-parametric-bim-for-bridge-based-on-terrest.html",
+  "volume": "2021",
+  "issue": "1",
+  "ISSN": "1687-8094",
+  "publisher": "Wiley",
+  "DOI": "10.1155/2021/8899323"
+ },
+ {
+  "id": "experimental-study-on-corrosion-fretting",
+  "type": "article-journal",
+  "title": "Experimental Study on Corrosion-Fretting Fatigue Behavior of Bridge Cable Wires",
+  "author": [
+   {
+    "literal": "Liu, Zhongxiang"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Li, Aiqun"
+   }
+  ],
+  "container-title": "Journal of Bridge Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/experimental-study-on-corrosion-fretting-fatigue-behavior-of-bridge-ca.html",
+  "volume": "25",
+  "issue": "12",
+  "ISSN": "1943-5592",
+  "publisher": "American Society of Civil Engineers (ASCE)",
+  "DOI": "10.1061/(asce)be.1943-5592.0001642"
+ },
+ {
+  "id": "a-bayesian-driven-monte-carlo-approach-f",
+  "type": "article-journal",
+  "title": "A Bayesian-driven Monte Carlo approach for managing construction schedule risks of infrastructures under uncertainty",
+  "author": [
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Lu, Qiuchen"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Expert Systems with Applications",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-bayesian-driven-monte-carlo-approach-for-managing-construction-sched.html",
+  "volume": "212",
+  "page": "118810",
+  "ISSN": "0957-4174",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.eswa.2022.118810"
+ },
+ {
+  "id": "mechanical-state-inversion-method-for-st",
+  "type": "article-journal",
+  "title": "Mechanical state inversion method for structural performance evaluation of existing suspension bridges using 3D laser scanning",
+  "author": [
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Xiang, Zhongfu"
+   },
+   {
+    "literal": "Zhang, Xuesong"
+   },
+   {
+    "literal": "Wang, Yue"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   }
+  ],
+  "container-title": "Computer-Aided Civil and Infrastructure Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/mechanical-state-inversion-method-for-structural-performance-evaluatio.html",
+  "volume": "37",
+  "issue": "5",
+  "page": "650",
+  "ISSN": "1093-9687",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1111/mice.12765"
+ },
+ {
+  "id": "accurate-virtual-trial-assembly-method-o",
+  "type": "article-journal",
+  "title": "Accurate Virtual Trial Assembly Method of Prefabricated Steel Components Using Terrestrial Laser Scanning",
+  "author": [
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Xiang, Zhongfu"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Zhao, Lidu"
+   },
+   {
+    "literal": "Hu, Xingyi"
+   }
+  ],
+  "container-title": "Advances in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/accurate-virtual-trial-assembly-method-of-prefabricated-steel-componen.html",
+  "volume": "2021",
+  "issue": "1",
+  "ISSN": "1687-8094",
+  "publisher": "Wiley",
+  "DOI": "10.1155/2021/9916859"
+ },
+ {
+  "id": "integrating-bim-and-iot-for-smart-bridge",
+  "type": "article-journal",
+  "title": "Integrating BIM and IoT for smart bridge management",
+  "author": [
+   {
+    "literal": "Zhao, Zhenping"
+   },
+   {
+    "literal": "Gao, Yu"
+   },
+   {
+    "literal": "Hu, Xingyi"
+   },
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Zhao, Lidu"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Guo, Jieming"
+   },
+   {
+    "literal": "Liu, Yachao"
+   },
+   {
+    "literal": "Yu, Chenchen"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "IOP Conference Series: Earth and Environmental Science",
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/integrating-bim-and-iot-for-smart-bridge-management.html",
+  "volume": "371",
+  "issue": "2",
+  "page": "022034",
+  "ISSN": "1755-1315",
+  "publisher": "IOP Publishing",
+  "DOI": "10.1088/1755-1315/371/2/022034"
+ },
+ {
+  "id": "seismic-design-of-self-centering-viscous",
+  "type": "article-journal",
+  "title": "Seismic design of self-centering viscous-hysteretic devices used for steel moment-resisting frames",
+  "author": [
+   {
+    "literal": "Zhu, Ruizhao"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Mwangilwa, Frank"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Engineering Structures",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/seismic-design-of-self-centering-viscous-hysteretic-devices-used-for-s.html",
+  "volume": "239",
+  "page": "112369",
+  "ISSN": "0141-0296",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.engstruct.2021.112369"
+ },
+ {
+  "id": "smart-contract-generation-and-visualizat",
+  "type": "article-journal",
+  "title": "Smart Contract Generation and Visualization for Construction Business Process Collaboration and Automation: Upgraded Workflow Engine",
+  "author": [
+   {
+    "literal": "Ye, Xuling"
+   },
+   {
+    "literal": "Zeng, Ningshuang"
+   },
+   {
+    "literal": "Tao, Xingyu"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "König, Markus"
+   }
+  ],
+  "container-title": "Journal of Computing in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/smart-contract-generation-and-visualization-for-construction-business.html",
+  "volume": "38",
+  "issue": "6",
+  "ISSN": "1943-5487",
+  "publisher": "American Society of Civil Engineers (ASCE)",
+  "DOI": "10.1061/jccee5.cpeng-5938"
+ },
+ {
+  "id": "multi-domain-data-integration-and-manage",
+  "type": "article-journal",
+  "title": "Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance",
+  "author": [
+   {
+    "literal": "Liu, Liu"
+   },
+   {
+    "literal": "Zeng, Ningshuang"
+   },
+   {
+    "literal": "Liu, Yan"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "König, Markus"
+   }
+  ],
+  "container-title": "Developments in the Built Environment",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html",
+  "volume": "18",
+  "page": "100475",
+  "ISSN": "2666-1659",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.dibe.2024.100475"
+ },
+ {
+  "id": "semi-automated-generation-of-geometric-d",
+  "type": "article-journal",
+  "title": "Semi-automated Generation of Geometric Digital Twin for Bridge Based on Terrestrial Laser Scanning Data",
+  "author": [
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   }
+  ],
+  "container-title": "Advances in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/semi-automated-generation-of-geometric-digital-twin-for-bridge-based-o.html",
+  "volume": "2023",
+  "page": "1",
+  "ISSN": "1687-8094",
+  "publisher": "Wiley",
+  "DOI": "10.1155/2023/6192001"
+ },
+ {
+  "id": "review-of-advanced-emergency-evacuation",
+  "type": "article-journal",
+  "title": "Review of advanced emergency evacuation procedures in hospital buildings: comprehensive analysis and insights",
+  "author": [
+   {
+    "literal": "Wu, Hao"
+   },
+   {
+    "literal": "Nie, Ruimin"
+   },
+   {
+    "literal": "Zeng, Xu"
+   },
+   {
+    "literal": "Cheng, Chuanjie"
+   },
+   {
+    "literal": "Pan, Jing"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Hosamo, Haidar"
+   }
+  ],
+  "container-title": "Frontiers in Built Environment",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/review-of-advanced-emergency-evacuation-procedures-in-hospital-buildin.html",
+  "volume": "10",
+  "ISSN": "2297-3362",
+  "publisher": "Frontiers Media SA",
+  "DOI": "10.3389/fbuil.2024.1381813"
+ },
+ {
+  "id": "failure-mechanism-and-static-bearing-cap",
+  "type": "article-journal",
+  "title": "Failure mechanism and static bearing capacity on circular RC members under asymmetrical lateral impact train collision",
+  "author": [
+   {
+    "literal": "AL-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Abas, Hussein"
+   },
+   {
+    "literal": "Yu, Yan Xing"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Daguang, Han"
+   },
+   {
+    "literal": "Lang, Yang"
+   }
+  ],
+  "container-title": "Structures",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/failure-mechanism-and-static-bearing-capacity-on-circular-rc-members-u.html",
+  "volume": "48",
+  "page": "1817",
+  "ISSN": "2352-0124",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.istruc.2023.01.075"
+ },
+ {
+  "id": "yolov8s-snc-an-improved-safety-helmet-we",
+  "type": "article-journal",
+  "title": "YOLOv8s-SNC: An Improved Safety-Helmet-Wearing Detection Algorithm Based on YOLOv8",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Tian, Zhenhai"
+   },
+   {
+    "literal": "Dong, Yanjie"
+   },
+   {
+    "literal": "Chen, Liyuan"
+   },
+   {
+    "literal": "Wu, Xuguang"
+   },
+   {
+    "literal": "Jiang, Zhiwen"
+   }
+  ],
+  "container-title": "Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/yolov8s-snc-an-improved-safety-helmet-wearing-detection-algorithm-base.html",
+  "volume": "14",
+  "issue": "12",
+  "page": "3883",
+  "ISSN": "2075-5309",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/buildings14123883"
+ },
+ {
+  "id": "experimental-study-on-existing-rc-circul",
+  "type": "article-journal",
+  "title": "Experimental Study on Existing RC Circular Members Under Unequal Lateral Impact Train Collision",
+  "author": [
+   {
+    "literal": "AL-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Abas, Hussein"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Lang, Yang"
+   },
+   {
+    "literal": "Yu, Yan Xing"
+   },
+   {
+    "literal": "Daguang, Han"
+   }
+  ],
+  "container-title": "International Journal of Concrete Structures and Materials",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/experimental-study-on-existing-rc-circular-members-under-unequal-later.html",
+  "volume": "16",
+  "issue": "1",
+  "ISSN": "2234-1315",
+  "publisher": "Springer Science and Business Media LLC",
+  "DOI": "10.1186/s40069-022-00529-5"
+ },
+ {
+  "id": "numerical-study-on-existing-rc-circular",
+  "type": "article-journal",
+  "title": "Numerical study on existing RC circular section members under unequal impact collision",
+  "author": [
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Al-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Abas, Hussein"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Lang, Yang"
+   },
+   {
+    "literal": "Yu, Yan Xing"
+   },
+   {
+    "literal": "Daguang, Han"
+   }
+  ],
+  "container-title": "Scientific Reports",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/numerical-study-on-existing-rc-circular-section-members-under-unequal.html",
+  "volume": "12",
+  "issue": "1",
+  "ISSN": "2045-2322",
+  "publisher": "Springer Science and Business Media LLC",
+  "DOI": "10.1038/s41598-022-19144-1"
+ },
+ {
+  "id": "effect-of-the-axial-load-on-the-dynamic",
+  "type": "article-journal",
+  "title": "Effect of the axial load on the dynamic response of the wrapped CFRP reinforced concrete column under the asymmetrical lateral impact load",
+  "author": [
+   {
+    "literal": "AL-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Abas, Hussein"
+   },
+   {
+    "literal": "Daguang, Han"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Lang, Yang"
+   },
+   {
+    "literal": "Xing Yu, Yan"
+   }
+  ],
+  "container-title": "PLOS ONE",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/effect-of-the-axial-load-on-the-dynamic-response-of-the-wrapped-cfrp-r.html",
+  "volume": "18",
+  "issue": "6",
+  "page": "e0284238",
+  "ISSN": "1932-6203",
+  "publisher": "Public Library of Science (PLoS)",
+  "DOI": "10.1371/journal.pone.0284238"
+ },
+ {
+  "id": "a-memory-attention-hierarchical-model-fo",
+  "type": "article-journal",
+  "title": "A Memory-Attention Hierarchical Model for Driving-Behavior Recognition and Motion Prediction",
+  "author": [
+   {
+    "literal": "Yin, Huilin"
+   },
+   {
+    "literal": "Wang, Jie"
+   },
+   {
+    "literal": "Lin, Jia"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Meng, Qian"
+   }
+  ],
+  "container-title": "International Journal of Automotive Technology",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-memory-attention-hierarchical-model-for-driving-behavior-recognition.html",
+  "volume": "22",
+  "issue": "4",
+  "page": "895",
+  "ISSN": "1976-3832",
+  "publisher": "Springer Science and Business Media LLC",
+  "DOI": "10.1007/s12239-021-0081-8"
+ },
+ {
+  "id": "mechanical-properties-of-excavated-soil",
+  "type": "article-journal",
+  "title": "Mechanical properties of excavated soil waste-based cementitious products at normal condition or after water soaked: A literature review of experimental results",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Xiong, Weiwei"
+   },
+   {
+    "literal": "Chen, Yicun"
+   },
+   {
+    "literal": "Xu, Jinjun"
+   }
+  ],
+  "container-title": "Case Studies in Construction Materials",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/mechanical-properties-of-excavated-soil-waste-based-cementitious-produ.html",
+  "volume": "18",
+  "page": "e02111",
+  "ISSN": "2214-5095",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.cscm.2023.e02111"
+ },
+ {
+  "id": "applying-bim-and-3d-laser-scanning-techn",
+  "type": "article-journal",
+  "title": "Applying BIM and 3D laser scanning technology on virtual pre-assembly for complex steel structure in construction",
+  "author": [
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Guo, Jieming"
+   },
+   {
+    "literal": "Guo, Tong"
+   }
+  ],
+  "container-title": "IOP Conference Series: Earth and Environmental Science",
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/applying-bim-and-3d-laser-scanning-technology-on-virtual-pre-assembly.html",
+  "volume": "371",
+  "issue": "2",
+  "page": "022036",
+  "ISSN": "1755-1315",
+  "publisher": "IOP Publishing",
+  "DOI": "10.1088/1755-1315/371/2/022036"
+ },
+ {
+  "id": "investigating-the-effectiveness-of-cfrp",
+  "type": "article-journal",
+  "title": "Investigating the effectiveness of CFRP strengthening in improving the impact performance of RC members",
+  "author": [
+   {
+    "literal": "Al-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Daguang, Han"
+   }
+  ],
+  "container-title": "Structures",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/investigating-the-effectiveness-of-cfrp-strengthening-in-improving-the.html",
+  "volume": "60",
+  "page": "105841",
+  "ISSN": "2352-0124",
+  "publisher": "Elsevier BV",
+  "DOI": "10.1016/j.istruc.2023.105841"
+ },
+ {
+  "id": "based-on-bp-neural-network-prediction-of",
+  "type": "article-journal",
+  "title": "Based on BP Neural Network: Prediction of Interface Bond Strength between CFRP Layers and Reinforced Concrete",
+  "author": [
+   {
+    "literal": "Al-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Daguang, Han"
+   }
+  ],
+  "container-title": "Practice Periodical on Structural Design and Construction",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/based-on-bp-neural-network-prediction-of-interface-bond-strength-betwe.html",
+  "volume": "29",
+  "issue": "2",
+  "ISSN": "1943-5576",
+  "publisher": "American Society of Civil Engineers (ASCE)",
+  "DOI": "10.1061/ppscfx.sceng-1421"
+ },
+ {
+  "id": "efficient-recycling-and-reuse-of-waste-c",
+  "type": "article-journal",
+  "title": "Efficient Recycling and Reuse of Waste Concrete on a Construction Site",
+  "author": [
+   {
+    "literal": "Daguang Han"
+   },
+   {
+    "literal": "Yupeng Yang"
+   },
+   {
+    "literal": "Chunli Ying"
+   },
+   {
+    "literal": "Zeger Sierens"
+   },
+   {
+    "literal": "Hongbo Fan"
+   },
+   {
+    "literal": "Jiabin Li"
+   }
+  ],
+  "container-title": "SP-326: Durability and Sustainability of Concrete Structures (DSCS-2018)",
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/efficient-recycling-and-reuse-of-waste-concrete-on-a-construction-site.html",
+  "publisher": "American Concrete Institute",
+  "DOI": "10.14359/51711020"
+ },
+ {
+  "id": "failure-mechanism-analysis-of-circular-c",
+  "type": "article-journal",
+  "title": "Failure Mechanism Analysis of Circular Cfrp Components Under Unequal Impact Load",
+  "author": [
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Al-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Abas, Hussein"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Lang, Yang"
+   },
+   {
+    "literal": "Yu, Yan Xing"
+   },
+   {
+    "literal": "Daguang, Han"
+   }
+  ],
+  "container-title": "IABSE Congress Reports",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/failure-mechanism-analysis-of-circular-cfrp-components-under-unequal-i.html",
+  "volume": "22",
+  "page": "1668",
+  "ISSN": "2221-3791",
+  "publisher": "International Association for Bridge and Structural Engineering (IABSE)",
+  "DOI": "10.2749/nanjing.2022.1668"
+ },
+ {
+  "id": "slope-deformation-analysis-and-research",
+  "type": "article-journal",
+  "title": "Slope Deformation Analysis and Research Based on 3D Laser Scanning Technology",
+  "author": [
+   {
+    "literal": "Xue, Xiaofang"
+   },
+   {
+    "literal": "Guo, Jieming"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Meng, Qian"
+   },
+   {
+    "literal": "Yang, Yupeng"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "2021 5th International Conference on Vision, Image and Signal Processing (ICVISP)",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/slope-deformation-analysis-and-research-based-on-3d-laser-scanning-tec.html",
+  "page": "248",
+  "publisher": "IEEE",
+  "DOI": "10.1109/icvisp54630.2021.00052"
+ },
+ {
+  "id": "automatic-design-and-monitoring-of-mass",
+  "type": "article-journal",
+  "title": "Automatic Design and Monitoring of Mass Concrete Based on Information Technology",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Qi, Yujun"
+   },
+   {
+    "literal": "Liu, Qinghao"
+   },
+   {
+    "literal": "Wu, Rui"
+   },
+   {
+    "literal": "Xia, Chuanbang"
+   }
+  ],
+  "container-title": "Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/automatic-design-and-monitoring-of-mass-concrete-based-on-information.html",
+  "volume": "14",
+  "issue": "10",
+  "page": "3248",
+  "ISSN": "2075-5309",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/buildings14103248"
+ },
+ {
+  "id": "digital-reconstruction-and-geometrical-m",
+  "type": "article-journal",
+  "title": "Digital reconstruction and geometrical model updating of large-scale bridge structures: a case study of Baijusi bridge",
+  "author": [
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "El-Hamalawi, Ashraf"
+   },
+   {
+    "literal": "Chen, Shanqin"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Proceedings of the Institution of Civil Engineers - Smart Infrastructure and Construction",
+  "issued": {
+   "date-parts": [
+    [
+     2025
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/digital-reconstruction-and-geometrical-model-updating-of-large-scale-b.html",
+  "volume": "178",
+  "issue": "3",
+  "page": "167",
+  "ISSN": "2397-8759",
+  "publisher": "Emerald",
+  "DOI": "10.1680/jsmic.24.00012"
+ },
+ {
+  "id": "application-of-phase-three-dimensional-l",
+  "type": "article-journal",
+  "title": "Application of phase three dimensional laser scanner in high altitude large volume irregular structure",
+  "author": [
+   {
+    "literal": "Han, D."
+   },
+   {
+    "literal": "Rolfsen, C.N."
+   },
+   {
+    "literal": "Erduran, E."
+   },
+   {
+    "literal": "Hempel, E.E."
+   },
+   {
+    "literal": "Hosamo, H."
+   },
+   {
+    "literal": "Guo, J."
+   },
+   {
+    "literal": "Chen, F."
+   },
+   {
+    "literal": "Ying, C."
+   }
+  ],
+  "container-title": "ECPPM 2021 – eWork and eBusiness in Architecture, Engineering and Construction",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/application-of-phase-three-dimensional-laser-scanner-in-high-altitude.html",
+  "page": "361",
+  "publisher": "CRC Press",
+  "DOI": "10.1201/9781003191476-50"
+ },
+ {
+  "id": "factor-of-transverse-rebar-affecting-cra",
+  "type": "article-journal",
+  "title": "Factor of Transverse Rebar Affecting Crack Behaviors of Concrete Element Subjected to Bending",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Keuser, Manfred"
+   }
+  ],
+  "container-title": "IABSE Reports",
+  "issued": {
+   "date-parts": [
+    [
+     2009
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/factor-of-transverse-rebar-affecting-crack-behaviors-of-concrete-eleme.html",
+  "volume": "96",
+  "page": "23",
+  "ISSN": "2221-3783",
+  "publisher": "International Association for Bridge and Structural Engineering (IABSE)",
+  "DOI": "10.2749/222137809796068253"
+ },
+ {
+  "id": "modular-design-of-steel-box-girders-a-bi",
+  "type": "article-journal",
+  "title": "Modular Design of Steel Box Girders: A BIM-Driven Framework Integrating Knowledge Graphs and Data",
+  "author": [
+   {
+    "literal": "Si, Matao"
+   },
+   {
+    "literal": "Wang, Lin"
+   },
+   {
+    "literal": "Dong, Yanjie"
+   },
+   {
+    "literal": "Chen, Yulong"
+   },
+   {
+    "literal": "Tan, Le"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2025
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/modular-design-of-steel-box-girders-a-bim-driven-framework-integrating.html",
+  "volume": "15",
+  "issue": "24",
+  "page": "4574",
+  "ISSN": "2075-5309",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/buildings15244574"
+ },
+ {
+  "id": "repairing-behaviors-of-cracked-steel-pla",
+  "type": "article-journal",
+  "title": "Repairing Behaviors of Cracked Steel Plates Based on Bolted Fiber-Reinforced Polymer Plates",
+  "author": [
+   {
+    "literal": "Liu, Jie"
+   },
+   {
+    "literal": "Wang, Haobo"
+   },
+   {
+    "literal": "Wei, Yang"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Xiang, Yunfei"
+   }
+  ],
+  "container-title": "Materials",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/repairing-behaviors-of-cracked-steel-plates-based-on-bolted-fiber-rein.html",
+  "volume": "16",
+  "issue": "20",
+  "page": "6773",
+  "ISSN": "1996-1944",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/ma16206773"
+ },
+ {
+  "id": "cfrp-rc-fracture-strength-prediction-a-n",
+  "type": "article-journal",
+  "title": "CFRP-RC fracture strength prediction: A novel approach using deep learning",
+  "author": [
+   {
+    "literal": "AL-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Zhao, Shichun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "International Journal of Protective Structures",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/cfrp-rc-fracture-strength-prediction-a-novel-approach-using-deep-learn.html",
+  "volume": "16",
+  "issue": "3",
+  "page": "684",
+  "ISSN": "2041-420X",
+  "publisher": "SAGE Publications",
+  "DOI": "10.1177/20414196241271447"
+ },
+ {
+  "id": "effect-of-cross-section-shape-on-rc-spec",
+  "type": "article-journal",
+  "title": "Effect of Cross-Section Shape on RC Specimen’s Behavior Under Asymmetrical Impact Loading",
+  "author": [
+   {
+    "literal": "Al-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Yanhui, Liu"
+   },
+   {
+    "literal": "Shichun, Zhao"
+   },
+   {
+    "literal": "Daguang, Han"
+   },
+   {
+    "literal": "Abas, Hussein"
+   }
+  ],
+  "container-title": "Lecture Notes in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/effect-of-cross-section-shape-on-rc-specimens-behavior-under-asymmetri.html",
+  "page": "497",
+  "ISSN": "2366-2565",
+  "publisher": "Springer Nature Singapore",
+  "DOI": "10.1007/978-981-99-2532-2_42"
+ },
+ {
+  "id": "new-methods-for-deflection-measurement-o",
+  "type": "article-journal",
+  "title": "New Methods for Deflection Measurement of Bridge with Large Span",
+  "author": [
+   {
+    "literal": "XU Jin-jun"
+   },
+   {
+    "literal": "Liao Hua"
+   },
+   {
+    "literal": "Han Daguang"
+   },
+   {
+    "literal": "Xing Cheng"
+   }
+  ],
+  "container-title": "Bulletin of Surveying and Mapping",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/new-methods-for-deflection-measurement-of-bridge-with-large-span.html",
+  "DOI": "10.13474/j.cnki.11-2246.2016.0023"
+ },
+ {
+  "id": "human-in-the-loop-semantic-rule-base-gen",
+  "type": "article-journal",
+  "title": "Human-in-the-Loop Semantic Rule Base Generation and Dynamic Updating for Automated BIM Compliance Checking: A Knowledge Graph Approach",
+  "author": [
+   {
+    "literal": "Zhang, Zhuoqun"
+   },
+   {
+    "literal": "Zhao, Chunhui"
+   },
+   {
+    "literal": "Li, Danli"
+   },
+   {
+    "literal": "Li, Peijie"
+   },
+   {
+    "literal": "Chen, Yulong"
+   },
+   {
+    "literal": "Zhu, Hao"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/human-in-the-loop-semantic-rule-base-generation-and-dynamic-updating-f.html",
+  "volume": "16",
+  "issue": "4",
+  "page": "719",
+  "ISSN": "2075-5309",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/buildings16040719"
+ },
+ {
+  "id": "experiment-research-on-influence-of-tran",
+  "type": "article-journal",
+  "title": "Experiment Research on Influence of Transverse Rebar Direction on Flexural Cracking Behavior for RC",
+  "author": [
+   {
+    "literal": "Daguang Han"
+   },
+   {
+    "literal": "Manfred Keuser"
+   },
+   {
+    "literal": "Jiabin Li"
+   },
+   {
+    "literal": "Jianting Zhou"
+   },
+   {
+    "literal": "Tong Guo"
+   },
+   {
+    "literal": "Ingo Neumann"
+   }
+  ],
+  "container-title": "",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/experiment-research-on-influence-of-transverse-rebar-direction-on-flex.html"
+ },
+ {
+  "id": "automatic-detection-method-for-large-vol",
+  "type": "article-journal",
+  "title": "Automatic Detection Method for Large-Volume Embedded Parts Based on Laser Scanning",
+  "author": [
+   {
+    "literal": "Hu, Xingyi"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Fan, Hongbo"
+   },
+   {
+    "literal": "Yan, Lupeng"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   }
+  ],
+  "container-title": "IOP Conference Series: Materials Science and Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/automatic-detection-method-for-large-volume-embedded-parts-based-on-la.html",
+  "volume": "809",
+  "issue": "1",
+  "page": "012014",
+  "ISSN": "1757-899X",
+  "publisher": "IOP Publishing",
+  "DOI": "10.1088/1757-899x/809/1/012014"
+ },
+ {
+  "id": "study-on-the-application-of-3-d-laser-sc",
+  "type": "article-journal",
+  "title": "Study on the Application of 3-D Laser Scanning BIM Technology in Optimization and Adjustment of Factory Pipeline System",
+  "author": [
+   {
+    "literal": "Chen, Fan"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Yang, Yupeng"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Meng, Qian"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "2021 5th International Conference on Vision, Image and Signal Processing (ICVISP)",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/study-on-the-application-of-3-d-laser-scanning-bim-technology-in-optim.html",
+  "page": "253",
+  "publisher": "IEEE",
+  "DOI": "10.1109/icvisp54630.2021.00053"
+ },
+ {
+  "id": "experimental-and-numerical-study-on-uneq",
+  "type": "article-journal",
+  "title": "Experimental and numerical study on unequal lateral impact behavior of Circular RC and CFRPRC components",
+  "author": [
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Khalil, Al-Bukhaiti"
+   },
+   {
+    "literal": "Zhao, Shichun"
+   },
+   {
+    "literal": "Hussein, Abas"
+   },
+   {
+    "literal": "Nan, Xu"
+   },
+   {
+    "literal": "Lang, Yang"
+   },
+   {
+    "literal": "Yan Xing, Yu"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "IABSE Reports",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/experimental-and-numerical-study-on-unequal-lateral-impact-behavior-of.html",
+  "volume": "118",
+  "page": "1890",
+  "ISSN": "2221-3783",
+  "publisher": "International Association for Bridge and Structural Engineering (IABSE)",
+  "DOI": "10.2749/prague.2022.1890"
+ },
+ {
+  "id": "bridge-construction-monitoring-based-on",
+  "type": "article-journal",
+  "title": "Bridge Construction Monitoring Based on TLS and Photogrammetry",
+  "author": [
+   {
+    "literal": "Tang, MiaoHong"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Yang, YuPeng"
+   },
+   {
+    "literal": "Ying, ChunLi"
+   },
+   {
+    "literal": "Meng, Qian"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Liu, YanHui"
+   },
+   {
+    "literal": "Han, DaGuang"
+   },
+   {
+    "literal": "Hosamo, Haidar"
+   }
+  ],
+  "container-title": "2021 International Conference on Mechanical, Aerospace and Automotive Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/bridge-construction-monitoring-based-on-tls-and-photogrammetry.html",
+  "page": "340",
+  "publisher": "ACM",
+  "DOI": "10.1145/3518781.3519245"
+ },
+ {
+  "id": "modeling-method-and-application-of-bim-i",
+  "type": "article-journal",
+  "title": "Modeling Method and Application of BIM in Design Stage of Long-span Suspension Bridge",
+  "author": [
+   {
+    "literal": "Xue, Xiaofang"
+   },
+   {
+    "literal": "Qin, Guocheng"
+   },
+   {
+    "literal": "Zhou, Yin"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Yang, Yupeng"
+   },
+   {
+    "literal": "Meng, Qian"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Guo, Tong"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "2021 International Conference on Mechanical, Aerospace and Automotive Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/modeling-method-and-application-of-bim-in-design-stage-of-long-span-su.html",
+  "page": "317",
+  "publisher": "ACM",
+  "DOI": "10.1145/3518781.3519225"
+ },
+ {
+  "id": "analysis-of-reverse-modeling-techniques",
+  "type": "article-journal",
+  "title": "Analysis of reverse modeling techniques for BIM application in different construction projects",
+  "author": [
+   {
+    "literal": "Zhang, Yu"
+   },
+   {
+    "literal": "Zhang, Dehai"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Tao, Di"
+   },
+   {
+    "literal": "Gao, Mingshuo"
+   },
+   {
+    "literal": "Chen, Ming"
+   }
+  ],
+  "container-title": "Civil Engineering and Urban Research, Volume 1",
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/analysis-of-reverse-modeling-techniques-for-bim-application-in-differe.html",
+  "page": "249",
+  "publisher": "CRC Press",
+  "DOI": "10.1201/9781003334064-32"
+ },
+ {
+  "id": "developing-a-construction-digital-twin-f",
+  "type": "article-journal",
+  "title": "Developing a Construction Digital Twin for Bridges",
+  "author": [
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Hu, Kaixin"
+   },
+   {
+    "literal": "Zhang, Yu"
+   },
+   {
+    "literal": "Ren, Guoqian"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Dong, Yongquan"
+   },
+   {
+    "literal": "Yuan, Yatong"
+   }
+  ],
+  "container-title": "Handbook of Digital Twins",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/developing-a-construction-digital-twin-for-bridges.html",
+  "page": "687",
+  "publisher": "CRC Press",
+  "DOI": "10.1201/9781003425724-47"
+ },
+ {
+  "id": "dynamic-response-and-reliability-assessm",
+  "type": "article-journal",
+  "title": "Dynamic Response and Reliability Assessment of Reinforced Concrete Members Under Vehicle and Train Collisions: Quantifying Impact Performance and Damage",
+  "author": [
+   {
+    "literal": "AL-Bukhaiti, Khalil"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Zhao, Shichun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Lecture Notes in Civil Engineering",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/dynamic-response-and-reliability-assessment-of-reinforced-concrete-mem.html",
+  "page": "575",
+  "ISSN": "2366-2565",
+  "publisher": "Springer Nature Singapore",
+  "DOI": "10.1007/978-981-97-4355-1_55"
+ },
+ {
+  "id": "a-semi-automatic-approach-to-locally-upd",
+  "type": "article-journal",
+  "title": "A Semi-Automatic Approach to Locally Updating As-Designed Bim for As-Built Bim of Piping System Based on Point Cloud Data",
+  "author": [
+   {
+    "literal": "Zhang, Yu"
+   },
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Lu, Qiuchen"
+   },
+   {
+    "literal": "Sølvsten, Simon"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Hancock, Craig"
+   }
+  ],
+  "container-title": "SSRN Electronic Journal",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-semi-automatic-approach-to-locally-updating-as-designed-bim-for-as-b.html",
+  "publisher": "Elsevier BV",
+  "DOI": "10.2139/ssrn.4928596"
+ },
+ {
+  "id": "performance-based-seismic-assessments-of",
+  "type": "article-journal",
+  "title": "Performance-based Seismic Assessments of Steel Fibre Reinforced Concrete Columns",
+  "author": [
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Chen, Liyuan"
+   },
+   {
+    "literal": "Wu, Xuguang"
+   },
+   {
+    "literal": "Lin, Huizhong"
+   }
+  ],
+  "container-title": "Research Square",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/performance-based-seismic-assessments-of-steel-fibre-reinforced-concre.html",
+  "publisher": "Springer Science and Business Media LLC",
+  "DOI": "10.21203/rs.3.rs-4855630/v1"
+ },
+ {
+  "id": "energy-and-carbon-performance-evaluation",
+  "type": "article-journal",
+  "title": "Energy and carbon performance evaluation and sustainability",
+  "author": [
+   {
+    "literal": "Zhang, Yu"
+   },
+   {
+    "literal": "Chen, Long"
+   },
+   {
+    "literal": "Xie, Xiang"
+   },
+   {
+    "literal": "Wu, Hao"
+   },
+   {
+    "literal": "Chen, Xuanjiang"
+   },
+   {
+    "literal": "Han, Daguang"
+   },
+   {
+    "literal": "Yang, Zhihe"
+   }
+  ],
+  "container-title": "Digital Built Asset Management",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/energy-and-carbon-performance-evaluation-and-sustainability.html",
+  "page": "105",
+  "publisher": "Edward Elgar Publishing",
+  "DOI": "10.4337/9781035321445.00009"
+ },
+ {
+  "id": "a-model-driven-approach-for-carbon-emiss",
+  "type": "article-journal",
+  "title": "A Model-Driven Approach for Carbon Emission Assessment in Healthcare Facilities",
+  "author": [
+   {
+    "literal": "Cheng, Chuanjie"
+   },
+   {
+    "literal": "Nie, Ruimin"
+   },
+   {
+    "literal": "Pan, Jing"
+   },
+   {
+    "literal": "Zhu, Jia"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Lecture Notes in Operations Research",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/a-model-driven-approach-for-carbon-emission-assessment-in-healthcare-f.html",
+  "page": "1333",
+  "ISSN": "2731-0418",
+  "publisher": "Springer Nature Singapore",
+  "DOI": "10.1007/978-981-97-1949-5_92"
+ },
+ {
+  "id": "measuring-occupants-activities-generated",
+  "type": "article-journal",
+  "title": "Measuring Occupants Activities-Generated Carbon Emissions in Healthcare Facilities Using Deep Learning",
+  "author": [
+   {
+    "literal": "Cheng, Chuanjie"
+   },
+   {
+    "literal": "Nie, Ruimin"
+   },
+   {
+    "literal": "Pan, Jing"
+   },
+   {
+    "literal": "Zhu, Jia"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Lecture Notes in Operations Research",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/measuring-occupants-activities-generated-carbon-emissions-in-healthcar.html",
+  "page": "1697",
+  "ISSN": "2731-0418",
+  "publisher": "Springer Nature Singapore",
+  "DOI": "10.1007/978-981-97-1949-5_118"
+ },
+ {
+  "id": "numerical-exploration-of-asymmetrical-im",
+  "type": "article-journal",
+  "title": "Numerical Exploration of Asymmetrical Impact Dynamics: Unveiling Nonlinearities in Collision Problems and Resilience of Reinforced Concrete Structures",
+  "author": [
+   {
+    "literal": "Khalil, AL-Bukhaiti"
+   },
+   {
+    "literal": "Liu, Yanhui"
+   },
+   {
+    "literal": "Zhao, Shichun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Structural Durability &amp; Health Monitoring",
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/numerical-exploration-of-asymmetrical-impact-dynamics-unveiling-nonlin.html",
+  "volume": "18",
+  "issue": "3",
+  "page": "223",
+  "ISSN": "1930-2991",
+  "publisher": "Tech Science Press",
+  "DOI": "10.32604/sdhm.2024.044751"
+ },
+ {
+  "id": "norm-driven-generative-bim-design-semant",
+  "type": "article-journal",
+  "title": "Norm-Driven Generative BIM Design: Semantic Parsing and Automated Layout for Small-Scale Power Infrastructure",
+  "author": [
+   {
+    "literal": "Chen, Yulong"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Zhu, Hao"
+   },
+   {
+    "literal": "Chen, Jun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Applied Sciences",
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/norm-driven-generative-bim-design-semantic-parsing-and-automated-layou.html",
+  "volume": "16",
+  "issue": "8",
+  "page": "3804",
+  "ISSN": "2076-3417",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/app16083804"
+ },
+ {
+  "id": "risk-based-safety-assessment-of-aging-la",
+  "type": "article-journal",
+  "title": "Risk-Based Safety Assessment of Aging Lattice Steel Space-Truss Structures Under Extreme Winds: A Multi-Scale Wind and Multi-Degradation Coupling Framework with Application to Transmission Towers",
+  "author": [
+   {
+    "literal": "Wang, Yu"
+   },
+   {
+    "literal": "Yang, Dedong"
+   },
+   {
+    "literal": "Zhu, Hao"
+   },
+   {
+    "literal": "Chen, Jun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Applied Sciences",
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html",
+  "volume": "16",
+  "issue": "13",
+  "page": "6788",
+  "ISSN": "2076-3417",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/app16136788"
+ },
+ {
+  "id": "integrated-multi-mode-image-based-corros",
+  "type": "article-journal",
+  "title": "Integrated Multi-Mode Image-Based Corrosion Assessment and Probabilistic Reliability Framework for Steel Tower Structures Under Uncertainty",
+  "author": [
+   {
+    "literal": "Zhu, Hao"
+   },
+   {
+    "literal": "Ying, Chunli"
+   },
+   {
+    "literal": "Chen, Yulong"
+   },
+   {
+    "literal": "Chen, Jun"
+   },
+   {
+    "literal": "Han, Daguang"
+   }
+  ],
+  "container-title": "Buildings",
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/integrated-multi-mode-image-based-corrosion-assessment-and-probabilist.html",
+  "volume": "16",
+  "issue": "11",
+  "page": "2250",
+  "ISSN": "2075-5309",
+  "publisher": "MDPI AG",
+  "DOI": "10.3390/buildings16112250"
+ },
+ {
+  "id": "effects-of-normal-loading-and-unloading",
+  "type": "article-journal",
+  "title": "Effects of Normal Loading and Unloading on the Post-grouting Sand–Concrete Interface Shear Behavior",
+  "author": [
+   {
+    "literal": "Yue Wu"
+   },
+   {
+    "literal": "Fengming LIU"
+   },
+   {
+    "literal": "ZHAO Chunfeng"
+   },
+   {
+    "literal": "Zhongwei HOU"
+   },
+   {
+    "literal": "Youbao WANG"
+   },
+   {
+    "literal": "Yiliang Tu"
+   },
+   {
+    "literal": "Daguang HAN"
+   }
+  ],
+  "container-title": "DOAJ (DOAJ: Directory of Open Access Journals)",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "URL": "https://daguanghan.com/papers/effects-of-normal-loading-and-unloading-on-the-post-grouting-sandconcr.html"
+ }
+]

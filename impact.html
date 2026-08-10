@@ -9,6 +9,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site.css">
+    <style>
+        .lifecycle-chain {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 0.35rem;
+            margin: 1.75rem 0 1.25rem;
+        }
+        .lifecycle-step {
+            display: inline-block;
+            padding: 0.55rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .lifecycle-arrow {
+            display: inline-block;
+            padding: 0 0.15rem;
+            opacity: 0.5;
+            font-weight: 400;
+        }
+        @media (max-width: 640px) {
+            .lifecycle-step { font-size: 0.85rem; padding: 0.45rem 0.8rem; }
+        }
+    </style>
 </head>
 <body>
     <nav class="site-nav">
@@ -77,6 +104,35 @@
             <div class="container">
                 <div class="section-header">
                     <div>
+                        <h2 class="section-title">Capability across the asset life</h2>
+                        <p class="section-subtitle">The work is no longer a set of separate projects. It covers a continuous chain, which is what allows a single method to hold across an asset's whole life rather than at one point in it.</p>
+                    </div>
+                </div>
+                <div class="lifecycle-chain" aria-label="Capability chain across the asset life">
+                    <span class="lifecycle-step">Design</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Build</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Inspect</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Assess</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Reinforce</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Restore</span>
+                    <span class="lifecycle-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="lifecycle-step">Extend life</span>
+                </div>
+                <div class="safe-note">
+                    Shown as capability coverage, not as a project list. Individual clients, contract values and in-flight project details are not published here.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
                         <h2 class="section-title">Pathways from research to practice</h2>
                         <p class="section-subtitle">Selected routes by which my research methods have reached identifiable users in industry and public infrastructure. Corroborating statements from the organisations involved are available on request.</p>
                     </div>
@@ -91,8 +147,8 @@
                     <article class="output-card">
                         <p class="kicker">Grid resilience</p>
                         <h3>Wind-hazard resilience for transmission infrastructure</h3>
-                        <p>Principal investigator on commissioned research programmes for provincial and national grid organisations covering wind-disaster scenario reconstruction, intelligent risk assessment, and emergency repair decision support for transmission lines.</p>
-                        <div class="tag-row"><span class="tag">PI</span><span class="tag">state grid organisations</span><span class="tag">multi-hazard</span></div>
+                        <p>Principal investigator on commissioned research programmes for a national grid operator covering wind-disaster scenario reconstruction, intelligent risk assessment, and emergency repair decision support for transmission lines.</p>
+                        <div class="tag-row"><span class="tag">PI</span><span class="tag">national grid operator</span><span class="tag">multi-hazard</span></div>
                     </article>
                     <article class="output-card">
                         <p class="kicker">Structural monitoring</p>
@@ -115,7 +171,7 @@
                     <article class="output-card">
                         <p class="kicker">Beneficiary range</p>
                         <h3>Who has used this work</h3>
-                        <p>Beneficiaries span provincial and national grid organisations, a grid economic-research institute, commercial developers, a large construction group, a provincial transport authority, and a national railway construction group.</p>
+                        <p>Beneficiaries span national grid operators, a grid economic-research institute, commercial developers, a large construction group, a provincial transport authority, and a national railway construction group.</p>
                         <div class="tag-row"><span class="tag">public and private sector</span><span class="tag">statements available on request</span></div>
                     </article>
                 </div>

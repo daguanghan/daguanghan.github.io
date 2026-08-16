@@ -11,6 +11,11 @@
   <url><loc>https://daguanghan.com/awards.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
   <url><loc>https://daguanghan.com/membership.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
   <url><loc>https://daguanghan.com/demos.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
+    <url>
+    <loc>https://daguanghan.com/questions.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <priority>0.9</priority>
+  </url>
   <url><loc>https://daguanghan.com/blog.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
   <url><loc>https://daguanghan.com/papers/</loc><lastmod>2026-08-04</lastmod><priority>0.9</priority></url>
   <url><loc>https://daguanghan.com/papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html</loc><lastmod>2026-08-04</lastmod><priority>0.9</priority></url>

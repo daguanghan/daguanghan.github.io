@@ -1,0 +1,90 @@
+# Dr.-Ing. Daguang Han
+
+> Personal research site of Dr.-Ing. Daguang Han, Associate Professor (full-time) at the School of Civil Engineering, Southeast University, Nanjing, and Founding Dean of the Smart City and Sustainable Development Academy (SCSDA), Chongqing. Formerly Associate Professor at OsloMet - Oslo Metropolitan University, Norway. Doctorate from Universitat der Bundeswehr Munchen. Work covers artificial intelligence for civil infrastructure: digital twins, building information modelling, reality capture and terrestrial laser scanning, structural health monitoring, and the assurance and standards questions that decide when an engineering judgement can be trusted.
+
+Full text is self-hosted only where the licence permits it; each paper page states the licence and links the publisher version of record.
+Bibliography exports: /papers/daguang-han-publications.bib (BibTeX) and /papers/daguang-han-publications.json (CSL-JSON).
+
+## Identifiers and profiles
+
+- [ORCID](https://orcid.org/0000-0003-3787-963X)
+- [Google Scholar](https://scholar.google.com/citations?user=oKGc4VYAAAAJ)
+- [LinkedIn](https://www.linkedin.com/in/daguanghan/)
+- [SCSDA](https://scsda.cn/)
+- [Southeast University staff page](https://civil.seu.edu.cn/hdg_en/list.htm)
+
+## Site sections
+
+- [Dr.-Ing. Daguang Han | Artificial Intelligence for Civil Infrastructure](https://daguanghan.com/): Dr.-Ing. Daguang Han works on artificial intelligence for civil infrastructure: assessment of ageing assets, anticipation of failure, and the standards and assu…
+- [Research Agenda](https://daguanghan.com/research.html): Research agenda of Dr.-Ing. Daguang Han: AI-enabled infrastructure resilience, digital structural engineering, digital twins, construction robotics and knowledg…
+- [Publications](https://daguanghan.com/publications.html): Selected publications by Dr.-Ing. Daguang Han in digital twins, structural health monitoring, reality capture, BIM and AI-enabled civil infrastructure resilienc…
+- [Capability Portfolio](https://daguanghan.com/projects.html): Capability portfolio of Dr.-Ing. Daguang Han in AI-enabled infrastructure resilience, digital twins, sensing, BIM/GIS, construction robotics and knowledge trans…
+- [Impact and Knowledge Exchange](https://daguanghan.com/impact.html): Impact and knowledge exchange record of Dr.-Ing. Daguang Han: applied research translation, research platform leadership in Chongqing, industry-facing delivery,…
+- [Teaching](https://daguanghan.com/teaching.html): Teaching profile of Dr.-Ing. Daguang Han: English-medium teaching, project-based learning, supervision and FHEA application in preparation.
+- [Patents](https://daguanghan.com/patents.html): Public patent portfolio of Dr.-Ing. Daguang Han in digital construction, reality capture, sensing and structural monitoring, limited to public and non-sensitive…
+- [Talks](https://daguanghan.com/talks.html): Selected invited talks, guest teaching and conference presentations by Dr.-Ing. Daguang Han in digital twins, infrastructure resilience and digital construction…
+- [Awards](https://daguanghan.com/awards.html): Awards and recognition for Dr.-Ing. Daguang Han in digital construction, infrastructure monitoring and applied civil engineering research.
+- [Membership](https://daguanghan.com/membership.html): Professional membership and standards work of Dr.-Ing. Daguang Han, including Advance HE fellowship in preparation, CEng MICE working towards, and ISO 19650 / G…
+- [Demos](https://daguanghan.com/demos.html): Research demonstrators by Dr.-Ing. Daguang Han in digital twin modelling, construction robotics, sensing and BIM/reality capture.
+- [Research Notes](https://daguanghan.com/blog.html): Research notes by Dr.-Ing. Daguang Han on AI-enabled infrastructure resilience, digital twins, and research-led digital engineering teaching.
+- [Papers](https://daguanghan.com/papers/): Full publication record of Dr. Daguang Han with per-paper pages, DOIs, abstracts and open-access full texts where the licence permits.
+
+## Publications
+
+Each entry is a landing page carrying the full bibliographic record, the abstract, key quantified findings taken verbatim from the paper, the DOI and the licence.
+
+- [A Bayesian-driven Monte Carlo approach for managing construction schedule risks of infrastructures under uncertainty](https://daguanghan.com/papers/a-bayesian-driven-monte-carlo-approach-for-managing-construction-sched.html)
+- [A Comprehensive Review and Analysis of Nanosensors for Structural Health Monitoring in Bridge Maintenance: Innovations, Challenges, and Future Perspectives](https://daguanghan.com/papers/a-comprehensive-review-and-analysis-of-nanosensors-for-structural-heal.html)
+- [A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics](https://daguanghan.com/papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html)
+- [A Memory-Attention Hierarchical Model for Driving-Behavior Recognition and Motion Prediction](https://daguanghan.com/papers/a-memory-attention-hierarchical-model-for-driving-behavior-recognition.html)
+- [A Model-Driven Approach for Carbon Emission Assessment in Healthcare Facilities](https://daguanghan.com/papers/a-model-driven-approach-for-carbon-emission-assessment-in-healthcare-f.html)
+- [A Semi-Automatic Approach to Locally Updating As-Designed Bim for As-Built Bim of Piping System Based on Point Cloud Data](https://daguanghan.com/papers/a-semi-automatic-approach-to-locally-updating-as-designed-bim-for-as-b.html)
+- [Accurate Virtual Trial Assembly Method of Prefabricated Steel Components Using Terrestrial Laser Scanning](https://daguanghan.com/papers/accurate-virtual-trial-assembly-method-of-prefabricated-steel-componen.html)
+- [Analysis of reverse modeling techniques for BIM application in different construction projects](https://daguanghan.com/papers/analysis-of-reverse-modeling-techniques-for-bim-application-in-differe.html)
+- [Application of phase three dimensional laser scanner in high altitude large volume irregular structure](https://daguanghan.com/papers/application-of-phase-three-dimensional-laser-scanner-in-high-altitude.html)
+- [Applying BIM and 3D laser scanning technology on virtual pre-assembly for complex steel structure in construction](https://daguanghan.com/papers/applying-bim-and-3d-laser-scanning-technology-on-virtual-pre-assembly.html)
+- [Automated Reconstruction of Parametric BIM for Bridge Based on Terrestrial Laser Scanning Data](https://daguanghan.com/papers/automated-reconstruction-of-parametric-bim-for-bridge-based-on-terrest.html)
+- [Automatic Design and Monitoring of Mass Concrete Based on Information Technology](https://daguanghan.com/papers/automatic-design-and-monitoring-of-mass-concrete-based-on-information.html)
+- [Automatic Detection Method for Large-Volume Embedded Parts Based on Laser Scanning](https://daguanghan.com/papers/automatic-detection-method-for-large-volume-embedded-parts-based-on-la.html)
+- [Based on BP Neural Network: Prediction of Interface Bond Strength between CFRP Layers and Reinforced Concrete](https://daguanghan.com/papers/based-on-bp-neural-network-prediction-of-interface-bond-strength-betwe.html)
+- [Bridge Construction Monitoring Based on TLS and Photogrammetry](https://daguanghan.com/papers/bridge-construction-monitoring-based-on-tls-and-photogrammetry.html)
+- [CFRP-RC fracture strength prediction: A novel approach using deep learning](https://daguanghan.com/papers/cfrp-rc-fracture-strength-prediction-a-novel-approach-using-deep-learn.html)
+- [Developing a Construction Digital Twin for Bridges](https://daguanghan.com/papers/developing-a-construction-digital-twin-for-bridges.html)
+- [Digital reconstruction and geometrical model updating of large-scale bridge structures: a case study of Baijusi bridge](https://daguanghan.com/papers/digital-reconstruction-and-geometrical-model-updating-of-large-scale-b.html)
+- [Dynamic Response and Reliability Assessment of Reinforced Concrete Members Under Vehicle and Train Collisions: Quantifying Impact Performance and Damage](https://daguanghan.com/papers/dynamic-response-and-reliability-assessment-of-reinforced-concrete-mem.html)
+- [Effect of Cross-Section Shape on RC Specimen’s Behavior Under Asymmetrical Impact Loading](https://daguanghan.com/papers/effect-of-cross-section-shape-on-rc-specimens-behavior-under-asymmetri.html)
+- [Effect of the axial load on the dynamic response of the wrapped CFRP reinforced concrete column under the asymmetrical lateral impact load](https://daguanghan.com/papers/effect-of-the-axial-load-on-the-dynamic-response-of-the-wrapped-cfrp-r.html)
+- [Effects of Normal Loading and Unloading on the Post-grouting Sand–Concrete Interface Shear Behavior](https://daguanghan.com/papers/effects-of-normal-loading-and-unloading-on-the-post-grouting-sandconcr.html)
+- [Efficient Recycling and Reuse of Waste Concrete on a Construction Site](https://daguanghan.com/papers/efficient-recycling-and-reuse-of-waste-concrete-on-a-construction-site.html)
+- [Energy and carbon performance evaluation and sustainability](https://daguanghan.com/papers/energy-and-carbon-performance-evaluation-and-sustainability.html)
+- [Experiment Research on Influence of Transverse Rebar Direction on Flexural Cracking Behavior for RC](https://daguanghan.com/papers/experiment-research-on-influence-of-transverse-rebar-direction-on-flex.html)
+- [Experimental and numerical study on unequal lateral impact behavior of Circular RC and CFRPRC components](https://daguanghan.com/papers/experimental-and-numerical-study-on-unequal-lateral-impact-behavior-of.html)
+- [Experimental Study on Corrosion-Fretting Fatigue Behavior of Bridge Cable Wires](https://daguanghan.com/papers/experimental-study-on-corrosion-fretting-fatigue-behavior-of-bridge-ca.html)
+- [Experimental Study on Existing RC Circular Members Under Unequal Lateral Impact Train Collision](https://daguanghan.com/papers/experimental-study-on-existing-rc-circular-members-under-unequal-later.html)
+- [Factor of Transverse Rebar Affecting Crack Behaviors of Concrete Element Subjected to Bending](https://daguanghan.com/papers/factor-of-transverse-rebar-affecting-crack-behaviors-of-concrete-eleme.html)
+- [Failure Mechanism Analysis of Circular Cfrp Components Under Unequal Impact Load](https://daguanghan.com/papers/failure-mechanism-analysis-of-circular-cfrp-components-under-unequal-i.html)
+- [Failure mechanism and static bearing capacity on circular RC members under asymmetrical lateral impact train collision](https://daguanghan.com/papers/failure-mechanism-and-static-bearing-capacity-on-circular-rc-members-u.html)
+- [Human-in-the-Loop Semantic Rule Base Generation and Dynamic Updating for Automated BIM Compliance Checking: A Knowledge Graph Approach](https://daguanghan.com/papers/human-in-the-loop-semantic-rule-base-generation-and-dynamic-updating-f.html)
+- [Integrated Multi-Mode Image-Based Corrosion Assessment and Probabilistic Reliability Framework for Steel Tower Structures Under Uncertainty](https://daguanghan.com/papers/integrated-multi-mode-image-based-corrosion-assessment-and-probabilist.html)
+- [Integrating BIM and IoT for smart bridge management](https://daguanghan.com/papers/integrating-bim-and-iot-for-smart-bridge-management.html)
+- [Investigating the effectiveness of CFRP strengthening in improving the impact performance of RC members](https://daguanghan.com/papers/investigating-the-effectiveness-of-cfrp-strengthening-in-improving-the.html)
+- [Measuring Occupants Activities-Generated Carbon Emissions in Healthcare Facilities Using Deep Learning](https://daguanghan.com/papers/measuring-occupants-activities-generated-carbon-emissions-in-healthcar.html)
+- [Mechanical properties of excavated soil waste-based cementitious products at normal condition or after water soaked: A literature review of experimental results](https://daguanghan.com/papers/mechanical-properties-of-excavated-soil-waste-based-cementitious-produ.html)
+- [Mechanical state inversion method for structural performance evaluation of existing suspension bridges using 3D laser scanning](https://daguanghan.com/papers/mechanical-state-inversion-method-for-structural-performance-evaluatio.html)
+- [Modeling Method and Application of BIM in Design Stage of Long-span Suspension Bridge](https://daguanghan.com/papers/modeling-method-and-application-of-bim-in-design-stage-of-long-span-su.html)
+- [Modular Design of Steel Box Girders: A BIM-Driven Framework Integrating Knowledge Graphs and Data](https://daguanghan.com/papers/modular-design-of-steel-box-girders-a-bim-driven-framework-integrating.html)
+- [Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance](https://daguanghan.com/papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html)
+- [New Methods for Deflection Measurement of Bridge with Large Span](https://daguanghan.com/papers/new-methods-for-deflection-measurement-of-bridge-with-large-span.html)
+- [Norm-Driven Generative BIM Design: Semantic Parsing and Automated Layout for Small-Scale Power Infrastructure](https://daguanghan.com/papers/norm-driven-generative-bim-design-semantic-parsing-and-automated-layou.html)
+- [Numerical Exploration of Asymmetrical Impact Dynamics: Unveiling Nonlinearities in Collision Problems and Resilience of Reinforced Concrete Structures](https://daguanghan.com/papers/numerical-exploration-of-asymmetrical-impact-dynamics-unveiling-nonlin.html)
+- [Numerical study on existing RC circular section members under unequal impact collision](https://daguanghan.com/papers/numerical-study-on-existing-rc-circular-section-members-under-unequal.html)
+- [Performance-based Seismic Assessments of Steel Fibre Reinforced Concrete Columns](https://daguanghan.com/papers/performance-based-seismic-assessments-of-steel-fibre-reinforced-concre.html)
+- [Repairing Behaviors of Cracked Steel Plates Based on Bolted Fiber-Reinforced Polymer Plates](https://daguanghan.com/papers/repairing-behaviors-of-cracked-steel-plates-based-on-bolted-fiber-rein.html)
+- [Review of advanced emergency evacuation procedures in hospital buildings: comprehensive analysis and insights](https://daguanghan.com/papers/review-of-advanced-emergency-evacuation-procedures-in-hospital-buildin.html)
+- [Risk-Based Safety Assessment of Aging Lattice Steel Space-Truss Structures Under Extreme Winds: A Multi-Scale Wind and Multi-Degradation Coupling Framework with Application to Transmission Towers](https://daguanghan.com/papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html)
+- [Seismic design of self-centering viscous-hysteretic devices used for steel moment-resisting frames](https://daguanghan.com/papers/seismic-design-of-self-centering-viscous-hysteretic-devices-used-for-s.html)
+- [Semi-automated Generation of Geometric Digital Twin for Bridge Based on Terrestrial Laser Scanning Data](https://daguanghan.com/papers/semi-automated-generation-of-geometric-digital-twin-for-bridge-based-o.html)
+- [Slope Deformation Analysis and Research Based on 3D Laser Scanning Technology](https://daguanghan.com/papers/slope-deformation-analysis-and-research-based-on-3d-laser-scanning-tec.html)
+- [Smart Contract Generation and Visualization for Construction Business Process Collaboration and Automation: Upgraded Workflow Engine](https://daguanghan.com/papers/smart-contract-generation-and-visualization-for-construction-business.html)
+- [Study on the Application of 3-D Laser Scanning BIM Technology in Optimization and Adjustment of Factory Pipeline System](https://daguanghan.com/papers/study-on-the-application-of-3-d-laser-scanning-bim-technology-in-optim.html)
+- [YOLOv8s-SNC: An Improved Safety-Helmet-Wearing Detection Algorithm Based on YOLOv8](https://daguanghan.com/papers/yolov8s-snc-an-improved-safety-helmet-wearing-detection-algorithm-base.html)

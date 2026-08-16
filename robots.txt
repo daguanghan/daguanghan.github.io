@@ -1,4 +1,72 @@
+# daguanghan.com — 姿态：对全部合规爬虫最大开放
+#
+# ⚠️ RFC 9309：具名 User-agent 组会**完全覆盖** `*` 组，不继承。
+#    所以下面每个具名组都必须自己重写一遍 Allow: /。
+#    改这个文件时，删掉任何一行 "Allow: /" 都等于对那个爬虫全站封禁。
+#
+# 说明：检索型爬虫（决定你是否被引用）与训练型爬虫（决定是否进训练语料）是两回事。
+#      这里两类都放行 —— 目标是最大可见性，站上无付费内容、无需保护的资产。
+
 User-agent: *
+Allow: /
+
+# --- OpenAI ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Anthropic ---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Google（Googlebot 同时服务 Search 与 AI Overviews / AI Mode，
+#     Google 明确表示无法只关 AI 而保留 Search；Google-Extended 只管 Gemini 训练与接地）---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# --- Microsoft ---
+User-agent: bingbot
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- 其他 ---
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://daguanghan.com/sitemap.xml

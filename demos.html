@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Research demonstrators by Dr.-Ing. Daguang Han in digital twin modelling, construction robotics, sensing and BIM/reality capture.">
-    <title>Demos | Daguang Han</title>
+    <title>Laboratory and Testbeds | Daguang Han</title>
     <link rel="canonical" href="https://daguanghan.com/demos.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,15 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="questions.html">Q&amp;A</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="impact.html">Impact</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="patents.html">Patents</a></li>
                 <li><a href="talks.html">Talks</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="awards.html">Awards</a></li>
+                <li><a href="patents.html">Patents</a></li>
+                <li><a href="demos.html" class="active">Lab</a></li>
                 <li><a href="membership.html">Membership</a></li>
-                <li><a href="demos.html" class="active">Demos</a></li>
-                <li><a href="questions.html">Q&amp;A</a></li>
                 <li><a href="blog.html">Notes</a></li>
             </ul>
         </div>
@@ -35,47 +35,44 @@
 
     <header class="page-header">
         <div class="container">
-            <p class="eyebrow">Research Demos</p>
-            <h1 class="page-title">Public-method research demonstrators</h1>
-            <p class="page-subtitle">Demos are presented as research prototypes, teaching demonstrators and laboratory workflows. Internal interfaces, restricted-partner datasets and deployment details are not shown.</p>
+            <p class="eyebrow">Laboratory and Testbeds</p>
+            <h1 class="page-title">Where the methods get tested before they reach an asset</h1>
+            <p class="page-subtitle">Physical platforms and instrumented workflows, with what each one has actually been used for. Results from this equipment are reported in the papers listed under Q&amp;A and Publications.</p>
         </div>
     </header>
 
     <main>
         <section class="section">
-            <div class="container grid two">
-                <article class="media-card">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Professional engineering infrastructure and monitoring context">
-                    <div class="media-body">
-                        <p class="kicker">Research prototype</p>
-                        <h3>Infrastructure digital twin simulator</h3>
-                        <p>Physics-informed modelling and data assimilation workflow for inspection planning and predictive maintenance teaching.</p>
-                    </div>
-                </article>
-                <article class="media-card">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial automation equipment in a professional setting">
-                    <div class="media-body">
-                        <p class="kicker">Laboratory workflow</p>
-                        <h3>Construction robotics research testbed</h3>
-                        <p>Controlled research demonstrator for robotic perception, task planning and digital construction automation.</p>
-                    </div>
-                </article>
-                <article class="media-card">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Sensing electronics for infrastructure monitoring research">
-                    <div class="media-body">
-                        <p class="kicker">Public-method demo</p>
-                        <h3>AI-assisted structural monitoring workflow</h3>
-                        <p>Generic workflow for anomaly detection, sensing interpretation and maintenance evidence without restricted-partner data.</p>
-                    </div>
-                </article>
-                <article class="media-card">
-                    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80" alt="Modern building geometry suitable for BIM and reality capture">
-                    <div class="media-body">
-                        <p class="kicker">Teaching demonstrator</p>
-                        <h3>BIM-integrated reality capture</h3>
-                        <p>Point-cloud-to-model workflow for teaching as-built records, quality checking and digital engineering evidence.</p>
-                    </div>
-                </article>
+            <div class="container">
+                <div class="grid two">
+                    <article class="card">
+                        <p class="kicker">Physical platform</p>
+                        <h3>1:10 scale intelligent building-machine testbed</h3>
+                        <p>A scaled construction-machine platform in the structural engineering laboratory at Southeast University, commissioned in December 2025 and signed off against seventeen performance criteria. It couples a dual-arm collaborative robot and PLC control with a digital twin, so a construction sequence can be run physically and in simulation at the same time and the two compared. My group uses the platform; it was procured by the university, not by me.</p>
+                        <div class="tag-row"><span class="tag">17 criteria verified</span><span class="tag">physical + digital twin</span></div>
+                    </article>
+                    <article class="card">
+                        <p class="kicker">Software stack</p>
+                        <h3>Layered robotics and AI development environment</h3>
+                        <p>A seven-layer research stack running from operating system and middleware through physics simulation and synthetic data generation to policy learning and on-board deployment, built on ROS 2 and NVIDIA Isaac Sim with domain randomisation and sim-to-real correction. It exists so that a control approach can fail in simulation a thousand times before it is allowed near a real structure.</p>
+                        <div class="tag-row"><span class="tag">ROS 2</span><span class="tag">simulation to real</span></div>
+                    </article>
+                    <article class="card">
+                        <p class="kicker">Instrumented workflow</p>
+                        <h3>Reality capture to structural assessment</h3>
+                        <p>Terrestrial laser scanning through point-cloud processing to a parametric BIM model and then to finite element analysis. Run end to end on a real bridge, this chain reached an Intersection over Union of up to 91% against critical structural outlines and identified 83% of primary components automatically. The numbers and the paper are on the Q&amp;A page.</p>
+                        <div class="tag-row"><span class="tag">91% IoU</span><span class="tag">published result</span></div>
+                    </article>
+                    <article class="card">
+                        <p class="kicker">Instrumented workflow</p>
+                        <h3>Virtual trial assembly of prefabricated steel</h3>
+                        <p>Scan, model and analyse prefabricated components so the fit-up check happens before anything reaches site. On an experimental bridge the geometric prediction deviated by less than 1/1800 of the span, and predicted mean stress came within 90% of measured. Point-cloud registration accuracy, not the modelling, is what limits the whole chain.</p>
+                        <div class="tag-row"><span class="tag">&lt;1/1800 span</span><span class="tag">published result</span></div>
+                    </article>
+                </div>
+                <div class="safe-note">
+                    Every quantitative claim on this page is reported in a peer-reviewed paper with a DOI. The <a href="questions.html">Q&amp;A page</a> gives each number as the paper states it, with the author position.
+                </div>
             </div>
         </section>
     </main>

@@ -64,11 +64,14 @@ CHINA = [("Southeast University", 32.058, 118.796), ("Smart City and Sustainable
          ("Chongqing Jiaotong University", 29.531, 106.565), ("Tsinghua University", 40.000, 116.326), ("Tongji University", 31.283, 121.502),
          ("Nanjing University", 32.112, 118.958), ("Guangzhou University", 23.040, 113.372),
          ("The Hong Kong Polytechnic University", 22.304, 114.180), ("City University of Hong Kong", 22.336, 114.172)]
+# United States: added by the owner on 2026-11-02.
+US_EXTRA = [("Stanford University", 37.4275, -122.1697), ("University of California, Berkeley", 37.8719, -122.2585),
+            ("Cornell University", 42.4534, -76.4735), ("New York University", 40.7295, -73.9965), ("University of Florida", 29.6436, -82.3549)]
 CHINA_COMPANIES = 27   # partner companies in China (owner, 2026-11-02)
 # Regions for the lists; each shows up to five representative names, then a total.
 REPRESENTATIVE = {"United Kingdom": ["University of Cambridge", "University of Oxford", "University College London (UCL)", "Imperial College London", "University of Manchester"],
                   "Europe": ["Delft University of Technology", "KU Leuven", "Norwegian University of Science and Technology (NTNU)", "Technical University of Denmark (DTU)", "Universität der Bundeswehr München"],
-                  "United States and Canada": ["Carnegie Mellon University", "Western University"]}
+                  "United States and Canada": ["Stanford University", "University of California, Berkeley", "Carnegie Mellon University", "Cornell University", "New York University"]}
 # Public display names where the source uses an abbreviation.
 DISPLAY = {"UCL": "University College London (UCL)", "Aston U.": "Aston University", "U. Bath": "University of Bath", "Chalmers": "Chalmers University of Technology",
            "NTNU": "Norwegian University of Science and Technology (NTNU)",
@@ -152,6 +155,7 @@ def build():
     if missing:
         raise SystemExit(f"No coordinates for: {missing}")
     rows += [(n, "china", "China", la, lo, "") for n, la, lo in CHINA]
+    rows += [(n, "collaborating", "United States", la, lo, "") for n, la, lo in US_EXTRA]
     pts = [(n, t, la, lo, c) for n, t, c, la, lo, _ in rows]
     panels = "".join(svg_panel(p, base, pts) for p in PANELS)
     counts = {t[0]: sum(1 for r in rows if r[1] == t[0]) for t in TIERS}

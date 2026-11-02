@@ -9,7 +9,7 @@ Basemap: tools/basemap_panels.json, cut once from Natural Earth (public domain).
          Pass --basemap to rebuild it from a Natural Earth GeoJSON file.
 Output: network.html (static inline SVG; no external map service, no tracking).
 """
-import argparse, html, json, math
+import argparse, html, json, math, re
 from datetime import date
 from pathlib import Path
 
@@ -159,6 +159,10 @@ def build():
     out = (tpl.replace("{{PANELS}}", panels).replace("{{LEGEND}}", legend).replace("{{LISTS}}", "".join(lists))
               .replace("{{UPDATED}}", date.today().strftime("%-d %B %Y")).replace("{{N}}", str(len(rows))))
     (SITE / "network.html").write_text(out)
+    idx = SITE / "index.html"; t = idx.read_text(encoding="utf-8")
+    t2 = re.sub(r"<!--NET-COUNT-->\d+<!--/NET-COUNT-->", f"<!--NET-COUNT-->{len(rows)}<!--/NET-COUNT-->", t)
+    if t2 != t:
+        idx.write_text(t2, encoding="utf-8")
     print(f"network.html: {len(rows)} institutions, {len(order)} countries, tiers {counts}")
 
 

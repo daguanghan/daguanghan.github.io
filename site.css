@@ -535,3 +535,5 @@ h1,
 .inst-list { list-style: none; display: grid; gap: 0.3rem; color: var(--muted); font-size: 0.92rem; }
 @media (max-width: 900px) { .map-grid, .country-grid { grid-template-columns: 1fr; } .map-grid .map-panel:last-child { max-width: none; } }
 .inst-note { color: var(--muted); font-size: 0.85em; }
+.merged-head { padding-bottom: 0; scroll-margin-top: 80px; border-top: 1px solid var(--line); }
+.merged-head + .section, .merged-head + .section.alt { padding-top: 1.4rem; }

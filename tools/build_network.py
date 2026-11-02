@@ -59,6 +59,16 @@ COORDS = {
     "University of Southampton": ("United Kingdom", 50.935, -1.396),
     "Universität der Bundeswehr München": ("Germany", 48.080, 11.638),
 }
+# China: named by the owner on 2026-11-02 (home institutions and collaborators).
+CHINA = [("Southeast University", 32.058, 118.796), ("Smart City and Sustainable Development Academy (SCSDA), Chongqing", 29.62, 106.55),
+         ("Chongqing Jiaotong University", 29.531, 106.565), ("Tsinghua University", 40.000, 116.326), ("Tongji University", 31.283, 121.502),
+         ("Nanjing University", 32.112, 118.958), ("Guangzhou University", 23.040, 113.372),
+         ("The Hong Kong Polytechnic University", 22.304, 114.180), ("City University of Hong Kong", 22.336, 114.172)]
+CHINA_COMPANIES = None   # number of partner companies in China; shown only when set
+# Regions for the lists; each shows up to five representative names, then a total.
+REPRESENTATIVE = {"United Kingdom": ["University of Cambridge", "University of Oxford", "University College London (UCL)", "Imperial College London", "University of Manchester"],
+                  "Europe": ["Delft University of Technology", "KU Leuven", "Norwegian University of Science and Technology (NTNU)", "Technical University of Denmark (DTU)", "Universität der Bundeswehr München"],
+                  "United States and Canada": ["Carnegie Mellon University", "Western University"]}
 # Public display names where the source uses an abbreviation.
 DISPLAY = {"UCL": "University College London (UCL)", "Aston U.": "Aston University", "U. Bath": "University of Bath", "Chalmers": "Chalmers University of Technology",
            "NTNU": "Norwegian University of Science and Technology (NTNU)",
@@ -67,15 +77,14 @@ DISPLAY = {"UCL": "University College London (UCL)", "Aston U.": "Aston Universi
 TIERS = [("collaborating", "Agreed joint work", "joint papers or proposals agreed", "#7c8cff"),
          ("in_discussion", "In discussion", "met, or a meeting arranged, to discuss joint work", "#d5b16d"),
          ("in_contact", "In contact", "corresponding about possible joint work", "#9fb3c8"),
-         ("past", "Past", "where I studied or worked", "#5fc4a8")]
+         ("past", "Past", "where I studied or worked", "#5fc4a8"),
+         ("china", "China", "my home institutions and collaborators", "#e07a5f")]
 TIER_RANK = {t[0]: i for i, t in enumerate(TIERS)}
 
 # Map panels: (key, title, lon_min, lon_max, lat_min, lat_max, width_px)
-PANELS = [("gb", "Great Britain and Ireland", -10.8, 2.2, 49.8, 59.2, 520),
-          ("eu", "Continental Europe", -1.0, 35.0, 34.0, 65.5, 520),
-          ("na", "North America", -90.0, -70.0, 37.0, 47.0, 520)]
+PANELS = [("world", "Europe, North America and China", -128.0, 150.0, 5.0, 70.0, 1200)]
 # Which countries each panel plots (so London is not drawn again at the edge of the Europe panel).
-PANEL_COUNTRIES = {"gb": {"United Kingdom", "Ireland"}, "na": {"United States", "Canada"}}
+PANEL_COUNTRIES = {}
 
 
 def project(lon, lat, p):
@@ -117,12 +126,12 @@ def svg_panel(p, base, pts):
     dots = []
     keep = PANEL_COUNTRIES.get(key)
     for name, tier, lat, lon, country in sorted(pts, key=lambda t: -TIER_RANK[t[1]]):
-        if (keep and country not in keep) or (not keep and country in set().union(*PANEL_COUNTRIES.values())):
+        if keep and country not in keep:
             continue
         x, y, _ = project(lon, lat, p)
         if 0 <= x <= w and 0 <= y <= h:
             col = next(t[3] for t in TIERS if t[0] == tier)
-            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5" fill="{col}"><title>{html.escape(name)}</title></circle>')
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{col}"><title>{html.escape(name)}</title></circle>')
     return (f'<figure class="map-panel"><figcaption>{title}</figcaption>'
             f'<svg viewBox="0 0 {w} {h:.0f}" role="img" aria-label="Map: {title}">'
             f'<rect width="{w}" height="{h:.0f}" class="sea"/><g class="land">{land}</g><g class="dots">{"".join(dots)}</g></svg></figure>')
@@ -141,20 +150,33 @@ def build():
         rows.append((DISPLAY.get(n, n), it["tier"], c, la, lo, note))
     if missing:
         raise SystemExit(f"No coordinates for: {missing}")
+    rows += [(n, "china", "China", la, lo, "") for n, la, lo in CHINA]
     pts = [(n, t, la, lo, c) for n, t, c, la, lo, _ in rows]
     panels = "".join(svg_panel(p, base, pts) for p in PANELS)
     counts = {t[0]: sum(1 for r in rows if r[1] == t[0]) for t in TIERS}
     legend = "".join(f'<li><i style="background:{col}"></i><b>{lab}</b> &mdash; {desc} ({counts[k]})</li>' for k, lab, desc, col in TIERS)
-    by_country = {}
+    def region(c):
+        return {"United Kingdom": "United Kingdom", "United States": "United States and Canada", "Canada": "United States and Canada", "China": "China"}.get(c, "Europe")
+    groups = {}
     for n, t, c, _, _, note in rows:
-        by_country.setdefault(c, []).append((TIER_RANK[t], n, t, note))
-    order = sorted(by_country, key=lambda c: (c != "United Kingdom", c))
+        groups.setdefault(region(c), []).append((n, t, note))
+    colour = {t[0]: t[3] for t in TIERS}
     lists = []
-    for c in order:
-        items = "".join(f'<li><i style="background:{next(x[3] for x in TIERS if x[0] == t)}"></i>{html.escape(n)}'
-                        + (f' <span class="inst-note">&middot; {html.escape(note)}</span>' if note else '') + '</li>'
-                        for _, n, t, note in sorted(by_country[c]))
-        lists.append(f'<div class="country"><h3>{html.escape(c)}</h3><ul class="inst-list">{items}</ul></div>')
+    for reg in ["United Kingdom", "Europe", "United States and Canada", "China"]:
+        items = groups.get(reg, [])
+        if reg == "China":
+            shown = items
+            extra = f" and {CHINA_COMPANIES} partner companies" if CHINA_COMPANIES else ""
+            total = f"{len(items)} universities and institutes{extra}"
+        else:
+            order = REPRESENTATIVE.get(reg, [])
+            shown = sorted(items, key=lambda r: order.index(r[0]) if r[0] in order else 99)[:5]
+            more = len(items) - len(shown)
+            total = f"{len(items)} institutions" + (f"; {more} more shown on the map" if more > 0 else "")
+        lis = "".join(f'<li><i style="background:{colour[t]}"></i>{html.escape(n)}'
+                      + (f' <span class="inst-note">&middot; {html.escape(note)}</span>' if note else "") + "</li>" for n, t, note in shown)
+        lists.append(f'<div class="country"><h3>{reg}</h3><p class="inst-note">{total}</p><ul class="inst-list">{lis}</ul></div>')
+    order = list(groups)
     tpl = (SITE / "tools/network.template.html").read_text()
     out = (tpl.replace("{{PANELS}}", panels).replace("{{LEGEND}}", legend).replace("{{LISTS}}", "".join(lists))
               .replace("{{UPDATED}}", date.today().strftime("%-d %B %Y")).replace("{{N}}", str(len(rows))))

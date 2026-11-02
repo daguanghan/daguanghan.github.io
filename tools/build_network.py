@@ -82,7 +82,8 @@ TIERS = [("collaborating", "Agreed joint work", "joint papers or proposals agree
 TIER_RANK = {t[0]: i for i, t in enumerate(TIERS)}
 
 # Map panels: (key, title, lon_min, lon_max, lat_min, lat_max, width_px)
-PANELS = [("world", "Europe, North America and China", -128.0, 150.0, 5.0, 70.0, 1200)]
+PANELS = [("world", "Global collaboration network", -170.0, 180.0, -48.0, 74.0, 1600)]
+DOT = "#e8b04b"   # one colour: the owner asked for no tiers on the public map (2026-11-02)
 # Which countries each panel plots (so London is not drawn again at the edge of the Europe panel).
 PANEL_COUNTRIES = {}
 
@@ -130,7 +131,7 @@ def svg_panel(p, base, pts):
             continue
         x, y, _ = project(lon, lat, p)
         if 0 <= x <= w and 0 <= y <= h:
-            col = next(t[3] for t in TIERS if t[0] == tier)
+            col = DOT
             dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{col}"><title>{html.escape(name)}</title></circle>')
     return (f'<figure class="map-panel"><figcaption>{title}</figcaption>'
             f'<svg viewBox="0 0 {w} {h:.0f}" role="img" aria-label="Map: {title}">'
@@ -154,13 +155,14 @@ def build():
     pts = [(n, t, la, lo, c) for n, t, c, la, lo, _ in rows]
     panels = "".join(svg_panel(p, base, pts) for p in PANELS)
     counts = {t[0]: sum(1 for r in rows if r[1] == t[0]) for t in TIERS}
-    legend = "".join(f'<li><i style="background:{col}"></i><b>{lab}</b> &mdash; {desc} ({counts[k]})</li>' for k, lab, desc, col in TIERS)
+    legend = (f'<li><i style="background:{DOT}"></i><b>{len(rows)} universities and institutes</b>'
+              + (f' &middot; <b>{CHINA_COMPANIES} partner companies in China</b>' if CHINA_COMPANIES else '') + '</li>')
     def region(c):
         return {"United Kingdom": "United Kingdom", "United States": "United States and Canada", "Canada": "United States and Canada", "China": "China"}.get(c, "Europe")
     groups = {}
     for n, t, c, _, _, note in rows:
         groups.setdefault(region(c), []).append((n, t, note))
-    colour = {t[0]: t[3] for t in TIERS}
+    colour = {t[0]: DOT for t in TIERS}
     lists = []
     for reg in ["United Kingdom", "Europe", "United States and Canada", "China"]:
         items = groups.get(reg, [])

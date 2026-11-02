@@ -538,3 +538,7 @@ h1,
 .inst-note { color: var(--muted); font-size: 0.85em; }
 .merged-head { padding-bottom: 0; scroll-margin-top: 80px; border-top: 1px solid var(--line); }
 .merged-head + .section, .merged-head + .section.alt { padding-top: 1.4rem; }
+.map-wide { width: 100%; }
+.map-panel.map-wide { padding: 0.4rem; }
+.map-full { width: 100%; padding: 0 12px; margin: 0.5rem 0 0.8rem; }
+.map-full .map-panel { border-radius: 6px; }

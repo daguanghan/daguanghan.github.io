@@ -64,7 +64,7 @@ CHINA = [("Southeast University", 32.058, 118.796), ("Smart City and Sustainable
          ("Chongqing Jiaotong University", 29.531, 106.565), ("Tsinghua University", 40.000, 116.326), ("Tongji University", 31.283, 121.502),
          ("Nanjing University", 32.112, 118.958), ("Guangzhou University", 23.040, 113.372),
          ("The Hong Kong Polytechnic University", 22.304, 114.180), ("City University of Hong Kong", 22.336, 114.172)]
-CHINA_COMPANIES = None   # number of partner companies in China; shown only when set
+CHINA_COMPANIES = 27   # partner companies in China (owner, 2026-11-02)
 # Regions for the lists; each shows up to five representative names, then a total.
 REPRESENTATIVE = {"United Kingdom": ["University of Cambridge", "University of Oxford", "University College London (UCL)", "Imperial College London", "University of Manchester"],
                   "Europe": ["Delft University of Technology", "KU Leuven", "Norwegian University of Science and Technology (NTNU)", "Technical University of Denmark (DTU)", "Universität der Bundeswehr München"],

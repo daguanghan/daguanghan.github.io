@@ -67,6 +67,7 @@ CHINA = [("Southeast University", 32.058, 118.796), ("Smart City and Sustainable
 # United States: added by the owner on 2026-11-02.
 US_EXTRA = [("Stanford University", 37.4275, -122.1697), ("University of California, Berkeley", 37.8719, -122.2585),
             ("Cornell University", 42.4534, -76.4735), ("New York University", 40.7295, -73.9965), ("University of Florida", 29.6436, -82.3549)]
+UK_EU_COMPANIES = 30   # partner companies in the UK and Europe (owner, 2026-11-02)
 CHINA_COMPANIES = 27   # partner companies in China (owner, 2026-11-02)
 # Regions for the lists; each shows up to five representative names, then a total.
 REPRESENTATIVE = {"United Kingdom": ["University of Cambridge", "University of Oxford", "University College London (UCL)", "Imperial College London", "University of Manchester"],
@@ -160,6 +161,7 @@ def build():
     panels = "".join(svg_panel(p, base, pts) for p in PANELS)
     counts = {t[0]: sum(1 for r in rows if r[1] == t[0]) for t in TIERS}
     legend = (f'<li><i style="background:{DOT}"></i><b>{len(rows)} universities and institutes</b>'
+              + (f' &middot; <b>{UK_EU_COMPANIES} partner companies in the UK and Europe</b>' if UK_EU_COMPANIES else '')
               + (f' &middot; <b>{CHINA_COMPANIES} partner companies in China</b>' if CHINA_COMPANIES else '') + '</li>')
     def region(c):
         return {"United Kingdom": "United Kingdom", "United States": "United States and Canada", "Canada": "United States and Canada", "China": "China"}.get(c, "Europe")
@@ -179,6 +181,8 @@ def build():
             shown = sorted(items, key=lambda r: order.index(r[0]) if r[0] in order else 99)[:5]
             more = len(items) - len(shown)
             total = f"{len(items)} institutions" + (f"; {more} more shown on the map" if more > 0 else "")
+            if reg == "Europe" and UK_EU_COMPANIES:
+                total += f". With the UK: {UK_EU_COMPANIES} partner companies"
         lis = "".join(f'<li><i style="background:{colour[t]}"></i>{html.escape(n)}'
                       + (f' <span class="inst-note">&middot; {html.escape(note)}</span>' if note else "") + "</li>" for n, t, note in shown)
         lists.append(f'<div class="country"><h3>{reg}</h3><p class="inst-note">{total}</p><ul class="inst-list">{lis}</ul></div>')

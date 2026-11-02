@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="site.css?v=20261101-fn">
 </head>
 <body>
     <nav class="site-nav">
@@ -44,6 +44,28 @@
     </header>
 
     <main>
+        <section class="section" id="software-demos">
+            <div class="container">
+                <div class="section-header"><div><p class="kicker">Software demonstrations</p><h2 class="section-title">Working demonstrations on open data</h2></div></div>
+                <!-- One demo = one .demo-row block (image card + text card). Copy the block to add a demo.
+                     Hosting: one first-level subdomain per demo, demo-<name>.daguanghan.com (the first demo keeps demo.daguanghan.com);
+                     never <name>.demo.daguanghan.com (the free certificate covers only one level). -->
+                <div class="grid two demo-row">
+                    <article class="media-card">
+                        <img src="images/facilitynexus-space-comfort.jpg" alt="FacilityNexus demo: space and comfort view beside a 3-D building model, with the FM Agent panel on the right" loading="lazy">
+                    </article>
+                    <article class="card">
+                        <p class="kicker">Software demonstration</p>
+                        <h3>FacilityNexus &mdash; a working demonstration of AI-assisted facility operations on a digital twin</h3>
+                        <p>3D digital-twin base, event centre, equipment-health diagnostics, wearable AI badges, knowledge-base build &amp; update, and an FM Agent on every page; Chinese / English / German.</p>
+                        <div class="action-row"><a class="btn primary" href="https://demo.daguanghan.com/?ui=en" rel="noopener">Sign in (authorised testers)</a></div>
+                        <p class="small-print">Access by invitation; demo data is publicly shareable (3D models and asset register from open datasets, CC BY 4.0).</p>
+                        <div class="tag-row"><span class="tag">3-D twin + FM Agent</span><span class="tag">open datasets only</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <div class="container">
                 <div class="grid two">
@@ -82,7 +104,7 @@
     <footer class="footer">
         <div class="container">
             <h2>Demos Policy</h2>
-            <p>Public demos show methods and teaching value only; restricted data, partner identities and internal platform screens are excluded.</p>
+            <p>Public demos show methods and teaching value only; restricted data, partner identities and internal platform screens are excluded. The FacilityNexus demo is open to invited testers only and runs on open datasets.</p>
         </div>
     </footer>
 </body>

@@ -14,7 +14,7 @@ P = {
 }
 IMG = "images/prototypes/"
 PROTOS = [
- dict(id="earthstate-twin", n="01", field="Build, through a conversation", name="EarthState Twin",
+ dict(id="earthstate-twin", n="01", field="Build, through a conversation", case="First case: ageing steel towers. Bridges next.", name="EarthState Twin",
       q="Can an asset's model, twin and capacity check be built from its drawings and records, with an engineer signing each step?",
       one="Builds an asset's model, digital twin and capacity check from its drawings and records, through a conversation, for an engineer to sign off.",
       body=["EarthState Twin works through a conversation. From an asset's drawings and records it builds a member-level model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.",
@@ -28,7 +28,7 @@ PROTOS = [
       basis=None, papers=["dxf", "corr"],
       limits="A synthetic 48 m tower with synthetic sensor records. Linear elastic analysis; joints, bolts and second-order effects are not modelled. The automated test cases pass; engineer review of those cases is still to be done.",
       demo_url="demos/structural-twin/analysis-demo.html"),
- dict(id="standfast", n="02", field="Assets in service", name="Standfast",
+ dict(id="standfast", n="02", field="Assets in service", case="First case: overhead lines. Bridges next.", name="Standfast",
       q="For assets in service, how close is each structure to collapse under a hazard, and what should be strengthened or maintained first?",
       one="Looks after assets in service: hazard scenarios across a network, how close each structure is to collapse, and strengthening and maintenance priorities.",
       body=["Standfast looks after assets in service, on a 3D model of the network. It runs a storm or another hazard scenario across the network and analyses each structure under the load it would see at its own position, so the margin before collapse is known structure by structure.",
@@ -40,7 +40,7 @@ PROTOS = [
       basis=None, papers=["grid", "risk"],
       limits="A synthetic line on open terrain data. The storm is a scenario, not a forecast, and the utilisation values are illustrative.",
       demo_url=None),
- dict(id="waterstate", n="03", field="Water pumping stations", name="WaterState",
+ dict(id="waterstate", n="03", field="The method applied to water", case="Pumping stations", name="WaterState",
       q="What maintenance does each failure mode of a pumping station need, and what should be done in the 72 hours before heavy rain?",
       one="Reliability-centred maintenance for a pumping station: failure modes taken through to tasks, and spill risk ranked 72 hours ahead.",
       body=["WaterState applies reliability-centred maintenance to a pumping station. Each failure mode is listed with its effect and scored (FMECA), then taken through the RCM decision questions to a maintenance task, and the path taken is shown.",
@@ -54,7 +54,7 @@ PROTOS = [
       papers=["om", "hitl"],
       limits="One synthetic wastewater pumping station. Every value on screen is illustrative; none is a measurement. The prototype has not been run on an operator's own stations.",
       demo_url=None),
- dict(id="facilitynexus", n="04", field="Buildings and estates in operation", name="FacilityNexus",
+ dict(id="facilitynexus", n="04", field="The method applied to buildings", case="Buildings and estates in operation", name="FacilityNexus",
       q="Can one twin hold the events, the equipment health and the operating knowledge of a building, so that every answer comes with its source?",
       one="A building in operation: events, equipment health and the operations knowledge base on one 3D model.",
       body=["FacilityNexus puts events, work orders, equipment health, energy and the operations knowledge base on one 3D model of the building. Each sensor point sits on the room or the unit it measures, so a complaint about a warm office can be traced to the supply branch behind it.",
@@ -95,6 +95,7 @@ def section(p):
                     <div class="proto-text">
                         <p class="kicker">Prototype {n} &middot; {field}</p>
                         <h2 class="proto-name">{name}</h2>
+                        <p class="proto-case">{case}</p>
                         <p class="proto-q">{q}</p>
                         {body}
                         <div class="tag-row">{tags}</div>
@@ -111,7 +112,7 @@ def section(p):
                     </div>
                 </div>
             </div>
-        </section>'''.format(id=p["id"], n=p["n"], field=e(p["field"]), name=e(p["name"]), q=e(p["q"]), body=body, tags=tags, acts=acts,
+        </section>'''.format(id=p["id"], n=p["n"], field=e(p["field"]), name=e(p["name"]), case=e(p["case"]), q=e(p["q"]), body=body, tags=tags, acts=acts,
                              tryline=tryline, thumbs=thumbs, basis=basis, papers="".join(paper_li(k) for k in p["papers"]),
                              limits=e(p["limits"]), main=shot(*p["main"]))
 def jsonld():
@@ -145,7 +146,7 @@ page = '''<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css?v=20261111-proto">
+    <link rel="stylesheet" href="site.css?v=20261111-proto2">
     <script type="application/ld+json">
 %s
     </script>
@@ -170,8 +171,8 @@ page = '''<!DOCTYPE html>
     <header class="page-header">
         <div class="container">
             <p class="eyebrow">Research prototypes</p>
-            <h1 class="page-title">Four research prototypes for ageing infrastructure</h1>
-            <p class="page-subtitle">Two work across asset types: EarthState Twin builds an asset's model and twin from its drawings, and Standfast judges assets in service. Two apply the same method to one sector: WaterState to pumping stations, FacilityNexus to buildings. In all four, every number comes from a calculation that can be traced to its inputs, and an engineer signs each key step. The AI drafts; engineers decide.</p>
+            <h1 class="page-title">Two platforms with different jobs, tried on four kinds of asset</h1>
+            <p class="page-subtitle">EarthState Twin builds an asset's model, twin and capacity check from its drawings and records, through a conversation. Standfast looks after assets in service: hazard scenarios, collapse margins, strengthening and maintenance priorities. Towers and overhead lines came first, and bridges are next. WaterState and FacilityNexus apply the same method to pumping stations and to buildings. In all four, every number comes from a calculation that can be traced to its inputs, and an engineer signs each key step. The AI drafts; engineers decide.</p>
             <div class="proto-nav">%s</div>
         </div>
     </header>

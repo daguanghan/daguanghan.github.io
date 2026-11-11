@@ -107,7 +107,13 @@
               "sameAs": "https://doi.org/10.3390/app16136788",
               "url": "https://daguanghan.com/papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html"
             }
-          ]
+          ],
+          "subjectOf": {
+            "@type": "WebPage",
+            "name": "Standfast interactive analysis",
+            "url": "https://daguanghan.com/demos/standfast/analysis-demo.html",
+            "isAccessibleForFree": true
+          }
         },
         {
           "@type": "SoftwareApplication",
@@ -245,17 +251,17 @@
                         <p class="proto-case">First case: overhead lines. Bridges next.</p>
                         <p class="proto-q">For assets in service, how close is each structure to collapse under a hazard, and what should be strengthened or maintained first?</p>
                         <p>Standfast looks after assets in service, on a 3D model of the network. It runs a storm or another hazard scenario across the network and analyses each structure under the load it would see at its own position, so the margin before collapse is known structure by structure.</p><p style="margin-top:.7rem">A collapse sweep finds each structure&#x27;s limit, strengthening options are compared side by side, and the maintenance priorities and the report go to an engineer to review. Overhead lines were the first case; the same approach is being extended to bridges.</p>
-                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span><span class="tag pending">Browser demo in preparation</span></div>
-                        
-                        
+                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span></div>
+                        <div class="action-row"><a class="btn primary" href="demos/standfast/analysis-demo.html">Open the interactive analysis</a><a class="btn secondary" href="demos/standfast/function-tour.html">Take the guided tour</a></div>
+                        <p class="small-print">Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, turn the terrain, click a tower, play the storm and replay a collapse; the tour takes about three minutes.</p>
                     </div>
                 </div>
                 <div class="proto-more">
-                    <div class="card"><p class="kicker">Try it</p><p>A browser demo that runs on built-in commands, with no sign-in, is being prepared and will open from this page.</p></div>
+                    <div class="proto-thumbs"><a class="proto-shot" href="images/prototypes/standfast-member-check.jpg"><img src="images/prototypes/standfast-member-check.jpg" alt="Standfast: a finite-element solve of one lattice tower, with the most utilised members listed and provisional code values flagged." loading="lazy"><span class="cap">Every member of a tower checked for strength and buckling; provisional code values are flagged. Engine runs of 2 November 2026.</span></a><a class="proto-shot" href="images/prototypes/standfast-line-screening.jpg"><img src="images/prototypes/standfast-line-screening.jpg" alt="Standfast: each tower&#x27;s margin at the storm peak as a ranked bar chart, beside the status of every tower through the storm." loading="lazy"><span class="cap">The line ranked by margin at the storm peak, and the status of each tower through the storm.</span></a></div>
                     <div class="card">
                         <p class="kicker">Published basis</p>
                         <ul class="paper-list"><li>An Auditable Gridded Wind–DEM-to-FE Workflow with Source Time, Spatial Contract, Texture Axis, and Solver Balance Gates: A Transmission Tower Case Study<span class="src">Applied Sciences, 2026 &middot; <a href="https://doi.org/10.3390/app16199420" rel="noopener">doi:10.3390/app16199420</a></span></li><li><a href="papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html">Risk-Based Safety Assessment of Aging Lattice Steel Space-Truss Structures Under Extreme Winds: A Multi-Scale Wind and Multi-Degradation Coupling Framework with Application to Transmission Towers</a><span class="src">Applied Sciences, 2026 &middot; <a href="https://doi.org/10.3390/app16136788" rel="noopener">doi:10.3390/app16136788</a></span></li></ul>
-                        <p class="limits"><strong>Demo data and limits</strong>A synthetic line on open terrain data. The storm is a scenario, not a forecast, and the utilisation values are illustrative.</p>
+                        <p class="limits"><strong>Demo data and limits</strong>A fictitious 400 kV line on real open terrain data (Environment Agency LiDAR, OGL v3); the location is not named. The storm is a synthetic scenario, not a forecast. Some code values are provisional and are flagged on screen.</p>
                     </div>
                 </div>
             </div>

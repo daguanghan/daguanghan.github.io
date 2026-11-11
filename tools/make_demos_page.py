@@ -14,11 +14,11 @@ P = {
 }
 IMG = "images/prototypes/"
 PROTOS = [
- dict(id="earthstate-twin", n="01", field="Ageing steel towers", name="EarthState Twin",
-      q="How much can one ageing lattice tower still carry?",
-      one="One tower in depth: a member-level model built from the drawings, with every member checked to EN 1993-1-1.",
-      body=["The prototype reads the node and member tables of a drawing set, builds a member-level frame model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.",
-            "Sensors are registered on the members they sit on. The model is calibrated on one wind event and validated on another it has not seen. Every member is then checked to EN 1993-1-1, and the critical wind speeds and warning levels go to an engineer to confirm."],
+ dict(id="earthstate-twin", n="01", field="Build, through a conversation", name="EarthState Twin",
+      q="Can an asset's model, twin and capacity check be built from its drawings and records, with an engineer signing each step?",
+      one="Builds an asset's model, digital twin and capacity check from its drawings and records, through a conversation, for an engineer to sign off.",
+      body=["EarthState Twin works through a conversation. From an asset's drawings and records it builds a member-level model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.",
+            "Sensors are registered on the members they sit on, the model is calibrated on one event and validated on another it has not seen, and every member is checked to EN 1993-1-1. Each step goes to an engineer to confirm. Transmission towers were the first case; bridges are next, by changing the structural model and the discipline rules."],
       main=("earthstate-twin-3d.jpg", "Interactive 3D twin of a synthetic 48 m lattice tower, coloured by member utilisation, with a wind velocity slider, governing leg utilisation and warning level.", "Interactive 3D twin: move the wind velocity and every member is rechecked. Version of 2 November 2026."),
       thumbs=[("earthstate-twin-model.jpg", "Model built from drawing tables: elevation of the tower, model facts, member groups and sections.", "Model from drawing tables, with its self-checks."),
               ("earthstate-twin-sensors.jpg", "Wind and strain records over one event, beside a list of data quality checks.", "Sensor records on the model, with quality checks kept as an audit record.")],
@@ -28,12 +28,12 @@ PROTOS = [
       basis=None, papers=["dxf", "corr"],
       limits="A synthetic 48 m tower with synthetic sensor records. Linear elastic analysis; joints, bolts and second-order effects are not modelled. The automated test cases pass; engineer review of those cases is still to be done.",
       demo_url="demos/structural-twin/analysis-demo.html"),
- dict(id="standfast", n="02", field="Overhead lines in storms", name="Standfast",
-      q="When a storm crosses a line, which towers should be looked at first?",
-      one="A whole line under a storm: each tower analysed under the wind at its own position, and ranked by the margin that remains.",
-      body=["Standfast places a whole line on terrain, moves a storm across it and analyses each tower under the wind it would see at its own position. Towers are ranked by the margin that remains.",
-            "A collapse sweep shows what follows if one tower fails. Strengthening options are compared side by side, and the report is drafted for an engineer to review."],
-      main=("standfast-line-storm.jpg", "Standfast: a line of twenty towers on terrain during a storm scenario, with the tower list, wind warnings and a guided tour panel.", "A storm scenario crossing a 400 kV demo line of twenty towers. Terrain from open data; place labels removed."),
+ dict(id="standfast", n="02", field="Assets in service", name="Standfast",
+      q="For assets in service, how close is each structure to collapse under a hazard, and what should be strengthened or maintained first?",
+      one="Looks after assets in service: hazard scenarios across a network, how close each structure is to collapse, and strengthening and maintenance priorities.",
+      body=["Standfast looks after assets in service, on a 3D model of the network. It runs a storm or another hazard scenario across the network and analyses each structure under the load it would see at its own position, so the margin before collapse is known structure by structure.",
+            "A collapse sweep finds each structure's limit, strengthening options are compared side by side, and the maintenance priorities and the report go to an engineer to review. Overhead lines were the first case; the same approach is being extended to bridges."],
+      main=("standfast-line-storm.jpg", "Standfast: a line of twenty towers on terrain during a storm scenario, with the tower list, wind warnings and a guided tour panel.", "First case: a storm scenario crossing a 400 kV demo line of twenty towers. Terrain from open data; place labels removed."),
       thumbs=[], tags=["Demo data", "Engineers decide"],
       actions=[], pending="Browser demo in preparation",
       tryline="A browser demo that runs on built-in commands, with no sign-in, is being prepared and will open from this page.",
@@ -170,8 +170,8 @@ page = '''<!DOCTYPE html>
     <header class="page-header">
         <div class="container">
             <p class="eyebrow">Research prototypes</p>
-            <h1 class="page-title">One method, tried on four kinds of asset</h1>
-            <p class="page-subtitle">Each prototype asks the same two questions of a different asset: how much margin is left, and what should be fixed first. The model is built from drawings or a scan, every number comes from a calculation that can be traced to its inputs, and an engineer signs each key step. The AI drafts; engineers decide.</p>
+            <h1 class="page-title">Four research prototypes for ageing infrastructure</h1>
+            <p class="page-subtitle">Two work across asset types: EarthState Twin builds an asset's model and twin from its drawings, and Standfast judges assets in service. Two apply the same method to one sector: WaterState to pumping stations, FacilityNexus to buildings. In all four, every number comes from a calculation that can be traced to its inputs, and an engineer signs each key step. The AI drafts; engineers decide.</p>
             <div class="proto-nav">%s</div>
         </div>
     </header>

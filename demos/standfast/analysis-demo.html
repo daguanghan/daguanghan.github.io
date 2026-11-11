@@ -731,6 +731,7 @@ h2.title { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.08; font-weight: 
     <div class="grid g2">
       <div class="card">
         <div class="card-head"><h3 data-i="rev.steps">Engineer review</h3><span class="chip" data-i="rev.reviewer"></span></div>
+        <p data-i="rev.demo" style="margin:0 0 12px;font-size:13px;font-weight:600;line-height:1.4;background:rgba(255,149,0,.14);border:1px solid rgba(255,149,0,.55);border-radius:8px;padding:7px 10px"></p>
         <ol class="steps" id="rev-steps"></ol>
       </div>
       <div class="card">
@@ -1134,7 +1135,7 @@ window.SF_STR = Object.assign(window.SF_STR || {}, {
   'rev.lead': ['Each analysis passes a seven-step review before sign-off, and every output records the inputs, the model hash and the code values used.',
                '\u6bcf\u6b21\u5206\u6790\u90fd\u8981\u7ecf\u8fc7\u4e03\u6b65\u5ba1\u6838\u624d\u80fd\u7b7e\u7f72\uff1b\u6bcf\u4efd\u8f93\u51fa\u90fd\u8bb0\u5f55\u8f93\u5165\u3001\u6a21\u578b\u54c8\u5e0c\u4e0e\u6240\u7528\u89c4\u8303\u53d6\u503c\u3002'],
   'rev.steps': ['Engineer review', '\u5de5\u7a0b\u5e08\u5ba1\u6838'],
-  'rev.reviewer': ['Reviewer: engineer to be named (demo)', '\u5ba1\u6838\u4eba\uff1a\u5de5\u7a0b\u5e08\u5f85\u5b9a\uff08\u6f14\u793a\uff09'],
+  'rev.reviewer': ['Reviewer: engineer to be named (demo)', '\u5ba1\u6838\u4eba\uff1a\u5de5\u7a0b\u5e08\u5f85\u5b9a\uff08\u6f14\u793a\uff09'],   'rev.demo': ['Demo of the review workflow. No engineer has reviewed these results.', '\u5ba1\u6838\u6d41\u7a0b\u6f14\u793a\u3002\u8fd9\u4e9b\u7ed3\u679c\u5c1a\u672a\u7ecf\u4efb\u4f55\u5de5\u7a0b\u5e08\u5ba1\u6838\u3002'],
   'rev.s1': ['Model import', '\u6a21\u578b\u5bfc\u5165'],
   'rev.s1.d': ['nodes, members, supports, sections', '\u8282\u70b9\u3001\u6746\u4ef6\u3001\u652f\u5ea7\u3001\u622a\u9762'],
   'rev.s2': ['Wind load', '\u98ce\u8377\u8f7d'],

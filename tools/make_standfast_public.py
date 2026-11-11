@@ -28,6 +28,19 @@ for src, out in (("Standfast_Analysis_Demo.html", "analysis-demo.html"), ("Stand
     for a, b in PAIRS:
         s = s.replace(a, b)
     s = re.sub(r"\banthropic\b", "cloud", s)
+    # A visible line on the review panel: the workflow is demonstrated, nobody has reviewed these results.
+    key = "'rev.reviewer': ['Reviewer: engineer to be named (demo)', '" + u("审核人：工程师待定（演示）") + "'],"
+    assert s.count(key) == 1, out
+    s = s.replace(key, key + "   'rev.demo': ['Demo of the review workflow. No engineer has reviewed these results.', '" + u("审核流程演示。这些结果尚未经任何工程师审核。") + "'],")
+    box = "font-size:13px;font-weight:600;line-height:1.4;background:rgba(255,149,0,.14);border:1px solid rgba(255,149,0,.55);border-radius:8px;padding:7px 10px"
+    if out == "analysis-demo.html":
+        ol = '<ol class="steps" id="rev-steps"></ol>'
+        assert s.count(ol) == 1
+        s = s.replace(ol, '<p data-i="rev.demo" style="margin:0 0 12px;%s"></p>\n        ' % box + ol)
+    else:
+        chip = "el('span', 'chip', t('pane.rev.reviewer'), body).style.alignSelf = 'flex-start';"
+        assert s.count(chip) == 1
+        s = s.replace(chip, chip + " el('div', null, t('rev.demo'), body).style.cssText = '%s';" % box)
     head = '<meta name="robots" content="index, follow">\n<link rel="canonical" href="https://daguanghan.com/demos/standfast/%s">' % out
     assert s.count("</title>") == 1 and s.count("</body>") == 1
     s = s.replace("</title>", "</title>\n" + head, 1).replace("</body>", BADGE + "\n</body>", 1)

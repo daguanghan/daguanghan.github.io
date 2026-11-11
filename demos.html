@@ -3,13 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research demonstrators by Dr.-Ing. Daguang Han in digital twin modelling, construction robotics, sensing and BIM/reality capture.">
-    <title>Laboratory and Testbeds | Daguang Han</title>
+    <meta name="description" content="Four research prototypes by Dr.-Ing. Daguang Han for ageing infrastructure: EarthState Twin, Standfast, WaterState and FacilityNexus, with screenshots, working demonstrations on demo data and the papers they are based on.">
+    <title>Research Prototypes and Demos | Daguang Han</title>
     <link rel="canonical" href="https://daguanghan.com/demos.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css?v=20261102-world">
+    <link rel="stylesheet" href="site.css?v=20261111-proto">
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://daguanghan.com/demos.html#page",
+          "url": "https://daguanghan.com/demos.html",
+          "name": "Research prototypes",
+          "description": "Four research prototypes by Dr.-Ing. Daguang Han for the assessment and maintenance of ageing infrastructure, with screenshots, working demonstrations and the papers they are based on.",
+          "inLanguage": "en-GB",
+          "author": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "about": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "hasPart": [
+            {
+              "@id": "https://daguanghan.com/demos.html#earthstate-twin"
+            },
+            {
+              "@id": "https://daguanghan.com/demos.html#standfast"
+            },
+            {
+              "@id": "https://daguanghan.com/demos.html#waterstate"
+            },
+            {
+              "@id": "https://daguanghan.com/demos.html#facilitynexus"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://daguanghan.com/demos.html#earthstate-twin",
+          "name": "EarthState Twin",
+          "url": "https://daguanghan.com/demos.html#earthstate-twin",
+          "description": "One tower in depth: a member-level model built from the drawings, with every member checked to EN 1993-1-1.",
+          "applicationCategory": "Engineering research prototype",
+          "operatingSystem": "Web browser",
+          "creativeWorkStatus": "Research prototype",
+          "creator": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "author": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "image": "https://daguanghan.com/images/prototypes/earthstate-twin-3d.jpg",
+          "citation": [
+            {
+              "@type": "ScholarlyArticle",
+              "name": "End-to-End Automated Wind-Induced Stress Simulation of Lattice Transmission Towers in Complex Terrain via Physics-Conserving PINN Wind-Field Reconstruction and Graph-Theory-Based DXF Parsing",
+              "sameAs": "https://doi.org/10.3390/app16178582",
+              "url": "https://daguanghan.com/papers/end-to-end-automated-wind-induced-stress-simulation-of-lattice-transm.html"
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "name": "Integrated Multi-Mode Image-Based Corrosion Assessment and Probabilistic Reliability Framework for Steel Tower Structures Under Uncertainty",
+              "sameAs": "https://doi.org/10.3390/buildings16112250",
+              "url": "https://daguanghan.com/papers/integrated-multi-mode-image-based-corrosion-assessment-and-probabilist.html"
+            }
+          ],
+          "subjectOf": {
+            "@type": "WebPage",
+            "name": "EarthState Twin interactive analysis",
+            "url": "https://daguanghan.com/demos/structural-twin/analysis-demo.html",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://daguanghan.com/demos.html#standfast",
+          "name": "Standfast",
+          "url": "https://daguanghan.com/demos.html#standfast",
+          "description": "A whole line under a storm: each tower analysed under the wind at its own position, and ranked by the margin that remains.",
+          "applicationCategory": "Engineering research prototype",
+          "operatingSystem": "Web browser",
+          "creativeWorkStatus": "Research prototype",
+          "creator": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "author": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "image": "https://daguanghan.com/images/prototypes/standfast-line-storm.jpg",
+          "citation": [
+            {
+              "@type": "ScholarlyArticle",
+              "name": "An Auditable Gridded Wind–DEM-to-FE Workflow with Source Time, Spatial Contract, Texture Axis, and Solver Balance Gates: A Transmission Tower Case Study",
+              "sameAs": "https://doi.org/10.3390/app16199420"
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "name": "Risk-Based Safety Assessment of Aging Lattice Steel Space-Truss Structures Under Extreme Winds: A Multi-Scale Wind and Multi-Degradation Coupling Framework with Application to Transmission Towers",
+              "sameAs": "https://doi.org/10.3390/app16136788",
+              "url": "https://daguanghan.com/papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://daguanghan.com/demos.html#waterstate",
+          "name": "WaterState",
+          "url": "https://daguanghan.com/demos.html#waterstate",
+          "description": "Reliability-centred maintenance for a pumping station: failure modes taken through to tasks, and spill risk ranked 72 hours ahead.",
+          "applicationCategory": "Engineering research prototype",
+          "operatingSystem": "Web browser",
+          "creativeWorkStatus": "Research prototype",
+          "creator": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "author": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "image": "https://daguanghan.com/images/prototypes/waterstate-risk-72h.jpg",
+          "citation": [
+            {
+              "@type": "ScholarlyArticle",
+              "name": "Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance",
+              "sameAs": "https://doi.org/10.1016/j.dibe.2024.100475",
+              "url": "https://daguanghan.com/papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html"
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "name": "Human-in-the-Loop Semantic Rule Base Generation and Dynamic Updating for Automated BIM Compliance Checking: A Knowledge Graph Approach",
+              "sameAs": "https://doi.org/10.3390/buildings16040719",
+              "url": "https://daguanghan.com/papers/human-in-the-loop-semantic-rule-base-generation-and-dynamic-updating-f.html"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://daguanghan.com/demos.html#facilitynexus",
+          "name": "FacilityNexus",
+          "url": "https://daguanghan.com/demos.html#facilitynexus",
+          "description": "A building in operation: events, equipment health and the operations knowledge base on one 3D model.",
+          "applicationCategory": "Engineering research prototype",
+          "operatingSystem": "Web browser",
+          "creativeWorkStatus": "Research prototype",
+          "creator": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "author": {
+            "@id": "https://daguanghan.com/#person"
+          },
+          "image": "https://daguanghan.com/images/prototypes/facilitynexus-space-comfort.jpg",
+          "citation": [
+            {
+              "@type": "ScholarlyArticle",
+              "name": "A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics",
+              "sameAs": "https://doi.org/10.1016/j.enbuild.2022.111988",
+              "url": "https://daguanghan.com/papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html"
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "name": "Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance",
+              "sameAs": "https://doi.org/10.1016/j.dibe.2024.100475",
+              "url": "https://daguanghan.com/papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <nav class="site-nav">
@@ -30,37 +194,122 @@
 
     <header class="page-header">
         <div class="container">
-            <p class="eyebrow">Laboratory and Testbeds</p>
-            <h1 class="page-title">Where the methods get tested before they reach an asset</h1>
-            <p class="page-subtitle">Physical platforms and instrumented workflows, with what each one has actually been used for. Results from this equipment are reported in the papers listed under Q&amp;A and Publications.</p>
+            <p class="eyebrow">Research prototypes</p>
+            <h1 class="page-title">One method, tried on four kinds of asset</h1>
+            <p class="page-subtitle">Each prototype asks the same two questions of a different asset: how much margin is left, and what should be fixed first. The model is built from drawings or a scan, every number comes from a calculation that can be traced to its inputs, and an engineer signs each key step. The AI drafts; engineers decide.</p>
+            <div class="proto-nav"><a href="#earthstate-twin">EarthState Twin</a><a href="#standfast">Standfast</a><a href="#waterstate">WaterState</a><a href="#facilitynexus">FacilityNexus</a><a href="#lab">Laboratory and testbeds</a></div>
         </div>
     </header>
 
-    <main>
-        <section class="section" id="software-demos">
+    <main id="software-demos">
+        <section class="section compact">
             <div class="container">
-                <div class="section-header"><div><p class="kicker">Software demonstrations</p><h2 class="section-title">Platforms and working demonstrations</h2></div></div>
-                <!-- One demo = one .demo-row block (image card + text card). Copy the block to add a demo.
-                     Hosting: one first-level subdomain per demo, demo-<name>.daguanghan.com (the first demo keeps demo.daguanghan.com);
-                     never <name>.demo.daguanghan.com (the free certificate covers only one level). -->
-                <div class="grid two demo-row">
-                    <article class="media-card">
-                        <img src="images/structural-twin-3d.jpg?v=2" alt="EarthState Twin demo: interactive 3-D model of a synthetic 48 m steel lattice tower coloured by member utilisation" loading="lazy">
-                    </article>
-                    <article class="card">
-                        <p class="kicker">Platforms and demos</p>
-                        <h3>Three digital-twin platforms, now presented at EarthState</h3>
-                        <p>The digital-twin platforms I lead are presented and demonstrated by EarthState, my independent engineering and research practice: EarthState Twin for ageing steel structures, Standfast for storm resilience of overhead lines, and FacilityNexus for facility operations. The open demos need no sign-in.</p>
-                        <div class="action-row"><a class="btn primary" href="https://earthstate.co.uk/demos/index.html" rel="noopener">Open the demos</a><a class="btn secondary" href="https://earthstate.co.uk/" rel="noopener">EarthState</a></div>
-                        <p class="small-print">Research prototypes; demonstration data are synthetic, procedurally generated or from open datasets, and labelled as such.</p>
-                        <div class="tag-row"><span class="tag">3 twin platforms</span><span class="tag">open demos</span><span class="tag">engineer sign-off</span></div>
-                    </article>
+                <div class="safe-note">
+                    Everything on this page runs on demo data: synthetic structures, generated scenarios or open datasets, labelled as such. Nothing here is a measurement of a real asset or a design check. These are research prototypes that I lead; they are also offered through my independent practice, <a href="https://earthstate.co.uk/" rel="noopener">EarthState</a>.
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="proto" id="earthstate-twin">
             <div class="container">
+                <div class="proto-top">
+                    <a class="proto-shot" href="images/prototypes/earthstate-twin-3d.jpg"><img src="images/prototypes/earthstate-twin-3d.jpg" alt="Interactive 3D twin of a synthetic 48 m lattice tower, coloured by member utilisation, with a wind velocity slider, governing leg utilisation and warning level." loading="lazy"><span class="cap">Interactive 3D twin: move the wind velocity and every member is rechecked. Version of 2 November 2026.</span></a>
+                    <div class="proto-text">
+                        <p class="kicker">Prototype 01 &middot; Ageing steel towers</p>
+                        <h2 class="proto-name">EarthState Twin</h2>
+                        <p class="proto-q">How much can one ageing lattice tower still carry?</p>
+                        <p>The prototype reads the node and member tables of a drawing set, builds a member-level frame model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.</p><p style="margin-top:.7rem">Sensors are registered on the members they sit on. The model is calibrated on one wind event and validated on another it has not seen. Every member is then checked to EN 1993-1-1, and the critical wind speeds and warning levels go to an engineer to confirm.</p>
+                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span><span class="tag">Patent pending</span></div>
+                        <div class="action-row"><a class="btn primary" href="demos/structural-twin/analysis-demo.html">Open the interactive analysis</a><a class="btn secondary" href="demos/structural-twin/function-tour.html">Take the guided tour</a></div>
+                        <p class="small-print">Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, drag the wind velocity and turn the 3D model; the tour has ten steps and takes about three minutes.</p>
+                    </div>
+                </div>
+                <div class="proto-more">
+                    <div class="proto-thumbs"><a class="proto-shot" href="images/prototypes/earthstate-twin-model.jpg"><img src="images/prototypes/earthstate-twin-model.jpg" alt="Model built from drawing tables: elevation of the tower, model facts, member groups and sections." loading="lazy"><span class="cap">Model from drawing tables, with its self-checks.</span></a><a class="proto-shot" href="images/prototypes/earthstate-twin-sensors.jpg"><img src="images/prototypes/earthstate-twin-sensors.jpg" alt="Wind and strain records over one event, beside a list of data quality checks." loading="lazy"><span class="cap">Sensor records on the model, with quality checks kept as an audit record.</span></a></div>
+                    <div class="card">
+                        <p class="kicker">Published basis</p>
+                        <ul class="paper-list"><li><a href="papers/end-to-end-automated-wind-induced-stress-simulation-of-lattice-transm.html">End-to-End Automated Wind-Induced Stress Simulation of Lattice Transmission Towers in Complex Terrain via Physics-Conserving PINN Wind-Field Reconstruction and Graph-Theory-Based DXF Parsing</a><span class="src">Applied Sciences, 2026 &middot; <a href="https://doi.org/10.3390/app16178582" rel="noopener">doi:10.3390/app16178582</a></span></li><li><a href="papers/integrated-multi-mode-image-based-corrosion-assessment-and-probabilist.html">Integrated Multi-Mode Image-Based Corrosion Assessment and Probabilistic Reliability Framework for Steel Tower Structures Under Uncertainty</a><span class="src">Buildings, 2026 &middot; <a href="https://doi.org/10.3390/buildings16112250" rel="noopener">doi:10.3390/buildings16112250</a></span></li></ul>
+                        <p class="limits"><strong>Demo data and limits</strong>A synthetic 48 m tower with synthetic sensor records. Linear elastic analysis; joints, bolts and second-order effects are not modelled. The automated test cases pass; engineer review of those cases is still to be done.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="proto" id="standfast">
+            <div class="container">
+                <div class="proto-top">
+                    <a class="proto-shot" href="images/prototypes/standfast-line-storm.jpg"><img src="images/prototypes/standfast-line-storm.jpg" alt="Standfast: a line of twenty towers on terrain during a storm scenario, with the tower list, wind warnings and a guided tour panel." loading="lazy"><span class="cap">A storm scenario crossing a 400 kV demo line of twenty towers. Terrain from open data; place labels removed.</span></a>
+                    <div class="proto-text">
+                        <p class="kicker">Prototype 02 &middot; Overhead lines in storms</p>
+                        <h2 class="proto-name">Standfast</h2>
+                        <p class="proto-q">When a storm crosses a line, which towers should be looked at first?</p>
+                        <p>Standfast places a whole line on terrain, moves a storm across it and analyses each tower under the wind it would see at its own position. Towers are ranked by the margin that remains.</p><p style="margin-top:.7rem">A collapse sweep shows what follows if one tower fails. Strengthening options are compared side by side, and the report is drafted for an engineer to review.</p>
+                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span><span class="tag pending">Browser demo in preparation</span></div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="proto-more">
+                    <div class="card"><p class="kicker">Try it</p><p>A browser demo that runs on built-in commands, with no sign-in, is being prepared and will open from this page.</p></div>
+                    <div class="card">
+                        <p class="kicker">Published basis</p>
+                        <ul class="paper-list"><li>An Auditable Gridded Wind–DEM-to-FE Workflow with Source Time, Spatial Contract, Texture Axis, and Solver Balance Gates: A Transmission Tower Case Study<span class="src">Applied Sciences, 2026 &middot; <a href="https://doi.org/10.3390/app16199420" rel="noopener">doi:10.3390/app16199420</a></span></li><li><a href="papers/risk-based-safety-assessment-of-aging-lattice-steel-space-truss-struct.html">Risk-Based Safety Assessment of Aging Lattice Steel Space-Truss Structures Under Extreme Winds: A Multi-Scale Wind and Multi-Degradation Coupling Framework with Application to Transmission Towers</a><span class="src">Applied Sciences, 2026 &middot; <a href="https://doi.org/10.3390/app16136788" rel="noopener">doi:10.3390/app16136788</a></span></li></ul>
+                        <p class="limits"><strong>Demo data and limits</strong>A synthetic line on open terrain data. The storm is a scenario, not a forecast, and the utilisation values are illustrative.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="proto" id="waterstate">
+            <div class="container">
+                <div class="proto-top">
+                    <a class="proto-shot" href="images/prototypes/waterstate-risk-72h.jpg"><img src="images/prototypes/waterstate-risk-72h.jpg" alt="WaterState: spill probability for three scenarios over the next 72 hours, a planned job before the rain peak, and a 3D pumping station with sensors placed on the model." loading="lazy"><span class="cap">Risk 72 hours ahead, with level, flow, current and vibration sensors placed on the 3D station. Version of 11 November 2026.</span></a>
+                    <div class="proto-text">
+                        <p class="kicker">Prototype 03 &middot; Water pumping stations</p>
+                        <h2 class="proto-name">WaterState</h2>
+                        <p class="proto-q">What maintenance does each failure mode of a pumping station need, and what should be done in the 72 hours before heavy rain?</p>
+                        <p>WaterState applies reliability-centred maintenance to a pumping station. Each failure mode is listed with its effect and scored (FMECA), then taken through the RCM decision questions to a maintenance task, and the path taken is shown.</p><p style="margin-top:.7rem">The AI drafts the reasoning from the work-order history. An engineer accepts or edits each answer, and the sign-off is recorded. A second view combines the rainfall forecast with wet-well level, pump current and vibration to rank the risk of a spill over the next 72 hours.</p>
+                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span><span class="tag pending">Browser demo in preparation</span></div>
+                        
+                        <p class="small-print">A browser demo on one synthetic station is being prepared and will open from this page.</p>
+                    </div>
+                </div>
+                <div class="proto-more">
+                    <div class="proto-thumbs one"><a class="proto-shot" href="images/prototypes/waterstate-rcm-programme.jpg"><img src="images/prototypes/waterstate-rcm-programme.jpg" alt="WaterState: a preventive maintenance programme of seven tasks and the RCM decision tree for a standby pump that fails to start." loading="lazy"><span class="cap">Maintenance programme and the RCM decision tree for one failure mode.</span></a></div>
+                    <div class="card">
+                        <p class="kicker">Published basis</p>
+                        <p style="font-size:.9rem;margin-bottom:.8rem">This prototype has not been reported in a paper yet. FMECA and the RCM decision logic are established reliability practice. The operations twin and the engineer&#x27;s sign-off follow two of my papers:</p><ul class="paper-list"><li><a href="papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html">Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance</a><span class="src">Developments in the Built Environment, 2024 &middot; <a href="https://doi.org/10.1016/j.dibe.2024.100475" rel="noopener">doi:10.1016/j.dibe.2024.100475</a></span></li><li><a href="papers/human-in-the-loop-semantic-rule-base-generation-and-dynamic-updating-f.html">Human-in-the-Loop Semantic Rule Base Generation and Dynamic Updating for Automated BIM Compliance Checking: A Knowledge Graph Approach</a><span class="src">Buildings, 2026 &middot; <a href="https://doi.org/10.3390/buildings16040719" rel="noopener">doi:10.3390/buildings16040719</a></span></li></ul>
+                        <p class="limits"><strong>Demo data and limits</strong>One synthetic wastewater pumping station. Every value on screen is illustrative; none is a measurement. The prototype has not been run on an operator&#x27;s own stations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="proto" id="facilitynexus">
+            <div class="container">
+                <div class="proto-top">
+                    <a class="proto-shot" href="images/prototypes/facilitynexus-space-comfort.jpg"><img src="images/prototypes/facilitynexus-space-comfort.jpg" alt="FacilityNexus: temperature by zone for one floor, complaints with likely causes, a 3D building model with equipment markers, and an assistant panel." loading="lazy"><span class="cap">Space and comfort for one floor, beside the 3D model. Building model from an open dataset (BSI, 2020, CC BY 4.0), converted and simplified.</span></a>
+                    <div class="proto-text">
+                        <p class="kicker">Prototype 04 &middot; Buildings and estates in operation</p>
+                        <h2 class="proto-name">FacilityNexus</h2>
+                        <p class="proto-q">Can one twin hold the events, the equipment health and the operating knowledge of a building, so that every answer comes with its source?</p>
+                        <p>FacilityNexus puts events, work orders, equipment health, energy and the operations knowledge base on one 3D model of the building. Each sensor point sits on the room or the unit it measures, so a complaint about a warm office can be traced to the supply branch behind it.</p><p style="margin-top:.7rem">The assistant answers only from platform data and the operator&#x27;s own procedures. Conclusions on safety and cost go to a person for review.</p>
+                        <div class="tag-row"><span class="tag">Demo data</span><span class="tag">Engineers decide</span><span class="tag pending">Browser demo in preparation</span></div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="proto-more">
+                    <div class="card"><p class="kicker">Try it</p><p>A browser demo with no sign-in is being prepared and will open from this page.</p></div>
+                    <div class="card">
+                        <p class="kicker">Published basis</p>
+                        <ul class="paper-list"><li><a href="papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html">A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics</a><span class="src">Energy and Buildings, 2022 &middot; <a href="https://doi.org/10.1016/j.enbuild.2022.111988" rel="noopener">doi:10.1016/j.enbuild.2022.111988</a></span></li><li><a href="papers/multi-domain-data-integration-and-management-for-enhancing-service-ori.html">Multi-domain data integration and management for enhancing service-oriented digital twin for infrastructure operation and maintenance</a><span class="src">Developments in the Built Environment, 2024 &middot; <a href="https://doi.org/10.1016/j.dibe.2024.100475" rel="noopener">doi:10.1016/j.dibe.2024.100475</a></span></li></ul>
+                        <p class="limits"><strong>Demo data and limits</strong>The building model comes from an open dataset; the sensor values, events and work orders are illustrative.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="lab">
+            <div class="container">
+                <div class="section-header"><div><p class="kicker">Laboratory and testbeds</p><h2 class="section-title">Where the methods are tested before they reach an asset</h2><p class="section-subtitle">Physical platforms and instrumented workflows, with what each one has been used for.</p></div></div>
                 <div class="grid two">
                     <article class="card">
                         <p class="kicker">Physical platform</p>
@@ -87,8 +336,8 @@
                         <div class="tag-row"><span class="tag">&lt;1/1800 span</span><span class="tag">published result</span></div>
                     </article>
                 </div>
-                <div class="safe-note">
-                    Every quantitative claim on this page is reported in a peer-reviewed paper with a DOI. The <a href="questions.html">Q&amp;A page</a> gives each number as the paper states it, with the author position.
+                <div class="safe-note" style="margin-top:1rem">
+                    Every quantitative claim in this section is reported in a peer-reviewed paper with a DOI. The <a href="questions.html">Q&amp;A page</a> gives each number as the paper states it, with the author position.
                 </div>
             </div>
         </section>
@@ -97,7 +346,7 @@
     <footer class="footer">
         <div class="container">
             <h2>Demos Policy</h2>
-            <p>Public demos show methods and teaching value only; restricted data, partner identities and internal platform screens are excluded. The FacilityNexus demo is open to invited testers only and runs on open datasets.</p>
+            <p>Public demos show methods on demo data only. Restricted data, partner identities and internal platform screens are excluded. The demos on this page need no sign-in, take no uploads and call no language model.</p>
         </div>
     </footer>
 </body>

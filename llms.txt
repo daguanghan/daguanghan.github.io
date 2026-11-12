@@ -1,6 +1,6 @@
 # Dr.-Ing. Daguang Han
 
-> Personal research site of Dr.-Ing. Daguang Han, Associate Director of the Transport AI Innovation Centre (TRAICE), Loughborough University, UK (appointed November 2026); Associate Professor at the School of Civil Engineering, Southeast University, Nanjing; Founder of EarthState (independent practice, https://earthstate.co.uk/); and Founding Dean of the Smart City and Sustainable Development Academy (SCSDA), Chongqing. Formerly Associate Professor at OsloMet - Oslo Metropolitan University, Norway. Doctorate from Universitat der Bundeswehr Munchen. Work covers artificial intelligence for civil infrastructure: digital twins, building information modelling, reality capture and terrestrial laser scanning, structural health monitoring, and the assurance and standards questions that decide when an engineering judgement can be trusted.
+> Personal research site of Dr.-Ing. Daguang Han, Associate Director of the Transport AI Innovation Centre (TRAICE), Loughborough University, UK (appointed November 2026); Associate Professor at the School of Civil Engineering, Southeast University, Nanjing; and Founding Dean and Chair of the Governing Committee of the Smart City and Sustainable Development Academy (SCSDA), Chongqing. His research team develops EarthState, a series of research prototypes for infrastructure digital twins (https://earthstate.co.uk/). Formerly Associate Professor at OsloMet - Oslo Metropolitan University, Norway. Doctorate from Universitat der Bundeswehr Munchen. Work covers artificial intelligence for civil infrastructure: digital twins, building information modelling, reality capture and terrestrial laser scanning, structural health monitoring, and the assurance and standards questions that decide when an engineering judgement can be trusted.
 
 Full text is self-hosted only where the licence permits it; each paper page states the licence and links the publisher version of record.
 Bibliography exports: /papers/daguang-han-publications.bib (BibTeX) and /papers/daguang-han-publications.json (CSL-JSON).
@@ -11,7 +11,7 @@ Bibliography exports: /papers/daguang-han-publications.bib (BibTeX) and /papers/
 - [Google Scholar](https://scholar.google.com/citations?user=oKGc4VYAAAAJ)
 - [LinkedIn](https://www.linkedin.com/in/daguanghan/)
 - [SCSDA](https://scsda.cn/)
-- [EarthState](https://earthstate.co.uk/)
+- [EarthState research prototypes](https://earthstate.co.uk/)
 - [Southeast University staff page](https://civil.seu.edu.cn/hdg_en/list.htm)
 
 ## Site sections

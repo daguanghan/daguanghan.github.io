@@ -1,3 +1,5 @@
 .DS_Store
 _incoming_prototypes_*/
 _drafts/
+tools/make_standfast_public.py
+tools/make_twin_showcase_public.py

@@ -1,7 +1,9 @@
 # Builds demos.html for daguanghan.com (Research prototypes).
-# Run from the site root:  python3 tools/make_demos_page.py
+# Run from the site root:  python3 tools/make_demos_page.py   -> demos.html
+# With --draft it writes a local preview to _drafts/demos_v2/ instead (that folder is not published).
 # The laboratory section lives in tools/demos_lab_section.html. Screenshots: images/prototypes/.
-import json, re, html
+import json, re, html, sys
+DRAFT = "--draft" in sys.argv
 BASE = "https://daguanghan.com/"
 P = {
  "dxf":  ("End-to-End Automated Wind-Induced Stress Simulation of Lattice Transmission Towers in Complex Terrain via Physics-Conserving PINN Wind-Field Reconstruction and Graph-Theory-Based DXF Parsing", "Applied Sciences, 2026", "10.3390/app16178582", "papers/end-to-end-automated-wind-induced-stress-simulation-of-lattice-transm.html"),
@@ -13,34 +15,44 @@ P = {
  "ahu":  ("A Digital Twin predictive maintenance framework of air handling units based on automatic fault detection and diagnostics", "Energy and Buildings, 2022", "10.1016/j.enbuild.2022.111988", "papers/a-digital-twin-predictive-maintenance-framework-of-air-handling-units.html"),
 }
 IMG = "images/prototypes/"
+NEW_IMG = "_drafts/demos_v2/img/" if DRAFT else IMG
+def src(f):
+    return (NEW_IMG if f.startswith(("earthstate-twin-syn1-", "earthstate-bridges-", "standfast-app-")) else IMG) + f
 PROTOS = [
- dict(id="earthstate-twin", n="01", field="Build, through a conversation", case="First case: ageing steel towers. Bridges next.", name="EarthState Twin",
+ dict(id="earthstate-twin", n="01", field="Build, through a conversation", case="First case: ageing steel towers. Bridges in development.", name="EarthState Twin",
       q="Can an asset's model, twin and capacity check be built from its drawings and records, with an engineer signing each step?",
       one="Builds an asset's model, digital twin and capacity check from its drawings and records, through a conversation, for an engineer to sign off.",
       body=["EarthState Twin works through a conversation. From an asset's drawings and records it builds a member-level model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.",
-            "Sensors are registered on the members they sit on, the model is calibrated on one event and validated on another it has not seen, and every member is checked to EN 1993-1-1. Each step goes to an engineer to confirm. Transmission towers were the first case; bridges are next, by changing the structural model and the discipline rules."],
-      main=("earthstate-twin-3d.jpg", "Interactive 3D twin of a synthetic 48 m lattice tower, coloured by member utilisation, with a wind velocity slider, governing leg utilisation and warning level.", "Interactive 3D twin: move the wind velocity and every member is rechecked. Version of 2 November 2026."),
-      thumbs=[("earthstate-twin-model.jpg", "Model built from drawing tables: elevation of the tower, model facts, member groups and sections.", "Model from drawing tables, with its self-checks."),
-              ("earthstate-twin-sensors.jpg", "Wind and strain records over one event, beside a list of data quality checks.", "Sensor records on the model, with quality checks kept as an audit record.")],
-      tags=["Demo data", "Engineers decide", "Patent pending"],
+            "Sensors are registered on the members they sit on, the model is calibrated on one event and validated on another it has not seen, and every member is checked to EN 1993-1-1. Each step goes to an engineer to confirm. Transmission towers were the first case; a bridges pack is in development and is shown below."],
+      main=("earthstate-twin-syn1-3d.jpg", "EarthState research prototype in model mode: the 3D twin of a synthetic lattice tower fills the screen, with load and deformation controls and the conversation that built it alongside.", "Model mode: the 3D twin of a synthetic tower, beside the conversation that built it. Development build of 14 November 2026."),
+      thumbs=[("earthstate-twin-syn1-records.jpg", "Project files listed and classified by type, with the synthetic sensor records flagged as Demo data.", "1. Project files are read and classified by type. Synthetic records are flagged as Demo data."),
+              ("earthstate-twin-syn1-model.jpg", "Run trace of three steps beside the 3D twin: geometry from drawing tables, mechanics model with self-check, 3D view.", "2. Drawing tables become a 3D member model, with geometry and mechanics self-checks."),
+              ("earthstate-twin-syn1-sensors.jpg", "Calibration and validation steps in the run trace, beside a chart of prediction against measurement labelled Demo data (synthetic).", "3. Gauges and an anemometer are mapped to members. The twin is calibrated on one synthetic storm and validated on the other."),
+              ("earthstate-twin-syn1-signoff.jpg", "Audit column listing each key step with its automatic check and evidence level, above a sign-off block signed by a demonstration checking engineer.", "4. Each key step with its automatic checks and evidence level, then the sign-off. The entry shown is a demonstration.")],
+      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide", "Patent pending"],
       actions=[("Open the interactive analysis", "demos/structural-twin/analysis-demo.html", True), ("Take the guided tour", "demos/structural-twin/function-tour.html", False)],
-      tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, drag the wind velocity and turn the 3D model; the tour has ten steps and takes about three minutes.",
+      tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, drag the wind velocity and turn the 3D model; the tour has ten steps and takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the current development build.",
       basis=None, papers=["dxf", "corr"],
-      limits="A synthetic 48 m tower with synthetic sensor records. Linear elastic analysis; joints, bolts and second-order effects are not modelled. The automated test cases pass; engineer review of those cases is still to be done.",
+      limits="A synthetic lattice tower with synthetic sensor records; it stands for no real structure, line or site. The calibration uses records generated by the same model, so it shows that the workflow recovers a known factor. It is not field validation. Linear elastic analysis; joints, bolts and second-order effects are not modelled. The sign-off in the screenshots is a demonstration entry; engineer review of the test cases is still to be done.",
+      extra="bridges",
       demo_url="demos/structural-twin/analysis-demo.html"),
  dict(id="standfast", n="02", field="Assets in service", case="First case: overhead lines. Bridges next.", name="Standfast",
       q="For assets in service, how close is each structure to collapse under a hazard, and what should be strengthened or maintained first?",
       one="Looks after assets in service: hazard scenarios across a network, how close each structure is to collapse, and strengthening and maintenance priorities.",
       body=["Standfast looks after assets in service, on a 3D model of the network. It runs a storm or another hazard scenario across the network and analyses each structure under the load it would see at its own position, so the margin before collapse is known structure by structure.",
             "A collapse sweep finds each structure's limit, strengthening options are compared side by side, and the maintenance priorities and the report go to an engineer to review. Overhead lines were the first case; the same approach is being extended to bridges."],
-      main=("standfast-line-storm.jpg", "Standfast: a line of twenty towers on terrain during a storm scenario, with the tower list, wind warnings and a guided tour panel.", "First case: a storm scenario crossing a 400 kV demo line of twenty towers. Terrain from open data; place labels removed."),
-      thumbs=[("standfast-member-check.jpg", "Standfast: a finite-element solve of one lattice tower, with the most utilised members listed and provisional code values flagged.", "Every member of a tower checked for strength and buckling; provisional code values are flagged. Engine runs of 2 November 2026."),
-              ("standfast-line-screening.jpg", "Standfast: each tower's margin at the storm peak as a ranked bar chart, beside the status of every tower through the storm.", "The line ranked by margin at the storm peak, and the status of each tower through the storm.")],
-      tags=["Demo data", "Engineers decide"],
+      main=("standfast-app-line-storm.jpg", "Standfast desktop program: a fictitious overhead line of twenty towers on upland terrain, with a storm scenario bar, wind warnings, the tower list and a start panel.", "First case: a storm scenario crossing a fictitious 400 kV line of twenty towers on upland terrain. Place names removed. Team build of 3 November 2026."),
+      thumbs=[("standfast-app-tower-analysis.jpg", "Standfast: one tower analysed under wind, with member utilisation painted on the 3D model and a summary panel.", "1. One tower analysed under the wind it sees at its own position, with the result painted on its members."),
+              ("standfast-app-member-table.jpg", "Standfast: a table of every member's check for one tower, governing members first, with a provisional-values flag.", "2. Every member's check in one table, governing members first. Provisional code values are flagged."),
+              ("standfast-app-collapse-sweep.jpg", "Standfast: a collapse sweep chart for one tower, with a replay button.", "3. Collapse sweep: the wind is raised, failed members are removed, and the wind at which the tower collapses is found."),
+              ("standfast-app-line-screening.jpg", "Standfast: every tower of the line ranked in a table by design check and by margin at the storm peak.", "4. The whole line screened: every tower ranked, with its margin at the storm peak."),
+              ("standfast-app-retrofit.jpg", "Standfast: a strengthening plan for one tower listing the parts to add and the members strengthened, before and after.", "5. A strengthening plan for the governing members, re-checked after the change."),
+              ("standfast-app-engineer-review.jpg", "Standfast: an engineer review record with seven steps, each pending, and buttons to confirm, modify or query.", "6. Engineer review: each step waits for the reviewing engineer to confirm, modify or query. The record shown is unsigned.")],
+      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide"],
       actions=[("Open the interactive analysis", "demos/standfast/analysis-demo.html", True), ("Take the guided tour", "demos/standfast/function-tour.html", False)],
-      tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, turn the terrain, click a tower, play the storm and replay a collapse; the tour takes about three minutes.",
+      tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, turn the terrain, click a tower, play the storm and replay a collapse; the tour takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the desktop program.",
       basis=None, papers=["grid", "risk"],
-      limits="A fictitious 400 kV line on real open terrain data (Environment Agency LiDAR, OGL v3); the location is not named. The storm is a synthetic scenario, not a forecast. Some code values are provisional and are flagged on screen.",
+      limits="A fictitious 400 kV line on real open terrain data (Environment Agency LiDAR, OGL v3); the location is not named. The storm is a synthetic scenario, not a forecast. Some code values are provisional and are flagged on screen. The engineer review in the screenshots is a demonstration record and is unsigned.",
       demo_url="demos/standfast/analysis-demo.html"),
  dict(id="waterstate", n="03", field="The method applied to water", case="Pumping stations", name="WaterState",
       q="What maintenance does each failure mode of a pumping station need, and what should be done in the 72 hours before heavy rain?",
@@ -75,8 +87,24 @@ def paper_li(k):
     title = '<a href="%s">%s</a>' % (page, e(t)) if page else e(t)
     return '<li>%s<span class="src">%s &middot; <a href="https://doi.org/%s" rel="noopener">doi:%s</a></span></li>' % (title, e(src), doi, doi)
 def shot(f, alt, cap, cls="proto-shot"):
-    return '<a class="%s" href="%s%s"><img src="%s%s" alt="%s" loading="lazy"><span class="cap">%s</span></a>' % (cls, IMG, f, IMG, f, e(alt), e(cap))
+    return '<a class="%s" href="%s"><img src="%s" alt="%s" loading="lazy"><span class="cap">%s</span></a>' % (cls, src(f), src(f), e(alt), e(cap))
+BRIDGES = '''
+                <div class="proto-more" id="bridges" style="margin-top:2.2rem;scroll-margin-top:90px">
+                    <div class="proto-thumbs">%s%s</div>
+                    <div class="card">
+                        <p class="kicker">EarthState Twin &middot; Bridges &amp; Roads pack &middot; in development</p>
+                        <h3>A highway girder bridge, from drawings to traffic load effects, for the engineer to confirm</h3>
+                        <p>EarthState Twin research prototype, Bridges &amp; Roads pack (in development), on a public-domain design example of a two-span precast prestressed girder highway bridge. Values from the published drawings fill the bridge workbook, each with its page reference; the platform builds the grillage and computes EN 1991-2 traffic load effects; the engineer confirms each step before the record can be signed.</p>
+                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag pending">In development</span></div>
+                        <p class="limits"><strong>Demo data and limits</strong>Drawings: FHWA NHI-04-043 design example (public domain). Every other value is illustrative, and the code values are still to be verified. The demonstration stops at traffic load effects and the engineer&#x27;s sign-off.</p>
+                    </div>
+                </div>'''
+def bridges():
+    return BRIDGES % (
+        shot("earthstate-bridges-d7-model.jpg", "Bridge workbook run trace beside a grillage plan of six skewed girders and deflection lines under permanent loads and two traffic load models.", "The bridge workbook, filled from the published drawings with a page reference for every value, becomes a grillage of six skewed girders."),
+        shot("earthstate-bridges-d7-scene.jpg", "The modelled bridge deck in a 3D motorway scene with a special vehicle in the first span and a deflection colour scale.", "The modelled deck in a motorway scene, with a special vehicle in the first span and the live deflection from the grillage."))
 def section(p):
+    extra = bridges() if p.get("extra") == "bridges" else ""
     tags = "".join('<span class="tag">%s</span>' % e(t) for t in p["tags"])
     if p.get("pending"): tags += '<span class="tag pending">%s</span>' % e(p["pending"])
     acts = "".join('<a class="btn %s" href="%s">%s</a>' % ("primary" if prim else "secondary", u, e(l)) for l, u, prim in p["actions"])
@@ -112,9 +140,9 @@ def section(p):
                         {basis}<ul class="paper-list">{papers}</ul>
                         <p class="limits"><strong>Demo data and limits</strong>{limits}</p>
                     </div>
-                </div>
+                </div>{extra}
             </div>
-        </section>'''.format(id=p["id"], n=p["n"], field=e(p["field"]), name=e(p["name"]), case=e(p["case"]), q=e(p["q"]), body=body, tags=tags, acts=acts,
+        </section>'''.format(extra=extra, id=p["id"], n=p["n"], field=e(p["field"]), name=e(p["name"]), case=e(p["case"]), q=e(p["q"]), body=body, tags=tags, acts=acts,
                              tryline=tryline, thumbs=thumbs, basis=basis, papers="".join(paper_li(k) for k in p["papers"]),
                              limits=e(p["limits"]), main=shot(*p["main"]))
 def jsonld():
@@ -145,7 +173,7 @@ page = '''<!DOCTYPE html>
     <meta name="description" content="Four research prototypes by Dr.-Ing. Daguang Han for ageing infrastructure: EarthState Twin, Standfast, WaterState and FacilityNexus, with screenshots, working demonstrations on demo data and the papers they are based on.">
     <title>Research Prototypes and Demos | Daguang Han</title>
     <link rel="canonical" href="https://daguanghan.com/demos.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+%s    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site.css?v=20261111-proto2">
@@ -200,6 +228,9 @@ page = '''<!DOCTYPE html>
     </footer>
 </body>
 </html>
-''' % (jsonld().replace("\n", "\n    "), nav, "".join(section(p) for p in PROTOS), lab)
-open("demos.html", "w", encoding="utf-8").write(page)
-print("demos.html written:", len(page), "bytes")
+''' % ('    <base href="/">\n    <meta name="robots" content="noindex">\n' if DRAFT else '', jsonld().replace("\n", "\n    "), nav, "".join(section(p) for p in PROTOS), lab)
+OUT = "_drafts/demos_v2/demos_preview.html" if DRAFT else "demos.html"
+if DRAFT:
+    page = page.replace('href="demos/standfast/', 'href="_drafts/demos_v2/standfast/')
+open(OUT, "w", encoding="utf-8").write(page)
+print(OUT, "written:", len(page), "bytes")

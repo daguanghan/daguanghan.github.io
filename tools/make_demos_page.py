@@ -29,7 +29,7 @@ PROTOS = [
               ("earthstate-twin-syn1-model.jpg", "Run trace of three steps beside the 3D twin: geometry from drawing tables, mechanics model with self-check, 3D view.", "2. Drawing tables become a 3D member model, with geometry and mechanics self-checks."),
               ("earthstate-twin-syn1-sensors.jpg", "Calibration and validation steps in the run trace, beside a chart of prediction against measurement labelled Demo data (synthetic).", "3. Gauges and an anemometer are mapped to members. The twin is calibrated on one synthetic storm and validated on the other."),
               ("earthstate-twin-syn1-signoff.jpg", "Audit column listing each key step with its automatic check and evidence level, above a sign-off block signed by a demonstration checking engineer.", "4. Each key step with its automatic checks and evidence level, then the sign-off. The entry shown is a demonstration.")],
-      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide", "Patent pending"],
+      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide", "UK patent pending"],
       actions=[("Open the interactive analysis", "demos/structural-twin/analysis-demo.html", True), ("Take the guided tour", "demos/structural-twin/function-tour.html", False)],
       tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, drag the wind velocity and turn the 3D model; the tour has ten steps and takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the current development build.",
       basis=None, papers=["dxf", "corr"],
@@ -48,7 +48,7 @@ PROTOS = [
               ("standfast-app-line-screening.jpg", "Standfast: every tower of the line ranked in a table by design check and by margin at the storm peak.", "4. The whole line screened: every tower ranked, with its margin at the storm peak."),
               ("standfast-app-retrofit.jpg", "Standfast: a strengthening plan for one tower listing the parts to add and the members strengthened, before and after.", "5. A strengthening plan for the governing members, re-checked after the change."),
               ("standfast-app-engineer-review.jpg", "Standfast: an engineer review record with seven steps, each pending, and buttons to confirm, modify or query.", "6. Engineer review: each step waits for the reviewing engineer to confirm, modify or query. The record shown is unsigned.")],
-      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide"],
+      tags=["Research prototype", "Demo data", "Illustrative", "Engineers decide", "UK patent pending"],
       actions=[("Open the interactive analysis", "demos/standfast/analysis-demo.html", True), ("Take the guided tour", "demos/standfast/function-tour.html", False)],
       tryline="Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, turn the terrain, click a tower, play the storm and replay a collapse; the tour takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the desktop program.",
       basis=None, papers=["grid", "risk"],
@@ -95,7 +95,7 @@ BRIDGES = '''
                         <p class="kicker">EarthState Twin &middot; Bridges &amp; Roads pack &middot; in development</p>
                         <h3>A highway girder bridge, from drawings to traffic load effects, for the engineer to confirm</h3>
                         <p>EarthState Twin research prototype, Bridges &amp; Roads pack (in development), on a public-domain design example of a two-span precast prestressed girder highway bridge. Values from the published drawings fill the bridge workbook, each with its page reference; the platform builds the grillage and computes EN 1991-2 traffic load effects; the engineer confirms each step before the record can be signed.</p>
-                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag pending">In development</span></div>
+                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag pending">In development</span><span class="tag pat">UK patent pending</span></div>
                         <p class="limits"><strong>Demo data and limits</strong>Drawings: FHWA NHI-04-043 design example (public domain). Every other value is illustrative, and the code values are still to be verified. The demonstration stops at traffic load effects and the engineer&#x27;s sign-off.</p>
                     </div>
                 </div>'''
@@ -105,7 +105,7 @@ def bridges():
         shot("earthstate-bridges-d7-scene.jpg", "The modelled bridge deck in a 3D motorway scene with a special vehicle in the first span and a deflection colour scale.", "The modelled deck in a motorway scene, with a special vehicle in the first span and the live deflection from the grillage."))
 def section(p):
     extra = bridges() if p.get("extra") == "bridges" else ""
-    tags = "".join('<span class="tag">%s</span>' % e(t) for t in p["tags"])
+    tags = "".join('<span class="tag%s">%s</span>' % (" pat" if t == "UK patent pending" else "", e(t)) for t in p["tags"])
     if p.get("pending"): tags += '<span class="tag pending">%s</span>' % e(p["pending"])
     acts = "".join('<a class="btn %s" href="%s">%s</a>' % ("primary" if prim else "secondary", u, e(l)) for l, u, prim in p["actions"])
     acts = '<div class="action-row">%s</div>' % acts if acts else ""
@@ -176,7 +176,7 @@ page = '''<!DOCTYPE html>
 %s    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css?v=20261111-proto2">
+    <link rel="stylesheet" href="site.css?v=20261126-pat">
     <script type="application/ld+json">
 %s
     </script>
@@ -224,6 +224,7 @@ page = '''<!DOCTYPE html>
         <div class="container">
             <h2>Demos Policy</h2>
             <p>Public demos show methods on demo data only. Restricted data, partner identities and internal platform screens are excluded. The demos on this page need no sign-in, take no uploads and call no language model.</p>
+            <p class="ipline">EarthState Twin and Standfast &middot; Research prototype &middot; Core methods are the subject of UK patent applications filed by Dr Daguang Han &middot; Patent pending &middot; &copy; 2026 Daguang Han</p>
         </div>
     </footer>
 </body>

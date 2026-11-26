@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css?v=20261111-proto2">
+    <link rel="stylesheet" href="site.css?v=20261126-pat">
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -226,7 +226,7 @@
                         <p class="proto-case">First case: ageing steel towers. Bridges in development.</p>
                         <p class="proto-q">Can an asset&#x27;s model, twin and capacity check be built from its drawings and records, with an engineer signing each step?</p>
                         <p>EarthState Twin works through a conversation. From an asset&#x27;s drawings and records it builds a member-level model and runs its own checks before the model is used: equilibrium under gravity, a stiffness matrix without mechanisms, natural frequencies.</p><p style="margin-top:.7rem">Sensors are registered on the members they sit on, the model is calibrated on one event and validated on another it has not seen, and every member is checked to EN 1993-1-1. Each step goes to an engineer to confirm. Transmission towers were the first case; a bridges pack is in development and is shown below.</p>
-                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag">Engineers decide</span><span class="tag">Patent pending</span></div>
+                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag">Engineers decide</span><span class="tag pat">UK patent pending</span></div>
                         <div class="action-row"><a class="btn primary" href="demos/structural-twin/analysis-demo.html">Open the interactive analysis</a><a class="btn secondary" href="demos/structural-twin/function-tour.html">Take the guided tour</a></div>
                         <p class="small-print">Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, drag the wind velocity and turn the 3D model; the tour has ten steps and takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the current development build.</p>
                     </div>
@@ -245,7 +245,7 @@
                         <p class="kicker">EarthState Twin &middot; Bridges &amp; Roads pack &middot; in development</p>
                         <h3>A highway girder bridge, from drawings to traffic load effects, for the engineer to confirm</h3>
                         <p>EarthState Twin research prototype, Bridges &amp; Roads pack (in development), on a public-domain design example of a two-span precast prestressed girder highway bridge. Values from the published drawings fill the bridge workbook, each with its page reference; the platform builds the grillage and computes EN 1991-2 traffic load effects; the engineer confirms each step before the record can be signed.</p>
-                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag pending">In development</span></div>
+                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag pending">In development</span><span class="tag pat">UK patent pending</span></div>
                         <p class="limits"><strong>Demo data and limits</strong>Drawings: FHWA NHI-04-043 design example (public domain). Every other value is illustrative, and the code values are still to be verified. The demonstration stops at traffic load effects and the engineer&#x27;s sign-off.</p>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                         <p class="proto-case">First case: overhead lines. Bridges next.</p>
                         <p class="proto-q">For assets in service, how close is each structure to collapse under a hazard, and what should be strengthened or maintained first?</p>
                         <p>Standfast looks after assets in service, on a 3D model of the network. It runs a storm or another hazard scenario across the network and analyses each structure under the load it would see at its own position, so the margin before collapse is known structure by structure.</p><p style="margin-top:.7rem">A collapse sweep finds each structure&#x27;s limit, strengthening options are compared side by side, and the maintenance priorities and the report go to an engineer to review. Overhead lines were the first case; the same approach is being extended to bridges.</p>
-                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag">Engineers decide</span></div>
+                        <div class="tag-row"><span class="tag">Research prototype</span><span class="tag">Demo data</span><span class="tag">Illustrative</span><span class="tag">Engineers decide</span><span class="tag pat">UK patent pending</span></div>
                         <div class="action-row"><a class="btn primary" href="demos/standfast/analysis-demo.html">Open the interactive analysis</a><a class="btn secondary" href="demos/standfast/function-tour.html">Take the guided tour</a></div>
                         <p class="small-print">Both open in the browser. No sign-in, nothing to upload, and no language model is called. In the analysis, turn the terrain, click a tower, play the storm and replay a collapse; the tour takes about three minutes. The browser demo is an earlier static version; the screenshots on this page come from the desktop program.</p>
                     </div>
@@ -367,6 +367,7 @@
         <div class="container">
             <h2>Demos Policy</h2>
             <p>Public demos show methods on demo data only. Restricted data, partner identities and internal platform screens are excluded. The demos on this page need no sign-in, take no uploads and call no language model.</p>
+            <p class="ipline">EarthState Twin and Standfast &middot; Research prototype &middot; Core methods are the subject of UK patent applications filed by Dr Daguang Han &middot; Patent pending &middot; &copy; 2026 Daguang Han</p>
         </div>
     </footer>
 </body>

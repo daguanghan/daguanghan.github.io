@@ -575,3 +575,6 @@ h1,
 .proto-cards .go{display:block;margin-top:8px;color:var(--accent-dark);font-weight:700;font-size:.84rem}
 @media (max-width:900px){.proto-top,.proto-more{grid-template-columns:1fr;gap:1.2rem}}
 @media (max-width:520px){.proto-thumbs{grid-template-columns:1fr}}
+.tag.pat{text-transform:none;color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);letter-spacing:.01em}
+.ipline{margin:1.4rem 0 0;padding-top:.9rem;border-top:1px solid var(--line);font-size:.8rem;line-height:1.6;color:var(--muted);letter-spacing:.01em}
+.rg-item .tag.pat{display:inline-block;margin:0 0 6px;font-size:.7rem;padding:.16rem .5rem}

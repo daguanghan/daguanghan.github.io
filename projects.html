@@ -16,6 +16,12 @@
         .role-line { margin-top: 0.7rem; font-size: 0.86rem; color: var(--ink); }
         .role-line strong { color: var(--warm); }
         .img-note { margin-top: 0.6rem; font-size: 0.78rem; color: var(--muted); }
+        .proj-cols > article.card-wide { flex-basis: 100%; }
+        .methods { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+        .methods-head { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
+        .methods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.2rem 1.8rem; }
+        .method h4 { font-size: 0.98rem; line-height: 1.35; margin: 0 0 0.35rem; }
+        .method p { font-size: 0.9rem; margin: 0; }
         .section-figure { margin: 0 0 1rem; } .section-figure img { width: 100%; max-height: 460px; object-fit: cover; display: block; }
     </style>
 </head>
@@ -72,11 +78,36 @@
                         <p class="role-line"><strong>Role:</strong> Principal investigator on the first contract, named on its signature page; named project contact responsible for overall management, progress, quality control and acceptance on the second and third.</p>
                         <div class="tag-row"><span class="tag">BIM and GIS for operations</span><span class="tag">three contracts</span></div>
                     </article>
-                    <article class="card">
+                    <article class="card card-wide">
                         <p class="kicker">2025&ndash;2027 &middot; Commissioned research &middot; in progress</p>
                         <h3>Storm resilience of ageing lattice towers</h3>
                         <p>Three research contracts from a regional grid operator on the towers of its ageing overhead lines: how they fail in severe storms, and how to assess their condition, strengthen and repair them. The work brings together wind-field reconstruction, finite element analysis, image-based corrosion assessment, digital-twin prototypes and AI surrogate models. It is in progress, with acceptance due in December 2026 and July 2027.</p>
                         <p class="role-line"><strong>Role:</strong> Principal investigator, named in each contract. I lead a multidisciplinary team that includes full professors.</p>
+                        <div class="methods">
+                            <p class="methods-head">Methods from this work</p>
+                            <div class="methods-grid">
+                                <div class="method">
+                                    <h4>Why a line is not a sum of towers</h4>
+                                    <p>One storm loads every tower on a line at the same time. So we compute line risk under one shared storm, not tower by tower. That shows where a few exposed sites carry most of the risk.</p>
+                                </div>
+                                <div class="method">
+                                    <h4>From corrosion to collapse</h4>
+                                    <p>Corrosion, pitting, loose bolts and fatigue each reduce member capacity. We raise the wind step by step and remove members as they fail. The run shows where collapse starts and which members to inspect first.</p>
+                                </div>
+                                <div class="method">
+                                    <h4>Finding hidden storm damage</h4>
+                                    <p>Some storm damage is invisible at first and shows up as a failure days later. We combine drone, laser, strain and wind data for each tower, and every grade states its confidence. Planners then set the repair order, and people review every plan.</p>
+                                </div>
+                                <div class="method">
+                                    <h4>Locked-joint topology optimisation for modular emergency towers</h4>
+                                    <p>Emergency towers are built from standard segments that plug together. We fix the joints and let optimisation decide the rest of each segment. The layout keeps load in the corners and still fits the existing connectors.</p>
+                                </div>
+                                <div class="method">
+                                    <h4>Remaining life you can trace</h4>
+                                    <p>Corrosion and fatigue are advanced year by year on the same tower model. Each year we report two answers: the tower&rsquo;s condition, and whether it meets the current code. Thin members lose their zinc first, so they set the pace.</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tag-row"><span class="tag">extreme wind</span><span class="tag">three research contracts</span></div>
                     </article>
                     <article class="card">
